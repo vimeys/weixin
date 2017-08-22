@@ -1,0 +1,47 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/chuku/chuku",
+    "pages/strageOutput/strageOutput",
+    "pages/strOut_list/strout_list"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#1caba2",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+    "font-size":"26rpx",
+    "color":"#ccc",
+    "selectedColor":"#ff0000",
+    "list": [
+      {
+        "pagePath": "pages/strageOutput/strageOutput",
+        "iconPath":"pages/images/tabIcon/kucun-1.png",
+        "selectedIconPath":"pages/images/tabIcon/kucun.png",
+        "text": "库存"
+      },
+      {
+        "pagePath": "pages/strOut_list/strout_list",
+        "iconPath": "pages/images/tabIcon/ruku-1.png",
+        "selectedIconPath": "pages/images/tabIcon/ruku.png",
+        "text": "入库"
+      },
+      {
+        "pagePath": "pages/chuku/chuku",
+        "iconPath": "pages/images/tabIcon/chuku-1.png",
+        "selectedIconPath": "pages/images/tabIcon/chuku.png",
+        "text": "出库"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "pages/images/tabIcon/xiaoshou-1.png",
+        "selectedIconPath": "pages/images/tabIcon/xiaoshou.png",
+        "text": "销售"
+      }
+      
+    ]
+  }
+}

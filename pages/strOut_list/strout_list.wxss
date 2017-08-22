@@ -1,0 +1,17 @@
+/* pages/strOut_list/strout_list.wxss */
+.container{
+    display: flex;
+}
+.img{
+    padding-left: 20rpx;
+    width: 270rpx;
+    flex: initial;
+}
+image{
+    width:250rpx;
+    height: 178rpx;
+}
+.table{
+    flex:1;
+    border: 100rpx solid #ccc;
+}
