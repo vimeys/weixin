@@ -4,7 +4,8 @@
     "pages/logs/logs",
     "pages/chuku/chuku",
     "pages/strageOutput/strageOutput",
-    "pages/strOut_list/strout_list"
+    "pages/strOut_list/strout_list",
+    "pages/strOut_order/strOut_order"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -24,7 +25,7 @@
         "text": "库存"
       },
       {
-        "pagePath": "pages/strOut_list/strout_list",
+        "pagePath": "pages/strOut_order/strOut_order",
         "iconPath": "pages/images/tabIcon/ruku-1.png",
         "selectedIconPath": "pages/images/tabIcon/ruku.png",
         "text": "入库"
