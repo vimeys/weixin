@@ -1,0 +1,42 @@
+<!--pages/strOut_order/strOut_order.wxml-->
+<view class="time">
+    <view class="timeStart"><picker mode="date" start="{{start}}" disabled="{{use}}" value="{{Edate}}" data-type="2" bindchange="DateChange">
+        截止时间
+        </picker>
+    </view>
+    <text>~~</text>
+    <view class="timeStart" bindtap="bindPick"><picker mode="date" start="{{start}}" disabled="{{use}}" value="{{Edate}}" data-type="2" bindchange="DateChange">
+        截止时间
+    </picker></view>
+    <view class="express ">
+        发往区域<view class="input">
+            <picker mode="selector" value="{{Sdate}}" end="{{end}}" data-Type="1" bindchange="DateChange">
+                全部区域
+            </picker>
+        </view>
+    </view>
+
+    <view class="express margin-right">
+        订单状态<view class="input">
+        <picker mode="selector" value="{{Sdate}}" end="{{end}}" data-Type="1" bindchange="DateChange">
+            待收货
+        </picker>
+    </view>
+    </view>
+    <view class="express  margin-right">
+        快递名称<view class="input">
+        <picker mode="selector" value="{{Sdate}}" end="{{end}}" data-Type="1" bindchange="DateChange">
+            韵达快递
+        </picker>
+    </view>
+    </view>
+    <view class="express_num">
+         <text>快递单号</text><input type="text"/>
+    </view>
+</view>
+<view class="orderList">
+    <view class="first">订单号：4645616654 <text>待收货</text></view>
+    <view class="second">收货人：老王 <text>联系电话：122461646</text></view>
+    <view class="third">店铺地址：垃圾地方了杀了对方加洒到了附近</view>
+    <view class="small">发货时间：2017-08-01  15:35:32 <test>韵达快递：5164765616412</test></view>
+</view>
