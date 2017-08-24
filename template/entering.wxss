@@ -1,0 +1,89 @@
+.time{
+    width: 100%;
+    padding-left: 20rpx;
+    border-bottom:10rpx solid #e5e5e5;
+    position: relative;
+}
+.timeStart{
+    display: inline-block;
+    width: 330rpx;
+    height: 46rpx;
+    border: 1rpx solid #ccc;
+    position:relative;
+    color:#ccc;
+    font-size: 28rpx;
+    padding-left: 10rpx;
+    box-sizing: border-box;
+    margin-bottom: 30rpx;
+}
+.time text{
+    line-height: 46rpx;
+    display: inline-block;
+    /*vertical-align: 12rpx;*/
+}
+.time .timeStart::before{
+    position: absolute;
+    color:#333;
+    content:"▼";
+    right:15rpx;
+    top:0rpx;
+}
+.good_num{
+    display: inline-block;
+    width: 480rpx;
+}
+.good_num view text{
+    display: inline-block;
+    width: 100rpx;
+    height: 46rpx;
+    line-height: 46rpx;
+    font-size: 30rpx;
+    vertical-align:16rpx;
+    margin-bottom: 30rpx;
+}
+.good_num view input{
+    display: inline-block;
+    width: 370rpx;
+    height: 46rpx;
+    box-sizing: border-box;
+    border: 1rpx solid #ccc;
+    margin-left: 10rpx;
+}
+.good_size{
+    display: inline-block;
+    box-sizing: border-box;
+    width: 230rpx;
+    margin-left: 20rpx;
+    padding-right: 20rpx;
+    margin-bottom: -50rpx;
+    position: absolute;
+    top:56rpx;
+    right: 20rpx;
+}
+.good_size view text{
+    display: inline-block;
+    width: 70rpx;
+    height: 46rpx;
+    line-height: 46rpx;
+    font-size: 30rpx;
+    vertical-align:-6rpx;
+    margin-top: 30rpx;
+
+}
+.good_size view .select{
+    display: inline-block;
+    width: 130rpx;
+    height: 46rpx;
+    box-sizing: border-box;
+    border: 1rpx solid #ccc;
+    margin-left: 10rpx;
+    position: relative;
+    font-size: 24rpx;
+}
+.before::before{
+    position: absolute;
+    color:#333;
+    content:"▼";
+    right:1rpx;
+    top:0rpx;
+}

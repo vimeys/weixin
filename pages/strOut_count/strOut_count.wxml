@@ -1,0 +1,3 @@
+<!--pages/strOut_count/strOut_count.wxml-->
+<import src="../../template/entering.wxml"/>
+<template is="entering" data=""/>

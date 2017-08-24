@@ -5,7 +5,11 @@
     "pages/chuku/chuku",
     "pages/strageOutput/strageOutput",
     "pages/strOut_list/strout_list",
-    "pages/strOut_order/strOut_order"
+    "pages/strOut_order/strOut_order",
+    "pages/express/express",
+    "pages/strOut_note/strOut_note",
+    "pages/strOut_detail/strOut_detail",
+    "pages/strOut_count/strOut_count"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -19,13 +23,13 @@
     "selectedColor":"#ff0000",
     "list": [
       {
-        "pagePath": "pages/strageOutput/strageOutput",
+        "pagePath": "pages/strOut_note/strOut_note",
         "iconPath":"pages/images/tabIcon/kucun-1.png",
         "selectedIconPath":"pages/images/tabIcon/kucun.png",
         "text": "库存"
       },
       {
-        "pagePath": "pages/strOut_order/strOut_order",
+        "pagePath": "pages/strOut_count/strOut_count",
         "iconPath": "pages/images/tabIcon/ruku-1.png",
         "selectedIconPath": "pages/images/tabIcon/ruku.png",
         "text": "入库"

@@ -96,5 +96,5 @@
     </view>
 </view>
     <navigator class="add" url="../strageOutput/strageOutpu">继续添加</navigator>
-    <navigator class="addr" url="../">确认并填写快递单</navigator>
+    <navigator class="fix" url="../">确认并填写快递单</navigator>
 </view>

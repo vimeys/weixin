@@ -1,11 +1,23 @@
-/* pages/strOut_list/strout_list.wxss */
-.container{
-    font-size: 28rpx;
-    color:#333;
+/* pages/strOut_note/strOut_note.wxss */
+@import "../../template/entering.wxss"
+.title{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.title view{
+    width: 33.33%;
+    margin-top: 30rpx;
+    margin-bottom: 20rpx;
+    text-align: center;
+}
+.title view .active{
+    border-bottom: 1rpx solid #333;
 }
 .list{
+    border-top: 1rpx solid #ccc;
     width: 100%;
-    border-bottom: 1rpx solid #333;
+    border-bottom: 1rpx solid #ccc;
     display: flex;
     padding-top: 30rpx;
 }
@@ -49,35 +61,20 @@ image{
 .table .last text{
     margin-right: 35rpx;
 }
-.table image{
-    width: 46rpx;
-    height: 46rpx;
-    position: absolute;
-    right: 20rpx;
-    top: 5rpx;
+.table .last .red{
+    color:red;
 }
-navigator.add{
-    display: inline-block;
-
-    width: 200rpx;
-    height: 60rpx;
-    text-align: center;
-    color:white;
-    font-size: 32rpx;
-    background: #1caba2;
-    line-height: 60rpx;
-    margin-left: 275rpx;
-    margin-top: 20rpx;
-    margin-bottom: 120rpx;
-}
-navigator.fix{
+.record{
+    font-size: 24rpx;
+    box-sizing: border-box;
     width: 100%;
-    color:white;
-    height: 100rpx;
-    text-align: center;
-    line-height: 100rpx;
-    font-size: 32rpx;
-    background: #1caba2;
-    position: fixed;
-    bottom:0;
+    padding: 20rpx;
+    border-bottom: 1rpx solid #ccc;
+    position:relative;
+}
+.record text{
+    display: inline-block;
+    position:absolute;
+    right:20rpx;
+    top:20rpx;
 }
