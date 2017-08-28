@@ -1,0 +1,6 @@
+<!--pages/storage_detail/storage_detail.wxml-->
+<view class="num">
+    订单号：15151515151511315
+</view>
+<import src="../../template/goods_detail.wxml"/>
+<template is="goods_detail" data=""></template>

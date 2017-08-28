@@ -1,6 +1,5 @@
-/* pages/strOut_note/strOut_note.wxss */
-@import "../../template/entering.wxss";
-@import "../../template/goods_detail.wxss";
+/* pages/storage_note/storage_note.wxss */
+@import "../../template/output.wxss";
 .title{
     width: 100%;
     display: flex;
@@ -43,6 +42,13 @@ image{
 .table .title{
     font-size: 28rpx;
     margin-bottom: 10rpx;
+    position: relative;
+}
+.table .title text{
+    position: absolute;
+    right: 20rpx;
+    top:0;
+    color:red;
 
 }
 .table input{
@@ -79,4 +85,7 @@ image{
     position:absolute;
     right:20rpx;
     top:20rpx;
+}
+.error{
+    background: #e8e8e8;
 }

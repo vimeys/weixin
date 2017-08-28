@@ -1,0 +1,45 @@
+<template name="output">
+    <view class="time">
+        <view class="timeStart"><picker mode="date" start="{{start}}" disabled="{{use}}" value="{{Edate}}" data-type="2" bindchange="DateChange">
+            截止时间
+        </picker>
+        </view>
+        <text>~~</text>
+        <view class="timeStart" bindtap="bindPick"><picker mode="date" start="{{start}}" disabled="{{use}}" value="{{Edate}}" data-type="2" bindchange="DateChange">
+            截止时间
+        </picker></view>
+        <view class="good_num">
+            <view class=""><text>款式</text>
+                <input type="text"/></view>
+            <view class="">
+                <text>款号</text>
+                <input type="text"/>
+            </view>
+            <view>
+                <text>条码号</text>
+                <input type="text/"/>
+            </view>
+        </view>
+        <view class="good_size">
+            <view>
+                <text>尺码</text>
+                <picker mode="selector"  class="select before" start="{{start}}" disabled="{{use}}" value="{{Edate}}" data-type="2" bindchange="DateChange">
+                    L
+                </picker>
+            </view>
+            <view>
+                <text>分类</text>
+                <picker  class="select before" mode="selector" start="{{start}}" disabled="{{use}}" value="{{Edate}}" data-type="2" bindchange="DateChange">
+                    毛呢外套
+                </picker>
+            </view>
+            <view>
+                <text>入库</text>
+                <picker  class="select before" mode="selector" start="{{start}}" disabled="{{use}}" value="{{Edate}}" data-type="2" bindchange="DateChange">
+                    正常入库
+                </picker>
+            </view>
+
+        </view>
+    </view>
+</template>

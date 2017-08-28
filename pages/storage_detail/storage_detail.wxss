@@ -1,0 +1,12 @@
+/* pages/storage_detail/storage_detail.wxss */
+@import "../../template/goods_detail.wxss";
+.num{
+    font-size: 30rpx;
+    padding-left: 20rpx;
+    padding-top: 30rpx;
+    padding-bottom: 30rpx;
+    border-bottom: 10rpx solid #e5e5e5;
+}
+.list{
+    border-top: none;
+}

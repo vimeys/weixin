@@ -1,0 +1,11 @@
+<!--pages/ruku/ruku.wxml-->
+<view class="classname">
+  <navigator hover-class="none" url="../storage/storage">
+  <image src="../images/cang.png"></image>
+  </navigator>
+  <view class="title title_bottom">仓库入库</view>
+  <navigator url="../storage_JOG/storage_JOG">
+    <image src="../images/dian.png"></image>
+  </navigator>
+  <view class="title">店铺入库</view>
+</view>

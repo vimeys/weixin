@@ -22,5 +22,7 @@
 
 </view>
 <view class="record">
-    操作时间：2017-08-01  10:11:32 <text>操作人：老王</text>
+    入库时间：2017-08-01  10:11:32 <text>操作人：老王</text>
 </view>
+<import src="../../template/goods_detail.wxml"/>
+<template is="goods_detail" data=""/>
