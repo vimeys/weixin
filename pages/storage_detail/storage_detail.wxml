@@ -4,3 +4,13 @@
 </view>
 <import src="../../template/goods_detail.wxml"/>
 <template is="goods_detail" data=""></template>
+<view class="express">
+    顺丰快递：7987419874161
+</view>
+<view class="reason">
+    <view class="return_reason">退货理由：商品破损</view>
+    <view class="return_time">退货时间：2017-07-31  14:43:32</view>
+</view>
+<button class="fix">
+    确认入库
+</button>

@@ -10,3 +10,43 @@
 .list{
     border-top: none;
 }
+.express{
+    width: 100%;
+    font-size: 24rpx;
+    padding-top: 20rpx;
+    padding-bottom: 20rpx;
+    padding-right: 20rpx;
+    box-sizing: border-box;
+    text-align: right;
+    border-bottom: 1rpx solid #ccc;
+}
+.reason{
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+    font-size: 24rpx;
+    border-bottom: 1rpx solid #ccc;
+    margin-bottom: 120rpx;
+}
+.return_reason{
+    margin-top: 20rpx;
+    text-align: left;
+}
+.return_time{
+    margin-top: 70rpx;
+    text-align: right;
+    margin-bottom: 20rpx;
+}
+
+
+button.fix{
+    width: 100%;
+    color:white;
+    height: 100rpx;
+    text-align: center;
+    line-height: 100rpx;
+    font-size: 32rpx;
+    background: #1caba2;
+    position: fixed;
+    bottom:0;
+    border-radius:0;
+}
