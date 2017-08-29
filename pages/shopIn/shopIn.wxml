@@ -1,2 +1,24 @@
 <!--pages/shopIn/shopIn.wxml-->
-<text>pages/shopIn/shopIn.wxml</text>
+<view class="contain">
+    <navigator url="../Manual/Manual" class="r-con">
+        <image src="../images/shouhuo.png" class="r-bdib"></image>
+        <view class="r-bdt">收货入库</view>
+    </navigator>
+    <navigator url="../Library/Library" class="r-con">
+        <image src="../images/diaohuo.png" class="r-bdib"></image>
+        <view class="r-bdt">调货入库</view>
+    </navigator>
+    <navigator url="../stor-modi/stor-modi" class="r-con">
+        <image src="../images/tuihuo.png" class="r-bdib"></image>
+        <view class="r-bdt">退货入库</view>
+    </navigator>
+
+    <navigator url="../stor-log/stor-log" class="r-con">
+        <image src="../images/statistics.png" class="r-bdi"></image>
+        <view class="r-bdt">入库统计</view>
+    </navigator>
+    <navigator url="../stor-log/stor-log" class="r-con">
+        <image src="../images/diary.png" class="r-bdi"></image>
+        <view class="r-bdt">入库日志</view>
+    </navigator>
+</view>

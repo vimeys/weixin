@@ -1,11 +1,7 @@
-/* pages/shopOut_restock/shopOut_restock.wxss */
-.container{
-    font-size: 28rpx;
-    color:#333;
-}
 .list{
+    border-top: 1rpx solid #ccc;
     width: 100%;
-    border-bottom: 1rpx solid #333;
+    border-bottom: 1rpx solid #ccc;
     display: flex;
     padding-top: 30rpx;
 }
@@ -29,6 +25,13 @@ image{
 .table .title{
     font-size: 28rpx;
     margin-bottom: 10rpx;
+    position: relative;
+}
+.table .title text{
+    position: absolute;
+    right: 20rpx;
+    top:0;
+    color:red;
 
 }
 .table input{
@@ -46,20 +49,17 @@ image{
 .table .last{
     line-height: 44rpx;
 }
-.table .last text:first-child{
-    margin-right: 220rpx;
+.table .last text{
+    margin-right: 35rpx;
 }
-.table .end text:first-child{
+.table .last .red{
     color:red;
-    display: inline-block;
-    width: 225rpx;
-    text-align: left;
-    /*margin-left: 100rpx;*/
 }
-.table image{
-    width: 46rpx;
-    height: 46rpx;
-    position: absolute;
-    right: 20rpx;
-    top: 5rpx;
+.record{
+    font-size: 24rpx;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20rpx;
+    border-bottom: 1rpx solid #ccc;
+    position:relative;
 }

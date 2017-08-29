@@ -3,8 +3,8 @@
   <image src="../images/cang.png"></image>
   </navigator>
   <view class="title title_bottom">仓库出库</view>
-  <navigator>
+  <navigator hover-class="none" url="../shopOut/shopOut">
     <image src="../images/dian.png"></image>
-  </navigator>
+  </navigator >
   <view class="title">店铺出库</view>
 </view>

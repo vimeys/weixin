@@ -1,0 +1,5 @@
+<view class="title">
+    <view class="all active"><text>全部日志</text></view>
+    <view class="past "><text class="active">已出库</text></view>
+    <view class="change"><text>修改记录</text></view>
+</view>

@@ -1,2 +1,6 @@
 <!--pages/shopOut_note/shopOut_note.wxml-->
-<text>pages/shopOut_note/shopOut_note.wxml</text>
+<import src="../../template/output.wxml"/>
+<template is="output" data=""/>
+<include src="../../template/note.wxml"/>
+<import src="../../template/do_detail.wxml"/>
+<template is="do_detail" data=""></template>

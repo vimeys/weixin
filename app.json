@@ -52,7 +52,7 @@
     "selectedColor":"#ff0000",
     "list": [
       {
-        "pagePath": "pages/storage_detail/storage_detail",
+        "pagePath": "pages/shopOut_restock/shopOut_restock",
         "iconPath":"pages/images/tabIcon/kucun-1.png",
         "selectedIconPath":"pages/images/tabIcon/kucun.png",
         "text": "库存"

@@ -1,1 +1,75 @@
 /* pages/shopIn/shopIn.wxss */
+/* pages/shopOut/shopOut.wxss */
+page{
+    background-color: #fff;
+}
+
+/*::-webkit-scrollbar {*/
+    /*width: 0;*/
+    /*height: 0;*/
+    /*color: transparent;*/
+/*}*/
+
+/*.hidden{*/
+    /*position: fixed;*/
+    /*width:100%;*/
+    /*height:100%;*/
+    /*top:0px;*/
+    /*background-color: #efeff4;*/
+    /*z-index:20000;*/
+/*}*/
+
+/*.clearfix::after{*/
+    /*content: ".";*/
+    /*clear: both;*/
+/*}*/
+
+/*.contain .sao_tt{*/
+    /*height: 350rpx;*/
+    /*background-color: #fff;*/
+    /*padding-top: 50rpx;*/
+    /*border-bottom: 1rpx solid #efefef;*/
+
+/*}*/
+/*.contain .sao_tt .r-image{*/
+    /*display: block;*/
+    /*width: 196rpx;*/
+    /*height: 196rpx;*/
+    /*margin: 0 auto;*/
+/*}*/
+.contain .sao_tt .r-bdt{
+    text-align: center;
+    line-height: 80rpx;
+}
+
+.contain .r-con{
+    float: left;
+    width: 250rpx;
+    height: 225rpx;
+    background-color: #fff;
+    box-sizing: border-box;
+    padding-top: 39rpx;
+    border-right:1rpx solid #efefef;
+    border-bottom: 1rpx solid #efefef;
+}
+
+.contain .r-con:nth-child(2n+1){
+    border-right:1rpx solid #efefef;
+}
+
+.contain .r-con .r-bdi{
+    display: block;
+    width: 54rpx;
+    height: 54rpx;
+    margin: 20rpx auto 10px;
+}
+.contain .r-con .r-bdib{
+    display: block;
+    width: 83rpx;
+    height: 58rpx;
+    margin: 20rpx auto 10px;
+}
+.contain .r-con .r-bdt{
+    text-align: center;
+    font-size: 35rpx;
+}

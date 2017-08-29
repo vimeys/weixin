@@ -1,2 +1,5 @@
 <!--pages/shopOut_count/shopOut_count.wxml-->
-<text>pages/shopOut_count/shopOut_count.wxml</text>
+<import src="../../template/output.wxml"/>
+<template is="output" data=""/>
+<import src="../../template/count_detail.wxml"/>
+<template is="count_detail" data=""></template>
