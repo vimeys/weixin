@@ -1,2 +1,6 @@
 <!--pages/shopIn_note/shopIn_note.wxml-->
-<text>pages/shopIn_note/shopIn_note.wxml</text>
+<import src="../../template/output.wxml"/>
+<template is="output" data=""></template>
+<include src="../../template/note.wxml"></include>
+<import src="../../template/count_detail.wxml"/>
+<template is="count_detail" data=""></template>

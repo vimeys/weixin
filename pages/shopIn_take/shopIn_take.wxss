@@ -1,1 +1,82 @@
 /* pages/shopIn_take/shopIn_take.wxss */
+/* pages/storage_returns/storage_returns.wxss */
+.time{
+    width: 100%;
+    padding-left: 20rpx;
+    border-bottom:10rpx solid #e5e5e5;
+    position: relative;
+}
+.timeStart{
+    display: inline-block;
+    width: 300rpx;
+    height: 46rpx;
+    border: 1rpx solid #ccc;
+    position:relative;
+    color:#ccc;
+    font-size: 28rpx;
+    padding-left: 10rpx;
+    box-sizing: border-box;
+    margin-bottom: 30rpx;
+}
+.time text{
+    line-height: 46rpx;
+    display: inline-block;
+    width: 110rpx;
+    box-sizing: border-box;
+    padding-left: 30rpx;
+    /*vertical-align: 12rpx;*/
+}
+.time .timeStart::before{
+    position: absolute;
+    color:#333;
+    content:"▼";
+    right:15rpx;
+    top:0rpx;
+}
+
+.before::before{
+    position: absolute;
+    color:#333;
+    content:"▼";
+    right:1rpx;
+    top:0rpx;
+}
+
+/*详情订单页面*/
+.list{
+    display: block;
+    position: relative;
+    border-bottom: 1rpx solid #ccc;
+}
+.title{
+    font-size: 30rpx;
+    margin-top: 30rpx;
+    margin-bottom: 30rpx;
+    padding-left: 60rpx;
+}
+.new:before{
+    content:"●";
+    color:red;
+    font-size: 50rpx;
+    position:absolute;
+    left: 13rpx;
+    top:-13rpx;
+}
+.shop{
+    margin-bottom: 30rpx;
+    font-size: 24rpx;
+    margin-left: 60rpx;
+}
+.list_time{
+    margin-bottom: 20rpx;
+    font-size: 24rpx;
+    margin-left: 60rpx;
+}
+.state{
+    position: absolute;
+    top:-10rpx;
+    right: 20rpx;
+    color:red;
+    font-size: 28rpx;
+
+}

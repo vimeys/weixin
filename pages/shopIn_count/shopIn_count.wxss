@@ -1,1 +1,3 @@
 /* pages/shopIn_count/shopIn_count.wxss */
+@import "../../template/output.wxss";
+@import "../../template/count_detail.wxss";

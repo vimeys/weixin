@@ -1,2 +1,31 @@
 <!--pages/shopIn_restock/shopIn_restock.wxml-->
-<text>pages/shopIn_restock/shopIn_restock.wxml</text>
+<view class="time">
+    <view class="timeStart"><picker mode="date" start="{{start}}" disabled="{{use}}" value="{{Edate}}" data-type="2" bindchange="DateChange">
+        截止时间
+    </picker>
+    </view>
+    <text>~~</text>
+    <view class="timeStart" bindtap="bindPick"><picker mode="date" start="{{start}}" disabled="{{use}}" value="{{Edate}}" data-type="2" bindchange="DateChange">
+        截止时间
+    </picker></view>
+</view>
+
+<navigator url="" class="list">
+    <!--<view class="new"></view>-->
+    <view class="title new">订单号：461674616987</view>
+    <view class="shop">发货仓库：成都市成华区跳蹬河---跳蹬河店</view>
+    <view class="list_time">发货时间：2017-07-31   14:23:22</view>
+    <view class="state">已收货</view>
+</navigator>
+
+<navigator url=""  class="list">
+    <view class="title new">订单号：461674616987</view>
+    <view class="shop">发货仓库：成都市成华区跳蹬河---跳蹬河店</view>
+    <view class="list_time">发货时间：2017-07-31   14:23:22</view>
+    <view class="state">已收货</view>
+</navigator>
+<navigator url=""  class="list">
+    <view class="title">订单号：461674616987</view>
+    <view class="shop">发货仓库：成都市成华区跳蹬河---跳蹬河店</view>
+    <view class="list_time">发货时间：2017-07-31   14:23:22</view>
+</navigator>

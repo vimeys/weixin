@@ -1,7 +1,6 @@
-/* pages/shopOut_sellList/sellLsit.wxss */
 .list{
     width: 100%;
-    border-bottom: 1rpx solid #ccc;
+    border-bottom: 1rpx solid #333;
     display: flex;
     padding-top: 30rpx;
 }
@@ -29,7 +28,7 @@ image{
 }
 .table input{
     display: inline-block;
-    border: 1rpx solid #ccc;
+    border: 1rpx solid #333333;
     width: 80rpx;
     height: 38rpx;
     color:#FF0202;
@@ -42,34 +41,6 @@ image{
 .table .last{
     line-height: 44rpx;
 }
-.table .last text:first-child{
-    margin-right: 220rpx;
-}
-.table .end text:first-child{
-    color:red;
-    display: inline-block;
-    width: 225rpx;
-    text-align: left;
-    /*margin-left: 100rpx;*/
-}
-.table .end text:last-child{
-    color:red;
-}
-.total{
-    font-size: 30rpx;
-    padding-left: 20rpx;
-    padding-right: 20rpx;
-}
-.total view{
-    line-height: 60rpx;
-    height: 60rpx;
-}
-.total view:first-child text{
-    color:#fd0400;
-}
-.total view:nth-child(2) text{
-    color:#fd0400;
-}
-.total text{
-    float:right;
+.table .last text{
+    margin-right: 35rpx;
 }

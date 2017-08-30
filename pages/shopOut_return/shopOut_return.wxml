@@ -1,2 +1,28 @@
 <!--pages/shopOut_return/shopOut_return.wxml-->
-<text>pages/shopOut_return/shopOut_return.wxml</text>
+<view class="num">
+    订单号：789451649616
+</view>
+<view class="list">
+    <view class="img">
+        <image src="../images/scan.png"></image>
+    </view>
+    <view class="table">
+        <view class="title">超级好看的鞋子</view>
+        <view>款号：<text>45574543156</text></view>
+        <view>条码号：<text>461646164164</text></view>
+        <view class="last">
+            尺码：<text>L</text>颜色：<text>大红色</text>
+        </view>
+        <view class="end">
+            单价：<text>￥9999.00</text>数量：<input type="number" value=""/>
+        </view>
+        <image src="../images/delete.png"></image>
+    </view>
+</view>
+<view class="total">
+    <view>总数量 <text>45223</text></view>
+    <view>操作人 <text>liumou</text></view>
+</view>
+<view>
+    <textarea placeholder="填写退货备注" placeholder-style="font-size:28rpx;color:#ccc;padding-left:20rpx"></textarea>
+</view>

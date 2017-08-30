@@ -17,7 +17,20 @@
             <image src="../images/delete.png"></image>
         </view>
     </view>
-    <view>
-
+    <view class="method">
+        <view class="big">
+            <view class=""></view>
+        </view>
+        销售出库
+        <view class="big left">
+            <view></view>
+        </view>
+        调货出库
+        <view class="big left">
+            <view></view>
+        </view>
+        退货出库
     </view>
+    <navigator class="add" url="../strageOutput/strageOutpu">继续添加</navigator>
+    <navigator class="fix" url="../">确认并填写发货单</navigator>
 </view>

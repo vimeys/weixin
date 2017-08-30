@@ -1,1 +1,15 @@
 /* pages/shopIn_change/shopIn_change.wxss */
+@import "../../template/detail_input.wxss";
+navigator.add{
+    display: inline-block;
+    width: 200rpx;
+    height: 60rpx;
+    text-align: center;
+    color:white;
+    font-size: 32rpx;
+    background: #1caba2;
+    line-height: 60rpx;
+    margin-left: 275rpx;
+    margin-top: 50rpx;
+    margin-bottom: 120rpx;
+}
