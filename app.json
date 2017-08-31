@@ -52,7 +52,7 @@
     "selectedColor":"#ff0000",
     "list": [
       {
-        "pagePath":"pages/shopIn_restock/shopIn_restock",
+        "pagePath":"pages/stock/stock",
         "iconPath":"pages/images/tabIcon/kucun-1.png",
         "selectedIconPath":"pages/images/tabIcon/kucun.png",
         "text": "库存"
@@ -75,7 +75,6 @@
         "selectedIconPath": "pages/images/tabIcon/xiaoshou.png",
         "text": "销售"
       }
-      
     ]
   }
 }

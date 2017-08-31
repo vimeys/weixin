@@ -1,2 +1,5 @@
 <!--pages/shopIn_return/shopIn_return.wxml-->
-<text>pages/shopIn_return/shopIn_return.wxml</text>
+<import src="../../template/detail_input"/>
+<template is="detail_input" data=""></template>
+<navigator class="add" url="../strageOutput/strageOutpu">继续添加</navigator>
+<navigator class="fix" url="../">确认并填写快递单</navigator>
