@@ -1,3 +1,4 @@
+<!--pages/sell_list_all/sell_list_all.wxml-->
 <view class="time">
     <view class="timeStart">
         <picker class="before" mode="date" start="{{start}}" disabled="{{use}}" value="{{Edate}}" data-type="2"

@@ -3,8 +3,8 @@
 var app = getApp()
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {}
+    array:[1,2,3],
+    index:0
   },
   //事件处理函数
   bindViewTap: function() {
@@ -22,5 +22,11 @@ Page({
         userInfo:userInfo
       })
     })
+  },
+    DateChange:function (e) {
+      console.log(e.detail.value);
+      this.setData({
+          index:e.detail.value
+      })
   }
 })

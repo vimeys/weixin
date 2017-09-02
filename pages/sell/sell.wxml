@@ -1,2 +1,20 @@
 <!--pages/sell/sell.wxml-->
-<text>pages/sell/sell.wxml</text>
+<view class="contain" style="padding-top:20rpx;">
+    <navigator url="../storage_JOG/storage_JOG" class="r-con">
+        <image src="../images/book.png" class="r-bdi"></image>
+        <view class="r-bdt">销售单管理</view>
+    </navigator>
+    <navigator url="../Library/Library" class="r-con">
+        <image src="../images/statistics.png" class="r-bdi"></image>
+        <view class="r-bdt">销售统计</view>
+    </navigator>
+    <navigator url="../stor-modi/stor-modi" class="r-con">
+        <image src="../images/coin.png" class="r-bdi"></image>
+        <view class="r-bdt">销售额统计</view>
+    </navigator>
+
+    <navigator url="../stor-log/stor-log" class="r-con">
+        <image src="../images/trending.png" class="r-bdi"></image>
+        <view class="r-bdt">销售趋势</view>
+    </navigator>
+</view>

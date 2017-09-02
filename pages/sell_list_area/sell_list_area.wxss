@@ -78,7 +78,7 @@
     padding:30rpx 20rpx 20rpx 20rpx;
     border-bottom: 1rpx solid #ccc;
 
- }
+}
 .ul .ul_title{
     font-size: 30rpx;
     margin-bottom: 30rpx;
@@ -89,17 +89,5 @@
     float:right;
 }
 .ul .ul_time{
-    font-size: 24rpx;
-}
-.shop .addr{
-    display: inline-block;
-    width: 200rpx;
-    height: 46rpx;
-    padding-left: 10rpx;
-    padding-top: 5rpx;
-    box-sizing: border-box;
-    border: 1rpx solid #ccc;
-    margin-left: 10rpx;
-    position: relative;
     font-size: 24rpx;
 }

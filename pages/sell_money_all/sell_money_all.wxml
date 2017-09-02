@@ -1,0 +1,16 @@
+<!--pages/sell_money_all/sell_money_all.wxml-->
+<view class="title">
+    <view class="time">统计周期<picker mode="selector"  class="select before" start="{{start}}" disabled="{{use}}" value="{{index}}" data-type="2" bindchange="DateChange" range="{{array}}">
+        {{array[index]}}
+    </picker></view>
+    <view class="shop">区域选择<picker mode="selector"  class="addr before" start="{{start}}" disabled="{{use}}" value="{{index}}" data-type="2" bindchange="DateChange" range="{{array}}">
+        {{array[index]}}
+    </picker><veiw class="shop_choose">店铺选择<picker mode="selector"  class="select before" start="{{start}}" disabled="{{use}}" value="{{index}}" data-type="2" bindchange="DateChange" range="{{array}}">
+        {{array[index]}}
+    </picker>
+    </veiw></view>
+</view>
+<view class="list">
+    <view class="ul">成都市成华区跳蹬河-跳蹬河点 <view class="right">销售额 ：<text>¥3214.00</text></view></view>
+    <view class="ul">成都市成华区跳蹬河-跳蹬河点 <view class="right">销售额 ：<text>¥3214.00</text></view></view><view class="ul">成都市成华区跳蹬河-跳蹬河点 <view class="right">销售额 ：<text>¥3214.00</text></view></view><view class="ul">成都市成华区跳蹬河-跳蹬河点 <view class="right">销售额 ：<text>¥3214.00</text></view></view>
+</view>

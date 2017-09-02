@@ -38,7 +38,16 @@
     "pages/stock_store/stock_store",
     "pages/stock_all/stock_all",
     "pages/stock_area/stock_area",
-    "pages/sell/sell"
+    "pages/sell/sell",
+    "pages/sell_list_store/sell_store",
+    "pages/sell_list_area/sell_list_area",
+    "pages/sell_list_all/sell_list_all",
+    "pages/sell_count_store/sell_count_store",
+    "pages/sell_count_area/sell_count_area",
+    "pages/sell_count_all/sell_count_all",
+    "pages/sell_money_store/sell_money_store",
+    "pages/sell_money_area/sell_money_area",
+    "pages/sell_money_all/sell_money_all"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -52,7 +61,7 @@
     "selectedColor":"#ff0000",
     "list": [
       {
-        "pagePath":"pages/stock/stock",
+        "pagePath":"pages/stock_storage/stock_storage",
         "iconPath":"pages/images/tabIcon/kucun-1.png",
         "selectedIconPath":"pages/images/tabIcon/kucun.png",
         "text": "库存"

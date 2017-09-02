@@ -1,2 +1,33 @@
 <!--pages/stock_store/stock_store.wxml-->
-<text>pages/stock_store/stock_store.wxml</text>
+<!--index.wxml-->
+<view class="time">
+    <view class="shop">成都市成华区跳蹬河 <text>跳蹬河店</text></view>
+    <view class="good_num">
+        <view class=""><text>款式</text>
+            <input type="text"/></view>
+        <view class="">
+            <text>款号</text>
+            <input type="text"/>
+        </view>
+        <view>
+            <text>条码号</text>
+            <input type="text/"/>
+        </view>
+    </view>
+    <view class="good_size">
+        <view>
+            <text>尺码</text>
+            <picker mode="selector"  class="select before" start="{{start}}" disabled="{{use}}" value="{{Edate}}" data-type="2" bindchange="DateChange">
+                L
+            </picker>
+        </view>
+        <view>
+            <text>分类</text>
+            <picker  class="select before" mode="selector" start="{{start}}" disabled="{{use}}" value="{{Edate}}" data-type="2" bindchange="DateChange">
+                毛呢外套
+            </picker>
+        </view>
+    </view>
+</view>
+<import src="../../template/goods_detail"/>
+<template is="goods_detail" data=""></template>

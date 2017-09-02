@@ -1,0 +1,53 @@
+/* pages/sell_money_store/sell_money_store.wxss */
+.title {
+    padding: 30rpx 20rpx 30rpx 20rpx;
+    border-bottom: 10rpx solid #e5e5e5;
+    font-size: 28rpx;
+    border-bottom: 10rpx solid #e5e5e5;
+}
+.title .time{
+    padding-bottom: 30rpx;
+}
+.select{
+    display: inline-block;
+    width: 588rpx;
+    height: 46rpx;
+    padding-left: 10rpx;
+    padding-top: 5rpx;
+    box-sizing: border-box;
+    border: 1rpx solid #ccc;
+    margin-left: 10rpx;
+    position: relative;
+    font-size: 24rpx;
+}
+.shop{
+    width: 100%;
+}
+.shop text{
+    float:right;
+}
+.total{
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 80rpx;
+}
+.total text{
+    margin-bottom: 40rpx;
+}
+.total text:first-child{
+    font-size: 32rpx;
+}
+.total text:last-child{
+    font-size: 76rpx;
+    color:#fe0101;
+}
+
+
+.before::before{
+    position: absolute;
+    color:#333;
+    content:"▼";
+    right:1rpx;
+    top:0rpx;
+}

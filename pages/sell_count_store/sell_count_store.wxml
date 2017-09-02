@@ -1,0 +1,13 @@
+<!--pages/sell_count_store/sell_count_store.wxml-->
+<view class="title">
+    <view class="time">时间<picker mode="selector"  class="select before" start="{{start}}" disabled="{{use}}" value="{{index}}" data-type="2" bindchange="DateChange" range="{{array}}">
+        {{array[index]}}
+    </picker>
+    </view>
+    <view class="shop">成都市成华区跳蹬河 <text>跳蹬河</text></view>
+</view>
+<view list="list">
+    <view class="ul">超级无敌好看的鞋子 <view class="right">已售 ：<text>¥3214.00</text></view></view>
+    <view class="ul">超级无敌好看的鞋子 <view class="right">已售 ：<text>¥3214.00</text></view></view>
+    <view class="ul">超级无敌好看的鞋子 <view class="right">已售 ：<text>¥3214.00</text></view></view>
+</view>
