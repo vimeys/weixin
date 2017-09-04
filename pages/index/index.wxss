@@ -1,105 +1,18 @@
-.time{
-    width: 100%;
-    padding-left: 20rpx;
-    border-bottom:10rpx solid #e5e5e5;
-    font-size: 28rpx;
-    padding-top: 20rpx;
-    padding-bottom: 30rpx;
+navigator{
+    width: 300rpx;
+    margin: 90rpx auto 0;
 }
-.timeStart{
-    display: inline-block;
-    width: 330rpx;
-    height: 46rpx;
-    border: 1rpx solid #ccc;
-    position:relative;
-    color:#ccc;
-    font-size: 28rpx;
-    padding-left: 10rpx;
-    box-sizing: border-box;
-    margin-bottom: 30rpx;
+navigator image{
+    width: 300rpx;
+    height: 300rpx;
+    margin: 0 auto;
 }
-.time text{
-    line-height: 46rpx;
-    display: inline-block;
-    /*vertical-align: 12rpx;*/
+.title{
+    font-size: 40rpx;
+    text-align: center;
+    margin-top: 20rpx;
+    margin-bottom: 50rpx;
 }
-.before::before{
-    position: absolute;
-    color:#333;
-    content:"▼";
-    right:1rpx;
-    top:0rpx;
-}
-.list{
-    position: relative;
-}
-.shop{
-    width: 94%;
-    margin-bottom: 30rpx;
-}
-.shop text{
-    float:right;
-
-}
-.shop .store{
-    display: inline-block;
-    float:right;
-}
-.shop .store .select{
-    display: inline-block;
-    width: 200rpx;
-    height: 46rpx;
-    padding-left: 10rpx;
-    padding-top: 5rpx;
-    box-sizing: border-box;
-    border: 1rpx solid #ccc;
-    margin-left: 10rpx;
-    position: relative;
-    font-size: 24rpx;
-}
-.list .select{
-    display: inline-block;
-    width: 200rpx;
-    height: 46rpx;
-    padding-left: 10rpx;
-    padding-top: 5rpx;
-    box-sizing: border-box;
-    border: 1rpx solid #ccc;
-    margin-left: 10rpx;
-    position: relative;
-    font-size: 24rpx;
-}
-
-
-
-.ul{
-    display: block;
-    width: 100%;
-    padding:30rpx 20rpx 20rpx 20rpx;
-    border-bottom: 1rpx solid #ccc;
-
- }
-.ul .ul_title{
-    font-size: 30rpx;
-    margin-bottom: 30rpx;
-    width: 94%;
-}
-.ul .ul_title text{
-    color:red;
-    float:right;
-}
-.ul .ul_time{
-    font-size: 24rpx;
-}
-.shop .addr{
-    display: inline-block;
-    width: 200rpx;
-    height: 46rpx;
-    padding-left: 10rpx;
-    padding-top: 5rpx;
-    box-sizing: border-box;
-    border: 1rpx solid #ccc;
-    margin-left: 10rpx;
-    position: relative;
-    font-size: 24rpx;
+.title_bottom{
+    margin-bottom: 140rpx;
 }

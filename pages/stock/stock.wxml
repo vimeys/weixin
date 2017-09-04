@@ -1,10 +1,10 @@
 <!--pages/stock/stock.wxml-->
 <view class="classname"><img src="../../../公司文件存放/仓库出库/仓库出库-扫描失败_spec.png"/>
-    <navigator hover-class="none" url="../strageOutput/strageOutput">
+    <navigator hover-class="none" url="../stock_storage/stock_storage">
         <image src="../images/cang.png"></image>
     </navigator>
     <view class="title title_bottom">仓库库存</view>
-    <navigator hover-class="none" url="../shopOut/shopOut">
+    <navigator hover-class="none" url="../stock_store/stock_store">
         <image src="../images/dian.png"></image>
     </navigator >
     <view class="title">店铺库存</view>

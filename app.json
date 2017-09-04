@@ -47,7 +47,8 @@
     "pages/sell_count_all/sell_count_all",
     "pages/sell_money_store/sell_money_store",
     "pages/sell_money_area/sell_money_area",
-    "pages/sell_money_all/sell_money_all"
+    "pages/sell_money_all/sell_money_all",
+    "pages/sell_list_detail/sell_list_detail"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -56,12 +57,12 @@
     "navigationBarTextStyle":"white"
   },
   "tabBar": {
-    "font-size":"26rpx",
+    "font-size":"42rpx",
     "color":"#ccc",
-    "selectedColor":"#ff0000",
+    "selectedColor":"#1caba2",
     "list": [
       {
-        "pagePath":"pages/stock_storage/stock_storage",
+        "pagePath":"pages/index/index",
         "iconPath":"pages/images/tabIcon/kucun-1.png",
         "selectedIconPath":"pages/images/tabIcon/kucun.png",
         "text": "库存"
@@ -79,7 +80,7 @@
         "text": "出库"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/sell/sell",
         "iconPath": "pages/images/tabIcon/xiaoshou-1.png",
         "selectedIconPath": "pages/images/tabIcon/xiaoshou.png",
         "text": "销售"

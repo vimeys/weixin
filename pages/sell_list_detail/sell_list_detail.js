@@ -1,12 +1,11 @@
-// pages/stock/stock.js
-var app=getApp();
+// pages/sell_list_detail/sell_list_detail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    url:"../strageOutput/strageOutput"
+  
   },
 
   /**

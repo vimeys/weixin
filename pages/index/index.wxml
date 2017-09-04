@@ -1,52 +1,10 @@
-<view class="time">
-    <view class="timeStart">
-        <picker class="before" mode="date" start="{{start}}" disabled="{{use}}" value="{{Edate}}" data-type="2"
-                bindchange="DateChange">
-            截止时间
-        </picker>
-    </view>
-    <text>~~</text>
-    <view class="timeStart" bindtap="bindPick">
-        <picker mode="date" start="{{start}}" class=" before" disabled="{{use}}" value="{{Edate}}" data-type="2"
-                bindchange="DateChange">
-            截止时间
-        </picker>
-    </view>
-    <view class="shop">区域选择
-        <picker mode="selector" class="addr before" start="{{start}}" disabled="{{use}}" value="{{index}}" data-type="2"
-                bindchange="DateChange" range="{{array}}">
-            {{array[index]}}
-        </picker>
-        <view class="store">店铺选择
-            <picker mode="selector" class="select before" start="{{start}}" disabled="{{use}}" value="{{index}}"
-                    data-type="2" bindchange="DateChange" range="{{array}}">
-                {{array[index]}}
-            </picker>
-        </view>
-    </view>
-    <view class="list">对账
-        <picker mode="selector" class="select before" start="{{start}}" disabled="{{use}}" value="{{index}}"
-                data-type="2" bindchange="DateChange" range="{{array}}">
-            {{array[index]}}
-        </picker>
-    </view>
+<view class="classname"><img src="../../../公司文件存放/仓库出库/仓库出库-扫描失败_spec.png"/>
+    <navigator hover-class="none" url="{{url}}">
+        <image src="../images/cang.png"></image>
+    </navigator>
+    <view class="title title_bottom">仓库库存</view>
+    <navigator hover-class="none" url="../stock_all/stock_all">
+        <image src="../images/dian.png"></image>
+    </navigator >
+    <view class="title">店铺库存</view>
 </view>
-<navigator class="ul">
-    <view class="ul_title">点单号：1313465151
-        <text>已对账</text>
-    </view>
-    <view class="ul_time">销售时间：2017-18-12 13:32:32</view>
-</navigator>
-
-<navigator class="ul">
-    <view class="ul_title">点单号：1313465151
-        <text>已对账</text>
-    </view>
-    <view class="ul_time">销售时间：2017-18-12 13:32:32</view>
-</navigator>
-<navigator class="ul">
-    <view class="ul_title">点单号：1313465151
-        <text>已对账</text>
-    </view>
-    <view class="ul_time">销售时间：2017-18-12 13:32:32</view>
-</navigator>

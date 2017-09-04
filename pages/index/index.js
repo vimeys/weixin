@@ -4,7 +4,8 @@ var app = getApp()
 Page({
   data: {
     array:[1,2,3],
-    index:0
+    index:0,
+    url: "../strageOutput/strageOutput"
   },
   //事件处理函数
   bindViewTap: function() {
