@@ -3,7 +3,7 @@
         <image src="../images/cang.png"></image>
     </navigator>
     <view class="title title_bottom">仓库库存</view>
-    <navigator hover-class="none" url="../stock_all/stock_all">
+    <navigator hover-class="none" url="{{url1}}">
         <image src="../images/dian.png"></image>
     </navigator >
     <view class="title">店铺库存</view>

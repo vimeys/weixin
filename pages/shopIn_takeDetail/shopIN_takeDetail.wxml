@@ -20,7 +20,7 @@
     顺丰快递：461146161616
 </view>
 <view class="btn">
-    <navigator url="" class="change">发货修改</navigator>
+    <navigator url="../shopIn_change/shopIn_change" class="change">发货修改</navigator>
     <navigator url="" class="confirm">确认入库</navigator>
 
 </view>

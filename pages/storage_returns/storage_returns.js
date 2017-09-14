@@ -5,9 +5,29 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    abc:{
+      use:false,
+    start:"开始时间",
+    end:"结束时间"
+    }
+      
+   
+    
   },
+  DateChange:function (e) {
+    console.log(e.target.dataset.type);
+    var Type=e.target.dataset.type;
+    if(Type==1){
+      this.setData({
+        start:e.detail.value
+      })
+    }else{
+      this.setData({
+        end:e.detail.value
+      })
+    }
 
+  },
   /**
    * 生命周期函数--监听页面加载
    */

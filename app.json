@@ -48,7 +48,8 @@
     "pages/sell_money_store/sell_money_store",
     "pages/sell_money_area/sell_money_area",
     "pages/sell_money_all/sell_money_all",
-    "pages/sell_list_detail/sell_list_detail"
+    "pages/sell_list_detail/sell_list_detail",
+    "pages/charts/line/line"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -68,7 +69,7 @@
         "text": "库存"
       },
       {
-        "pagePath": "pages/ruku/ruku",
+        "pagePath": "pages/storage_count/storage_count",
         "iconPath": "pages/images/tabIcon/ruku-1.png",
         "selectedIconPath": "pages/images/tabIcon/ruku.png",
         "text": "入库"

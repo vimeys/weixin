@@ -9,16 +9,16 @@
         <image src="../images/hand.png" class="r-bdi"></image>
         <view class="r-bdt">手动入库</view>
     </navigator>
-    <navigator url="../Library/Library" class="r-con">
+    <navigator url="../storage_returns/storage_returns" class="r-con">
         <image src="../images/tuihuo.png" class="r-bdib"></image>
         <view class="r-bdt">退货入库</view>
     </navigator>
-    <navigator url="../stor-modi/stor-modi" class="r-con">
+    <navigator url="../storage_count/storage_count" class="r-con">
         <image src="../images/statistics.png" class="r-bdi"></image>
         <view class="r-bdt">出库统计</view>
     </navigator>
 
-    <navigator url="../stor-log/stor-log" class="r-con">
+    <navigator url="../storage_note/storage_note" class="r-con">
         <image src="../images/diary.png" class="r-bdi"></image>
         <view class="r-bdt">出库日志</view>
     </navigator>

@@ -1,19 +1,19 @@
 <!--pages/sell/sell.wxml-->
 <view class="contain" style="padding-top:20rpx;">
-    <navigator url="../storage_JOG/storage_JOG" class="r-con">
+    <navigator url="../sell_list_store/sell_list_store" class="r-con">
         <image src="../images/book.png" class="r-bdi"></image>
         <view class="r-bdt">销售单管理</view>
     </navigator>
-    <navigator url="../Library/Library" class="r-con">
+    <navigator url="../sell_count_all/sell_count_all" class="r-con">
         <image src="../images/statistics.png" class="r-bdi"></image>
         <view class="r-bdt">销售统计</view>
     </navigator>
-    <navigator url="../stor-modi/stor-modi" class="r-con">
+    <navigator url="../sell_money_all/sell_money_all" class="r-con">
         <image src="../images/coin.png" class="r-bdi"></image>
         <view class="r-bdt">销售额统计</view>
     </navigator>
 
-    <navigator url="../stor-log/stor-log" class="r-con">
+    <navigator url="../charts/line/line" class="r-con">
         <image src="../images/trending.png" class="r-bdi"></image>
         <view class="r-bdt">销售趋势</view>
     </navigator>

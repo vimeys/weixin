@@ -2,4 +2,4 @@
 <import src="../../template/detail_input"/>
 <template is="detail_input" data=""></template>
 <navigator class="add" url="../strageOutput/strageOutpu">继续添加</navigator>
-<navigator class="fix" url="../">确认并填写快递单</navigator>
+<navigator class="fix" url="../">确认入库</navigator>

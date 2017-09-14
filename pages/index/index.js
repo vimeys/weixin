@@ -5,7 +5,8 @@ Page({
   data: {
     array:[1,2,3],
     index:0,
-    url: "../strageOutput/strageOutput"
+    url: "../stock_storage/stock_storage",
+    url1:"../stock_store/stock_store"
   },
   //事件处理函数
   bindViewTap: function() {

@@ -16,6 +16,7 @@
     padding-left: 10rpx;
     box-sizing: border-box;
     margin-bottom: 30rpx;
+    margin-top: 30rpx;
 }
 .time text{
     line-height: 46rpx;

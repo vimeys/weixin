@@ -1,23 +1,23 @@
 <!--pages/shopIn/shopIn.wxml-->
 <view class="contain">
-    <navigator url="../Manual/Manual" class="r-con">
+    <navigator url="../shopIn_take/shopIn_take" class="r-con">
         <image src="../images/shouhuo.png" class="r-bdib"></image>
         <view class="r-bdt">收货入库</view>
     </navigator>
-    <navigator url="../Library/Library" class="r-con">
+    <navigator url="../shopIn_restock/shopIn_restock" class="r-con">
         <image src="../images/diaohuo.png" class="r-bdib"></image>
         <view class="r-bdt">调货入库</view>
     </navigator>
-    <navigator url="../stor-modi/stor-modi" class="r-con">
+    <navigator url="../shopIn_return/shopIn_return" class="r-con">
         <image src="../images/tuihuo.png" class="r-bdib"></image>
         <view class="r-bdt">退货入库</view>
     </navigator>
 
-    <navigator url="../stor-log/stor-log" class="r-con">
+    <navigator url="../shopIn_count/shopIn_count" class="r-con">
         <image src="../images/statistics.png" class="r-bdi"></image>
         <view class="r-bdt">入库统计</view>
     </navigator>
-    <navigator url="../stor-log/stor-log" class="r-con">
+    <navigator url="../shopIn_note/shopIn_note" class="r-con">
         <image src="../images/diary.png" class="r-bdi"></image>
         <view class="r-bdt">入库日志</view>
     </navigator>

@@ -20,6 +20,7 @@
     margin-left: 10rpx;
     position: relative;
     font-size: 24rpx;
+    vertical-align: -14rpx;
 }
 .shop{
     width: 100%;
@@ -77,4 +78,5 @@
     margin-left: 10rpx;
     position: relative;
     font-size: 24rpx;
+    vertical-align: -14rpx;
 }
