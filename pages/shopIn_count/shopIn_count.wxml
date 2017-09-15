@@ -1,5 +1,5 @@
 <!--pages/shopIn_count/shopIn_count.wxml-->
 <import src="../../template/output.wxml"/>
-<template is="output" data=""></template>
+<template is="output" data="{{abc}}"></template>
 <import src="../../template/count_detail.wxml"/>
 <template is="count_detail" data=""></template>

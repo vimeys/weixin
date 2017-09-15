@@ -1,30 +1,47 @@
 <!--pages/storage_note/storage_note.wxml-->
 <import src="../../template/output.wxml"/>
-<template is="output" data=""></template>
+<template is="output" data="{{abc}}"></template>
 <view class="title">
-    <view class="all active"><text>全部日志</text></view>
-    <view class="past "><text class="active">已出库</text></view>
-    <view class="change"><text>修改记录</text></view>
+    <view data-type="1" class="all " bindtap="changeNew"><text class="{{active1==1?'active':''}}">全部日志</text></view>
+    <view data-type="2" class="past " bindtap="changeNew"><text class="{{active1==2?'active':''}}">已出库</text></view>
+    <view data-type="3" class="change " bindtap="changeNew"><text class="{{active1==3?'active':''}}">修改记录</text></view>
 </view>
 
-<view class="list">
-    <view class="img">
-        <image src="../images/scan.png"></image>
-    </view>
-    <view class="table">
-        <view class="title">超级好看的鞋子 <text>正常入库</text></view>
-        <view>款号：<text>45574543156</text></view>
-        <view>条码号：<text>461646164164</text></view>
-        <view class="last">
-            尺码：<text>L</text>颜色：<text>红色</text> 数量： <text class="red">1234</text>
+
+    <block wx:for="{{count}}" wx:for-item="item">
+        <view class="list {{item}}">
+            <view class="img">
+                <image src="../images/scan.png"></image>
+            </view>
+            <view class="table">
+                <view class="title">{{goodsMeg.name}}
+                    <text>{{state==1?'正常入库':'错误信息'}}</text>
+                </view>
+                <view>款号：
+                    <text>{{goodsMeg.sizeNum}}</text>
+                </view>
+                <view>条码号：
+                    <text>{{goodsMeg.codeNum}}</text>
+                </view>
+                <view class="last">
+                    尺码：
+                    <text>{{goodMeg.size}}</text>
+                    颜色：
+                    <text>{{goodsMeg.color}}</text>
+                    数量：
+                    <text class="red">{{goodsMeg.many}}</text>
+                </view>
+            </view>
         </view>
-    </view>
+        <view class="record">
+            入库时间：2017-08-01 10:11:32
+            <text>操作人：老王</text>
+        </view>
+    </block>
 
-</view>
-<view class="record">
-    入库时间：2017-08-01  10:11:32 <text>操作人：老王</text>
-</view>
-<view class="list error">
+
+
+<view class="list {{goodsMeg.state==1?'error':''}}">
     <view class="img">
         <image src="../images/scan.png"></image>
     </view>
@@ -38,6 +55,6 @@
     </view>
 
 </view>
-<view class="record error">
+<view class="record {{goodsMeg.state==1?'error':''}}">
     入库时间：2017-08-01  10:11:32 <text>操作人：老王</text>
 </view>

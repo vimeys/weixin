@@ -1,3 +1,4 @@
+
  function DateChange(e,that) {
   // console.log(e.target.dataset.type);
   var Type = e.target.dataset.type;
@@ -8,6 +9,12 @@
   // abc.start=e.detail.value;
   if (Type == 1) {
     abc1.start = e.detail.value;
+    // wx.request({
+    //   url:'',
+    //   data:{
+    //     size:abc1.start,
+    //   }
+    // });
     that.setData({
 
       abc: abc1,

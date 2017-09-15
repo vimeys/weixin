@@ -1,6 +1,7 @@
 // pages/storage_count/storage_count.js
 var app = getApp();
-var Datechange = require("../../utils/Datechange.js")
+var Datechange = require("../../utils/Datechange.js");
+var optionChange=require("../../utils/optionChange")
 Page({
 
   /**
@@ -26,26 +27,7 @@ Page({
   },
 
   optionChange:function (e) {
-    console.log(e);
-    console.log(this);
-    var abc=this.data.abc;
-    var Type=e.target.dataset.type;
-    if(Type==1){
-      abc.sizeIndex=e.detail.value;
-      this.setData({
-        abc:abc
-      })
-    }else if(Type==2){
-      abc.nameIndex = e.detail.value;
-      this.setData({
-        abc: abc
-      })
-    }else if(Type==3){
-      abc.waysIndex = e.detail.value;
-      this.setData({
-        abc: abc
-      })
-    }
+    optionChange.optionChange(e,this);
   },
   /**
    * 生命周期函数--监听页面加载

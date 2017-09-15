@@ -69,7 +69,7 @@
         "text": "库存"
       },
       {
-        "pagePath": "pages/storage_count/storage_count",
+        "pagePath":"pages/ruku/ruku",
         "iconPath": "pages/images/tabIcon/ruku-1.png",
         "selectedIconPath": "pages/images/tabIcon/ruku.png",
         "text": "入库"

@@ -1,6 +1,6 @@
 <!--pages/shopIn_note/shopIn_note.wxml-->
 <import src="../../template/output.wxml"/>
-<template is="output" data=""></template>
+<template is="output" data="{{abc}}"></template>
 <include src="../../template/note.wxml"></include>
 <import src="../../template/count_detail.wxml"/>
 <template is="count_detail" data=""></template>

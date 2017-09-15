@@ -5,9 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
-  },
 
+  },
+  bindtap:function(e){
+    wx.scanCode({
+      success:(res)=>{
+        alert(res);
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
