@@ -1,13 +1,27 @@
 // pages/sell_list_store/sell_store.js
+var Datechange=require("../../utils/Datechange");
+var optionChange=require("../../utils/optionChange");
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
-  },
+    abc:{
+      start:"开始时间",
+      end:"截止时间",
+      state:["已对账","未对账"],
+      use:false
+    },
 
+    index:0
+  },
+  DateChange:function (e) {
+    Datechange.DateChange(e,this);
+  },
+  optionChange:function (e) {
+    optionChange.optionChange(e,this);
+  },
   /**
    * 生命周期函数--监听页面加载
    */

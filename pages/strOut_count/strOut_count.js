@@ -1,11 +1,32 @@
 // pages/strOut_count/strOut_count.js
+var Datechange = require("../../utils/Datechange.js");
+var optionChange=require("../../utils/optionChange");
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    abc: {
+      use: false,
+      start: "开始时间",
+      end: "结束时间",
+      Date: {"a": ["new"], "b": 2, "c": 3, "d": 4},
+      size:["S","M","L","XL","XXL"],
+      name:["长","宽","高"],
+      ways:['正常入库','退货入库','调货入库'],
+      nameIndex:0,
+      sizeIndex:0,
+      waysIndex:0
+    },
+
+  },
+  DateChange:function (e) {
+    Datechange.DateChange(e,this);
+  },
+
+  optionChange:function (e) {
+    optionChange.optionChange(e,this);
   },
 
   /**

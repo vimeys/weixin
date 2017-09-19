@@ -1,16 +1,16 @@
 <!--pages/sell_list_store/sell_store.wxml-->
 <view class="time">
-    <view class="timeStart"><picker  class="before" mode="date" start="{{start}}" disabled="{{use}}" value="{{Edate}}" data-type="2" bindchange="DateChange">
-        截止时间
+    <view class="timeStart"><picker  class="before" mode="date" start="{{abc.start}}" disabled="{{abc.use}}" value="{{Edate}}" data-type="1" bindchange="DateChange">
+        {{abc.start}}
     </picker>
     </view>
     <text>~~</text>
-    <view class="timeStart" bindtap="bindPick"><picker mode="date" start="{{start}}" class=" before"disabled="{{use}}" value="{{Edate}}" data-type="2" bindchange="DateChange">
-        截止时间
+    <view class="timeStart" bindtap="bindPick"><picker mode="date" start="{{abc.end}}" class=" before"disabled="{{abc.use}}" value="{{Edate}}" data-type="2" bindchange="DateChange">
+        {{abc.end}}
     </picker></view>
 
-    <view class="list">对账 <picker mode="selector"  class="select before" start="{{start}}" disabled="{{use}}" value="{{index}}" data-type="2" bindchange="DateChange" range="{{array}}">
-        {{array[index]}}
+    <view class="list">对账 <picker mode="selector"  class="select before" disabled="{{abc.use}}" value="{{index}}" data-type="1" bindchange="optionChange" range="{{state}}">
+        {{abc.state[index]}}
     </picker>
     </view>
 </view>

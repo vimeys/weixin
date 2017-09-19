@@ -1,7 +1,7 @@
 // pages/storage_count/storage_count.js
 var app = getApp();
 var Datechange = require("../../utils/Datechange.js");
-var optionChange=require("../../utils/optionChange")
+var optionChange=require("../../utils/optionChange");
 Page({
 
   /**

@@ -37,6 +37,12 @@ Page({
   optionChange: function (e) {
     optionChange.optionChange(e, this)
   },
+  changeNew: function (e) {
+    var active = e.currentTarget.dataset.type;
+    this.setData({
+      active1: active
+    });
+  },
   /**
    * 生命周期函数--监听页面加载
    */

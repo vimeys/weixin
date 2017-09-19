@@ -1,12 +1,12 @@
 <!--pages/strOut_note/strOut_note.wxml-->
 <import src="../../template/entering.wxml"/>
-<template is="entering" data=""/>
-<view class="title">
+<template is="entering" data="{{abc}}"/>
+<!-- <view class="title">
     <view class="all active"><text class="active">全部日志</text></view>
     <view class="past"><text>已出库</text></view>
     <view class="change"><text>修改记录</text></view>
-</view>
-
+</view> -->
+<include src="../../template/note.wxml"/>
 <view class="list">
     <view class="img">
         <image src="../images/scan.png"></image>
