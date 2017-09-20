@@ -54,9 +54,6 @@
     position: relative;
     font-size: 24rpx;
 }
-
-
-
 .ul{
     display: block;
     width: 100%;

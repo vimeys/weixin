@@ -1,18 +1,20 @@
 // pages/sell/sell.js
+var getStor=require("../../utils/getStorage");
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+      judgeUrl:"",
+      urlList:'../sell_list_store/sell_store'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    getStor.getStor(this);
   },
 
   /**

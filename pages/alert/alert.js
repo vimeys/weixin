@@ -1,29 +1,11 @@
-// pages/sell_list_store/sell_store.js
-var Datechange=require("../../utils/Datechange");
+// pages/alert/alert.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    abc:{
-      start:"开始时间",
-      end:"截止时间",
-      state:["已对账","未对账"],
-      use:false
-    },
-
-    index:0
-  },
-  DateChange:function (e) {
-    Datechange.DateChange(e,this);
-  },
-  optionChange:function (e) {
-      var index=e.detail.value;
-      console.log(index);
-      this.setData({
-        index:index
-      })
+  
   },
 
   /**

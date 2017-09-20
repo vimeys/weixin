@@ -1,6 +1,6 @@
 <!--pages/sell/sell.wxml-->
 <view class="contain" style="padding-top:20rpx;">
-    <navigator url="../sell_list_store/sell_store" class="r-con">
+    <navigator url="{{urlList}}" class="r-con">
         <image src="../images/book.png" class="r-bdi"></image>
         <view class="r-bdt">销售单管理</view>
     </navigator>

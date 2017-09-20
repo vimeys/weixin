@@ -49,7 +49,8 @@
     "pages/sell_money_area/sell_money_area",
     "pages/sell_money_all/sell_money_all",
     "pages/sell_list_detail/sell_list_detail",
-    "pages/charts/line/line"
+    "pages/charts/line/line",
+    "pages/alert/alert"
   ],
   "window":{
     "backgroundTextStyle":"light",

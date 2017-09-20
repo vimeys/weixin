@@ -9,7 +9,7 @@
         {{abc.end}}
     </picker></view>
 
-    <view class="list">对账 <picker mode="selector"  class="select before" disabled="{{abc.use}}" value="{{index}}" data-type="1" bindchange="optionChange" range="{{state}}">
+    <view class="list">对账 <picker mode="selector"  class="select before" disabled="{{abc.use}}" value="{{index}}" data-type="1" bindchange="optionChange" range="{{abc.state}}">
         {{abc.state[index]}}
     </picker>
     </view>
