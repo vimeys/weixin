@@ -1,6 +1,6 @@
 <!--pages/strOut_count/strOut_count.wxml-->
 <import src="../../template/entering.wxml"/>
-<template is="entering" data="{{abc}}"/>
+<template is="entering" data="{{select}}"/>
 <view class="list">
     <view class="img">
         <image src="../images/scan.png"></image>

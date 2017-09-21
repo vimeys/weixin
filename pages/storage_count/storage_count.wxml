@@ -1,6 +1,6 @@
 <!--pages/storage_count/storage_count.wxml-->
 <import src="../../template/output.wxml"/>
-<template is="output" data="{{abc}}"></template>
+<template is="output" data="{{select}}"></template>
 <view class="list">
     <view class="img">
         <image src="../images/scan.png"></image>

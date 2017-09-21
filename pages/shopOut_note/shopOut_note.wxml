@@ -1,6 +1,6 @@
 <!--pages/shopOut_note/shopOut_note.wxml-->
 <import src="../../template/output.wxml"/>
-<template is="output" data="{{abc}}"/>
+<template is="output" data="{{select}}"/>
 <include src="../../template/note.wxml"/>
 <import src="../../template/do_detail.wxml"/>
 <template is="do_detail" data=""></template>

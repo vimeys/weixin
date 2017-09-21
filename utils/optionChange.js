@@ -1,22 +1,22 @@
 function optionChange(e,that) {
   console.log(e);
   console.log(that);
-  var abc=that.data.abc;
+  var select=that.data.select;
   var Type=e.target.dataset.type;
   if(Type==1){
-    abc.sizeIndex=e.detail.value;
+    select.sizeIndex=e.detail.value;
     that.setData({
-      abc:abc
+      select:select
     })
   }else if(Type==2){
-    abc.nameIndex = e.detail.value;
+    select.nameIndex = e.detail.value;
     that.setData({
-      abc: abc
+      select: select
     })
   }else if(Type==3){
-    abc.waysIndex = e.detail.value;
+    select.waysIndex = e.detail.value;
     that.setData({
-      abc: abc
+      select: select
     })
   }
 }

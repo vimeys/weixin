@@ -18,7 +18,7 @@ Page({
       many: "7946",
       state: "1"
     },
-    abc: {
+    select: {
       use: false,
       start: "开始时间",
       end: "结束时间",

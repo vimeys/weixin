@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    abc:{
+    select:{
       start:"开始时间",
       end:"截止时间",
       state:["已对账","未对账"],

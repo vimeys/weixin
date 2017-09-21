@@ -1,24 +1,25 @@
 
  function DateChange(e,that) {
   var Type = e.target.dataset.type;
-  var abc1 = that.data.abc;
+  var select1 = that.data.select;
 
   if (Type == 1) {
-    abc1.start = e.detail.value;
+    select1.start = e.detail.value;
+    console.log(select1.start)
     // wx.request({
     //   url:'',
     //   data:{
-    //     size:abc1.start,
+    //     size:select1.start,
     //   }
     // });
     that.setData({
 
-      abc: abc1,
+      select: select1,
     })
   } else {
-    abc1.end = e.detail.value;
+    select1.end = e.detail.value;
     that.setData({
-      abc: abc1
+      select: select1
     })
   }
 }

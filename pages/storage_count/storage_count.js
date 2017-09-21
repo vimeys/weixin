@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    abc: {
+    select: {
       use: false,
       start: "开始时间",
       end: "结束时间",

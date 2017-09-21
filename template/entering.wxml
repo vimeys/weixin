@@ -1,12 +1,12 @@
 <template name="entering">
     <view class="time">
-        <view class="timeStart"><picker mode="date" start="{{abc.start}}" disabled="{{abc.use}}" value="{{Edate}}" data-type="1" bindchange="DateChange">
-            {{abc.start}}
+        <view class="timeStart"><picker mode="date" start="{{select.start}}" disabled="{{select.use}}" value="{{Edate}}" data-type="1" bindchange="DateChange">
+            {{select.start}}
         </picker>
         </view>
         <text>~~</text>
-        <view class="timeStart" bindtap="bindPick"><picker mode="date" end="{{abc.start}}" disabled="{{abc.use}}" value="{{Edate}}" data-type="2" bindchange="DateChange">
-            {{abc.end}}
+        <view class="timeStart" bindtap="bindPick"><picker mode="date" end="{{select.start}}" disabled="{{select.use}}" value="{{Edate}}" data-type="2" bindchange="DateChange">
+            {{select.end}}
         </picker></view>
         <view class="good_num">
             <view class=""><text>款式</text>
@@ -23,14 +23,14 @@
         <view class="good_size">
             <view>
                 <text>尺码</text>
-                <picker mode="selector"  class="select before" range="{{abc.size}}" disabled="{{abc.use}}" value="{{abc.index}}" data-type="1" bindchange="optionChange">
-                    {{abc.size[abc.sizeIndex]}}
+                <picker mode="selector"  class="select before" range="{{select.size}}" disabled="{{select.use}}" value="{{select.index}}" data-type="1" bindchange="optionChange">
+                    {{select.size[select.sizeIndex]}}
                 </picker>
             </view>
             <view>
                 <text>分类</text>
-                <picker  class="select before" mode="selector" range="{{abc.name}}" disabled="{{abc.use}}" value="{{abc.index}}" data-type="2" bindchange="optionChange">
-                    {{abc.name[abc.nameIndex]}}
+                <picker  class="select before" mode="selector" range="{{select.name}}" disabled="{{select.use}}" value="{{select.index}}" data-type="2" bindchange="optionChange">
+                    {{select.name[select.nameIndex]}}
                 </picker>
             </view>
         </view>
