@@ -33,35 +33,41 @@ Page({
     if(Type==1){
       var select=this.data.select;
       select.style=Type;
-      this.dataset({
+      this.setData({
         select:select
       })
     }else if(Type==2){
       var select=this.data.select;
       select.styleNum=Type;
-      this.dataset({
+      this.setData({
         select:select
       })
     }else{
       var select=this.data.select;
       select.Barcode=Type;
-      this.dataset({
+      this.setData({
         select:select
       })
     }
     var url=app.url;
-    this.dataset({
+    this.setData({
       url:url
     });
-    wx.requst({
-      url:url+"/Ajax/U/ListOrder.aspx?" + obj.info + "&StartDate=" + this.data.select.start + "&EndDate=" + this.data.select.end + "&State=" + that.data.State + "&PageIndex=" + that.data.PageIndex + "&Type=" + that.data.Type,
+    wx.request({
+      url:url+"/Ajax/U/ListOrder.aspx?" + "U=&Token=" + "&State=undefined" + this.data.select.start + "&PageIndex=1" + "&Number=" + this.data.select.Barcode + "&Name=" + this.data.select.style + "&Size=" + this.data.select.styleNum + "&Color=" +  + "&Series=",
+      method:"GET",
+      success:function (res) {
+        console.log(url+"/Ajax/U/ListOrder.aspx?" + "U=&Token=" + "&State=undefined"  + "&PageIndex=1" + "&Number="  + "&Name="   + "&Size=L"  + "&Color="   + "&Series=")
+        var json=res.data;
+        console.log(res);
+      }
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+
   },
 
   /**

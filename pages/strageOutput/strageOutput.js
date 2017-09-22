@@ -1,16 +1,23 @@
 // pages/strageOutput/strageOutput.js
+var app=getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+      url:""
   },
   bindtap:function(e){
     wx.scanCode({
       success:(res)=>{
         alert(res);
+        let BarCode=res.result;
+        if(BarCode){
+          wx.request({
+            url:this.data.url+
+          })
+        }
       }
     })
   },
@@ -18,7 +25,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+      var url=app.url;
+      this.setData({
+        url:url
+      })
   },
 
   /**
