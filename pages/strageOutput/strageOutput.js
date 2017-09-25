@@ -11,13 +11,44 @@ Page({
   bindtap:function(e){
     wx.scanCode({
       success:(res)=>{
-        alert(res);
         let BarCode=res.result;
         if(BarCode){
           wx.request({
-            url:this.data.url+
+            url:this.data.url+"/Ajax/U/GetGoods.aspx?U=''&Token=''"+ "&Number=" + res.result,
+            method:'GET',
+            success:function (res) {
+              var result=res.data;
+              console.log(result);
+              if(result.success=='true'){
+                wx.navigateTo({
+                  url: '../strOut_list/strOut_list?Number='+result.Number
+                })
+              }else{
+                wx.showModal({
+                  title:'提示',
+                  content:'商品条码信息不全,请重新输入',
+                  success:function (e) {
+                    wx.navigateTo({
+                      url: "../strOut_JOG/strOut_JOG"
+                    })
+                  }
+                })
+              }
+            }
           })
         }
+      },
+      fail:(res) =>{
+        wx.showModal({
+          title: '提示',
+          content: '该条码无法识别，请手动输入条码',
+          showCancel: false,
+          success: function (res) {
+            wx.navigateTo({
+              url: "../strOut_JOG/strOut_JOG"
+            })
+          }
+        })
       }
     })
   },

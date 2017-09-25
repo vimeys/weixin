@@ -4,7 +4,7 @@
         <image src="../images/scan.png" class="r-image"></image>
         <view class="r-bdt">扫描出库</view>
     </view>
-    <navigator url="../storage_JOG/storage_JOG" class="r-con">
+    <navigator url="../strOut_JOG/strOut_JOG" class="r-con">
         <image src="../images/hand.png" class="r-bdi"></image>
         <view class="r-bdt">手动出库</view>
     </navigator>
