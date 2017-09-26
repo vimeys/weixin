@@ -4,11 +4,11 @@
         <image src="../images/book.png" class="r-bdi"></image>
         <view class="r-bdt">销售单管理</view>
     </navigator>
-    <navigator url="../sell_count_all/sell_count_all" class="r-con">
+    <navigator url="{{urlCount}}" class="r-con">
         <image src="../images/statistics.png" class="r-bdi"></image>
         <view class="r-bdt">销售统计</view>
     </navigator>
-    <navigator url="../sell_money_all/sell_money_all" class="r-con">
+    <navigator url="{{urlMoney}}" class="r-con">
         <image src="../images/coin.png" class="r-bdi"></image>
         <view class="r-bdt">销售额统计</view>
     </navigator>

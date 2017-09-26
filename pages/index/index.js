@@ -42,7 +42,7 @@ Page({
     });
     wx.setStorage({
       key:"url",
-      data:"1"
+      data:"2"
     });
     console.log(this.data.userInfo)
     // if(this.data.judgeUrl==1){

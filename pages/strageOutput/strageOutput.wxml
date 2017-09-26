@@ -8,7 +8,7 @@
         <image src="../images/hand.png" class="r-bdi"></image>
         <view class="r-bdt">手动出库</view>
     </navigator>
-    <navigator url="../strOut_list/strout_list" class="r-con">
+    <navigator url="../strOut_list/strout_list?id=1" class="r-con">
         <image src="../images/book.png" class="r-bdi"></image>
         <view class="r-bdt">出库订单</view>
     </navigator>

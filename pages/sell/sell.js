@@ -7,7 +7,10 @@ Page({
    */
   data: {
       judgeUrl:"",
-      urlList:'../sell_list_store/sell_store'
+      urlList:'../sell_list_store/sell_store',
+      urlCount:"../sell_count_store/sell_count_store",
+      urlMoney:"../sell_money_store/sell_money_store",
+
   },
 
   /**

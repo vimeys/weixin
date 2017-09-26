@@ -9,7 +9,15 @@ function getStor(that) {
       var judge = that.data.judgeUrl;
       if (judge == 1) {
         that.setData({
-          urlList: "../sell_list_area/sell_list_area"
+          urlList: "../sell_list_area/sell_list_area",
+          urlCount:"../sell_count_area/sell_count_area",
+          urlMoney:"../sell_money_area/sell_money_area"
+        })
+      }else if(judge==2){
+        that.setData({
+          urlList: "../sell_list_all/sell_list_all",
+          urlCount:"../sell_count_all/sell_count_all",
+          urlMoney:"../sell_money_all/sell_money_all"
         })
       }
     }

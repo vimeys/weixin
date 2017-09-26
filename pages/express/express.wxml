@@ -1,53 +1,54 @@
 <!--pages/express/express.wxml-->
-<view class="timeStart" bindtap="bindPick">发货日期<picker class="before" mode="date" start="{{start}}" disabled="{{use}}" value="{{Edate}}" data-type="2" bindchange="DateChange">
+<view class="timeStart" bindtap="bindPick">发货日期<picker class="before" mode="date" start="{{date}}" disabled="{{use}}" value="{{Edate}}" bindchange="DateChange">{{date}}
 </picker></view>
 <view class="express ">
-    <text>收货人  </text><view class="input">
-    <input type="text"/>
+    <text>收\t\t货\t\t人\t</text><view class="input">
+    <input type="text" data-type="1" bindblur="outPut"/>
 </view>
 </view>
 
 <view class="express margin-right">
     <text>联系方式</text><view class=" input input_big">
-    <input type="text"/>
+    <input type="text" data-type="2"bindblur="outPut"/>
 </view>
 </view>
 <view class="express ">
     发往区域<view class="input">
-    <picker class="before" mode="selector" value="{{Sdate}}" end="{{end}}" data-Type="1" bindchange="DateChange">
-        全部区域
+    <picker class="before" mode="selector" value="{{site}}" range="{{takeSite}}" data-Type="1" bindchange="optionChange">
+        {{takeSite[site]}}
     </picker>
 </view>
 </view>
 
 <view class="express margin-right">
     发往店铺<view class="input input_big">
-    <picker class="before" mode="selector" value="{{Sdate}}" end="{{end}}" data-Type="1" bindchange="DateChange">
-        待收货
+    <picker class="before" mode="selector" value="{{shop}}" range="{{takeShop}}" data-Type="2" bindchange="optionChange">
+        {{takeShop[shop]}}
     </picker>
 </view>
 </view>
 <view class="express_num">
-    <text>详细地址</text><input type="text"/>
+    <text>详细地址</text><input type="text" data-type="3"bindblur="outPut"/>
 </view>
 <view class="express">
-    发往快递<view class="input">
-    <picker class="before" mode="selector" value="{{Sdate}}" end="{{end}}" data-Type="1" bindchange="DateChange">
-        全部区域
+    发货快递<view class="input">
+    <picker class="before" mode="selector" value="{{expressIndex}}" range="{{express}}" data-Type="3" bindchange="optionChange">
+        {{express[expressIndex]}}
     </picker>
 </view>
 </view>
 <view class="express_num express_margin">
-    <text>快递单号</text><input type="text"/>
+    <text>快递单号</text><input type="text" data-type="4"bindblur="outPut"/>
 </view>
 <view class="express ">
-    <text style="text-indent: 20rpx">发货人  </text><view class="input">
-    <input type="text"/>
+    <text style="text-indent: 20rpx">发货人  </text><view class="input" >
+    <input type="text"  data-type="5"bindblur="outPut"/>
 </view>
 </view>
+<view class="fix" bindtap="sendExpress">发货</view>
 
 <view class="express margin-right">
     <text>联系方式</text><view class=" input input_big">
-    <input type="text"/>
+    <input type="text"  data-type="6"bindblur="outPut"/>
 </view>
 </view>
