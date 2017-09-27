@@ -1,6 +1,7 @@
 //app.js
 App({
   url:'https://adoms.scmxkj.com',
+
   onLaunch: function () {
     var url=this.Url;
     wx.getUserInfo({
@@ -23,7 +24,8 @@ App({
                 },
                 fail: function () {
                   // fail
-                  console.log()
+                  console.log(123);
+                  wx.setStorageSync('user', userInfoAvatar);
                 },
                 complete: function () {
                   // complete
@@ -36,8 +38,9 @@ App({
         })
 
       },
-      fail: function () {
+      fail: function (res) {
         // fail
+        console.log(res);
         console.log("获取失败！")
       },
       complete: function () {

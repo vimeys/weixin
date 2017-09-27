@@ -5,14 +5,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    url: "",//仓库链接
+    url1:""//店铺链接
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var userNum=wx.getStorageSync('userNum');
+    if(userNum==4){
+
+    }
   },
 
   /**

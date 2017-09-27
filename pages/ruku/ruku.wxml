@@ -1,6 +1,6 @@
 <!--pages/ruku/ruku.wxml-->
 <view class="classname">
-  <navigator hover-class="none" url="../storage/storage">
+  <navigator hover-class="none" url="../storage/storage" bindtap="">
   <image src="../images/cang.png"></image>
   </navigator>
   <view class="title title_bottom">仓库入库</view>

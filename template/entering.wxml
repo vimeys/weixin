@@ -10,7 +10,7 @@
         </picker></view>
         <view class="good_num">
             <view class=""><text>款式</text>
-                <input type="text"/></view>
+                <input type="text" placeholder="请输入密码"/></view>
             <view class="">
                 <text>款号</text>
                 <input type="text"/>

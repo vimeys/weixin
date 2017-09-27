@@ -49,6 +49,6 @@
 
 <view class="express margin-right">
     <text>联系方式</text><view class=" input input_big">
-    <input type="text"  data-type="6"bindblur="outPut"/>
+    <input type="text"  data-type="6" bindblur="outPut"/>
 </view>
 </view>

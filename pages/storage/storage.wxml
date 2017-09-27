@@ -15,11 +15,11 @@
     </navigator>
     <navigator url="../storage_count/storage_count" class="r-con">
         <image src="../images/statistics.png" class="r-bdi"></image>
-        <view class="r-bdt">出库统计</view>
+        <view class="r-bdt">入库统计</view>
     </navigator>
 
     <navigator url="../storage_note/storage_note" class="r-con">
         <image src="../images/diary.png" class="r-bdi"></image>
-        <view class="r-bdt">出库日志</view>
+        <view class="r-bdt">入库日志</view>
     </navigator>
 </view>

@@ -13,7 +13,7 @@ function getStor(that) {
           urlCount:"../sell_count_area/sell_count_area",
           urlMoney:"../sell_money_area/sell_money_area"
         })
-      }else if(judge==2){
+      }else if(judge==2||judge==3){
         that.setData({
           urlList: "../sell_list_all/sell_list_all",
           urlCount:"../sell_count_all/sell_count_all",
