@@ -5,24 +5,29 @@
 
   if (Type == 1) {
     select1.start = e.detail.value;
-    // console.log(select1.start);
-    // var start=select1.start.replace(/-/g,'/')
-    // var start1=new Date(start);
-    // var time=Date.getTime(start1);
-    // console.log(start1);
+    var start=select1.start.replace(/-/g,'/')
+    var start1=new Date(start);
+    var time=start1.getTime(start1);
 
-    // wx.request({
-    //   url:'',
-    //   data:{
-    //     size:select1.start,
-    //   }
-    // });
+    wx.request({
+      url:'',
+      method:"GET",
+      data:{
+        size:select1.start,
+      },
+      success:function () {
+
+      }
+    });
     that.setData({
-
       select: select1,
     })
   } else {
     select1.end = e.detail.value;
+    var start=select1.end.replace(/-/g,'/')
+    var start1=new Date(start);
+    var time=start1.getTime(start1);
+
     that.setData({
       select: select1
     })

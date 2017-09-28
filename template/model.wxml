@@ -1,0 +1,10 @@
+<view class="all" wx:if="{{Model}}">
+    <view  class="model">
+        <view>请选择具体店铺</view>
+        <radio-group bindchange="checkboxChange">
+            <label class="checkbox" wx:for="{{items}}">
+                <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+            </label>
+        </radio-group>
+    </view>
+</view>
