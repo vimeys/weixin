@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    url:"",
     select: {
       use: false,
       start: "开始时间",
@@ -33,7 +34,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    var url=app.url;
+    this.setData({
+      url:url
+    });
+    wx.request({
+      url:url,
+      method:"GET",
+      data:{},
+      success:function (res) {
+
+      }
+    })
   },
 
   /**

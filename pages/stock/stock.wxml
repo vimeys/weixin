@@ -1,5 +1,5 @@
 <!--pages/stock/stock.wxml-->
-<view class="classname"><img src="../../../公司文件存放/仓库出库/仓库出库-扫描失败_spec.png"/>
+<view class="classname">
     <navigator hover-class="none" url="../stock_storage/stock_storage">
         <image src="../images/cang.png"></image>
     </navigator>
@@ -8,4 +8,5 @@
         <image src="../images/dian.png"></image>
     </navigator >
     <view class="title">店铺库存</view>
+
 </view>

@@ -8,4 +8,5 @@
     <image src="../images/dian.png"></image>
   </navigator>
   <view class="title">店铺入库</view>
+  <include src="../../template/model.wxml"/>
 </view>

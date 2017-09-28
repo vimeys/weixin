@@ -16,3 +16,20 @@ navigator image{
 .title_bottom{
     margin-bottom: 140rpx;
 }
+
+.model{
+    margin-top: 100rpx;
+    background: #e5e5e5;
+    padding: 20rpx;
+    border-radius: 30rpx;
+}
+.model view{
+    text-align: center;
+    padding-bottom: 20rpx;
+    border-bottom: 1px solid #333333;
+}
+.model label{
+    display: block;
+    text-align: left;
+    margin-top: 20rpx;
+}

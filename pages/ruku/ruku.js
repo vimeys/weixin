@@ -6,7 +6,16 @@ Page({
    */
   data: {
     url: "",//仓库链接
-    url1:""//店铺链接
+    url1:"",//店铺链接
+    Model:false,
+    items: [
+      {name: 'USA', value: '美国'},
+      {name: 'CHN', value: '中国'},
+      {name: 'BRA', value: '巴西'},
+      {name: 'JPN', value: '日本sdf啥地方风问'},
+      {name: 'ENG', value: '英国'},
+      {name: 'TUR', value: '法国'},
+    ]
   },
 
   /**

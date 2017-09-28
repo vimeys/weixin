@@ -1,6 +1,6 @@
 //app.js
 App({
-  url:'https://adoms.scmxkj.com',
+  url:'http://jxc.scmxkj.com/index.php/invo/',
 
   onLaunch: function () {
     var url=this.Url;

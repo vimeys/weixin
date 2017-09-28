@@ -3,8 +3,21 @@
         <image src="../images/cang.png"></image>
     </navigator>
     <view class="title title_bottom">仓库库存</view>
-    <navigator hover-class="none" url="{{url1}}" bindtap="bindUrlTap" data-type="{{url1?1:2}}">
+    <navigator hover-class="none" url="{{url1}}" bindtap="bindUrl1Tap" data-type="{{url1?1:2}}">
         <image src="../images/dian.png"></image>
     </navigator >
     <view class="title">店铺库存</view>
+    <view>
+
+    </view>
+    <view class="all" wx:if="{{Model}}">
+        <view  class="model">
+            <view>请选择具体店铺</view>
+            <radio-group bindchange="checkboxChange">
+                <label class="checkbox" wx:for="{{items}}">
+                    <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+                </label>
+            </radio-group>
+        </view>
+    </view>
 </view>

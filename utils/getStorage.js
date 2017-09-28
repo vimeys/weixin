@@ -25,4 +25,4 @@ function getStor(that) {
 }
 module.exports = {
   getStor: getStor
-}
+};

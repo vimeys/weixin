@@ -1,5 +1,6 @@
 /* pages/ruku/ruku.wxss */
-navigator{
+@import "../../template/model.wxss";
+navigator {
     width: 300rpx;
     margin: 90rpx auto 0;
 }

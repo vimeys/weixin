@@ -5,7 +5,12 @@
 
   if (Type == 1) {
     select1.start = e.detail.value;
-    console.log(select1.start)
+    // console.log(select1.start);
+    // var start=select1.start.replace(/-/g,'/')
+    // var start1=new Date(start);
+    // var time=Date.getTime(start1);
+    // console.log(start1);
+
     // wx.request({
     //   url:'',
     //   data:{

@@ -1,5 +1,6 @@
 function getUrl(e,that) {
   var Type=e.currentTarget.dataset.type;
+  console.log(Type);
   if(Type==2){
     wx.showModal({
       title: '警告',

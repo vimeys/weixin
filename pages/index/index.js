@@ -11,6 +11,27 @@ Page({
     url1:"",
     user: { nick: '', avatarUrl: '/images/default-header.png' },
     userInfo:"",
+    Model:false,
+    items: [
+      {name: 'USA', value: '美国'},
+      {name: 'CHN', value: '中国'},
+      {name: 'BRA', value: '巴西'},
+      {name: 'JPN', value: '日本sdf啥地方风问'},
+      {name: 'ENG', value: '英国'},
+      {name: 'TUR', value: '法国'},
+    ],
+  },
+  checkboxChange: function(e) {
+    console.log('checkbox发生change事件，携带value值为：', e.detail.value)
+    // if(e.detail.value){
+      console.log(1);
+    this.setData({
+      Model:false
+    })
+    wx.navigateTo({
+      url: '../stock_store/stock_store?shopId='+e.detail.value
+    })
+    // }
   },
   //事件处理函数
   bindViewTap: function() {
@@ -19,37 +40,52 @@ Page({
     })
   },
   bindUrlTap:function (e) {
+    var url=wx.getStorageSync('userNum');
+    if(url==3||url==4){
+      this.setData({
+        url:"../stock_storage/stock_storage"
+      })
+    }
     getUrl.getUrl(e,this);
   },
+
+
+  bindUrl1Tap:function (e) {
+    var url=wx.getStorageSync('userNum');
+    if(url==3||url==4){
+      this.setData({
+        url1:"123",
+        Model:true
+      })
+    }
+    if(this.data.Model.toString()=="false"){
+      console.log(1);
+      getUrl.getUrl(e,this);
+    }
+  },
+
+
   onLoad: function () {
-    // wx.login({
-    //   success: function (res) {
-    //     console.log(res.code);
-    //   }
-    // })
-    // app.getUserInfo(function (userInfo) {
-    //   this.setData({
-    //     userInfo: userInfo
-    //   })
-    // });
     wx.setStorage({
       key:"userNum",
       data:"4"
     });
-    console.log(this.data.userInfo)
+    console.log(this.data.userInfo);
     var url=wx.getStorageSync("userNum");
-    if(url==3||url==1){
+    if(url==2){
       this.setData({
-        url:"../stock_store/stock_store",
+        url:"../stock_storage/stock_storage",
+      })
+    }else if(url==1){
+      this.setData({
+        url1:"../stock_store/stock_store",
       })
     }else{
       this.setData({
-        url1:"../stock_storage/stock_storage",
-
+        url:"../stock_storage/stock_storage"
       })
+
     }
-
-
     // if(this.data.judgeUrl==1){
     //     // wx.showModal({
     //     //   title: '警告',
@@ -85,7 +121,6 @@ Page({
   },
   onLaunch:function () {
     console.log(1);
-      
   },
   //   DateChange:function (e) {
   //     console.log(e.detail.value);
