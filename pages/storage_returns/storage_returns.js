@@ -7,23 +7,25 @@ Page({
   data: {
     select:{
       use:false,
-    start:"开始时间",
-    end:"结束时间"
+      start:"开始时间",
+      end:"结束时间"
     }
       
    
     
   },
   DateChange:function (e) {
-    console.log(e.target.dataset.type);
     var Type=e.target.dataset.type;
+    var select=this.data.select;
     if(Type==1){
+      select.start=e.detail.value;
       this.setData({
-        start:e.detail.value
+        select:select
       })
     }else{
+      select.end=e.detail.value;
       this.setData({
-        end:e.detail.value
+        select:select
       })
     }
 

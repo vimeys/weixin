@@ -1,6 +1,7 @@
 // pages/storage_note/storage_note.js
 var Datechange=require("../../utils/Datechange");
 var optionChange=require("../../utils/optionChange");
+var output=require("../../utils/output");
 Page({
   /**
    * 页面的初始数据
@@ -32,6 +33,9 @@ Page({
   },
   DateChange:function (e) {
     Datechange.DateChange(e,this)
+  },
+  output:function(e){
+    output.output(e,this)
   },
   optionChange:function (e) {
     optionChange.optionChange(e,this)

@@ -2,6 +2,7 @@
 var app = getApp();
 var Datechange = require("../../utils/Datechange.js");
 var optionChange=require("../../utils/optionChange");
+var output=require("../../utils/output");
 Page({
 
   /**
@@ -11,6 +12,9 @@ Page({
     url:"",
     select: {
       use: false,
+      style:"",
+      styleNum:"",
+      codeBar:"",
       start: "开始时间",
       end: "结束时间",
       Date: {"a": ["new"], "b": 2, "c": 3, "d": 4},
@@ -26,7 +30,9 @@ Page({
   DateChange:function (e) {
     Datechange.DateChange(e,this);
   },
-
+  output:function (e) {
+      output.output(e,this);
+  },
   optionChange:function (e) {
     optionChange.optionChange(e,this);
   },

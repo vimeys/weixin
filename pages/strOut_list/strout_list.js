@@ -5,48 +5,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    count:[2],
-    url:''
+    count:[1,2,3,4,5]
 
   },
   delThis:function (e) {
     var delCount=e.currentSrc.dataset.type;
 
   },
-  getMore:function (e) {
-    var count=this.data.count;
-    wx.setStorage({
-      key:"count",
-      data:count
-    });
-    wx.navigateBack({
-      delta:1
-    })
-  },
-  express:function (e) {
-    wx.navigateTo({
-      url:"../express/express?number="+this.data.count
-    });
-    wx.removeStorageSync("count")
-  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var id=options.id
-    var storage=wx.getStorageSync('count');
-    var count=this.data.count;
-    if(!storage){
-      count.push(parseInt(id));
-      this.setData({
-        count:count
-      })
-    }else{
-      storage.push(parseInt(id));
-      this.setData({
-        count:storage
-      });
-    }
+  
   },
 
   /**

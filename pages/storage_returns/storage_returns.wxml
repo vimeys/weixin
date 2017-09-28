@@ -1,12 +1,12 @@
 <!--pages/storage_returns/storage_returns.wxml-->
 <view class="time">
-    <view class="timeStart"><picker mode="date" start="{{start}}" disabled="{{use}}" value="{{Edate}}" data-type="2" bindchange="DateChange">
-        {{start}}
+    <view class="timeStart"><picker mode="date" start="{{start}}" disabled="{{select.use}}" value="{{Edate}}" data-type="1" bindchange="DateChange">
+        {{select.start}}
     </picker>
     </view>
     <text>~~</text>
-    <view class="timeStart" bindtap="bindPick"><picker mode="date" end="{{end}}" disabled="{{use}}" value="{{Edate}}" data-type="2" bindchange="DateChange">
-        {{end}}
+    <view class="timeStart"><picker mode="date" end="{{end}}" disabled="{{select.use}}" value="{{Edate}}" data-type="2" bindchange="DateChange">
+        {{select.end}}
     </picker></view>
 </view>
 
