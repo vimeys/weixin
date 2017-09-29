@@ -12,6 +12,29 @@ Page({
       wx.scanCode({
           success:(res)=>{
             console.log(res.ruslut);
+            wx.request({
+              url:"",
+              method:"GET",
+              data:"",
+              success:function (res) {
+                var data=res.data;
+                if(data.success=="true"){
+                  wx.navigateTo({
+                    url:"../storage_list/storage_list?number="+res.data.number
+                  })
+                }else{
+                  wx.showModal({
+                    title: '提示',
+                    content: '该条码不存在,请核对后再扫描',
+                    success: res=>{
+                      if (res.confirm) {
+                        console.log("关闭")
+                      }
+                    }
+                  })
+                }
+              }
+            })
           }
       })
   },
@@ -27,7 +50,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**

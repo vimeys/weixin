@@ -17,6 +17,12 @@ App({
               console.log(res.code)
               wx.request({
                 url: url+'/WeChat/login.aspx?Code=' + res.code + "&Img="+userInfoAvatar+"&Name="+nickname,
+                method:"POST",
+                data:{
+                  code:res.code,
+                  Img:userInfoAvatar,
+                  Name:nickname
+                },
                 success: function (res) {
                   if (res.data.Success == 'true')
                     wx.setStorageSync('UserID', res.data.UserID);

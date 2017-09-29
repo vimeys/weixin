@@ -1,16 +1,28 @@
 // pages/storage_JOG/storage_JOG.js
+var app=getApp();
+var storageJOG=require("../../utils/storageJOG");
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+      Number:""
   },
-  location:function () {
-      wx.navigateTo({
-        url: '../storage_list/storage_list'
-      })
+  bindInput:function (e) {
+    var value=e.detail.value;
+    console.log(e);
+    this.setData({
+      Number:value
+    })
+  },
+  location:function (e) {
+    // var that=this.data;
+    storageJOG.storageJOG("../storage_list/storage_list",this);
+    console.log(this.data.Number);
+    // wx.navigateTo({
+    //     url: '../storage_list/storage_list'
+    //   })
   },
   /**
    * 生命周期函数--监听页面加载

@@ -9,6 +9,7 @@ Page({
   data: {
     active1:'1',
     count:[1,2,3],
+    time:1477808630404,
     goodsMeg:{
       name:"超级好看的鞋子",
       sizeNum:"49646164615",
@@ -50,7 +51,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+      // var time=new Date(this.data.time)
+    var time=new Date().getDate();
+    var time1=new Date().getHours();
+    var time2=new Date().getMinutes();
+    var time3=new Date().getSeconds();
+    console.log(time+"+"+time1+"+"+time2+"+"+time3)
   },
 
   /**
