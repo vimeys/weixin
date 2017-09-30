@@ -1,6 +1,7 @@
 // pages/strOut_JOG/strOut_JOG.js
 var app=getApp();
-var JOG=require("../../utils/JOG.js");
+// var JOG=require("../../utils/JOG.js");
+var storageJOG=require("../../utils/storageJOG")
 Page({
 
   /**
@@ -8,10 +9,10 @@ Page({
    */
   data: {
     url:'',
-    Number:'',
-    Barcode:''
+    Number:'',//条码号
+    barcode:''
   },
-  outPut:function (e) {
+  bindInput:function (e) {
     var num=e.detail.value;
     this.setData({
       Number:num
@@ -19,7 +20,8 @@ Page({
   },
   location:function () {
     var num=this.data.Number;
-    JOG.JOG("../strOut_list/strOut_list",num,this)
+    storageJOG.storageJOG("../strOut_list/strOut_list",this);
+
   },
   /**
    * 生命周期函数--监听页面加载

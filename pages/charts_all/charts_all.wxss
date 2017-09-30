@@ -1,0 +1,95 @@
+/* pages/charts_all/charts_all.wxss */
+.title {
+    padding: 30rpx 20rpx 30rpx 20rpx;
+    border-bottom: 10rpx solid #e5e5e5;
+    font-size: 28rpx;
+    border-bottom: 10rpx solid #e5e5e5;
+}
+.title .time{
+    padding-bottom: 30rpx;
+}
+.select{
+    display: inline-block;
+    width: 587rpx;
+    height: 46rpx;
+    padding-left: 10rpx;
+    padding-top: 5rpx;
+    box-sizing: border-box;
+    border: 1rpx solid #ccc;
+    margin-left: 10rpx;
+    position: relative;
+    font-size: 24rpx;
+    vertical-align: -14rpx;
+}
+.shop{
+    width: 100%;
+}
+.shop .shop_choose{
+    display: inline-block;
+    float:right;
+}
+.shop .shop_choose .select{
+    display: inline-block;
+    width: 200rpx;
+    height: 46rpx;
+    padding-left: 10rpx;
+    padding-top: 5rpx;
+    box-sizing: border-box;
+    border: 1rpx solid #ccc;
+    margin-left: 10rpx;
+    position: relative;
+    font-size: 24rpx;
+}
+.total{
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 80rpx;
+}
+.total text{
+    margin-bottom: 40rpx;
+}
+.total text:first-child{
+    font-size: 32rpx;
+}
+.total text:last-child{
+    font-size: 76rpx;
+    color:#fe0101;
+}
+.shop .addr{
+    display: inline-block;
+    width: 200rpx;
+    height: 46rpx;
+    padding-left: 10rpx;
+    padding-top: 5rpx;
+    box-sizing: border-box;
+    border: 1rpx solid #ccc;
+    margin-left: 10rpx;
+    position: relative;
+    font-size: 24rpx;
+    vertical-align: -14rpx;
+}
+.style{
+	width: 100%;
+	margin-top: 20rpx;
+}
+.style input{
+	display: inline-block;
+	border: 1px solid #e5e5e5;
+	width: 588rpx;
+	height: 46rpx;
+	min-height: 46rpx;
+	vertical-align: -12rpx;
+	margin-left: 50rpx;
+}
+.canvas{
+	width:100%;
+	height:200px
+}
+.before::before{
+    position: absolute;
+    color:#333;
+    content:"▼";
+    right:1rpx;
+    top:0rpx;
+}

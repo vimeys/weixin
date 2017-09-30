@@ -4,7 +4,7 @@ function shopJOG(nav,that) {
     method:'GET',
     data:{
       Number:that.data.Number,
-    }
+    },
     success:function (res) {
       if(res.success=='true'){
         wx.navigateTo({

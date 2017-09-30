@@ -68,7 +68,7 @@ Page({
   onLoad: function () {
     wx.setStorage({
       key:"userNum",
-      data:"4"
+      data:"1"
     });
     console.log(this.data.userInfo);
     var url=wx.getStorageSync("userNum");

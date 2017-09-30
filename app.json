@@ -51,6 +51,8 @@
     "pages/sell_money_all/sell_money_all",
     "pages/sell_list_detail/sell_list_detail",
     "pages/charts/line/line",
+    "pages/charts_area/charts_area",
+    "pages/charts_all/charts_all",
     "pages/alert/alert"
   ],
   "window":{

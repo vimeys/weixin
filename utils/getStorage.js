@@ -1,6 +1,6 @@
 function getStor(that) {
   wx.getStorage({
-    key: 'url',
+    key: 'userNum',
     success: res => {
       var judgeUrl = res.data;
       that.setData({
