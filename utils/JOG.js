@@ -1,3 +1,4 @@
+//手动录入条码号
 function JOG(nav,num,that) {
   wx.request({
     url:that.data.url+"/Ajax/U/GetGoods.aspx?U=''&Token=''&Number"+num,

@@ -1,3 +1,4 @@
+//权限信息提示警告
 function getUrl(e,that) {
   var Type=e.currentTarget.dataset.type;
   console.log(Type);

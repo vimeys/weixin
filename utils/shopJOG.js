@@ -1,3 +1,4 @@
+//店铺手动输入事件
 function shopJOG(nav,that) {
   wx.request({
     url:'',

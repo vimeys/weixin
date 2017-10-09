@@ -1,4 +1,5 @@
 <!--pages/charts_area/charts_area.wxml-->
+
 <view class="container">
     <view class="title">
         <view class="title">

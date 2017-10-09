@@ -57,8 +57,8 @@ App({
   },
   getUserId_Token:function(){
     var obj={}
-    var UserID=wx.getStorageSync('UserID')
-    var Token=wx.getStorageSync('Token')
+    var UserID=wx.getStorageSync('UserID');
+    var Token=wx.getStorageSync('Token');
     console.log(UserID)
     console.log(Token)
     obj.UserID=UserID;

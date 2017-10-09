@@ -1,3 +1,4 @@
+//输入框失去焦点时间
 function output(e,that) {
     var value=e.detail.value;
     console.log(e);

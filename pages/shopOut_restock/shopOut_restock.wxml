@@ -18,19 +18,19 @@
         </view>
     </view>
     <view class="method">
-        <view class="big">
-            <view class=""></view>
+        <view class="big" bindtap="chooseStyle" data-type="1">
+            <view class="small"></view>
         </view>
         销售出库
-        <view class="big left">
+        <view class="big left" bindtap="chooseStyle" data-type="2">
             <view></view>
         </view>
         调货出库
-        <view class="big left">
+        <view class="big left" bindtap="chooseStyle" data-type="3">
             <view></view>
         </view>
         退货出库
     </view>
-    <navigator class="add" url="../strageOutput/strageOutpu">继续添加</navigator>
-    <navigator class="fix" url="../">确认并填写发货单</navigator>
+    <navigator class="add" url="../strageOutput/strageOutput">继续添加</navigator>
+    <navigator class="fix" url="">确认并填写发货单</navigator>
 </view>

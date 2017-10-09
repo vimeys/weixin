@@ -1,3 +1,4 @@
+//多选框改变时间
 function optionChange(e,that) {
   console.log(e);
   console.log(that);

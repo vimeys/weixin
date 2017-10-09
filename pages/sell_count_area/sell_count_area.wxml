@@ -1,7 +1,7 @@
 <!--pages/sell_count_area/sell_count_area.wxml-->
 <view class="title">
-    <view class="time">时间<picker mode="selector"  class="select before" start="{{start}}" disabled="{{use}}" value="{{index}}" data-type="2" bindchange="DateChange" range="{{array}}">
-        {{array[index]}}
+    <view class="time">时间<picker mode="selector"  class="select before" start="{{start}}" disabled="{{use}}" value="{{index}}" data-type="2" bindchange="DateChange" range="{{date}}">
+        {{date[index]}}
     </picker>
     </view>
     <view class="shop">成都市成华区跳蹬河 <view class="store">店铺选择<picker mode="selector"  class="select before" start="{{start}}" disabled="{{use}}" value="{{index}}" data-type="2" bindchange="DateChange" range="{{array}}">

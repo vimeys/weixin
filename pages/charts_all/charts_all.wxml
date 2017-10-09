@@ -1,26 +1,26 @@
 <!--pages/charts_all/charts_all.wxml-->
-<view class="container">
-  <view class="title">
+<view class="title">
     <view class="time">统计周期
-      <picker mode="selector" class="select before" start="{{start}}" disabled="{{use}}" value="{{index}}" data-type="2"
-              bindchange="DateChange" range="{{date}}">
-        {{date[index]}}
-      </picker>
+        <picker mode="selector" class="select before" start="{{start}}" disabled="{{use}}" value="{{index1}}" data-type="2" bindchange="DateChange" range="{{date1}}">
+            {{date1[index]}}
+        </picker>
     </view>
     <view class="shop">区域选择
-      <picker mode="selector" class="addr before" start="{{start}}" disabled="{{use}}" value="{{index}}" data-type="2"
-              bindchange="DateChange" range="{{area}}">
-        {{area[index]}}
-      </picker>
-      <veiw class="shop_choose">店铺选择
-        <picker mode="selector" class="select before" start="{{start}}" disabled="{{use}}" value="{{index}}"
-                data-type="2" bindchange="DateChange" range="{{shop}}">
-          {{shop[index]}}
+        <picker mode="selector" class="addr before" start="{{start}}" disabled="{{use}}" value="{{index}}" data-type="2"
+                bindchange="DateChange" range="{{area}}">
+            {{area[index]}}
         </picker>
-      </veiw>
+        <veiw class="shop_choose">店铺选择
+            <picker mode="selector" class="select before" start="{{start}}" disabled="{{use}}" value="{{index}}"
+                    data-type="2" bindchange="DateChange" range="{{shop}}">
+                {{shop[index]}}
+            </picker>
+        </veiw>
     </view>
     <view class="style">款式 <input type="text"/></view>
-  </view>
-  <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
-  <button type="primary" bindtap="updateData">更新数据</button>
+</view>
+<view class="container">
+
+    <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
+    <button type="primary" bindtap="updateData">更新数据</button>
 </view>

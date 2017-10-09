@@ -1,3 +1,4 @@
+//仓库手动输入事件
 function storageJOG(nav,that) {
   wx.request({
     url:"",

@@ -5,9 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    url:""//动态发货页面
   },
+  chooseStyle:function (e) {
+    var Type=e.currentTarget.dataset.type;
+    if(Type=1){
 
+    }
+    console.log(e);
+  },
   /**
    * 生命周期函数--监听页面加载
    */
