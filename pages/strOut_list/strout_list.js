@@ -1,17 +1,24 @@
 // pages/strOut_list/strout_list.js
+var common=require("../../utils/common")
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    count:[1,2,3,4,5]
+    count:[{"goods":"1"},{"goods":2},{"goods":3}]
 
   },
+    //删除事件
   delThis:function (e) {
     var delCount=e.currentSrc.dataset.type;
 
   },
+  //修改商品数量
+    output:function(e){
+      console.log(e);
+      common.output(e,this);
+    },
   /**
    * 生命周期函数--监听页面加载
    */

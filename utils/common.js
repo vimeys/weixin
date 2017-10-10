@@ -36,11 +36,19 @@ function request(that){
 }
 //订单列表页面修改数量
 function output(e,that) {
-    var value=e.target.detail.value;
-
+    var value=e.detail.value;
+    var Type=e.currentTarget.dataset.type;
+    var data=that.data;
+    var count=data.count;
+    count[Type].goods=value;
+    that.setData({
+        count:count
+    })
+    console.log(that.data.count)
 }
 
 module.exports={
     bindpick:bindpick,
-    request:request
+    request:request,
+    output:output
 }
