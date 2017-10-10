@@ -11,7 +11,7 @@
                 <view>款号：<text>45574543156</text></view>
                 <view>条码号：<text>461646164164</text></view>
                 <view class="last">
-                    尺码：<text>L</text>颜色：<text>红色</text> 数量： <input type="number" value=""/>
+                    尺码：<text>L</text>颜色：<text>红色</text> 数量： <input type="number" value="1" bindblur="output"/>
                 </view>
                 <image src="../images/delete.png" bindtap="delThis" data-type="index"></image>
             </view>

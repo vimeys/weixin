@@ -33,6 +33,7 @@
     "pages/shopOut_restock/shopOut_restock",
     "pages/shopOut_return/shopOut_return",
     "pages/shopOut_sell/shopOut_sell",
+    "pages/shopOut_order/shopOut_order",
     "pages/shopOut_sellList/sellLsit",
     "pages/stock/stock",
     "pages/stock_storage/stock_storage",
@@ -85,7 +86,7 @@
         "text": "出库"
       },
       {
-        "pagePath": "pages/sell/sell",
+        "pagePath": "pages/strOut_list/strout_list",
         "iconPath": "pages/images/tabIcon/xiaoshou-1.png",
         "selectedIconPath": "pages/images/tabIcon/xiaoshou.png",
         "text": "销售"

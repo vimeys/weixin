@@ -14,7 +14,7 @@ function logging(fn, that) {
               url: obj.url + '/WeChat/login.aspx?Code=' + res.code + "&Img=" + userInfoAvatar + "&Name=" + nickname,
               success: function (res) {
                 if (res.data.Success == 'true')
-                  wx.setStorageSync('UserID', res.data.UserID);
+                wx.setStorageSync('UserID', res.data.UserID);
                 wx.setStorageSync('Token', res.data.Token);
                 that.setData({
                   U: res.data.UserID,
@@ -23,7 +23,6 @@ function logging(fn, that) {
                 if (fn && that) {
                   fn(that);
                 }
-
               },
               fail: function () {
                 // fail

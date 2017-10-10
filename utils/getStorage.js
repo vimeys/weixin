@@ -1,5 +1,6 @@
+//获取用户User的ID和token
 function getStorage_Id(){
-  var obj={},
+  var obj={};
   var userId=wx.getStorageSync("userID");
   var Token=wx.getStorageSync("Token");
   obj.UserID=userId;

@@ -1,11 +1,11 @@
-<!--pages/strOut_order/strOut_order.wxml-->
+<!--pages/shopOut_order/shopOut_order.wxml-->
 <view class="time">
-    <view class="timeStart"><picker mode="date"  start="{{start}}"  value="{{start}}"  data-type="1" bindchange="DateChange">
+    <view class="timeStart"><picker mode="date"  start="{{start}}" disabled="{{use}}" value="{{start}}"  data-type="1" bindchange="DateChange">
         {{start}}
         </picker>
     </view>
     <text>~~</text>
-    <view class="timeStart" bindtap="bindpick"><picker mode="date" end="{{end}}" disabled="{{disable}}" value="{{end}}"  data-type="2" bindchange="DateChange">
+    <view class="timeStart" bindtap="bindPick"><picker mode="date" end="{{end}}" disabled="{{use}}" value="{{end}}"  data-type="2" bindchange="DateChange">
         {{end}}
     </picker></view>
     <view class="express ">

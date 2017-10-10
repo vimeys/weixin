@@ -1,0 +1,46 @@
+//确定前一个时间已经选择
+function bindpick(that){
+  var display=that.data.disable;
+  if(display==true){
+      wx.showModal({
+        title: '提示',
+        content: '请选择请示时间',
+        success: res=>{
+          if (res.confirm) {
+            console.log("成功")
+          }
+        }
+      })
+  }
+}
+//店铺和仓库出库列表所有参数时间的传递
+function request(that){
+    var data=that.data;
+    var url=data.url;
+    var start=data.Start;
+    var end=data.end;
+    var area=data.areaWord;
+    var style=data.styleWord;
+    var express=data.expressWord;
+    var expressNum=data.expressNum;
+    wx.request({
+        url:url,
+        method:"GET",
+        data:{
+            
+        },
+        success:function (res) {
+            var josn=res.data;
+        }
+    })
+}
+//订单列表页面修改数量
+function output(e,that) {
+    var value=e.target.detail.value;
+
+}
+
+module.exports={
+    bindpick:bindpick,
+    request:request
+}
