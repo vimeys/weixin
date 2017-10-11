@@ -1,3 +1,4 @@
+<!--统计数据-->
 <template name="count_detail">
 <view class="list">
     <view class="img">

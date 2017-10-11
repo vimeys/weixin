@@ -6,19 +6,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+      url:"",//
+      number:""//条码号
   },
   bindtap:function(){
+    var that=this
       wx.scanCode({
           success:(res)=>{
             console.log(res.ruslut);
+            var number=res.ruslut;
             wx.request({
-              url:"",
-              method:"GET",
-              data:"",
+              url:"http://192.168.0.122/jxc1/index.php/invo/wearhouse/waitList",
+              method:"POST",
+              data:{
+                  goodsCode:that.data.Number
+              },
               success:function (res) {
                 var data=res.data;
-                if(data.success=="true"){
+                if(data.code==200||data.code==203){
+                  that.setData({
+                      number:number
+                  })
                   wx.navigateTo({
                     url:"../storage_list/storage_list?number="+res.data.number
                   })
@@ -43,7 +51,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+      var url=app.url;
+      this.setData({
+          url:url
+      })
   },
 
   /**

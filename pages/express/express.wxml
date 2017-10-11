@@ -9,7 +9,7 @@
 
 <view class="express margin-right">
     <text>联系方式</text><view class=" input input_big">
-    <input type="text" data-type="2"bindblur="outPut"/>
+    <input type="number" data-type="2"bindblur="outPut"/>
 </view>
 </view>
 <view class="express ">
@@ -38,7 +38,7 @@
 </view>
 </view>
 <view class="express_num express_margin">
-    <text>快递单号</text><input type="text" data-type="4"bindblur="outPut"/>
+    <text>快递单号</text><input type="number" data-type="4"bindblur="outPut"/>
 </view>
 <view class="express ">
     <text style="text-indent: 20rpx">发货人  </text><view class="input" >
@@ -49,6 +49,6 @@
 
 <view class="express margin-right">
     <text>联系方式</text><view class=" input input_big">
-    <input type="text"  data-type="6" bindblur="outPut"/>
+    <input type="number"  data-type="6" bindblur="outPut"/>
 </view>
 </view>

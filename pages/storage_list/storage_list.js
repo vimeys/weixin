@@ -1,4 +1,5 @@
 // pages/storage_list/storage_list.js
+var app=getApp();
 Page({
 
   /**
@@ -6,14 +7,34 @@ Page({
    */
   data: {
     url:'',
-    number:""
+    number:"",
+    Data:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+      var url=app.url;
+      var that=this;
+      var Num=options.number
+        this.setData({
+            url:url,
+            number:Num
+      })
+      wx.request({
+          url:this.data.url+"wearhouse/waitList",
+          method:"POST",
+          // data:{}
+          success:function (res) {
+             var json=res.data.data;
+             console.log(res.data);
+             console.log(json);
+             that.setData({
+                 Data:json
+             })
+          }
+      })
   },
 
   /**

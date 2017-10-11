@@ -94,7 +94,7 @@ image{
     background: #1caba2;
     border-radius: 10rpx;
 }
-navigator.add{
+.add{
     display: inline-block;
 
     width: 200rpx;
@@ -108,7 +108,7 @@ navigator.add{
     margin-top: 20rpx;
     margin-bottom: 120rpx;
 }
-navigator.fix{
+.fix{
     width: 100%;
     color:white;
     height: 100rpx;

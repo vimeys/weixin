@@ -1,0 +1,53 @@
+.list{
+    width: 100%;
+    border-bottom: 1rpx solid #333;
+    display: flex;
+    padding-top: 30rpx;
+}
+.img{
+    padding-left: 20rpx;
+    width: 270rpx;
+    flex: initial;
+}
+image{
+    width:250rpx;
+    height: 178rpx;
+}
+.table{
+    padding-top: 10rpx;
+    padding-bottom: 10rpx;
+    flex:1;
+    font-size: 24rpx;
+    line-height:44rpx;
+    position: relative;
+}
+.table .title{
+    font-size: 28rpx;
+    margin-bottom: 10rpx;
+
+}
+.table input{
+    display: inline-block;
+    border: 1rpx solid #333333;
+    width: 80rpx;
+    height: 38rpx;
+    color:#FF0202;
+    vertical-align: middle;
+    font-size: 28rpx;
+    min-height: 38rpx;
+    padding-left: 5rpx;
+    box-sizing: border-box;
+}
+.table .last{
+    line-height: 44rpx;
+}
+.table .last text{
+    margin-right: 35rpx;
+}
+.table image{
+    width: 46rpx;
+    height: 46rpx;
+    position: absolute;
+    right: 20rpx;
+    top: 5rpx;
+}

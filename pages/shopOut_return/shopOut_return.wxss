@@ -70,6 +70,7 @@ image{
     margin-top: 30rpx;
     padding-bottom: 20rpx;
     border-bottom: 10rpx solid #ccc;
+    font-size: 30rpx;
     padding-left: 20rpx;
 }
 .total text{
@@ -83,4 +84,15 @@ textarea{
     padding-left: 20rpx;
     padding-top: 20rpx;
     font-size: 30rpx;
+}
+.fix{
+    width: 100%;
+    color:white;
+    height: 100rpx;
+    text-align: center;
+    line-height: 100rpx;
+    font-size: 32rpx;
+    background: #1caba2;
+    position: fixed;
+    bottom:0;
 }

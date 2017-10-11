@@ -1,0 +1,27 @@
+<template name="edit_detail">
+    <block wx:for="{{Data}}" wx:for-item="item" wx:for-key="index">
+        <view class="list">
+            <view class="img">
+                <image src="{{item.goodsImage}}"></image>
+            </view>
+            <view class="table">
+                <view class="title">{{item.goodsFashion}}</view>
+                <view>款号：
+                    <text>{{item.goodsGirard}}</text>
+                </view>
+                <view>条码号：
+                    <text>{{item.formatCode}}</text>
+                </view>
+                <view class="last">
+                    尺码：
+                    <text>L</text>
+                    颜色：
+                    <text>红色</text>
+                    数量： <input type="number" value="{{item.goodsStock}}" data-type="{{index}}"/>
+                </view>
+                <image src="../images/delete.png"></image>
+            </view>
+        </view>
+    </block>
+
+</template>

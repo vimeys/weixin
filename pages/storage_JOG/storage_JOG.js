@@ -7,11 +7,11 @@ Page({
    * 页面的初始数据
    */
   data: {
+      url:"",
       Number:""
   },
   bindInput:function (e) {
     var value=e.detail.value;
-    console.log(e);
     this.setData({
       Number:value
     })
@@ -28,7 +28,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+      var url=app.url;
+      this.setData({
+          url:url
+      })
   },
 
   /**

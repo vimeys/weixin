@@ -1,6 +1,6 @@
 //app.js
 App({
-  url:'http://jxc.scmxkj.com/index.php/invo/',
+  url:'http://192.168.0.122/jxc1/index.php/invo/',
 
   onLaunch: function () {
     var url=this.Url;
@@ -8,6 +8,7 @@ App({
       success: function (res) {
         var userInfoAvatar=res.userInfo.avatarUrl;
         var nickname=res.userInfo.nickName;
+        wx.setStorageSync('UserID', nickname);
         console.log("在onlaunch里面的url"+url);
         console.log("nickname"+nickname)
         wx.login({

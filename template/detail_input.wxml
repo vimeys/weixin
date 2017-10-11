@@ -1,16 +1,17 @@
-
-    <template name="detail_input">
-    <view class="list">
-        <view class="img">
-            <image src="../images/scan.png"></image>
-        </view>
-        <view class="table">
-            <view class="title">超级好看的鞋子</view>
-            <view>款号：<text>45574543156</text></view>
-            <view>条码号：<text>461646164164</text></view>
-            <view class="last">
-                尺码：<text>L</text>颜色：<text>红色</text> 数量： <input type="number" value=""/>
+<template name="detail_input">
+    <block wx:for="{{Data}}" wx:for-item="item">
+        <view class="list">
+            <view class="img">
+                <image src="{{item.goodsImage}}"></image>
+            </view>
+            <view class="table">
+                <view class="title">{{item.goodsFashion}}</view>
+                <view>款号：<text>{{item.goodsGirard}}</text></view>
+                <view>条码号：<text>{{item.formatCode}}</text></view>
+                <view class="last">
+                    尺码：<text>L</text>颜色：<text>红色</text> 数量： <input type="number" value="{{item.goodsStock}}"/>
+                </view>
             </view>
         </view>
-    </view>
-    </template>
+    </block>
+</template>

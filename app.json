@@ -86,7 +86,7 @@
         "text": "出库"
       },
       {
-        "pagePath": "pages/strOut_list/strout_list",
+        "pagePath": "pages/shopOut_restock/shopOut_restock",
         "iconPath": "pages/images/tabIcon/xiaoshou-1.png",
         "selectedIconPath": "pages/images/tabIcon/xiaoshou.png",
         "text": "销售"
