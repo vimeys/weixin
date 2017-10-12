@@ -17,7 +17,7 @@
                     <text>L</text>
                     颜色：
                     <text>红色</text>
-                    数量： <input type="number" value="{{item.goodsStock}}" data-type="{{index}}"/>
+                    数量： <input type="number" value="{{item.goodsStock}}" data-type="{{index}}" bindblur="output"/>
                 </view>
                 <image src="../images/delete.png"></image>
             </view>

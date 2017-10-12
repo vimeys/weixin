@@ -6,9 +6,11 @@ Page({
    */
   data: {
     select:{
-      use:false,
-      start:"开始时间",
-      end:"结束时间"
+        use:false,
+        start:"开始时间",
+        end:"结束时间",
+        Data:"",//
+        mark:false,
     }
       
    

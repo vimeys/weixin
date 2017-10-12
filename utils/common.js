@@ -39,12 +39,12 @@ function output(e,that) {
     var value=e.detail.value;
     var Type=e.currentTarget.dataset.type;
     var data=that.data;
-    var count=data.count;
-    count[Type].goods=value;
+    var count=data.Data;
+    count[Type].goodsStock=value;
     that.setData({
-        count:count
-    })
-    console.log(that.data.count)
+        Data:count
+    });
+    console.log(that.data.Data);
 }
 
 module.exports={

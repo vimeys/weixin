@@ -18,6 +18,6 @@
                 <!--<image src="../images/delete.png"></image>-->
             <!--</view>-->
         <!--</view>-->
-    <navigator class="add" url="../strageOutput/strageOutput">继续添加</navigator>
-    <navigator class="fix" url="../">确认入库</navigator>
+    <view class="add" url="../strageOutput/strageOutput">继续添加</view>
+    <view class="fix" url="../" bindtap="confirm">确认入库</view>
 </view>
