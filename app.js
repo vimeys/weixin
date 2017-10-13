@@ -1,9 +1,9 @@
 //app.js
 App({
   url:'http://192.168.0.122/jxc1/index.php/invo/',
-
   onLaunch: function () {
-    var url=this.Url;
+    var url=this.url;
+    //登录信息
     wx.getUserInfo({
       success: function (res) {
         var userInfoAvatar=res.userInfo.avatarUrl;
@@ -11,13 +11,14 @@ App({
         wx.setStorageSync('UserID', nickname);
         console.log("在onlaunch里面的url"+url);
         console.log("nickname"+nickname)
+        console.log("nickname"+userInfoAvatar);
         wx.login({
           success: function (res) {
             if (res.code) {
               //发起网络请求
               console.log(res.code)
               wx.request({
-                url: url+'/WeChat/login.aspx?Code=' + res.code + "&Img="+userInfoAvatar+"&Name="+nickname,
+                url: url+'user/info',
                 method:"POST",
                 data:{
                   code:res.code,
@@ -25,17 +26,32 @@ App({
                   Name:nickname
                 },
                 success: function (res) {
-                  if (res.data.Success == 'true')
-                    wx.setStorageSync('UserID', res.data.UserID);
-                  wx.setStorageSync('Token', res.data.Token);
+                  console.log(res);
+                  var data=res.data.data;
+                  if(res.data.code ==200){
+                      wx.setStorageSync('uid', data.uid);
+                      wx.setStorageSync('uname', data.uname);
+                      wx.setStorageSync('level',data.level);
+                  }
+                  if(data.shopId){
+                      wx.request({
+                          url:url+"shopstore/shopgoods",
+                          method:"POST",
+                          data:{
+                              shopId:data.shopId
+                          },
+                          success:function (e) {
+                              console.log(e)
+                          }
+                      })
+                  }
                 },
                 fail: function () {
-                  // fail
                   console.log(123);
                   wx.setStorageSync('user', userInfoAvatar);
                 },
                 complete: function () {
-                  // complete
+
                 }
               })
             } else {
@@ -43,7 +59,6 @@ App({
             }
           }
         })
-
       },
       fail: function (res) {
         // fail
@@ -57,13 +72,13 @@ App({
     })
   },
   getUserId_Token:function(){
-    var obj={}
+    var obj={};
     var UserID=wx.getStorageSync('UserID');
     var Token=wx.getStorageSync('Token');
-    console.log(UserID)
-    console.log(Token)
+    console.log(UserID);
+    console.log(Token);
     obj.UserID=UserID;
-    obj.Token=Token
+    obj.Token=Token;
     return obj;
   },
   getUserInfo:function(cb){

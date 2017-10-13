@@ -35,6 +35,7 @@
     display: inline-block;
     width: 370rpx;
     height: 46rpx;
+    font-size: 24rpx;
     box-sizing: border-box;
     border: 1rpx solid #ccc;
     margin-left: 10rpx;

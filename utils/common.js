@@ -46,6 +46,17 @@ function output(e,that) {
     });
     console.log(that.data.Data);
 }
+//登录验证
+function testLog(that){
+
+    wx.request({
+        url:"",
+        method:"",
+        success:function (e) {
+
+        }
+    })
+}
 
 module.exports={
     bindpick:bindpick,

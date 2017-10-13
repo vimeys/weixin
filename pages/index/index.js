@@ -22,7 +22,7 @@ Page({
     ],
   },
   checkboxChange: function(e) {
-    console.log('checkbox发生change事件，携带value值为：', e.detail.value)
+    console.log('checkbox发生change事件，携带value值为：', e.detail.value);
     // if(e.detail.value){
       console.log(1);
     this.setData({
@@ -39,6 +39,7 @@ Page({
       url: '../logs/logs'
     })
   },
+  //绑定仓库跳转
   bindUrlTap:function (e) {
     var url=wx.getStorageSync('userNum');
     if(url==3||url==4){
@@ -49,7 +50,7 @@ Page({
     getUrl.getUrl(e,this);
   },
 
-
+  //绑定店铺跳转
   bindUrl1Tap:function (e) {
     var url=wx.getStorageSync('userNum');
     if(url==3||url==4){
@@ -66,12 +67,12 @@ Page({
 
 
   onLoad: function () {
-    wx.setStorage({
-      key:"userNum",
-      data:"1"
-    });
+    // wx.setStorage({
+    //   key:"userNum",
+    //   data:"3"
+    // });
     console.log(this.data.userInfo);
-    var url=wx.getStorageSync("userNum");
+    var url=wx.getStorageSync("level");
     if(url==2){
       this.setData({
         url:"../stock_storage/stock_storage",
@@ -81,6 +82,7 @@ Page({
         url1:"../stock_store/stock_store",
       })
     }else{
+        console.log(url);
       this.setData({
         url:"../stock_storage/stock_storage"
       })
