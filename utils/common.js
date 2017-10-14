@@ -1,3 +1,4 @@
+var getUser=require("getUser");
 //确定前一个时间已经选择
 function bindpick(that){
   var display=that.data.disable;
@@ -48,13 +49,23 @@ function output(e,that) {
 }
 //登录验证
 function testLog(that){
-
+    var obj=getUser.getUser(that)
     wx.request({
-        url:"",
-        method:"",
-        success:function (e) {
-
-        }
+        url:obj.U+"",
+        method:"POST",
+        success:function (res) {
+            if(res.data){
+               wx.showModal({
+                 title: '提示',
+                 content: '你没有权限,请联系管理员',
+                 success: res=>{
+                   if (res.confirm) {
+                        console.log(1)
+                   }
+                 }
+               })
+            }
+        },
     })
 }
 

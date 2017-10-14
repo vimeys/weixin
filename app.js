@@ -29,22 +29,22 @@ App({
                   console.log(res);
                   var data=res.data.data;
                   if(res.data.code ==200){
-                      wx.setStorageSync('uid', data.uid);
-                      wx.setStorageSync('uname', data.uname);
-                      wx.setStorageSync('level',data.level);
+                      wx.setStorageSync('uid', data.userinfo.uid);
+                      wx.setStorageSync('uname', data.userinfo.uname);
+                      wx.setStorageSync('level',data.userinfo.level);
                   }
-                  if(data.shopId){
-                      wx.request({
-                          url:url+"shopstore/shopgoods",
-                          method:"POST",
-                          data:{
-                              shopId:data.shopId
-                          },
-                          success:function (e) {
-                              console.log(e)
-                          }
-                      })
-                  }
+                  // if(data.shopId){
+                  //     wx.request({
+                  //         url:url+"shopstore/shopgoods",
+                  //         method:"POST",
+                  //         data:{
+                  //             shopId:data.shopId
+                  //         },
+                  //         success:function (e) {
+                  //             console.log(e)
+                  //         }
+                  //     })
+                  // }
                 },
                 fail: function () {
                   console.log(123);

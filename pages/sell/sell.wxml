@@ -1,19 +1,19 @@
 <!--pages/sell/sell.wxml-->
 <view class="contain" style="padding-top:20rpx;">
-    <navigator url="{{urlList}}" class="r-con">
+    <navigator url="{{urlList}}" class="r-con" data-type="{{urlList?1:2}}" bindtap="bindUrlTap">
         <image src="../images/book.png" class="r-bdi"></image>
         <view class="r-bdt">销售单管理</view>
     </navigator>
-    <navigator url="{{urlCount}}" class="r-con">
+    <navigator url="{{urlCount}}" class="r-con" data-type="{{urlCount?1:2}}" bindtap="bindUrlTap">
         <image src="../images/statistics.png" class="r-bdi"></image>
         <view class="r-bdt">销售统计</view>
     </navigator>
-    <navigator url="{{urlMoney}}" class="r-con">
+    <navigator url="{{urlMoney}}" class="r-con" data-type="{{urlMoney?1:2}}" bindtap="bindUrlTap">
         <image src="../images/coin.png" class="r-bdi"></image>
         <view class="r-bdt">销售额统计</view>
     </navigator>
 
-    <navigator url="../charts_all/charts_all" class="r-con">
+    <navigator url="../charts_all/charts_all" class="r-con" data-type="{{}}">
         <image src="../images/trending.png" class="r-bdi"></image>
         <view class="r-bdt">销售趋势</view>
     </navigator>

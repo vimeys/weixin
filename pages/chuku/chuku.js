@@ -1,25 +1,77 @@
 // pages/chuku/chuku.js
+var getUrl=require("../../utils/getUrl")
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+      url:"",//仓库链接
+      url1:"",//店铺链接
+      Model:false,
+      items: [
+          {name: 'USA', value: '美国'},
+          {name: 'CHN', value: '中国'},
+          {name: 'BRA', value: '巴西'},
+          {name: 'JPN', value: '日本sdf啥地方风问'},
+          {name: 'ENG', value: '英国'},
+          {name: 'TUR', value: '法国'},
+      ]
   },
-
+    //选择店铺
+    checkboxChange:function (e) {
+      this.setData({
+          Model:false
+      }),
+        wx.navigateTo({
+          url: '../shopOut/shopOut'+e.detail.value
+        })
+    },
+    //仓库链接权限
+    bindUrlTap:function (e) {
+          var level=wx.getStorageSync('level');
+          if(level==3||level==4){
+              this.setData({
+                  url:"../strageOutput/strageOutput"
+              })
+          }
+          getUrl.getUrl(e,this)
+    },
+    bindUrl1Tap:function (e) {
+      var level=wx.getStorageSync('level');
+      if(level==3||level==4){
+          this.setData({
+              url1:"123",
+              Model:true
+          })
+      }
+      getUrl.getUrl(e,this);
+    },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+       var level=wx.getStorageSync('level');
+       if(level==2){
+           this.setData({
+                url:"../strageOutput/strageOutput"
+           })
+       }else if(level==1){
+           this.setData({
+               url1:"../shopOut/shopOut"
+           })
+       }else if(level==3||level==4){
+           this.setData({
+               url:"..strageOutput/strageOutput"
+           })
+       }
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**

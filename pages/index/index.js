@@ -52,7 +52,7 @@ Page({
 
   //绑定店铺跳转
   bindUrl1Tap:function (e) {
-    var url=wx.getStorageSync('userNum');
+    var url=wx.getStorageSync('level');
     if(url==3||url==4){
       this.setData({
         url1:"123",

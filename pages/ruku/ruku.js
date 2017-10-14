@@ -1,4 +1,5 @@
 // pages/ruku/ruku.js
+var getUrl=require("../../utils/getUrl");
 Page({
 
   /**
@@ -7,25 +8,68 @@ Page({
   data: {
     url: "",//仓库链接
     url1:"",//店铺链接
-    Model:false,
-    items: [
-      {name: 'USA', value: '美国'},
-      {name: 'CHN', value: '中国'},
-      {name: 'BRA', value: '巴西'},
-      {name: 'JPN', value: '日本sdf啥地方风问'},
-      {name: 'ENG', value: '英国'},
-      {name: 'TUR', value: '法国'},
-    ]
+      Model:false,
+      items: [
+          {name: 'USA', value: '美国'},
+          {name: 'CHN', value: '中国'},
+          {name: 'BRA', value: '巴西'},
+          {name: 'JPN', value: '日本sdf啥地方风问'},
+          {name: 'ENG', value: '英国'},
+          {name: 'TUR', value: '法国'},
+      ]
   },
-
+    //选择店铺
+    checkboxChange: function(e) {
+        console.log(1);
+        this.setData({
+            Model:false
+        })
+        wx.navigateTo({
+            url: '../shopIn/shopIn?shopId='+e.detail.value
+        })
+    },
+    //仓库选择
+    bindUrlTap:function (e) {
+        var level=wx.getStorageSync('level');
+        if(level==3||level==4){
+            this.setData({
+                url:"../storage/storage"
+            })
+        }
+        getUrl.getUrl(e,this)
+    },
+    //店铺选择
+    bindUrl1Tap:function (e) {
+        var level=wx.getStorageSync('level');
+        if(level==3||level==4){
+            this.setData({
+                url1:"123",
+                Model:true
+            })
+        }
+        if(this.data.Model.toString()=="false"){
+            getUrl.getUrl(e,this)
+        }
+    },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var userNum=wx.getStorageSync('userNum');
-    if(userNum==4){
-
+    var userLevel=wx.getStorageSync('level');
+    if(userLevel==2){
+        this.setData({
+            url:"../storage/storage"
+        })
+    }else if(userLevel==1){
+        this.setData({
+            url1:"../shopIn/shopIn"
+        })
+    }else if(userLevel==3||userLevel==4){
+        this.setData({
+            url:"../storage/storage"
+        })
     }
+
   },
 
   /**
