@@ -28,4 +28,4 @@
     </view>
 </view>
 <import src="../../template/goods_detail"/>
-<template is="goods_detail" data=""></template>
+<template is="goods_detail" data="{{Data}}"></template>

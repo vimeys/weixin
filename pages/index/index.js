@@ -13,12 +13,12 @@ Page({
     userInfo:"",
     Model:false,
     items: [
-      {name: 'USA', value: '美国'},
-      {name: 'CHN', value: '中国'},
-      {name: 'BRA', value: '巴西'},
-      {name: 'JPN', value: '日本sdf啥地方风问'},
-      {name: 'ENG', value: '英国'},
-      {name: 'TUR', value: '法国'},
+      {'name': 'USA', 'value': '美国'},
+      {'name': 'CHN', 'value': '中国'},
+      {'name': 'BRA', 'value': '巴西'},
+      {'name': 'JPN', 'value': '日本sdf啥地方风问'},
+      {'name': 'ENG', 'value': '英国'},
+      {'name': 'TUR', 'value': '法国'},
     ],
   },
   checkboxChange: function(e) {
@@ -71,6 +71,11 @@ Page({
     //   key:"userNum",
     //   data:"3"
     // });
+    var shop=wx.getStorageSync("shop");
+    this.setData({
+        items:shop
+    });
+    console.log(shop);
     console.log(this.data.userInfo);
     var url=wx.getStorageSync("level");
     if(url==2){
@@ -82,7 +87,6 @@ Page({
         url1:"../stock_store/stock_store",
       })
     }else{
-        console.log(url);
       this.setData({
         url:"../stock_storage/stock_storage"
       })

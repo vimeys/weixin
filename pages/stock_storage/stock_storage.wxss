@@ -28,6 +28,7 @@
     box-sizing: border-box;
     border: 1rpx solid #ccc;
     margin-left: 10rpx;
+    font-size: 28rpx;
 }
 .good_size{
     display: inline-block;

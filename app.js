@@ -33,6 +33,18 @@ App({
                       wx.setStorageSync('uname', data.userinfo.uname);
                       wx.setStorageSync('level',data.userinfo.level);
                   }
+                  if(data.shop){
+                    var num=[];
+                      function push(item,index) {
+                          var obj={};
+                          obj.name=item.shopId;
+                          obj.value=item.shopName;
+                          num.push(obj)
+                      }
+                      data.shop.forEach(push);
+                      console.log(num);
+                      wx.setStorageSync('shop',num);
+                  }
                   // if(data.shopId){
                   //     wx.request({
                   //         url:url+"shopstore/shopgoods",

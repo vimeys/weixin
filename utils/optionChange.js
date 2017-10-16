@@ -1,5 +1,6 @@
 //多选框改变时间
-function optionChange(e,that) {
+var request=require("totalRequest")
+function optionChange(e,that,nav) {
   console.log(e);
   console.log(that);
   var select=that.data.select;
@@ -20,6 +21,7 @@ function optionChange(e,that) {
       select: select
     })
   }
+  request.request(that,nav);
 }
 module.exports={
   optionChange:optionChange

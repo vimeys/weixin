@@ -20,11 +20,12 @@ Page({
   },
     //选择店铺
     checkboxChange:function (e) {
+      console.log(1);
       this.setData({
           Model:false
       }),
         wx.navigateTo({
-          url: '../shopOut/shopOut'+e.detail.value
+          url: '../shopOut/shopOut?shopId'+e.detail.value
         })
     },
     //仓库链接权限
@@ -45,7 +46,10 @@ Page({
               Model:true
           })
       }
-      getUrl.getUrl(e,this);
+      if(this.data.Model.toString()=='false'){
+          getUrl.getUrl(e,this);
+      }
+
     },
   /**
    * 生命周期函数--监听页面加载

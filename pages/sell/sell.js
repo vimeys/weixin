@@ -1,23 +1,48 @@
 // pages/sell/sell.js
 var getStor=require("../../utils/getStorage");
+var app=getApp();
+var getUrl=require("../../utils/getUrl");
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-      judgeUrl:"",
-      urlList:'../sell_list_store/sell_store',
-      urlCount:"../sell_count_store/sell_count_store",
-      urlMoney:"../sell_money_store/sell_money_store",
+      url:'',
+      urlList:'', //销售单页面
+      urlCount:"",//统计单页面
+      urlMoney:"",//销售额页面
 
   },
-
+   bindUrlTap:function (e) {
+       getUrl.getUrl(e,this);
+   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    getStor.getStor(this);
+      // var url=app.url;
+      //权限分类
+    var level=wx.getStorageSync('level');
+    if(level==1){
+        this.setData({
+            urlList:"../sell_list_store/sell_store",
+            urlCount:"../sell_count_store/sell_count_store",
+            urlMoney:"../sell_money_store/sell_money_store"
+        })
+    }else if(level==3){
+            this.setData({
+                urlList: "../sell_list_area/sell_list_area",
+                urlCount:"../sell_count_area/sell_count_area",
+                urlMoney:"../sell_money_area/sell_money_area"
+            })
+    }else if(level==4){
+        this.setData({
+            urlList: "../sell_list_all/sell_list_all",
+            urlCount:"../sell_count_all/sell_count_all",
+            urlMoney:"../sell_money_all/sell_money_all"
+        })
+    }
+    // getStor.getStor(this);
   },
 
   /**
