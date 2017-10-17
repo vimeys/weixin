@@ -19,7 +19,7 @@
                     <text>红色</text>
                     数量： <input type="number" value="{{item.goodsStock}}" data-type="{{index}}" bindblur="output"/>
                 </view>
-                <image src="../images/delete.png"></image>
+                <image src="../images/delete.png" bindtap="delGoods" data-type="{{index}}"></image>
             </view>
         </view>
     </block>

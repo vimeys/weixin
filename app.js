@@ -33,7 +33,8 @@ App({
                       wx.setStorageSync('uname', data.userinfo.uname);
                       wx.setStorageSync('level',data.userinfo.level);
                   }
-                  if(data.shop){
+                    console.log(data);
+                    if(data.shop){
                     var num=[];
                       function push(item,index) {
                           var obj={};

@@ -1,18 +1,20 @@
+//时间撮转换格式
 function formatTime(date) {
-  var year = date.getFullYear()
-  var month = date.getMonth() + 1
-  var day = date.getDate()
+    var data=new Date(date)
+  var year = data.getFullYear()
+  var month = data.getMonth() + 1
+  var day = data.getDate()
 
-  var hour = date.getHours()
-  var minute = date.getMinutes()
-  var second = date.getSeconds()
+  var hour = data.getHours()
+  var minute = data.getMinutes()
+  var second = data.getSeconds()
 
 
-  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+  return [year, month, day].map(formatNumber).join('-') + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
 
 function formatNumber(n) {
-  n = n.toString()
+  n = n.toString();
   return n[1] ? n : '0' + n
 }
 

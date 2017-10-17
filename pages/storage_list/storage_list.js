@@ -11,7 +11,9 @@ Page({
       url:'',
       number:"",//扫描的条码
       Data:"",//回传数据
-      sendData:""//传递数据
+      sendData:"",//传递数据
+      uname:"",//用户名字,
+      storeId:""//删除返回的storeID
   },
 
   /**
@@ -20,10 +22,12 @@ Page({
   onLoad: function (options) {
       var url=app.url;
       var that=this;
-      var Num=options.number
+      var uname=wx.getStorageSync('uname');
+      var Num=options.number;
         this.setData({
             url:url,
-            number:Num
+            number:Num,
+            uname:uname
       })
       wx.request({
           url:this.data.url+"wearhouse/waitList",
@@ -39,44 +43,21 @@ Page({
           }
       })
   },
+    // 修改数量
     output:function (e) {
         common.output(e,this)
+    },
+    //删除数据
+    delGoods:function(e){
+    common.delGoods(e,this)
     },
     //确认入库
     confirm:function (e) {
       confirm.confirm(this,"wearhouse/waitInstore")
-        // var that=this;
-        // var Data=that.data.Data;
-        // // for(var i=0;i<Data.length;i++){
-        // //     Data[i].
-        // // }
-        // var num=[];
-        // function push(item,index) {
-        //     var obj={}
-        //     var ID = item.formatId;
-        //     var Num = item.goodsStock;
-        //     obj.formatId = ID;
-        //     obj.formatStock = Num;
-        //     num.push(obj)
-        // }
-        // Data.forEach(push);
-        // this.setData({
-        //     sendData:num
-        // })
-        // wx.request({
-        //     url:this.data.url+"wearhouse/waitInstore",
-        //     method:"POST",
-        //     data:{
-        //         data:that.sendData
-        //     },
-        //     success:function (res) {
-        //       console.log(res)
-        //        wx.navigateBack({
-        //          delta:2
-        //        })
-        //     }
-        // })
-        // console.log(num);
+    },
+    //继续添加
+    go:function (e) {
+      common.go(this)
     },
   /**
    * 生命周期函数--监听页面初次渲染完成

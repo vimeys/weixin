@@ -3,6 +3,7 @@ var app = getApp();
 var Datechange = require("../../utils/Datechange.js");
 var optionChange=require("../../utils/optionChange");
 var output=require("../../utils/output");
+var request=require("../../utils/totalRequest")
 Page({
 
   /**
@@ -15,27 +16,35 @@ Page({
       style:"",
       styleNum:"",
       codeBar:"",
-      start: "开始时间",
+      start:"开始时间",
+      Start:"",
       end: "结束时间",
+      End:"",
       Date: {"a": ["new"], "b": 2, "c": 3, "d": 4},
       size:["S","M","L","XL","XXL"],
+      sizeId:"",
       name:["长","宽","高"],
+      nameId:[],
       ways:['正常入库','退货入库','调货入库'],
+      waysId:[],
       nameIndex:0,
       sizeIndex:0,
       waysIndex:0
     },
-
+    Data:"",//接受数据
+    year:"" ,//年
+    hours:""
   },
   DateChange:function (e) {
-    Datechange.DateChange(e,this);
+    Datechange.DateChange(e,this,"wearhouse/searchin");
   },
   output:function (e) {
-      output.output(e,this);
+      output.output(e,this,"wearhouse/searchin");
   },
   optionChange:function (e) {
-    optionChange.optionChange(e,this);
+    optionChange.optionChange(e,this,"wearhouse/searchin");
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -44,14 +53,50 @@ Page({
     this.setData({
       url:url
     });
-    wx.request({
-      url:url,
-      method:"GET",
-      data:{},
-      success:function (res) {
+    var that=this;
+    var data=this.data;
+      wx.request({
+          url:data.url+"sundry/sizes",
+          method:"POST",
+          success:function (res) {
+              var size=[];
+              var sizeId=[];
+              function sizePush(item,index){
+                  size.push(item.sizeName);
+                  sizeId.push(item.sizeId);
+              }
+              res.data.data.forEach(sizePush);
+              // console.log(size);
+              var newsize=that.data.select;
+              newsize.size=size;
+              newsize.sizeId=sizeId;
+              that.setData({
+                  select:newsize,
 
-      }
-    })
+              })
+          }
+      })
+      //
+      wx.request({
+          url:data.url+"sundry/cat",
+          method:"POST",
+          success:function (res) {
+              var name=[];
+              var nameId=[]
+              function sizePush(item,index){
+                  name.push(item.catName)
+                  nameId.push(item.catId)
+              }
+              res.data.data.forEach(sizePush);
+              var newsize=that.data.select;
+              newsize.name=name;
+              newsize.nameId=nameId;
+              that.setData({
+                  select:newsize
+              })
+          }
+      });
+      request.requesttime(this,"wearhouse/searchin")
   },
 
   /**

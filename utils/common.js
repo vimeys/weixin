@@ -1,4 +1,30 @@
 var getUser=require("getUser");
+
+
+//登录验证
+function testLog(that){
+    var obj=getUser.getUser(that)
+    wx.request({
+        url:obj.U+"",
+        method:"POST",
+        success:function (res) {
+            if(res.data){
+                wx.showModal({
+                    title: '提示',
+                    content: '你没有权限,请联系管理员',
+                    success: res=>{
+                        if (res.confirm) {
+                            console.log(1)
+                        }
+                    }
+                })
+            }
+        },
+    })
+}
+
+
+
 //确定前一个时间已经选择
 function bindpick(that){
   var display=that.data.disable;
@@ -14,6 +40,8 @@ function bindpick(that){
       })
   }
 }
+
+
 //店铺和仓库出库列表所有参数时间的传递
 function request(that){
     var data=that.data;
@@ -35,42 +63,80 @@ function request(that){
         }
     })
 }
+
+
+
 //订单列表页面修改数量
 function output(e,that) {
     var value=e.detail.value;
-    var Type=e.currentTarget.dataset.type;
+    var Type=e.currentTarget.dataset.type;//获取
     var data=that.data;
     var count=data.Data;
     count[Type].goodsStock=value;
     that.setData({
         Data:count
     });
+    var num={};
+    num.storeId=that.data.Data[Type].storeId;
+    num.goodsStock=that.data.Data[Type].goodsStock;
+    console.log(num);
+    wx.request({
+        url:that.data.url+"wearhouse/fixInstoreNumber",
+        method:"GET",
+        data:num,
+        success:function (res) {
+            console.log(res);
+        }
+    })
     console.log(that.data.Data);
 }
-//登录验证
-function testLog(that){
-    var obj=getUser.getUser(that)
-    wx.request({
-        url:obj.U+"",
-        method:"POST",
-        success:function (res) {
-            if(res.data){
-               wx.showModal({
-                 title: '提示',
-                 content: '你没有权限,请联系管理员',
-                 success: res=>{
-                   if (res.confirm) {
-                        console.log(1)
-                   }
-                 }
-               })
-            }
-        },
+
+
+
+//删除商品
+function delGoods(e,that) {
+    console.log(e);
+    var Type=e.currentTarget.dataset.type;
+    var storeId=that.data.Data[Type].storeId;
+    that.setData({
+        storeId:storeId
+    })
+    // console.log(that.data.storeId);
+    wx.showModal({
+      title: '警告',
+      content: '确定要删除商品嘛?',
+      success: res=>{
+        if (res.confirm) {
+            wx.request({
+                url:that.data.url+"wearhouse/delInstoreNumber",
+                method:"GET",
+                data:{
+                    storeId:that.data.storeId
+                },
+                success:function (res) {
+                    console.log(res);
+                    if(res.data.code==200){
+                        that.setData({
+                            Data:res.data.data
+                        })
+                    }
+                }
+            })
+        }
+      }
+    })
+
+}
+//动态页面返回
+function go(that) {
+    wx.navigateBack({
+        delta:2
     })
 }
-
 module.exports={
     bindpick:bindpick,
     request:request,
-    output:output
+    output:output,
+    delGoods:delGoods,
+    go:go
 }

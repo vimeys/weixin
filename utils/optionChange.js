@@ -21,7 +21,11 @@ function optionChange(e,that,nav) {
       select: select
     })
   }
-  request.request(that,nav);
+  if(nav=="shopstore/search"){
+      request.request(that,nav);
+  }else if(nav="wearhouse/searchin"){
+      request.requesttime(that,nav)
+  }
 }
 module.exports={
   optionChange:optionChange

@@ -6,23 +6,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-      url:"",//
+      url:"",
       number:""//条码号
   },
   bindtap:function(){
-    var that=this
+    var that=this;
       wx.scanCode({
           success:(res)=>{
             console.log(res.ruslut);
             var number=res.ruslut;
             wx.request({
-              url:"http://192.168.0.122/jxc1/index.php/invo/wearhouse/waitList",
+              url:this.data.url+"wearhouse/manual",
               method:"POST",
               data:{
-                  goodsCode:that.data.Number
+                  goodsCode:number,
               },
               success:function (res) {
                 var data=res.data;
+                console.log(data+"123")
                 if(data.code==200||data.code==203){
                   that.setData({
                       number:number

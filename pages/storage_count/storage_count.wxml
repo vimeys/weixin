@@ -17,3 +17,5 @@
 <view class="record">
     入库时间：2017-08-01  10:11:32
 </view>
+<import src="../../template/count_detail"/>
+<template is="count_detail" data="{{Data}}"></template>
