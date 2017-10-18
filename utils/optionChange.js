@@ -21,7 +21,7 @@ function optionChange(e,that,nav) {
       select: select
     })
   }
-  if(nav=="shopstore/search"){
+  if(nav=="wearhouse/storesearch"||nav=="shopstore/search"){
       request.request(that,nav);
   }else if(nav="wearhouse/searchin"){
       request.requesttime(that,nav)

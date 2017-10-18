@@ -45,11 +45,11 @@ Page({
   },
     // 修改数量
     output:function (e) {
-        common.output(e,this)
+        common.output(e,this,"wearhouse/fixInstoreNumber")
     },
     //删除数据
     delGoods:function(e){
-    common.delGoods(e,this)
+    common.delGoods(e,this,"wearhouse/delInstoreNumber")
     },
     //确认入库
     confirm:function (e) {

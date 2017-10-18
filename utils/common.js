@@ -67,7 +67,7 @@ function request(that){
 
 
 //订单列表页面修改数量
-function output(e,that) {
+function output(e,that,nav) {
     var value=e.detail.value;
     var Type=e.currentTarget.dataset.type;//获取
     var data=that.data;
@@ -81,7 +81,7 @@ function output(e,that) {
     num.goodsStock=that.data.Data[Type].goodsStock;
     console.log(num);
     wx.request({
-        url:that.data.url+"wearhouse/fixInstoreNumber",
+        url:that.data.url+nav,
         method:"GET",
         data:num,
         success:function (res) {
@@ -94,7 +94,7 @@ function output(e,that) {
 
 
 //删除商品
-function delGoods(e,that) {
+function delGoods(e,that,nav) {
     console.log(e);
     var Type=e.currentTarget.dataset.type;
     var storeId=that.data.Data[Type].storeId;
@@ -108,7 +108,7 @@ function delGoods(e,that) {
       success: res=>{
         if (res.confirm) {
             wx.request({
-                url:that.data.url+"wearhouse/delInstoreNumber",
+                url:that.data.url+nav,
                 method:"GET",
                 data:{
                     storeId:that.data.storeId

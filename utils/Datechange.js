@@ -7,7 +7,7 @@ var request=require("totalRequest");
     select1.start = e.detail.value;
     var start=select1.start.replace(/-/g,'/');
     var start1=new Date(start);
-    var time=start1.getTime(start1);
+    var time=start1.getTime(start1)/1000;
     select1.Start=time;
     that.setData({
       select: select1,
@@ -18,7 +18,7 @@ var request=require("totalRequest");
     select1.end = e.detail.value;
     var start=select1.end.replace(/-/g,'/')
     var start1=new Date(start);
-    var time=start1.getTime(start1);
+    var time=start1.getTime(start1)/1000;
     select1.End=time;
     that.setData({
       select: select1
@@ -29,4 +29,4 @@ var request=require("totalRequest");
 }
 module.exports={
   DateChange:DateChange
-}
+};

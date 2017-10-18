@@ -59,26 +59,36 @@ function requesttime(that,nav) {
     data1.goodsFashion=that.data.select.style;
     data1.goodsGirard=that.data.select.styleNum;
     data1.formatCode=that.data.select.Barcode;
-    data1.sizeId=that.data.select.sizeId;
-    data1.catId=that.data.select.nameId;
-    data1.type=that.data.select.waysId;
+    data1.sizeId=that.data.select.sizeId[that.data.select.sizeIndex];
+    data1.catId=that.data.select.nameId[that.data.select.nameIndex];
+    data1.type=that.data.select.waysId[that.data.select.waysIndex];
+    console.log(data1);
     wx.request({
         url:that.data.url+nav,
         method:"POST",
         data:data1,
         success:function (res) {
-            console.log(res.data.data);
-            // var t=formatTime.formatTime(res.data.data[0].ctime);
-            var num=[]
-            function change(item,index) {
-                item.okTime=formatTime.formatTime(res.data.data[index].ctime);
-                num.push(item);
-            }
-            res.data.data.forEach(change);
-            // console.log(t);
-            that.setData({
-                Data:num
+            if(res.data.code==202){
+                that.setData({
+                    noMore:false
             })
+            }else {
+
+                console.log(res);
+                // var t=formatTime.formatTime(res.data.data[0].ctime);
+                var num=[];
+                function change(item,index) {
+                    item.okTime=formatTime.formatTime(res.data.data[index].ctime);
+                    num.push(item);
+                }
+                res.data.data.forEach(change);
+                // console.log(t);
+                that.setData({
+                    Data:num,
+                    noMore:false
+                })
+            }
+
         }
     })
 }

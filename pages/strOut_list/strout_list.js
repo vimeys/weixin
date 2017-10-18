@@ -7,33 +7,55 @@ Page({
    * 页面的初始数据
    */
   data: {
-    url:"",
-    count:[{"goods":"1"},{"goods":2},{"goods":3}]
-
+      url:"",
+      number:"",
+      count:[{"goods":"1"},{"goods":2},{"goods":3}],
+      Data:"",//回传数据
+      sendData:"",//传递数据
+      uname:"",//用户名字
+      storeId:""//删除返回的storeID
   },
-    //删除事件
-  delThis:function (e) {
-    var delCount=e.currentSrc.dataset.type;
-
-  },
-  //修改商品数量
-    output:function(e){
-      console.log(e);
-      common.output(e,this);
+    // 修改数量
+    output:function (e) {
+        common.output(e,this,"wearout/fix")
     },
-  //跳转填写快递页面
-    express:function (e) {
-      wx.navigateTo({
-        url:'../express/express'
-      })
+    //删除数据
+    delGoods:function(e){
+        common.delGoods(e,this,"wearout/delinterimgoods")
+    },
+    //确认入库
+    confirm:function (e) {
+        confirm.confirm(this,"wearout/ok")
+    },
+    //继续添加
+    go:function (e) {
+        common.go(this)
     },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
       var url=app.url;
+      var that=this;
+      var uname=wx.getStorageSync('uname');
+      var Num=options.number;
       this.setData({
-          url:url
+          url:url,
+          number:Num,
+          uname:uname
+      })
+      wx.request({
+          url:this.data.url+"wearout/outlist",
+          method:"POST",
+          // data:{}
+          success:function (res) {
+              var json=res.data.data;
+              console.log(res.data);
+              console.log(json);
+              that.setData({
+                  Data:json
+              })
+          }
       })
   },
 

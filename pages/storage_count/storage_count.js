@@ -15,7 +15,7 @@ Page({
       use: false,
       style:"",
       styleNum:"",
-      codeBar:"",
+      Barcode:"",
       start:"开始时间",
       Start:"",
       end: "结束时间",
@@ -25,15 +25,16 @@ Page({
       sizeId:"",
       name:["长","宽","高"],
       nameId:[],
-      ways:['正常入库','退货入库','调货入库'],
-      waysId:[],
+      ways:['正常入库','退货入库'],
+      waysId:[0,1],
       nameIndex:0,
       sizeIndex:0,
       waysIndex:0
     },
     Data:"",//接受数据
     year:"" ,//年
-    hours:""
+    hours:"",//时间
+    noMore:true
   },
   DateChange:function (e) {
     Datechange.DateChange(e,this,"wearhouse/searchin");

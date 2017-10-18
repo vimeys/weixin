@@ -6,27 +6,33 @@ Page({
    * 页面的初始数据
    */
   data: {
-      url:""
+      url:"",
+      number:""//条码号
   },
   bindtap:function(e){
     wx.scanCode({
       success:(res)=>{
-        let BarCode=res.result;
-        if(BarCode){
+        let number=res.result;
+        if(number){
           wx.request({
-            url:this.data.url+"/Ajax/U/GetGoods.aspx?U=''&Token=''"+ "&Number=" + res.result,
-            method:'GET',
+            url:this.data.url+"wearout/manual",
+            method:'POST',
+            data:{
+              goodsCode:number
+            },
             success:function (res) {
               var result=res.data;
-              console.log(result);
-              if(result.success=='true'){
+              if(result.code==200||result.code==203){
+                that.setData({
+                    number:number
+                })
                 wx.navigateTo({
                   url: '../strOut_list/strOut_list?Number='+result.Number
                 })
               }else{
                 wx.showModal({
                   title:'提示',
-                  content:'商品条码信息不全,请重新输入',
+                  content:'商品条码信息不全,请手动输入',
                   success:function (e) {
                     wx.navigateTo({
                       url: "../strOut_JOG/strOut_JOG"

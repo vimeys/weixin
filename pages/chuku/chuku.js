@@ -25,7 +25,7 @@ Page({
           Model:false
       }),
         wx.navigateTo({
-          url: '../shopOut/shopOut?shopId'+e.detail.value
+          url: '../shopOut/shopOut?shopId='+e.detail.value
         })
     },
     //仓库链接权限
@@ -55,6 +55,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+      var shop=wx.getStorageSync("shop");
+      this.setData({
+          items:shop
+      })
        var level=wx.getStorageSync('level');
        if(level==2){
            this.setData({

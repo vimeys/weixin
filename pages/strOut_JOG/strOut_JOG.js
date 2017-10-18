@@ -1,7 +1,7 @@
 // pages/strOut_JOG/strOut_JOG.js
 var app=getApp();
 // var JOG=require("../../utils/JOG.js");
-var storageJOG=require("../../utils/storageJOG")
+var storOutJOG=require("../../utils/storOutJOG")
 Page({
 
   /**
@@ -20,8 +20,8 @@ Page({
   },
   location:function () {
     var num=this.data.Number;
-    storageJOG.storageJOG("../strOut_list/strOut_list",this);
-
+    // storageJOG.storageJOG("../strOut_list/strout_list",this);
+    storOutJOG.storOutJOG("../strOut_list/strout_list",this);
   },
   /**
    * 生命周期函数--监听页面加载

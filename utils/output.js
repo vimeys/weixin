@@ -17,7 +17,7 @@ function output(e,that,nav) {
             select:select
         })
     }else if(Type==3){
-        select.codeBar=value;
+        select.Barcode=value;
         that.setData({
             select:select
         })
