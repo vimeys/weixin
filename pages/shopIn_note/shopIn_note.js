@@ -1,6 +1,10 @@
 // pages/shopIn_note/shopIn_note.js
+var app=getApp();
+var common=require("../../utils/common");
+var output=require("../../utils/output");
 var Datechange = require("../../utils/Datechange");
 var optionChange = require("../../utils/optionChange");
+var request= require("../../utils/totalRequest");
 Page({
 
   /**
@@ -31,11 +35,14 @@ Page({
       waysIndex: 0
     }
   },
+   output:function (e) {
+      output.output(e,this,"")
+   } ,
   DateChange: function (e) {
-    Datechange.DateChange(e, this)
+    Datechange.DateChange(e, this,"")
   },
   optionChange: function (e) {
-    optionChange.optionChange(e, this)
+    optionChange.optionChange(e, this,"")
   },
   changeNew: function (e) {
     var active = e.currentTarget.dataset.type;
@@ -47,7 +54,56 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+      var url=app.url;
+      var shopId=options.shopId;
+      this.setData({
+          url:url,
+          shopId:shopId
+      })
+      var that=this;
+      var data=this.data;
+      wx.request({
+          url:data.url+"sundry/sizes",
+          method:"POST",
+          success:function (res) {
+              var size=[];
+              var sizeId=[];
+              function sizePush(item,index){
+                  size.push(item.sizeName);
+                  sizeId.push(item.sizeId);
+              }
+              res.data.data.forEach(sizePush);
+              // console.log(size);
+              var newsize=that.data.select;
+              newsize.size=size;
+              newsize.sizeId=sizeId;
+              that.setData({
+                  select:newsize,
+
+              })
+          }
+      });
+      //
+      wx.request({
+          url:data.url+"sundry/cat",
+          method:"POST",
+          success:function (res) {
+              var name=[];
+              var nameId=[]
+              function sizePush(item,index){
+                  name.push(item.catName)
+                  nameId.push(item.catId)
+              }
+              res.data.data.forEach(sizePush);
+              var newsize=that.data.select;
+              newsize.name=name;
+              newsize.nameId=nameId;
+              that.setData({
+                  select:newsize
+              })
+          }
+      });
+      request.requestshop(this,"wearhouse/searchin")//替换
   },
 
   /**

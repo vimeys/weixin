@@ -1,3 +1,4 @@
+//仓库出库的统计
 <template name="entering">
     <view class="time">
         <view class="timeStart"><picker mode="date" start="{{select.start}}" disabled="{{select.use}}" value="{{Edate}}" data-type="1" bindchange="DateChange">
@@ -10,14 +11,14 @@
         </picker></view>
         <view class="good_num">
             <view class=""><text>款式</text>
-                <input type="text" placeholder="请输入密码"/></view>
+                <input type="text" placeholder=""/></view>
             <view class="">
                 <text>款号</text>
-                <input type="text"/>
+                <input type="number"/>
             </view>
             <view>
                 <text>条码号</text>
-                <input type="text/"/>
+                <input type="number"/>
             </view>
         </view>
         <view class="good_size">

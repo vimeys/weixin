@@ -1,7 +1,7 @@
 //店铺手动输入事件
 function shopJOG(nav,that) {
   wx.request({
-    url:'',
+    url:that.data.url+'',
     method:'GET',
     data:{
       Number:that.data.Number,
@@ -15,6 +15,7 @@ function shopJOG(nav,that) {
         wx.showModal({
           title: '提示',
           content: '条形码错误',
+            showCancel:false,
           success: res=>{
             if (res.confirm) {
 
@@ -26,5 +27,5 @@ function shopJOG(nav,that) {
   })
 }
 module.exports={
-  storageJOG:shopJOG()
+  shopJOG:shopJOG
 }

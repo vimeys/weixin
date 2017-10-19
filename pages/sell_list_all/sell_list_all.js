@@ -1,18 +1,44 @@
 // pages/sell_list_all/sell_list_all.js
+var app=getApp();
+ var DateChange=require("../../utils/Datechange")
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
-  },
+      url:"",
+      select:{
+          use:false,
+          start:"开始时间",
+          Start:"",
+          end:"结束时间",
+          End:"",
+          area:"",//区域
+          areaId:"",
+          areaIndex:"",
+          shop:"",//店铺
+          shopId:"",
+          shopIndex:"",
 
+          list:"",//账单选择
+          listId:[1,2],
+          listIndex:""
+      }
+  },
+  //时间选择
+    DataChange:function (e) {
+        DateChange.DateChange(e.this,)
+    },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+      var url=app.url;
+      this.setData({
+          url:url
+      })
+      console.log(this.data.shopId==undefined);
   },
 
   /**

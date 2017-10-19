@@ -1,7 +1,7 @@
 <!--pages/shopOut/shopOut.wxml-->
 <view class="contain" style="padding-top:20rpx;">
     <view class="sao_tt" bindtap="bindtap">
-        <image src="../images/scan.png" class="r-image"></image>
+        <image src="../images/scan.png" class="r-image" ></image>
         <view class="r-bdt">扫描出库</view>
     </view>
 

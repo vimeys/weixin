@@ -28,7 +28,7 @@
     top:0rpx;
 }
 .express{
-    width: 330rpx;
+    width: 96%;
     font-size: 30rpx;
     position: relative;
     display: inline-block;
@@ -36,6 +36,7 @@
 }
 .express .input{
     display: inline-block;
+    position: relative;
     margin-left: 7rpx;
     width: 200rpx;
     height: 46rpx;
@@ -51,6 +52,13 @@
     content:"▼";
     right:15rpx;
     top:5rpx;
+}
+.shop{
+    display: inline-block;
+    float:right;
+}
+.shop .input{
+    border: 1px solid #ccc;
 }
 .margin{
     margin-left: 57rpx;

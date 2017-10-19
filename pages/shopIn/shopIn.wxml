@@ -8,10 +8,10 @@
         <image src="../images/diaohuo.png" class="r-bdib"></image>
         <view class="r-bdt">调货入库</view>
     </navigator>
-    <navigator url="../shopIn_return/shopIn_return" class="r-con">
+    <view url="../shopIn_return/shopIn_return" class="r-con" bindtap="bindtap">
         <image src="../images/tuihuo.png" class="r-bdib"></image>
         <view class="r-bdt">退货入库</view>
-    </navigator>
+    </view>
 
     <navigator url="../shopIn_count/shopIn_count" class="r-con">
         <image src="../images/statistics.png" class="r-bdi"></image>

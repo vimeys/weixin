@@ -70,7 +70,7 @@ Page({
           url:url,
           shopId:shopId
       });
-      wx.request({
+      wx.request({//获取尺寸
           url:data.url+"sundry/sizes",
           method:"POST",
           success:function (res) {
@@ -91,7 +91,7 @@ Page({
               })
           }
       })
-      //
+      //获取分类
       wx.request({
           url:data.url+"sundry/cat",
           method:"POST",

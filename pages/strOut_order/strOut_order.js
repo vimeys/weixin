@@ -16,6 +16,8 @@ Page({
         area: ["区域", "区域2"],//发货区域
         areaWord:"",//具体区域
         areaIndex: 0,//发货区域下标
+        shop:["成华","金牛"],
+        shopIndex:"0",
         style: ["已发货", "已入库", "待收货"],//发货状态
         styleWord:"",//具体状态
         styleIndex: 0,

@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    active1:1,
     select: {
       use: false,
       start: "开始时间",

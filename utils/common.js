@@ -1,5 +1,7 @@
 var getUser=require("getUser");
 
+//获取总的链接
+
 
 //登录验证
 function testLog(that){

@@ -13,7 +13,11 @@ var request=require("totalRequest");
       select: select1,
     })
       console.log(select1)
-      request.requesttime(that,nav)
+      if(nav=="wearhouse/searchin"){//仓库入库统计的请求
+          request.requesttime(that,nav)
+      }else if(nav==""){//店铺入库的统计
+          request.requestShop(that,nav)
+      }
   } else {
     select1.end = e.detail.value;
     var start=select1.end.replace(/-/g,'/')
@@ -23,8 +27,12 @@ var request=require("totalRequest");
     that.setData({
       select: select1
     })
-    console.log(select1)
-      request.requesttime(that,nav)
+    console.log(select1);
+    if(nav=="wearhouse/searchin"){//仓库入库统计的请求
+        request.requesttime(that,nav)
+    }else if(nav==""){//店铺入库的统计请求
+        request.requestShop(that,nav)
+    }
   }
 }
 module.exports={

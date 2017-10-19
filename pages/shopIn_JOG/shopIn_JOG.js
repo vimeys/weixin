@@ -1,6 +1,6 @@
-// pages/storage_JOG/storage_JOG.js
+// pages/shopIn_JOG/shopIn_JOG.js
 var app=getApp();
-var storageJOG=require("../../utils/storageJOG");
+var shopJOG=require("../../utils/shopJOG")
 Page({
 
   /**
@@ -8,18 +8,18 @@ Page({
    */
   data: {
       url:"",
-      Number:""
+      number:""
   },
+    //
   bindInput:function (e) {
-    var value=e.detail.value;
-    this.setData({
-      Number:value
-    })
+      var num=e.detail.value;
+      this.setData({
+          number:num
+      })
   },
-  location:function (e) {
-    storageJOG.storageJOG("../storage_list/storage_list",this);
-    console.log(this.data.Number);
-  },
+   location:function () {
+      shopJOG.shopJOG("",this)
+   },
   /**
    * 生命周期函数--监听页面加载
    */

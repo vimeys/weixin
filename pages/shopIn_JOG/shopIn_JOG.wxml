@@ -1,0 +1,4 @@
+<!--pages/shopIn_JOG/shopIn_JOG.wxml-->
+<view class="title">条码号</view>
+<input type="number" class="input" bindinput="bindInput"/>
+<button form-type="submit" bindtap="location">确定</button>

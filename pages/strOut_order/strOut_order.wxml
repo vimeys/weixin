@@ -14,18 +14,21 @@
                 {{area[areaIndex]}}
             </picker>
         </view>
+        <view class="shop">
+            发往店铺 <picker mode="selector" value="shopIndex" data-type="2" bindchange="optionChange" class="input" range="{{shop}}">{{shop[areaIndex]}}</picker>
+        </view>
     </view>
 
     <view class="express margin-right">
         订单状态<view class="input">
-        <picker mode="selector" value="{{styleIndex}}"  data-type="2" bindchange="optionChange" range="{{style}}">
+        <picker mode="selector" value="{{styleIndex}}"  data-type="3" bindchange="optionChange" range="{{style}}">
             {{style[styleIndex]}}
         </picker>
     </view>
     </view>
     <view class="express  margin-right">
         快递名称<view class="input">
-        <picker mode="selector" value="{{expressIndex}}"  data-type="3" bindchange="optionChange" range="{{express}}">
+        <picker mode="selector" value="{{expressIndex}}"  data-type="4" bindchange="optionChange" range="{{express}}">
             {{express[expressIndex]}}
         </picker>
     </view>
