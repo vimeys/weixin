@@ -13,7 +13,10 @@ Page({
     var that=this;
       wx.scanCode({
           success:(res)=>{
-            var number=res.ruslut;
+            var number=res.result;
+
+            console.log(number);
+            console.log(res);
             wx.request({
               url:this.data.url+"wearhouse/manual",
               method:"POST",
@@ -22,6 +25,7 @@ Page({
               },
               success:function (res) {
                 var data=res.data;
+                console.log(data);
                 if(data.code==200||data.code==203){
                   that.setData({
                       number:number
@@ -30,15 +34,16 @@ Page({
                     url:"../storage_list/storage_list?number="+res.data.number
                   })
                 }else{
-                  wx.showModal({
-                    title: '提示',
-                    content: '该条码不存在,请核对后再扫描',
-                    success: res=>{
-                      wx.navigateTo({
-                        url: '../storage_JOG/storage_JOG'
-                      })
-                    }
-                  })
+                    console.log(1);
+                  // wx.showModal({
+                  //   title: '提示',
+                  //   content: '该条码不存在,请核对后再扫描',
+                  //   success: res=>{
+                  //     wx.navigateTo({
+                  //       url: '../storage_JOG/storage_JOG'
+                  //     })
+                  //   }
+                  // })
                 }
               }
             })

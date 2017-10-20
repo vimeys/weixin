@@ -1,8 +1,8 @@
 //多选框改变时间
 var request=require("totalRequest")
 function optionChange(e,that,nav) {
-  console.log(e);
-  console.log(that);
+  // console.log(e);
+  // console.log(that);
   var select=that.data.select;
   var Type=e.target.dataset.type;
   if(Type==1){
@@ -27,6 +27,34 @@ function optionChange(e,that,nav) {
       request.requesttime(that,nav)
   }
 }
+//
+function optionChangeSellAll(e,that,nav) {
+    var select=that.data.select;
+    var Type=e.target.dataset.type;
+    if(Type==1){
+        select.areaIndex=e.detail.value;
+        that.setData({
+            select:select
+        })
+    }else if(Type==2){
+        select.shopIndex = e.detail.value;
+        that.setData({
+            select: select
+        })
+    }else if(Type==3){
+        select.listIndex = e.detail.value;
+        that.setData({
+            select: select
+        })
+    }
+    // if(nav=="wearhouse/storesearch"||nav=="shopstore/search"){
+    //     request.request(that,nav);
+    // }else if(nav="wearhouse/searchin"){
+    //     request.requesttime(that,nav)
+    // }
+    request.sellListAll(that,nav);
+}
 module.exports={
-  optionChange:optionChange
+    optionChange:optionChange,
+    optionChangeSellAll:optionChangeSellAll
 }

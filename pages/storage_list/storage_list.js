@@ -30,12 +30,12 @@ Page({
             uname:uname
       })
       wx.request({
-          url:this.data.url+"wearhouse/waitList",
+          url:this.data.url+"wearhouse/waitlist",
           method:"POST",
           // data:{}
           success:function (res) {
              var json=res.data.data;
-             console.log(res.data);
+             console.log(res);
              console.log(json);
              that.setData({
                  Data:json

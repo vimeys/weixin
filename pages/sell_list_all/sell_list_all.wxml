@@ -32,22 +32,17 @@
         </picker>
     </view>
 </view>
-<navigator class="ul">
-    <view class="ul_title">点单号：1313465151
-        <text>已对账</text>
-    </view>
-    <view class="ul_time">销售时间：2017-18-12 13:32:32</view>
-</navigator>
-
-<navigator class="ul">
-    <view class="ul_title">点单号：1313465151
-        <text>已对账</text>
-    </view>
-    <view class="ul_time">销售时间：2017-18-12 13:32:32</view>
-</navigator>
-<navigator class="ul">
-    <view class="ul_title">点单号：1313465151
-        <text>已对账</text>
-    </view>
-    <view class="ul_time">销售时间：2017-18-12 13:32:32</view>
-</navigator>
+<import src="../../template/sell_list"/>
+<template is="sell_list" data="{{Data}}"></template>
+<!--<navigator class="ul">-->
+    <!--<view class="ul_title">点单号：1313465151-->
+        <!--<text>已对账</text>-->
+    <!--</view>-->
+    <!--<view class="ul_time">销售时间：2017-18-12 13:32:32</view>-->
+<!--</navigator>-->
+<!--<navigator class="ul">-->
+    <!--<view class="ul_title">点单号：1313465151-->
+        <!--<text>已对账</text>-->
+    <!--</view>-->
+    <!--<view class="ul_time">销售时间：2017-18-12 13:32:32</view>-->
+<!--</navigator>-->

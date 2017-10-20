@@ -1,43 +1,60 @@
 // pages/sell_list_store/sell_store.js
-var Datechange=require("../../utils/Datechange");
+var app=getApp();
+var DateChange=require("../../utils/Datechange");
+var request=require("../../utils/totalRequest");
+var optionChange=require("../../utils/optionChange");
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    select:{
-      start:"开始时间",
-      end:"截止时间",
-      state:["已对账","未对账"],
-      use:false
-    },
+      url:"",
+      noMore:false,
+      select:{
+          use:false,
+          start:"开始时间",
+          Start:"",
+          end:"结束时间",
+          End:"",
+          area:"",//区域
+          areaId:"",
+          areaIndex:"",
+          shop:"",//店铺
+          shopId:"",
+          shopIndex:"",
 
-    index:0
+          list:["已对账","未对账"],//账单选择
+          listId:[1,2],
+          listIndex:0
+      },
+      Data:""//返回数据
   },
-  DateChange:function (e) {
-    Datechange.DateChange(e,this);
-  },
-  optionChange:function (e) {
-      var index=e.detail.value;
-      console.log(index);
-      this.setData({
-        index:index
-      })
-  },
+    //时间选择
+    DataChange:function (e) {
+        DateChange.DateChange(e.this,"")
+    },
+    //选择框
+    optionChange:function (e) {
+        optionChange.optionChangeSellAll(e,this,"");
+    },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+      var url=app.url;
+      this.setData({
+          url:url
+      })
+      request.sellListAll(this,"")
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**

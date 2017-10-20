@@ -73,3 +73,27 @@
 .ul .ul_time{
     font-size: 24rpx;
 }
+.shop{
+    width: 94%;
+    margin-bottom: 30rpx;
+}
+.shop text{
+    float:right;
+
+}
+.shop .store{
+    display: inline-block;
+    float:right;
+}
+.shop .store .select{
+    display: inline-block;
+    width: 200rpx;
+    height: 46rpx;
+    padding-left: 10rpx;
+    padding-top: 5rpx;
+    box-sizing: border-box;
+    border: 1rpx solid #ccc;
+    margin-left: 10rpx;
+    position: relative;
+    font-size: 24rpx;
+}

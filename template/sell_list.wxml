@@ -1,0 +1,11 @@
+<!--销售单页面-->
+<template name="sell_list">
+    <block wx:for="Data" wx:for-item="item">
+        <view class="ul" data-type="">
+            <view class="ul_title">订单号：{{item.num}}
+                <text>{{item.index==1?"未对账":"已对账"}}</text>
+            </view>
+            <view class="ul_time">销售时间：{{item.okTime}}</view>
+        </view>
+    </block>
+</template>

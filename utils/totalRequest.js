@@ -115,7 +115,7 @@ function requestShop(that,nav) {
                 that.setData({
                     noMOre:false
                 })
-            }else{
+            }else if(res.data.code==200){
                 var num=[];
                 function change(item,index) {
                     item.okTime=formatTime.formatTime(res.data.data[index].ctime)
@@ -137,11 +137,65 @@ function sellListAll(that,nav) {
     data.endtime=that.data.select.End;
     data.area=that.data.select.areaId[that.data.select.areaIndex];
     data.shop=that.data.select.shopId[that.data.select.shopIndex];
-    data.list=that.data.select.listId[that.data.select.listId]
+    data.list=that.data.select.listId[that.data.select.listId];
+    wx.request({
+        url:that.data.url+nav,
+        method:"POST",
+        data:data,
+        success:function (res) {
+            if(res.data.code==202){
+                that.setData({
+                    noMOre:false
+                })
+            }else if(res.data.code==200){
+                var num=[];
+                function change(item,index){
+                    item.okTime=formatTime.formatTime(res.data.data[index].ctime);
+                    num.push(item)
+                }
+                res.data.data.forEach(change);
+                that.setData({
+                    Date:num,
+                    noMore:false
+                })
+            }
+        }
+    })
 }
+//仓库退货请求
+    function storReturn(that,nav) {
+        var data={};
+        data.begintime=that.data.select.Start;
+        data.endtime=that.data.select.End;
+        wx.request({
+            url:that.data.url+nav,
+            method:"POST",
+            data:data,
+            success:function (res) {
+                console.log(res);
+                var json=res.data.data;
+                that.setData({
+                    Date:json
+                })
+                var num=[];
+                function change(item,index){
+                    item.okTime=formatTime.formatTime(res.data.data[index].ctime);
+                    num.push(item)
+                }
+                res.data.data.forEach(change);
+                that.setData({
+                    Date:num,
+                })
+                // console.log(that.data.Date[0].status);
+            }
+        })
+
+    }
 
 module.exports={
     request:request,
     requesttime:requesttime,
-    requestShop:requestShop
+    requestShop:requestShop,
+    sellListAll:sellListAll,
+    storReturn:storReturn
 };

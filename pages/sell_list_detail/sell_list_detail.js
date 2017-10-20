@@ -1,18 +1,26 @@
 // pages/sell_list_detail/sell_list_detail.js
+var app=getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+      url:"",
+      Data:"",//回传数据
+      number:""
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+      var url=app.url;
+      var num=options.list;
+      this.setData({
+          url:url,
+          number:num
+      })
   },
 
   /**

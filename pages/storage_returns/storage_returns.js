@@ -1,42 +1,77 @@
 // pages/storage_returns/storage_returns.js
+var app=getApp();
+var formatTime=require("../../utils/util");
+var DateChange=require("../../utils/Datechange");
+var common=require("../../utils/common")
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+      url:"",
+      disable:true,
     select:{
         use:false,
         start:"开始时间",
+        Start:"",
         end:"结束时间",
+        End:"",
         Data:"",//
         mark:false,
-    }
-      
-   
-    
+    },
+    Date:""//
   },
+   bindpick:function (e) {
+      common.bindpick(this)
+   } ,
   DateChange:function (e) {
-    var Type=e.target.dataset.type;
-    var select=this.data.select;
-    if(Type==1){
-      select.start=e.detail.value;
-      this.setData({
-        select:select
-      })
-    }else{
-      select.end=e.detail.value;
-      this.setData({
-        select:select
-      })
-    }
+      DateChange.DateChange(e,this,"wearhouse/backingoods");
+    // var Type=e.target.dataset.type;
+    // var select=this.data.select;
+    // if(Type==1){
+    //   select.start=e.detail.value;
+    //   this.setData({
+    //     select:select
+    //   })
+    // }else{
+    //   select.end=e.detail.value;
+    //   this.setData({
+    //     select:select
+    //   })
+    // }
 
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+      var that=this;
+        var url=app.url;
+        this.setData({
+            url:url
+        })
+      wx.request({
+          url:this.data.url+"wearhouse/backingoods",
+          method:"POST",
+          success:function (res) {
+              console.log(res.data.data);
+              var json=res.data.data;
+              that.setData({
+                  Date:json
+              })
+              var num=[];
+              function change(item,index){
+                  item.okTime=formatTime.formatTime(res.data.data[index].ctime);
+                  num.push(item)
+              }
+              res.data.data.forEach(change);
+              that.setData({
+                  Date:num,
+              })
+              console.log(that.data.Date[0].status);
+          }
+      })
   },
 
   /**

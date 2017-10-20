@@ -8,22 +8,16 @@
     <view class="timeStart" bindtap="bindPick"><picker mode="date" start="{{select.end}}" class=" before"disabled="{{select.use}}" value="{{Edate}}" data-type="2" bindchange="DateChange">
         {{select.end}}
     </picker></view>
+    <view class="shop">区域选择sljdfkasjdlfjal
 
+        <view class="store">店铺选择sdjlfjalsd
+
+        </view>
+    </view>
     <view class="list">对账 <picker mode="selector"  class="select before" disabled="{{select.use}}" value="{{index}}" data-type="1" bindchange="optionChange" range="{{select.state}}">
-        {{select.state[index]}}
+        {{select.list[select.listIndex]}}
     </picker>
     </view>
 </view>
-<navigator class="ul">
-    <view class="ul_title">点单号：1313465151 <text>已对账</text></view>
-    <view class="ul_time">销售时间：2017-18-12  13:32:32</view>
-</navigator>
-
-<navigator class="ul">
-    <view class="ul_title">点单号：1313465151 <text>已对账</text></view>
-    <view class="ul_time">销售时间：2017-18-12  13:32:32</view>
-</navigator>
-<navigator class="ul">
-    <view class="ul_title">点单号：1313465151 <text>已对账</text></view>
-    <view class="ul_time">销售时间：2017-18-12  13:32:32</view>
-</navigator>
+<import src="../../template/sell_list"/>
+<template id="sell_list" data="{{Data}}"></template>

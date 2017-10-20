@@ -33,7 +33,8 @@ function bindpick(that){
   if(display==true){
       wx.showModal({
         title: '提示',
-        content: '请选择请示时间',
+        content: '请选择起始时间',
+          showCancel:false,
         success: res=>{
           if (res.confirm) {
             console.log("成功")
@@ -103,7 +104,6 @@ function delGoods(e,that,nav) {
     that.setData({
         storeId:storeId
     })
-    // console.log(that.data.storeId);
     wx.showModal({
       title: '警告',
       content: '确定要删除商品嘛?',

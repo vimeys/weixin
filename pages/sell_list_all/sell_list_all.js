@@ -1,6 +1,8 @@
 // pages/sell_list_all/sell_list_all.js
 var app=getApp();
- var DateChange=require("../../utils/Datechange")
+ var DateChange=require("../../utils/Datechange");
+var request=require("../../utils/totalRequest");
+var optionChange=require("../../utils/optionChange");
 Page({
 
   /**
@@ -8,6 +10,7 @@ Page({
    */
   data: {
       url:"",
+      noMore:false,
       select:{
           use:false,
           start:"开始时间",
@@ -21,14 +24,19 @@ Page({
           shopId:"",
           shopIndex:"",
 
-          list:"",//账单选择
+          list:["已对账","未对账"],//账单选择
           listId:[1,2],
-          listIndex:""
-      }
+          listIndex:0
+      },
+      Data:""//返回数据
   },
   //时间选择
     DataChange:function (e) {
-        DateChange.DateChange(e.this,)
+        DateChange.DateChange(e.this,"")
+    },
+    //选择框
+    optionChange:function (e) {
+        optionChange.optionChangeSellAll(e,this,"");
     },
   /**
    * 生命周期函数--监听页面加载
@@ -38,7 +46,7 @@ Page({
       this.setData({
           url:url
       })
-      console.log(this.data.shopId==undefined);
+      request.sellListAll(this,"")
   },
 
   /**

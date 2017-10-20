@@ -8,10 +8,10 @@ App({
       success: function (res) {
         var userInfoAvatar=res.userInfo.avatarUrl;
         var nickname=res.userInfo.nickName;
-        wx.setStorageSync('UserID', nickname);
-        console.log("在onlaunch里面的url"+url);
-        console.log("nickname"+nickname)
-        console.log("nickname"+userInfoAvatar);
+        // wx.setStorageSync('UserID', nickname);
+        // console.log("在onlaunch里面的url"+url);
+        // console.log("nickname"+nickname)
+        // console.log("nickname"+userInfoAvatar);
         wx.login({
           success: function (res) {
             if (res.code) {

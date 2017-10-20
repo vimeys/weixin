@@ -1,7 +1,7 @@
 //权限信息提示警告
 function getUrl(e,that) {
   var Type=e.currentTarget.dataset.type;
-  console.log(Type);
+  console.log("信息警告");
   if(Type==2){
     wx.showModal({
       title: '警告',
