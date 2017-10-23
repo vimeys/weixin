@@ -10,23 +10,6 @@
     </picker></view>
 </view>
 
-<navigator url="../storage_detail/storage_detail" class="list">
-        <!--<view class="new"></view>-->
-        <view class="title {{mark==1?new:''}}" data-type="1">订单号：461674616987</view>
-        <view class="shop">退货店铺：成都市成华区跳蹬河---跳蹬河店</view>
-        <view class="list_time">退货时间：2017-07-31   14:23:22</view>
-</navigator>
-
-<navigator url="../storage_detail/storage_detail"  class="list">
-    <view class="title new">订单号：461674616987</view>
-    <view class="shop">退货店铺：成都市成华区跳蹬河---跳蹬河店</view>
-    <view class="list_time">退货时间：2017-07-31   14:23:22</view>
-</navigator>
-<navigator url="../storage_detail/storage_detail"  class="list">
-    <view class="title">订单号：461674616987</view>
-    <view class="shop">退货店铺：成都市成华区跳蹬河---跳蹬河店</view>
-    <view class="list_time">退货时间：2017-07-31   14:23:22</view>
-</navigator>
 <block wx:for="{{Date}}" wx:for-item="item">
     <navigator url="../storage_detail/storage_detail?orderId={{item.orderId}}" class="list">
         <!--<view class="new"></view>-->

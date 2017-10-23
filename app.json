@@ -87,7 +87,7 @@
         "text": "出库"
       },
       {
-        "pagePath": "pages/sell/sell",
+        "pagePath": "pages/storage_returns/storage_returns",
         "iconPath": "pages/images/tabIcon/xiaoshou-1.png",
         "selectedIconPath": "pages/images/tabIcon/xiaoshou.png",
         "text": "销售"

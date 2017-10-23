@@ -53,7 +53,7 @@ console.log(12312312)
     }
 
 }
-//仓库的店铺请求
+//仓库的统计请求
 function requesttime(that,nav) {
     var data1={};
     data1.begintime=that.data.select.Start;
@@ -70,9 +70,11 @@ function requesttime(that,nav) {
         method:"POST",
         data:data1,
         success:function (res) {
+            console.log(res);
             if(res.data.code==202){
                 that.setData({
-                    noMore:false
+                    noMore:false,
+                    Data:[]
             })
             }else {
 
@@ -191,11 +193,52 @@ function sellListAll(that,nav) {
         })
 
     }
-
+//仓库入库日志请求;
+    function storNote(that,nav) {
+        var data={};
+        data.select=that.data.active1;
+        data.begintime=that.data.select.Start;
+        data.endtime=that.data.select.End;
+        data.goodsFashion=that.data.select.style;
+        data.goodsGirard=that.data.select.styleNum;
+        data.formatCode=that.data.select.Barcode;
+        data.sizeId=that.data.select.sizeId[that.data.select.sizeIndex];
+        data.catId=that.data.select.nameId[that.data.select.nameIndex];
+        data.type=that.data.select.waysId[that.data.select.waysIndex];
+        data.active=that.data.active;
+        wx.request({
+            url:that.data.url+nav,
+            method:"POST",
+            data:data,
+            success:function (res) {
+                console.log(res);
+                if(res.data.code==202){
+                    that.setData({
+                        noMore:false,
+                        Data:[]
+                    })
+                }else {
+                    // var t=formatTime.formatTime(res.data.data[0].ctime);
+                    var num=[];
+                    function change(item,index) {
+                        item.time=formatTime.formatTime(res.data.data[index].logCtime);
+                        num.push(item);
+                    }
+                    res.data.data.forEach(change);
+                    // console.log(t);
+                    that.setData({
+                        Data:num,
+                        noMore:false
+                    })
+                }
+            }
+        })
+    }
 module.exports={
     request:request,
     requesttime:requesttime,
     requestShop:requestShop,
     sellListAll:sellListAll,
-    storReturn:storReturn
+    storReturn:storReturn,
+    storNote:storNote
 };

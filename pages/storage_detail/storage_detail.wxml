@@ -1,16 +1,16 @@
 <!--pages/storage_detail/storage_detail.wxml-->
 <view class="num">
-    订单号：{{Data.orderCode}}
+    订单号：{{order.orderCode}}
 </view>
 <import src="../../template/goods_detail.wxml"/>
 <template is="goods_detail" data="{{Data}}"></template>
 <view class="express">
-    顺丰快递：{{Data.expressName}}
+    {{order.expressName}}：{{order.expressUtime}}
 </view>
 <view class="reason">
-    <view class="return_reason">退货理由：{{Data.remark}}</view>
-    <view class="return_time">退货时间：{{Data.okTime}}</view>
+    <view class="return_reason">退货理由：{{order.remark}}</view>
+    <view class="return_time">退货时间：{{order.okTime}}</view>
 </view>
-<button class="fix" bindtap="confire">
+<button class="fix" bindtap="confirm">
     确认入库
 </button>

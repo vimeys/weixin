@@ -103,7 +103,7 @@ Page({
               })
           }
       });
-      request.requestshop(this,"wearhouse/searchin")//替换
+      request.requestShop(this,"wearhouse/searchin")//替换
   },
 
   /**
