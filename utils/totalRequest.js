@@ -105,29 +105,43 @@ function requestShop(that,nav) {
     data.goodsFashion = that.data.select.style;
     data.goodsGirard = that.data.select.styleNum;
     data.formatCode = that.data.select.Barcode;
+    data.shopId=that.data.shopId;
     data.sizeId = that.data.select.sizeId[that.data.select.sizeIndex];
     data.catId = that.data.select.nameId[that.data.select.nameIndex];
     data.type = that.data.select.waysId[that.data.select.waysIndex];
+    data.select=that.data.active;
+    console.log(data);
     wx.request({
         url:that.data.url+nav,
         method:"POST",
         data:data,
         success:function (res) {
+            console.log(res);
             if(res.data.code==202){
                 that.setData({
-                    noMOre:false
+                    noMOre:false,
+                    Data:[]
                 })
             }else if(res.data.code==200){
                 var num=[];
                 function change(item,index) {
-                    item.okTime=formatTime.formatTime(res.data.data[index].ctime)
+                    item.okTime=formatTime.formatTime(res.data.data[index].logCtime)
+                    if(item.logType==2){
+                        item.type="退货入库"
+                    }else if(item.logType==3){
+                        item.type="收货入库"
+                    }else if(item.logType==4){
+                        item.type="调货入库"
+                    }
                     num.push(item);
                 }
                 res.data.data.forEach(change);
+                console.log(num);
                 that.setData({
-                    Date:num,
+                    Data:num,
                     noMore:false
                 })
+                console.log(that.data.Data)
             }
         }
     })

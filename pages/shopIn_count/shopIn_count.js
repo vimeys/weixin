@@ -33,11 +33,11 @@ Page({
         End:"",
         Date: {"a": ["new"], "b": 2, "c": 3, "d": 4},
         size:["S","M","L","XL","XXL"],
-        sizeId:"",
+        sizeId:[],
         name:["长","宽","高"],
         nameId:[],
-        ways:['正常入库','退货入库'],
-        waysId:[0,1],
+        ways:['正常入库','退货入库','调货入库'],
+        waysId:[3,2,4],
         nameIndex:0,
         sizeIndex:0,
         waysIndex:0
@@ -46,7 +46,8 @@ Page({
       year:"" ,//年
       hours:"",//时间
       noMore:true,
-      shopId:""//店铺id
+      shopId:"",//店铺id
+      type:""
   },
     DateChange:function (e) {
         Datechange.DateChange(e,this,"wearhouse/searchin");
@@ -109,7 +110,7 @@ Page({
               })
           }
       });
-      request.requestshop(this,"wearhouse/searchin")
+      request.requestShop(this,"shopstore/logsearch")
   },
 
   /**

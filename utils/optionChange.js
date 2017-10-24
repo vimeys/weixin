@@ -24,7 +24,9 @@ function optionChange(e,that,nav) {
   if(nav=="wearhouse/storesearch"||nav=="shopstore/search"){
       request.request(that,nav);
   }else if(nav="wearhouse/searchin"){
-      request.requesttime(that,nav)
+      request.requesttime(that,nav);
+  }else if(nav=="shopstore/logsearch"){//店铺入库日志请求
+      request.requestShop(that,nav);
   }
 }
 //

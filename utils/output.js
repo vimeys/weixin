@@ -24,7 +24,7 @@ function output(e,that,nav) {
     }
     if(nav=="wearhouse/searchin"){//仓库请求
         request.requesttime(that,nav);
-    }else if(nav==""){//店铺请求
+    }else if(nav=="shopstore/logsearch"){//店铺请求
         request.requestShop(that,nav)
     }
 

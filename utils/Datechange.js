@@ -36,7 +36,7 @@ var request=require("totalRequest");
     console.log(select1);
     if(nav=="wearhouse/searchin"){//仓库入库统计的请求
         request.requesttime(that,nav)
-    }else if(nav==""){//店铺入库的统计请求
+    }else if(nav=="shopstore/logsearch"){//店铺入库的日志请求
         request.requestShop(that,nav)
     }else if(nav=="wearhouse/backingoods"){
         request.storReturn(that,nav);

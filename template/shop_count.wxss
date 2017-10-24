@@ -1,12 +1,7 @@
-/* pages/shopIn_return/shopIn_return.wxss */
-/*@import "../../template/detail_input.wxss";*/
-.container{
-    font-size: 28rpx;
-    color:#333;
-}
 .list{
+    border-top: 1rpx solid #ccc;
     width: 100%;
-    border-bottom: 1rpx solid #333;
+    border-bottom: 1rpx solid #ccc;
     display: flex;
     padding-top: 30rpx;
 }
@@ -30,6 +25,13 @@ image{
 .table .title{
     font-size: 28rpx;
     margin-bottom: 10rpx;
+    position: relative;
+}
+.table .title text{
+    position: absolute;
+    right: 20rpx;
+    top:0;
+    color:red;
 
 }
 .table input{
@@ -50,35 +52,14 @@ image{
 .table .last text{
     margin-right: 35rpx;
 }
-.table image{
-    width: 46rpx;
-    height: 46rpx;
-    position: absolute;
-    right: 20rpx;
-    top: 5rpx;
+.table .last .red{
+    color:red;
 }
-.add{
-    display: inline-block;
-
-    width: 200rpx;
-    height: 60rpx;
-    text-align: center;
-    color:white;
-    font-size: 32rpx;
-    background: #1caba2;
-    line-height: 60rpx;
-    margin-left: 275rpx;
-    margin-top: 20rpx;
-    margin-bottom: 120rpx;
-}
-.fix{
+.record{
+    font-size: 24rpx;
+    box-sizing: border-box;
     width: 100%;
-    color:white;
-    height: 100rpx;
-    text-align: center;
-    line-height: 100rpx;
-    font-size: 32rpx;
-    background: #1caba2;
-    position: fixed;
-    bottom:0;
+    padding: 20rpx;
+    border-bottom: 1rpx solid #ccc;
+    position:relative;
 }

@@ -1,4 +1,4 @@
-//仓库扫描入库确认按钮
+//店铺退货入库确认按钮
 function confirm(that,nav) {
     var Data=that.data.Data;
     var num=[];
@@ -8,10 +8,12 @@ function confirm(that,nav) {
         var Num = item.goodsStock;
         obj.storeId = ID;
         obj.goodsStock = Num;
-        obj.logEditer=that.data.uname;
+        obj.logEditor=that.data.uname;
+        obj.shopId=that.data.shopId;
         num.push(obj);
     }
     Data.forEach(push);
+    console.log(num);
     that.setData({
         sendData:num
     });
@@ -28,13 +30,12 @@ function confirm(that,nav) {
                     title:"成功",
                     content:"入库成功",
                     showCancel:false,
-                    success:function () {
+                    success:function (res) {
                         wx.navigateBack({
-                            delta: 2
+                          delta:2
                         })
                     }
                 })
-
             } else {
                 wx.showModal({
                     title: '提示',

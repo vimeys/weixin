@@ -1,5 +1,5 @@
 <!--pages/shopIn_return/shopIn_return.wxml-->
-<import src="../../template/detail_input"/>
-<template is="detail_input" data=""></template>
-<navigator class="add" url="../strageOutput/strageOutpu">继续添加</navigator>
-<navigator class="fix" url="../">确认入库</navigator>
+<import src="../../template/edit_detail"/>
+<template is="edit_detail" data="{{Data}}"></template>
+<view class="add" bindtap="go">继续添加</view>
+<view class="fix" bindtap="confirm">确认入库</view>

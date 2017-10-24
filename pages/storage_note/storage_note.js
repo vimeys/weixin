@@ -32,7 +32,7 @@ Page({
           End:"",
           Date: {"a": ["new"], "b": 2, "c": 3, "d": 4},
           size: ["S", "M", "L", "XL", "XXL"],
-          sizeId:"",
+          sizeId:[],
           name: ["长", "宽", "高"],
           nameId:[],
           ways: ['正常入库', '退货入库'],

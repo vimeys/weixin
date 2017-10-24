@@ -1,13 +1,13 @@
 <!--pages/sell_count_all/sell_count_all.wxml-->
 <view class="title">
-    <view class="time">时间<picker mode="selector"  class="select before" start="{{start}}" disabled="{{use}}" value="{{index}}" data-type="2" bindchange="DateChange" range="{{array}}">
-        {{array[index]}}
+    <view class="time">时间<picker mode="selector"  class="select before" disabled="{{use}}" value="{{dateIndex}}" data-type="1" bindchange="optionChange" range="{{date}}">
+        {{date[dateIndex]}}
     </picker>
     </view>
-    <view class="shop">区域选择<picker mode="selector"  class="addr before" start="{{start}}" disabled="{{use}}" value="{{index}}" data-type="2" bindchange="DateChange" range="{{array}}">
-        {{array[index]}}
-    </picker> <view class="store">店铺选择<picker mode="selector"  class="select before" start="{{start}}" disabled="{{use}}" value="{{index}}" data-type="2" bindchange="DateChange" range="{{array}}">
-        {{array[index]}}
+    <view class="shop">区域选择<picker mode="selector"  class="addr before"  disabled="{{use}}" value="{{areaIndex}}" data-type="2" bindchange="optionChange" range="{{area}}">
+        {{area[areaIndex]}}
+    </picker> <view class="store">店铺选择<picker mode="selector"  class="select before"  disabled="{{use}}" value="{{index}}" data-type="3" bindchange="optionChange" range="{{shop}}">
+        {{shop[shopIndex]}}
     </picker></view></view>
 </view>
 <view list="list">

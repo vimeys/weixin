@@ -1,4 +1,4 @@
 /* pages/shopIn_note/shopIn_note.wxss */
 @import "../../template/output.wxss";
-@import "../../template/count_detail.wxss";
+@import "../../template/do_detail.wxss";
 @import "../../template/note.wxss";

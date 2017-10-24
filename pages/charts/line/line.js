@@ -3,6 +3,13 @@ var app = getApp();
 var lineChart = null;
 Page({
     data: {
+        data: ["最近7天", "最近14天", "最近28天"],
+        area: ["A", "B"],
+        shop: ["a", "b", "c"],
+        dataIndex: 0,
+        shopIndex: 0,
+        money:2000,
+        day:10,
     },
     touchHandler: function (e) {
         console.log(lineChart.getCurrentDataIndex(e));
@@ -39,6 +46,26 @@ Page({
             categories: simulationData.categories,
             series: series
         });
+    },
+    //选择框的改变事件
+    optionChange:function (e) {
+        var Type=e.target.dataset.type;
+        if(Type==1){
+            var value=e.detail.value;
+            this.setData({
+                dataIndex:value
+            })
+        }else if(Type==2){
+            var value=e.detail.value;
+            this.setData({
+                areaIndex:value
+            })
+        }else if(Type==3){
+            var value=e.detail.value;
+            this.setData({
+                shopIndex:value
+            })
+        }
     },
     onLoad: function (e) {
         var windowWidth = 320;

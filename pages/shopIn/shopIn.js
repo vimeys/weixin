@@ -1,41 +1,44 @@
 // pages/shopIn/shopIn.js
-var app=getApp();
+var app = getApp();
 Page({
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
-        url:"",
-  },
-  //退货扫描
-    bindtap:function(){
-        var that=this;
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        url: "",
+        number:'',//条码号
+        shopId:""
+    },
+    //退货扫描
+    bindtap: function () {
+        var that = this;
         wx.scanCode({
-            success:(res)=>{
-                var number=res.ruslut;
+            success: (res) => {
+                var number = res.ruslut;
                 wx.request({
-                    url:this.data.url+"wearhouse/manual",
-                    method:"POST",
-                    data:{
-                        goodsCode:number,
+                    url: this.data.url + "shopstore/backgoods",
+                    method: "POST",
+                    data: {
+                        goodsCode: number,
+                        shopId:this.data.shopId
                     },
-                    success:function (res) {
-                        var data=res.data;
-                        if(data.code==200||data.code==203){
+                    success: function (res) {
+                        var data = res.data;
+                        if (data.code == 200 || data.code == 203) {
                             that.setData({
-                                number:number
+                                number: number
                             })
                             wx.navigateTo({
-                                url:"../shopIn_return/shopIn_return?number="+res.data.number
+                                url: "../shopIn_return/shopIn_return?number=" + res.data.number
                             })
-                        }else{
+                        } else {
                             wx.showModal({
                                 title: '提示',
                                 content: '该条码不存在,请核对后再扫描',
-                                success: res=>{
+                                success: res => {
                                     wx.navigateTo({
-                                        url: '../storage_JOG/storage_JOG'
+                                        url: '../shopIn_JOG/shopIn_JOG'
                                     })
                                 }
                             })
@@ -43,76 +46,78 @@ Page({
                     }
                 })
             },
-            fail:(res) =>{
+            fail: (res) => {
                 wx.showModal({
                     title: '提示',
                     content: '该条码无法识别，请手动输入条码',
                     showCancel: false,
                     success: function (res) {
                         wx.navigateTo({
-                            url: "../strOut_JOG/strOut_JOG"
+                            url: "../shopIn_JOG/shopIn_JOG"
                         })
                     }
                 })
             }
         })
     },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-      let url=app.url;
-      this.setData({
-          url:url
-      })
-  },
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (options) {
+        let url = app.url;
+        let shopId=options.shopId;
+        this.setData({
+            url: url,
+            shopId:shopId
+        })
+    },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady: function () {
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
+    },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () {
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
+    },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide: function () {
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
+    },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    onUnload: function () {
+
+    },
+
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh: function () {
+
+    },
+
+    /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom: function () {
+
+    },
+
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage: function () {
+
+    }
 })

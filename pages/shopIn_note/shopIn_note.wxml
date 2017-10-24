@@ -2,5 +2,5 @@
 <import src="../../template/output.wxml"/>
 <template is="output" data="{{select}}"></template>
 <include src="../../template/note.wxml"></include>
-<import src="../../template/count_detail.wxml"/>
-<template is="count_detail" data=""></template>
+<import src="../../template/do_detail.wxml"/>
+<template is="do_detail" data="{{Data}}"></template>

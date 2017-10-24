@@ -23,7 +23,8 @@ Page({
         console.log(1);
         this.setData({
             Model:false
-        })
+        });
+        wx.setStorageSync('shopId', e.detail.value);
         wx.navigateTo({
             url: '../shopIn/shopIn?shopId='+e.detail.value
         })

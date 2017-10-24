@@ -1,15 +1,20 @@
-//店铺手动输入事件
+//店铺手动输入事件--退货入库
 function shopJOG(nav,that) {
+    var data={};
+    data.shopId=that.data.number;
+    data.goodsCode=that.data.shopId;
   wx.request({
-    url:that.data.url+'',
-    method:'GET',
+    url:that.data.url+nav,
+    method:'POST',
     data:{
-      Number:that.data.Number,
+      goodsCode:that.data.number,
+        shopId:that.data.shopId
     },
     success:function (res) {
-      if(res.success=='true'){
+        console.log(res);
+      if(res.data.code==200){
         wx.navigateTo({
-          url: nav+'?Number'+that.data.Number
+          url: '../shopIn_return/shopIn_return?number='+that.data.Number
         })
       }else{
         wx.showModal({

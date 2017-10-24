@@ -1,7 +1,7 @@
 <view class="container">
     <view class="title">
-        <view class="time">时间<picker mode="selector"  class="select before" start="{{start}}" disabled="{{use}}" value="{{index}}" data-type="2" bindchange="DateChange" range="{{array}}">
-            {{array[index]}}
+        <view class="time">时间<picker mode="selector"  class="select before" disabled="{{use}}" value="{{dataIndex}}" data-type="1" bindchange="optionChange" range="{{data}}">
+            {{data[dataIndex]}}
         </picker></view>
         <view class="shop">成都市成华区跳蹬河 <text>跳蹬河</text></view>
         <view class="style">款式 <input type="text" /></view>

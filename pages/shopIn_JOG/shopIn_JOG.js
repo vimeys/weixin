@@ -8,7 +8,8 @@ Page({
    */
   data: {
       url:"",
-      number:""
+      number:"",
+      shopId:"",
   },
     //
   bindInput:function (e) {
@@ -18,15 +19,18 @@ Page({
       })
   },
    location:function () {
-      shopJOG.shopJOG("",this)
+       shopJOG.shopJOG("shopstore/backgoods",this)
+
    },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
       var url=app.url;
+      let shopId=wx.getStorageSync('shopId');
       this.setData({
-          url:url
+          url:url,
+          shopId:shopId
       })
   },
 

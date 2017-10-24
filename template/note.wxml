@@ -1,5 +1,5 @@
 <view class="title">
-    <view data-type="1" class="all " bindtap="changeNew"><text class="{{active1==1?'active':''}}">全部日志</text></view>
-    <view data-type="2" class="past " bindtap="changeNew"><text class="{{active1==2?'active':''}}">已出库</text></view>
-    <view data-type="3" class="change " bindtap="changeNew"><text class="{{active1==3?'active':''}}">修改记录</text></view>
+    <view data-type="1" class="all " bindtap="changeNew"><text class="{{active==1?'active':''}}">全部日志</text></view>
+    <view data-type="2" class="past " bindtap="changeNew"><text class="{{active==2?'active':''}}">已出库</text></view>
+    <view data-type="3" class="change " bindtap="changeNew"><text class="{{active==3?'active':''}}">修改记录</text></view>
 </view>

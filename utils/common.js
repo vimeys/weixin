@@ -69,7 +69,7 @@ function request(that){
 
 
 
-//订单列表页面修改数量
+//订单列表页面修改数量仓库和店铺退货入库
 function output(e,that,nav) {
     var value=e.detail.value;
     var Type=e.currentTarget.dataset.type;//获取
@@ -129,6 +129,38 @@ function delGoods(e,that,nav) {
     })
 
 }
+//退货入库删除商品
+function delGoodsShop(e,that,nav) {
+    var Type=e.currentTarget.dataset.type;
+    var storeId=that.data.Data[Type].storeId;
+    that.setData({
+        storeId:storeId
+    })
+    wx.showModal({
+        title: '警告',
+        content: '确定要删除商品嘛?',
+        success: res=>{
+            if (res.confirm) {
+                wx.request({
+                    url:that.data.url+nav,
+                    method:"GET",
+                    data:{
+                        storeId:that.data.storeId,
+                        shopId:that.data.shopId
+                    },
+                    success:function (res) {
+                        console.log(res);
+                        if(res.data.code==200){
+                            that.setData({
+                                Data:res.data.data
+                            })
+                        }
+                    }
+                })
+            }
+        }
+    })
+}
 //动态页面返回
 function go(that) {
     wx.navigateBack({
@@ -140,5 +172,6 @@ module.exports={
     request:request,
     output:output,
     delGoods:delGoods,
+    delGoodsShop:delGoodsShop,
     go:go
 }
