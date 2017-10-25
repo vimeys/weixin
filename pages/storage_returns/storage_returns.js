@@ -27,20 +27,6 @@ Page({
    } ,
   DateChange:function (e) {
       DateChange.DateChange(e,this,"wearhouse/backingoods");
-    // var Type=e.target.dataset.type;
-    // var select=this.data.select;
-    // if(Type==1){
-    //   select.start=e.detail.value;
-    //   this.setData({
-    //     select:select
-    //   })
-    // }else{
-    //   select.end=e.detail.value;
-    //   this.setData({
-    //     select:select
-    //   })
-    // }
-
   },
   /**
    * 生命周期函数--监听页面加载

@@ -62,10 +62,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      common.url(this);
-      var shopId=options.shopId;
+      let url=app.url;
+      var shopId=wx.getStorageSync('shopId');
       this.setData({
-          shopId:shopId
+          shopId:shopId,
+          url:url
       });
       var that=this;
       var data=this.data;
@@ -110,7 +111,7 @@ Page({
               })
           }
       });
-      request.requestShop(this,"shopstore/logsearch")
+      request.requestShopCount(this,"shopstore/countsearch")
   },
 
   /**

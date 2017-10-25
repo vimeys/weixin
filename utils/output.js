@@ -24,10 +24,11 @@ function output(e,that,nav) {
     }
     if(nav=="wearhouse/searchin"){//仓库请求
         request.requesttime(that,nav);
-    }else if(nav=="shopstore/logsearch"){//店铺请求
+    }else if(nav=="shopstore/logsearch"){//店铺日志请求
         request.requestShop(that,nav)
+    }else if(nav=="shopstore/countsearch"){//店铺统计请求
+        request.requestShopCount(that,nav)
     }
-
 }
 module.exports={
     output:output

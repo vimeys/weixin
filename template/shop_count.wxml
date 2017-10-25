@@ -1,3 +1,4 @@
+<!--//店铺入库统计-->
 <template name="shop_count">
     <block wx:for="{{Data}}" wx:for-item="item">
         <view class="list">
@@ -6,13 +7,13 @@
             </view>
             <view class="table">
                 <view class="title">{{item.goodsFashion}}
-                    <text>{{item.type==0?"正常入库":"退货入库"}}</text>
+                    <text>{{item.type}}</text>
                 </view>
                 <view>款号：
                     <text>{{item.goodsGirard}}</text>
                 </view>
                 <view>条码号：
-                    <text>{{item.formatCode}}</text>
+                    <text>{{item.goodsCode}}</text>
                 </view>
                 <view class="last">
                     尺码：
@@ -20,7 +21,7 @@
                     颜色：
                     <text>{{item.colorName}}</text>
                     数量：
-                    <text class="red">{{item.goodsStock}}</text>
+                    <text class="red">{{item.number}}</text>
                 </view>
             </view>
         </view>

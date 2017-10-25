@@ -27,6 +27,8 @@ function optionChange(e,that,nav) {
       request.requesttime(that,nav);
   }else if(nav=="shopstore/logsearch"){//店铺入库日志请求
       request.requestShop(that,nav);
+  }else if(nav=="shopstore/countsearch"){//店铺入库统计请求
+      request.requestShopCount(that,nav)
   }
 }
 //

@@ -96,7 +96,7 @@ function requesttime(that,nav) {
         }
     })
 }
-//收货店铺的请求
+//收货店铺日志的请求
 function requestShop(that,nav) {
     var data = {};
     data.shopId = that.data.select.shopId;
@@ -146,6 +146,55 @@ function requestShop(that,nav) {
         }
     })
 }
+//收货店铺统计的请求
+function requestShopCount(that,nav) {
+    var data = {};
+    data.shopId = that.data.select.shopId;
+    data.begintime = that.data.select.Start;
+    data.endtime = that.data.select.End;
+    data.goodsFashion = that.data.select.style;
+    data.goodsGirard = that.data.select.styleNum;
+    data.formatCode = that.data.select.Barcode;
+    data.shopId=that.data.shopId;
+    data.sizeId = that.data.select.sizeId[that.data.select.sizeIndex];
+    data.catId = that.data.select.nameId[that.data.select.nameIndex];
+    data.type = that.data.select.waysId[that.data.select.waysIndex];
+    // console.log(data);
+    wx.request({
+        url:that.data.url+nav,
+        method:"POST",
+        data:data,
+        success:function (res) {
+            console.log(res);
+            if(res.data.code==202){
+                that.setData({
+                    noMOre:true,
+                    Data:[]
+                })
+            }else if(res.data.code==200){
+                var num=[];
+                function change(item,index) {
+                    item.okTime=formatTime.formatTime(res.data.data[index].ctime);
+                    if(item.type==2){
+                        item.type="退货入库"
+                    }else if(item.type==3){
+                        item.type="收货入库"
+                    }else if(item.type==4){
+                        item.type="调货入库"
+                    }
+                    num.push(item);
+                }
+                res.data.data.forEach(change);
+                console.log(num);
+                that.setData({
+                    Data:num,
+                    noMore:false
+                })
+                console.log(that.data.Data)
+            }
+        }
+    })
+}
 //销售单总经理请求
 function sellListAll(that,nav) {
     var data={};
@@ -175,6 +224,42 @@ function sellListAll(that,nav) {
                     noMore:false
                 })
             }
+        }
+    })
+}
+
+//店铺退货列表页面请求
+function shopreturn(that,nav) {
+    var data={};
+    data.begintime=that.data.select.Start;
+    data.endtime=that.data.select.End;
+    wx.request({
+        url:that.data.url+nav,
+        method:"POST",
+        data:data,
+        success:function (res) {
+            console.log(res);
+            var json=res.data.data;
+            that.setData({
+                Date:json
+            })
+            var num=[];
+            function change(item,index){
+                item.okTime=formatTime.formatTime(res.data.data[index].ctime);
+                if(item.status==0){
+                    item.Type='待收货'
+                }else if(item.status==1){
+                    item.Type='已入库'
+                }else if(item.status==2){
+                    item.Type='发货修改'
+                }
+                num.push(item)
+            }
+            res.data.data.forEach(change);
+            that.setData({
+                Date:num,
+            })
+            // console.log(that.data.Date[0].status);
         }
     })
 }
@@ -252,7 +337,9 @@ module.exports={
     request:request,
     requesttime:requesttime,
     requestShop:requestShop,
+    requestShopCount:requestShopCount,
     sellListAll:sellListAll,
     storReturn:storReturn,
-    storNote:storNote
+    storNote:storNote,
+    shopreturn:shopreturn
 };

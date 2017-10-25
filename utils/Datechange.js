@@ -16,13 +16,19 @@ var request=require("totalRequest");
       select: select1,
     })
       console.log(select1);
+      console.log(nav);
 
       if(nav=="wearhouse/searchin"){//仓库入库统计的请求
           request.requesttime(that,nav)
-      }else if(nav==""){//店铺入库的统计
+      }else if(nav=="shopstore/logsearch"){//店铺入库的统计
           request.requestShop(that,nav)
       }else if(nav=="wearhouse/backingoods"){
         request.storReturn(that,nav)
+      }else if(nav=="shopstore/countsearch"){//店铺入库统计
+          request.requestShopCount(that,nav)
+      }else if(nav=="shopstore/shougoods"){
+          console.log(1);
+          request.shopreturn(that,nav)
       }
   } else {
     select1.end = e.detail.value;
@@ -40,6 +46,11 @@ var request=require("totalRequest");
         request.requestShop(that,nav)
     }else if(nav=="wearhouse/backingoods"){
         request.storReturn(that,nav);
+    }else if(nav=="shopstore/countsearch"){//店铺入库统计
+        request.requestShopCount(that,nav)
+    }else if(nav=="shopstore/shougoods"){
+        console.log(1);
+        request.shopreturn(that,nav)
     }
   }
 }

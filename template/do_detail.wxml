@@ -13,11 +13,9 @@
                     尺码：<text>{{item.sizeName}}</text>颜色：<text>{{item.colorName}}</text> 数量： <text class="red">{{item.inStock}}</text>
                 </view>
             </view>
-
         </view>
         <view class="record">
             操作时间：{{item.okTime}} <text>操作人：{{item.logEditer}}</text>
         </view>
     </block>
-
 </template>
