@@ -1,31 +1,28 @@
 <!--pages/shopIn_restock/shopIn_restock.wxml-->
 <view class="time">
-    <view class="timeStart"><picker mode="date" start="{{start}}" disabled="{{use}}" value="{{Edate}}" data-type="2" bindchange="DateChange">
-        截止时间
+    <view class="timeStart"><picker mode="date" start="{{start}}" disabled="{{use}}" value="{{Edate}}" data-type="1" bindchange="DateChange">
+        {{select.start}}
     </picker>
     </view>
     <text>~~</text>
-    <view class="timeStart" bindtap="bindPick"><picker mode="date" start="{{start}}" disabled="{{use}}" value="{{Edate}}" data-type="2" bindchange="DateChange">
-        截止时间
+    <view class="timeStart" bindtap="bindPick"><picker mode="date" end="{{start}}" disabled="{{use}}" value="{{Edate}}" data-type="2" bindchange="DateChange">
+        {{select.end}}
     </picker></view>
 </view>
 
-<navigator url="../shopIn_takeDetail/shopIN_takeDetail" class="list">
-    <!--<view class="new"></view>-->
-    <view class="title new">订单号：461674616987</view>
-    <view class="shop">发货仓库：成都市成华区跳蹬河---跳蹬河店</view>
-    <view class="list_time">发货时间：2017-07-31   14:23:22</view>
-    <view class="state">已收货</view>
-</navigator>
+<!--<navigator url="../shopIn_takeDetail/shopIN_takeDetail" class="list">-->
+    <!--&lt;!&ndash;<view class="new"></view>&ndash;&gt;-->
+    <!--<view class="title new">订单号：461674616987</view>-->
+    <!--<view class="shop">发货店铺：成都市成华区跳蹬河-&#45;&#45;跳蹬河店</view>-->
+    <!--<view class="list_time">发货时间：2017-07-31   14:23:22</view>-->
+    <!--<view class="state">已收货</view>-->
+<!--</navigator>-->
+<block wx:for="{{Data}}" wx:for-item="item">
+    <navigator url="../shopIn_restockDetail/shopIn_restockDetail?orderId={{item.orderId}}"  class="list">
+        <view class="title {{item.msgMark==0?'new':''}}">订单号：{{item.orderCode}}</view>
+        <view class="shop">发货店铺：{{item.city}}{{item.area}}{{item.address}}---{{item.shopName}}</view>
+        <view class="list_time">发货时间：{{item.okTime}}</view>
+        <view class="state">{{item.Type}}</view>
+    </navigator>
+</block>
 
-<navigator url=""  class="list">
-    <view class="title new">订单号：461674616987</view>
-    <view class="shop">发货仓库：成都市成华区跳蹬河---跳蹬河店</view>
-    <view class="list_time">发货时间：2017-07-31   14:23:22</view>
-    <view class="state">已收货</view>
-</navigator>
-<navigator url=""  class="list">
-    <view class="title">订单号：461674616987</view>
-    <view class="shop">发货仓库：成都市成华区跳蹬河---跳蹬河店</view>
-    <view class="list_time">发货时间：2017-07-31   14:23:22</view>
-</navigator>

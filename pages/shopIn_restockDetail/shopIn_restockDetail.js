@@ -1,8 +1,7 @@
 // pages/shopIn_takeDetail/shopIN_takeDetail.js
 let app = getApp()
 let formatTime = require("../../utils/util");
-Page
-({
+Page({
     /**
      * 页面的初始数据
      */
@@ -61,47 +60,47 @@ Page
     },
     //发货数量修改跳转页面
     click: function (e) {
-        var Type=e.currentTarget.dataset.type;
-        wx.setStorageSync('detail', 'take');
+        var Type = e.currentTarget.dataset.type;
+        wx.setStorageSync('detail', 'restock');
         wx.navigateTo({
-          url: '../shopIn_change/shopIn_change?storeId='+Type
+            url: '../shopIn_change/shopIn_change?storeId=' + Type
         })
         console.log(Type);
     },
     //发货修改确认请求
-    changeConfirm:function (e) {
-        let that=this;
+    changeConfirm: function (e) {
+        let that = this;
         wx.request({
-            url:that.data.url+"shopstore/fixorderstatus",
-            method:"POST",
-            data:{
-                orderId:that.data.orderId
+            url: that.data.url + "shopstore/fixorderstatus",
+            method: "POST",
+            data: {
+                orderId: that.data.orderId
             },
-            success:function (res) {
+            success: function (res) {
                 console.log(res);
-                if(res.data.code==200){
+                if (res.data.code == 200) {
                     wx.showModal({
-                      title: '提示',
-                      content: '提交成功',
-                      showCancel:false,
-                      success: res=>{
-                        if (res.confirm) {
-                            wx.navigateBack({
-                                delta:1
-                            })
+                        title: '提示',
+                        content: '提交成功',
+                        showCancel: false,
+                        success: res => {
+                            if (res.confirm) {
+                                wx.navigateBack({
+                                    delta: 1
+                                })
+                            }
                         }
-                      }
                     })
-                }else if(res.data.code==201||res.data.code==202){
+                } else if (res.data.code == 201 || res.data.code == 202) {
                     wx.showModal({
-                      title: '提示',
-                      content: '提交失败,请重试',
-                        showCancel:false,
-                      success: res=>{
-                        if (res.confirm) {
+                        title: '提示',
+                        content: '提交失败,请重试',
+                        showCancel: false,
+                        success: res => {
+                            if (res.confirm) {
 
+                            }
                         }
-                      }
                     })
                 }
 
@@ -124,20 +123,20 @@ Page
             shopId: shopId
         })
         wx.request({
-            url: that.data.url + "shopstore/orderinfo",
+            url: that.data.url + "shopstore/diaoinfo",
             method: "POST",
             data: {
                 orderId: that.data.orderId
             },
             success: function (res) {
                 var json = res.data.data.goodsinfo;
-                var order = res.data.data.order[0];
+                var order = res.data.data.order;
 
                 that.setData({
                     Data: json,
                     order: order
                 });
-                console.log(res.data);
+                console.log(res);
 
             }
         })

@@ -1,46 +1,115 @@
 // pages/strOut_note/strOut_note.js
-var Datechange = require("../../utils/Datechange.js");
-var optionChange=require("../../utils/optionChange");
+var app = getApp();
+var common = require("../../utils/common");
+var output = require("../../utils/output");
+var Datechange = require("../../utils/Datechange");
+var optionChange = require("../../utils/optionChange");
+var request = require("../../utils/totalRequest");
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    active1:1,
-    select: {
-      use: false,
-      start: "开始时间",
-      end: "结束时间",
-      Date: {"a": ["new"], "b": 2, "c": 3, "d": 4},
-      size:["S","M","L","XL","XXL"],
-      name:["长","宽","高"],
-      ways:['正常入库','退货入库','调货入库'],
-      nameIndex:0,
-      sizeIndex:0,
-      waysIndex:0
-    },
-
+      active:1,
+      select: {
+          use: false,
+          style: "",
+          styleNum: "",
+          Barcode: "",
+          start: "开始时间",
+          Start: "",
+          end: "结束时间",
+          End: "",
+          Date: {"a": ["new"], "b": 2, "c": 3, "d": 4},
+          size: ["S", "M", "L", "XL", "XXL"],
+          sizeId: [],
+          name: ["长", "宽", "高"],
+          nameId: [],
+          ways: ['正常入库', '退货入库', '调货入库'],
+          waysId: [3, 2, 4],
+          nameIndex: 0,
+          sizeIndex: 0,
+          waysIndex: 0
+      },
+      Data: "",
+      year: "",//年
+      hours: "",//时间
+      noMore: true,
   },
   DateChange:function (e) {
-    Datechange.DateChange(e,this);
+    Datechange.DateChange(e,this,"wearout/outlog");
   },
-
+  output:function (e) {
+    output.output(e,this,"wearout/outlog")
+  },
   optionChange:function (e) {
-    optionChange.optionChange(e,this);
+    optionChange.optionChange(e,this,"wearout/outlog");
   },
   changeNew: function (e) {
     var active = e.currentTarget.dataset.type;
     this.setData({
-      active1: active
+      active: active
     });
+    request.storNote(this,"wearout/outlog")
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+      var url = app.url;
+      this.setData({
+          url: url,
+      })
+      var that = this;
+      var data = this.data;
+      wx.request({
+          url: data.url + "sundry/sizes",
+          method: "POST",
+          success: function (res) {
+              var size = [];
+              var sizeId = [];
+
+              function sizePush(item, index) {
+                  size.push(item.sizeName);
+                  sizeId.push(item.sizeId);
+              }
+
+              res.data.data.forEach(sizePush);
+              // console.log(size);
+              var newsize = that.data.select;
+              newsize.size = size;
+              newsize.sizeId = sizeId;
+              that.setData({
+                  select: newsize,
+
+              })
+          }
+      });
+      //
+      wx.request({
+          url: data.url + "sundry/cat",
+          method: "POST",
+          success: function (res) {
+              var name = [];
+              var nameId = []
+
+              function sizePush(item, index) {
+                  name.push(item.catName)
+                  nameId.push(item.catId)
+              }
+
+              res.data.data.forEach(sizePush);
+              var newsize = that.data.select;
+              newsize.name = name;
+              newsize.nameId = nameId;
+              that.setData({
+                  select: newsize
+              })
+          }
+      });
+      request.storNote(this,"wearout/outlog")//替换
   },
 
   /**

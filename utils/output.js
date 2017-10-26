@@ -28,6 +28,10 @@ function output(e,that,nav) {
         request.requestShop(that,nav)
     }else if(nav=="shopstore/countsearch"){//店铺统计请求
         request.requestShopCount(that,nav)
+    }else if(nav=="wearout/outcount"){//仓库出库统计请求
+        request.storCount(that,nav)
+    }else if(nav=="wearout/outlog"){//仓库出库日志请求
+        request.storNote(that,nav)
     }
 }
 module.exports={

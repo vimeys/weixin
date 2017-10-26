@@ -11,6 +11,7 @@ Page({
     data: {
         url:"",
         disable:true,
+        noMore:true,
         select:{
             use:false,
             start:"开始时间",

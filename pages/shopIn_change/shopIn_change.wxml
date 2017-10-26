@@ -1,4 +1,4 @@
 <!--pages/shopIn_change/shopIn_change.wxml-->
 <import src="../../template/detail_input"/>
-<template is="detail_input" data=""></template>
-<navigator class="add" url="../strageOutput/strageOutpu">保存</navigator>
+<template is="detail_input" data="{{Data}}"></template>
+<view class="add" bindtap="confirm">保存</view>

@@ -26,10 +26,15 @@ var request=require("totalRequest");
         request.storReturn(that,nav)
       }else if(nav=="shopstore/countsearch"){//店铺入库统计
           request.requestShopCount(that,nav)
-      }else if(nav=="shopstore/shougoods"){
-          console.log(1);
+      }else if(nav=="shopstore/shougoods"){//店铺退货列表
           request.shopreturn(that,nav)
+      }else if(nav=="wearout/outcount"){//仓库出库统计请求
+          console.log(1);
+          request.storCount(that,nav)
+      }else if(nav=="wearout/outlog"){//仓库出库日志请求
+          request.storNote(that,nav)
       }
+
   } else {
     select1.end = e.detail.value;
     var start=select1.end.replace(/-/g,'/')
@@ -48,9 +53,13 @@ var request=require("totalRequest");
         request.storReturn(that,nav);
     }else if(nav=="shopstore/countsearch"){//店铺入库统计
         request.requestShopCount(that,nav)
-    }else if(nav=="shopstore/shougoods"){
-        console.log(1);
+    }else if(nav=="shopstore/shougoods"){//店铺退货列表
         request.shopreturn(that,nav)
+    }else if(nav=="wearout/outcount"){//仓库出库统计请求
+        console.log(1);
+        request.storCount(that,nav)
+    }else if(nav=="wearout/outlog"){//仓库出库日志请求
+        request.storNote(that,nav)
     }
   }
 }

@@ -24,6 +24,7 @@
     "pages/shopIn_note/shopIn_note",
     "pages/shopIn_take/shopIn_take",
     "pages/shopIn_takeDetail/shopIN_takeDetail",
+    "pages/shopIn_restockDetail/shopIn_restockDetail",
     "pages/shopIn_change/shopIn_change",
     "pages/shopIn_restock/shopIn_restock",
     "pages/shopIn_JOG/shopIn_JOG",
@@ -87,7 +88,7 @@
         "text": "出库"
       },
       {
-        "pagePath": "pages/sell/sell",
+        "pagePath":  "pages/strOut_count/strOut_count",
         "iconPath": "pages/images/tabIcon/xiaoshou-1.png",
         "selectedIconPath": "pages/images/tabIcon/xiaoshou.png",
         "text": "销售"

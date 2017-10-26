@@ -12,16 +12,6 @@ Page({
      */
     data: {
         active: '1',
-        count: [1, 2, 3],
-        goodsMeg: {
-            name: "超级好看的鞋子",
-            sizeNum: "49646164615",
-            codeNum: "546541313",
-            size: "L",
-            color: '红色',
-            many: "7946",
-            state: "1"
-        },
         select: {
             use: false,
             style: "",

@@ -13,7 +13,7 @@ Page({
       order:"",
   },
     confirm:function (e) {
-      var that=this;
+        var that=this;
         wx.request({
             url:this.data.url+"wearhouse/backinok",
             method:"POST",
@@ -22,16 +22,16 @@ Page({
                 console.log(res.data.code);
                 if(res.data.code==200){
                     wx.showModal({
-                      title: '提示',
-                      content: '商品已确认入库',
-                      showCancel:false,
-                      success: res=>{
-                        if (res.confirm) {
+                        title: '提示',
+                        content: '商品已确认入库',
+                        showCancel:false,
+                        success: res=>{
+                            if (res.confirm) {
                                 wx.navigateBack({
                                     delta:2,
                                 })
+                            }
                         }
-                      }
                     })
                 }
             }
@@ -73,15 +73,7 @@ Page({
                   order:order
               });
 
-              // var num=[];
-              // function change(item,index){
-              //     item.okTime=formatTime.formatTime(res.data.data[index].ctime);
-              //     num.push(item)
-              // }
-              // res.data.data.interim.forEach(change);
-              // that.setData({
-              //     Date:num,
-              // })
+
               console.log(that.data.order);
               console.log(that.data.Data);
 

@@ -1,6 +1,6 @@
 /* pages/shopIn_change/shopIn_change.wxss */
 @import "../../template/detail_input.wxss";
-navigator.add{
+.add{
     display: inline-block;
     width: 200rpx;
     height: 60rpx;

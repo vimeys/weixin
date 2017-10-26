@@ -14,16 +14,16 @@
 </view>
 <view class="express ">
     发往区域<view class="input">
-    <picker class="before" mode="selector" value="{{site}}" range="{{takeSite}}" data-Type="1" bindchange="optionChange">
-        {{takeSite[site]}}
+    <picker class="before" mode="selector" value="{{areaIndex}}" range="{{takeArea}}" data-Type="1" bindchange="optionChange">
+        {{takeArea[areaIndex]}}
     </picker>
 </view>
 </view>
 
 <view class="express margin-right">
     发往店铺<view class="input input_big">
-    <picker class="before" mode="selector" value="{{shop}}" range="{{takeShop}}" data-Type="2" bindchange="optionChange">
-        {{takeShop[shop]}}
+    <picker class="before" mode="selector" value="{{shopIndex}}" range="{{takeShop}}" data-Type="2" bindchange="optionChange">
+        {{takeShop[shopIndex]}}
     </picker>
 </view>
 </view>

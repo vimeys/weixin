@@ -24,13 +24,13 @@
         <view class="good_size">
             <view>
                 <text>尺码</text>
-                <picker mode="selector"  class="select before" range="{{select.size}}" disabled="{{select.use}}" value="{{select.index}}" data-type="1" bindchange="optionChange">
+                <picker mode="selector"  class="select before" range="{{select.size}}" disabled="{{select.use}}" value="{{select.sizeIndex}}" data-type="1" bindchange="optionChange">
                     {{select.size[select.sizeIndex]}}
                 </picker>
             </view>
             <view>
                 <text>分类</text>
-                <picker  class="select before" mode="selector" range="{{select.name}}" disabled="{{select.use}}" value="{{select.index}}" data-type="2" bindchange="optionChange">
+                <picker  class="select before" mode="selector" range="{{select.name}}" disabled="{{select.use}}" value="{{select.nameIndex}}" data-type="2" bindchange="optionChange">
                     {{select.name[select.nameIndex]}}
                 </picker>
             </view>

@@ -1,6 +1,7 @@
 // pages/strOut_list/strout_list.js
 var app=getApp();
-var common=require("../../utils/common")
+var common=require("../../utils/common");
+var confirm=require("../../utils/editConfi")
 Page({
 
   /**
@@ -25,7 +26,14 @@ Page({
     },
     //确认入库
     confirm:function (e) {
-        confirm.confirm(this,"wearout/ok")
+        let storeId=[];
+        function push(item,index) {
+            storeId.push(item.storeId)
+        }
+        this.data.Data.forEach(push);
+        wx.navigateTo({
+            url:"../express/express?storeId="+storeId
+        })
     },
     //继续添加
     go:function (e) {

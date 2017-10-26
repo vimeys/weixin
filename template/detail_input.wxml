@@ -1,15 +1,16 @@
+<!--//店铺收货发货修改页面详情-->
 <template name="detail_input">
     <block wx:for="{{Data}}" wx:for-item="item">
         <view class="list">
             <view class="img">
-                <image src="{{item.goodsImage}}"></image>
+                <image src="{{}}"></image>
             </view>
             <view class="table">
                 <view class="title">{{item.goodsFashion}}</view>
                 <view>款号：<text>{{item.goodsGirard}}</text></view>
                 <view>条码号：<text>{{item.formatCode}}</text></view>
                 <view class="last">
-                    尺码：<text>L</text>颜色：<text>红色</text> 数量： <input type="number" value="{{item.goodsStock}}"/>
+                    尺码：<text>L</text>颜色：<text>红色</text> 数量： <input type="number" value="{{item.goodsStock}}" bindblur="output"/>
                 </view>
             </view>
         </view>

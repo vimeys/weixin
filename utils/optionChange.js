@@ -21,14 +21,20 @@ function optionChange(e,that,nav) {
       select: select
     })
   }
+  console.log(nav);
   if(nav=="wearhouse/storesearch"||nav=="shopstore/search"){
       request.request(that,nav);
-  }else if(nav="wearhouse/searchin"){
+  }else if(nav=="wearhouse/searchin"){
       request.requesttime(that,nav);
   }else if(nav=="shopstore/logsearch"){//店铺入库日志请求
       request.requestShop(that,nav);
   }else if(nav=="shopstore/countsearch"){//店铺入库统计请求
       request.requestShopCount(that,nav)
+  }else if(nav=="wearout/outcount"){//仓库出库统计请求
+      console.log(1);
+      request.storCount(that,nav)
+  }else if(nav=="wearout/outlog"){//仓库出库日志请求
+      request.storNote(that,nav)
   }
 }
 //

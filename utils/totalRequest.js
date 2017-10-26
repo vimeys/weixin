@@ -77,7 +77,6 @@ function requesttime(that,nav) {
                     Data:[]
             })
             }else {
-
                 console.log(res);
                 // var t=formatTime.formatTime(res.data.data[0].ctime);
                 var num=[];
@@ -87,6 +86,85 @@ function requesttime(that,nav) {
                 }
                 res.data.data.forEach(change);
                 // console.log(t);
+                that.setData({
+                    Data:num,
+                    noMore:false
+                })
+            }
+
+        }
+    })
+}
+//仓库出库统计的请求
+function storCount(that,nav) {
+    var data1={};
+    data1.begintime=that.data.select.Start;
+    data1.endtime=that.data.select.End;
+    data1.goodsFashion=that.data.select.style;
+    data1.goodsGirard=that.data.select.styleNum;
+    data1.formatCode=that.data.select.Barcode;
+    data1.sizeId=that.data.select.sizeId[that.data.select.sizeIndex];
+    data1.catId=that.data.select.nameId[that.data.select.nameIndex];
+    console.log(data1);
+    wx.request({
+        url:that.data.url+nav,
+        method:"POST",
+        data:data1,
+        success:function (res) {
+            console.log(res);
+            if(res.data.code==202){
+                that.setData({
+                    noMore:true,
+                    Data:[]
+                })
+            }else {
+                console.log(res);
+                var num=[];
+                function change(item,index) {
+                    item.okTime=formatTime.formatTime(res.data.data[index].ctime);
+                    num.push(item);
+                }
+                res.data.data.forEach(change);
+                that.setData({
+                    Data:num,
+                    noMore:false
+                })
+            }
+
+        }
+    })
+}
+//仓库出库的日志请求
+function storNote(that,nav) {
+    var data1={};
+    data1.begintime=that.data.select.Start;
+    data1.endtime=that.data.select.End;
+    data1.goodsFashion=that.data.select.style;
+    data1.goodsGirard=that.data.select.styleNum;
+    data1.formatCode=that.data.select.Barcode;
+    data1.sizeId=that.data.select.sizeId[that.data.select.sizeIndex];
+    data1.catId=that.data.select.nameId[that.data.select.nameIndex];
+    data1.select=that.data.active;
+    console.log(data1);
+    wx.request({
+        url:that.data.url+nav,
+        method:"POST",
+        data:data1,
+        success:function (res) {
+            console.log(res);
+            if(res.data.code==202){
+                that.setData({
+                    noMore:true,
+                    Data:[]
+                })
+            }else {
+                console.log(res);
+                var num=[];
+                function change(item,index) {
+                    item.okTime=formatTime.formatTime(res.data.data[index].logCtime);
+                    num.push(item);
+                }
+                res.data.data.forEach(change);
                 that.setData({
                     Data:num,
                     noMore:false
@@ -239,26 +317,34 @@ function shopreturn(that,nav) {
         data:data,
         success:function (res) {
             console.log(res);
-            var json=res.data.data;
-            that.setData({
-                Date:json
-            })
-            var num=[];
-            function change(item,index){
-                item.okTime=formatTime.formatTime(res.data.data[index].ctime);
-                if(item.status==0){
-                    item.Type='待收货'
-                }else if(item.status==1){
-                    item.Type='已入库'
-                }else if(item.status==2){
-                    item.Type='发货修改'
+            if(res.data.code==202){
+                that.setData({
+                    Data:[],
+                    noMore:true
+                })
+            }else if(res.data.code==200){
+                var json=res.data.data;
+                that.setData({
+                    Data:json
+                })
+                var num=[];
+                function change(item,index){
+                    item.okTime=formatTime.formatTime(res.data.data[index].ctime);
+                    if(item.status==0){
+                        item.Type='待收货'
+                    }else if(item.status==1){
+                        item.Type='已入库'
+                    }else if(item.status==2){
+                        item.Type='发货修改'
+                    }
+                    num.push(item)
                 }
-                num.push(item)
+                res.data.data.forEach(change);
+                that.setData({
+                    Data:num,
+                })
             }
-            res.data.data.forEach(change);
-            that.setData({
-                Date:num,
-            })
+
             // console.log(that.data.Date[0].status);
         }
     })
@@ -295,7 +381,7 @@ function shopreturn(that,nav) {
 //仓库入库日志请求;
     function storNote(that,nav) {
         var data={};
-        data.select=that.data.active1;
+        data.select=that.data.active;
         data.begintime=that.data.select.Start;
         data.endtime=that.data.select.End;
         data.goodsFashion=that.data.select.style;
@@ -304,7 +390,7 @@ function shopreturn(that,nav) {
         data.sizeId=that.data.select.sizeId[that.data.select.sizeIndex];
         data.catId=that.data.select.nameId[that.data.select.nameIndex];
         data.type=that.data.select.waysId[that.data.select.waysIndex];
-        data.active=that.data.active;
+        console.log(data);
         wx.request({
             url:that.data.url+nav,
             method:"POST",
@@ -316,7 +402,7 @@ function shopreturn(that,nav) {
                         noMore:false,
                         Data:[]
                     })
-                }else {
+                }else if(res.data.code==200) {
                     // var t=formatTime.formatTime(res.data.data[0].ctime);
                     var num=[];
                     function change(item,index) {
@@ -341,5 +427,7 @@ module.exports={
     sellListAll:sellListAll,
     storReturn:storReturn,
     storNote:storNote,
-    shopreturn:shopreturn
+    shopreturn:shopreturn,
+    storCount:storCount,
+    storNote:storNote,
 };

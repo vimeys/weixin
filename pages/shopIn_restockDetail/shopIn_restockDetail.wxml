@@ -1,3 +1,4 @@
+<!--pages/shopIn_restockDetail/shopIn_restockDetail.wxml-->
 <!--pages/shopIn_takeDetail/shopIN_takeDetail.wxml-->
 <view class="num">
     订单号：{{order.orderCode}}

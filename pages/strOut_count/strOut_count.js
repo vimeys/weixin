@@ -1,87 +1,157 @@
 // pages/strOut_count/strOut_count.js
+var app = getApp();
 var Datechange = require("../../utils/Datechange.js");
-var optionChange=require("../../utils/optionChange");
+var optionChange = require("../../utils/optionChange");
+var output = require("../../utils/output");
+var request = require("../../utils/totalRequest")
 Page({
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
-    select: {
-      use: false,
-      start: "开始时间",
-      end: "结束时间",
-      Date: {"a": ["new"], "b": 2, "c": 3, "d": 4},
-      size:["S","M","L","XL","XXL"],
-      name:["长","宽","高"],
-      ways:['正常入库','退货入库','调货入库'],
-      nameIndex:0,
-      sizeIndex:0,
-      waysIndex:0
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        url:"",
+        disable:true,
+        select: {
+
+            use: false,
+            style:"",
+            styleNum:"",
+            Barcode:"",
+            start:"开始时间",
+            Start:"",
+            end: "结束时间",
+            End:"",
+            Date: {"a": ["new"], "b": 2, "c": 3, "d": 4},
+            size:["S","M","L","XL","XXL"],
+            sizeId:"",
+            name:["长","宽","高"],
+            nameId:[],
+            ways:['正常入库','退货入库'],
+            waysId:[0,1],
+            nameIndex:0,
+            sizeIndex:0,
+            waysIndex:0
+        },
+        Data:"",//接受数据
+        year:"" ,//年
+        hours:"",//时间
+        noMore:true
+    },
+    DateChange:function (e) {
+        Datechange.DateChange(e,this,"wearout/outcount");
+    },
+    output:function (e) {
+        output.output(e,this,"wearout/outcount");
+    },
+    optionChange:function (e) {
+        optionChange.optionChange(e,this,"wearout/outcount");
     },
 
-  },
-  DateChange:function (e) {
-    Datechange.DateChange(e,this);
-  },
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (options) {
+        var url = app.url;
+        this.setData({
+            url: url
+        });
+        var that = this;
+        var data = this.data;
+        wx.request({
+            url: data.url + "sundry/sizes",
+            method: "POST",
+            success: function (res) {
+                var size = [];
+                var sizeId = [];
 
-  optionChange:function (e) {
-    optionChange.optionChange(e,this);
-  },
+                function sizePush(item, index) {
+                    size.push(item.sizeName);
+                    sizeId.push(item.sizeId);
+                }
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
-  },
+                res.data.data.forEach(sizePush);
+                // console.log(size);
+                var newsize = that.data.select;
+                newsize.size = size;
+                newsize.sizeId = sizeId;
+                that.setData({
+                    select: newsize,
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
+                })
+            }
+        });
+        //
+        wx.request({
+            url: data.url + "sundry/cat",
+            method: "POST",
+            success: function (res) {
+                var name = [];
+                var nameId = [];
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
+                function sizePush(item, index) {
+                    name.push(item.catName)
+                    nameId.push(item.catId)
+                }
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
+                res.data.data.forEach(sizePush);
+                var newsize = that.data.select;
+                newsize.name = name;
+                newsize.nameId = nameId;
+                that.setData({
+                    select: newsize
+                })
+            }
+        });
+        request.storCount(this, "wearout/outcount")
+    },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady: function () {
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
+    },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () {
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }
+    },
+
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide: function () {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面卸载
+     */
+    onUnload: function () {
+
+    },
+
+    /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+    onPullDownRefresh: function () {
+
+    },
+
+    /**
+     * 页面上拉触底事件的处理函数
+     */
+    onReachBottom: function () {
+
+    },
+
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage: function () {
+
+    }
 })
