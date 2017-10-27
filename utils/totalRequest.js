@@ -224,6 +224,50 @@ function requestShop(that,nav) {
         }
     })
 }
+//仓库出库列表请求
+function storList(that,nav) {
+    var data = {};
+    data.begintime = that.data.select.Start;
+    data.endtime = that.data.select.End;
+    data.areaId=that.data.areaId[that.data.select.areaIndex];
+    data.shopId = that.data.select.shopId[that.data.select.shopIndex];
+    data.status = that.data.select.styleId[that.data.select.styleIndex];
+    data.expressId = that.data.select.expressId[that.data.select.expressIndex];
+    data.expressCode=that.data.select.expressNum;
+    console.log(data);
+    wx.request({
+        url:that.data.url+nav,
+        method:"POST",
+        data:data,
+        success:function (res) {
+            console.log(res);
+            if(res.data.code==202){
+                that.setData({
+                    noMOre:false,
+                    Data:[]
+                })
+            }else if(res.data.code==200){
+                var num=[];
+                function change(item,index) {
+                    item.okTime=formatTime.formatTime(res.data.data[index].ctime)
+                    // if(item.logType==2){
+                    //     item.type="退货入库"
+                    // }else if(item.logType==3){
+                    //     item.type="收货入库"
+                    // }else if(item.logType==4){
+                    //     item.type="调货入库"
+                    // }
+                    num.push(item);
+                }
+                res.data.data.forEach(change);
+                that.setData({
+                    Data:num,
+                    noMore:false
+                })
+            }
+        }
+    })
+}
 //收货店铺统计的请求
 function requestShopCount(that,nav) {
     var data = {};
@@ -267,7 +311,7 @@ function requestShopCount(that,nav) {
                 that.setData({
                     Data:num,
                     noMore:false
-                })
+                });
                 console.log(that.data.Data)
             }
         }
@@ -430,4 +474,5 @@ module.exports={
     shopreturn:shopreturn,
     storCount:storCount,
     storNote:storNote,
+    storList:storList,
 };

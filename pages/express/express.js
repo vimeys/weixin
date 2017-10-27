@@ -186,7 +186,7 @@ Page({
                 })
             }
         });
-        wx.request({//获取店铺地址
+        wx.request({//获取快递地址
             url:this.data.url+"sundry/express",
             method:"POST",
             success:function (res) {

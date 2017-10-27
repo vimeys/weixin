@@ -16,7 +16,7 @@ Page({
             success:(res)=>{
                 var number=res.ruslut;
                 wx.request({
-                    url:this.data.url+"wearhouse/manual",
+                    url:this.data.url+"shopout/manual",
                     method:"POST",
                     data:{
                         goodsCode:number,
@@ -28,7 +28,7 @@ Page({
                                 number:number
                             })
                             wx.navigateTo({
-                                url:"../shopOut_sell/shopOut_sell?number="+res.data.number
+                                url:"../shopOut_restock/shopOut_restock?number="+res.data.number
                             })
                         }else{
                             wx.showModal({

@@ -9,6 +9,7 @@
     "pages/express/express",
     "pages/strOut_note/strOut_note",
     "pages/strOut_detail/strOut_detail",
+    "pages/strOut_detailConfirm/strOut_detailConfirm",
     "pages/strOut_count/strOut_count",
     "pages/strOut_JOG/strOut_JOG",
     "pages/ruku/ruku",
@@ -37,6 +38,7 @@
     "pages/shopOut_sell/shopOut_sell",
     "pages/shopOut_order/shopOut_order",
     "pages/shopOut_sellList/sellLsit",
+    "pages/shopOut_JOG/sellOut_JOG",
     "pages/stock/stock",
     "pages/stock_storage/stock_storage",
     "pages/stock_store/stock_store",
@@ -88,7 +90,7 @@
         "text": "出库"
       },
       {
-        "pagePath":  "pages/strOut_count/strOut_count",
+        "pagePath": "pages/strOut_order/strOut_order",
         "iconPath": "pages/images/tabIcon/xiaoshou-1.png",
         "selectedIconPath": "pages/images/tabIcon/xiaoshou.png",
         "text": "销售"

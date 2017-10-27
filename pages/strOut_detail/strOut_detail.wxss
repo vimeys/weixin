@@ -121,7 +121,7 @@ image{
     padding-right: 20rpx;
     float:right;
 }
-navigator.fix{
+.fix{
     width: 100%;
     color:white;
     height: 100rpx;

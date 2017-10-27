@@ -18,7 +18,7 @@ Page({
     if(Type==2){
         this.setData({
             choose:2,
-            btnWord:'确认并填写发货单'
+
         })
     }else if(Type==1){
       this.setData({

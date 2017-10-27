@@ -1,35 +1,38 @@
 <!--pages/strOut_order/strOut_order.wxml-->
 <view class="time">
-    <view class="timeStart"><picker mode="date"  start="{{start}}"  value="{{start}}"  data-type="1" bindchange="DateChange">
-        {{start}}
+    <view class="timeStart"><picker mode="date"  start="{{select.start}}"  value="{{start}}"  data-type="1" bindchange="DateChange">
+        {{select.start}}
         </picker>
     </view>
     <text>~~</text>
-    <view class="timeStart" bindtap="bindpick"><picker mode="date" end="{{end}}" disabled="{{disable}}" value="{{end}}"  data-type="2" bindchange="DateChange">
-        {{end}}
+    <view class="timeStart" bindtap="bindpick"><picker mode="date" end="{{select.end}}" disabled="{{disable}}" value="{{end}}"  data-type="2" bindchange="DateChange">
+        {{select.end}}
     </picker></view>
+
+
+
     <view class="express ">
         发往区域<view class="input">
-            <picker mode="selector" value="{{areaIndex}}"  data-type="1" bindchange="optionChange" range="{{area}}">
-                {{area[areaIndex]}}
+            <picker mode="selector" value="{{select.areaIndex}}"  data-type="1" bindchange="optionChange" range="{{select.area}}">
+                {{select.area[select.areaIndex]}}
             </picker>
         </view>
         <view class="shop">
-            发往店铺 <picker mode="selector" value="shopIndex" data-type="2" bindchange="optionChange" class="input" range="{{shop}}">{{shop[areaIndex]}}</picker>
+            发往店铺 <picker mode="selector" value="select.shopIndex" data-type="2" bindchange="optionChange" class="input" range="{{select.shop}}">{{select.shop[select.shopIndex]}}</picker>
         </view>
     </view>
 
     <view class="express margin-right">
         订单状态<view class="input">
-        <picker mode="selector" value="{{styleIndex}}"  data-type="3" bindchange="optionChange" range="{{style}}">
-            {{style[styleIndex]}}
+        <picker mode="selector" value="{{select.styleIndex}}"  data-type="3" bindchange="optionChange" range="{{select.style}}">
+            {{select.style[select.styleIndex]}}
         </picker>
     </view>
     </view>
     <view class="express  margin-right">
         快递名称<view class="input">
-        <picker mode="selector" value="{{expressIndex}}"  data-type="4" bindchange="optionChange" range="{{express}}">
-            {{express[expressIndex]}}
+        <picker mode="selector" value="{{select.expressIndex}}"  data-type="4" bindchange="optionChange" range="{{select.express}}">
+            {{select.express[select.expressIndex]}}
         </picker>
     </view>
     </view>
@@ -37,27 +40,12 @@
          <text>快递单号</text><input type="number" bindblur="output"/>
     </view>
 </view>
-<view class="orderList">
-    <view class="first">订单号：4645616654 <text>待收货</text></view>
-    <view class="second">收货人：老王 <text>联系电话：122461646</text></view>
-    <view class="third">店铺地址：垃圾地方了杀了对方加洒到了附近</view>
-    <view class="small">发货时间：2017-08-01  15:35:32 <test>韵达快递：5164765616412</test></view>
-</view>
-<view class="orderList">
-    <view class="first">订单号：4645616654 <text>待收货</text></view>
-    <view class="second">收货人：老王 <text>联系电话：122461646</text></view>
-    <view class="third">店铺地址：垃圾地方了杀了对方加洒到了附近</view>
-    <view class="small">发货时间：2017-08-01  15:35:32 <test>韵达快递：5164765616412</test></view>
-</view>
-<view class="orderList">
-    <view class="first">订单号：4645616654 <text>待收货</text></view>
-    <view class="second">收货人：老王 <text>联系电话：122461646</text></view>
-    <view class="third">店铺地址：垃圾地方了杀了对方加洒到了附近</view>
-    <view class="small">发货时间：2017-08-01  15:35:32 <test>韵达快递：5164765616412</test></view>
-</view>
-<view class="orderList">
-    <view class="first">订单号：4645616654 <text>待收货</text></view>
-    <view class="second">收货人：老王 <text>联系电话：122461646</text></view>
-    <view class="third">店铺地址：垃圾地方了杀了对方加洒到了附近</view>
-    <view class="small">发货时间：2017-08-01  15:35:32 <test>韵达快递：5164765616412</test></view>
-</view>
+<block wx:for="{{Data}}" wx:for-item="item">
+    <view class="orderList" bindtap="bindNav" data-type="{{item.orderId}}" data-name="待收货">
+        <view class="first">订单号：{{item.orderCode}} <text>{{item.Type}}</text></view>
+        <view class="second">收货人：{{item.receiver}} <text>联系电话：{{item.rephone}}</text></view>
+        <view class="third">店铺地址：{{item.city}}{{item.area}}{{item.address }}</view>
+        <view class="small">发货时间：{{item.okTime}} <test>{{item.expressName}}：{{item.expressCode}}</test></view>
+    </view>
+</block>
+
