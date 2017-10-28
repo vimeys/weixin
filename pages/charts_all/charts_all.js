@@ -3,14 +3,15 @@ var app = getApp();
 var lineChart = null;
 Page({
     data: {
+        // url:'',
         date: ["最近7天", "最近14天", "最近28天"],
         area: ["A", "B"],
         shop: ["a", "b", "c"],
         dataIndex: 0,
         areaIndex:0,
         shopIndex:0,
-        money:2000,
-        day:16,
+        money:[1,30,33,33,12,123,123],
+        day:"第",
     },
     touchHandler: function (e) {
         console.log(lineChart.getCurrentDataIndex(e));
@@ -22,11 +23,13 @@ Page({
         });
     },
     createSimulationData: function () {
+        let that=this;
         var categories = [];
         var data = [];
         for (var i = 0; i < 7; i++) {
-            categories.push(this.data.day+'-' + (i + 1));
-            data.push(Math.random() * (this.data.money - 10) + 10);
+            categories.push(this.data.day +(i + 1)+'天');
+            // data.push(Math.random() * (this.data.money - 10) + 10);
+            data.push(that.data.money[i]);
         }
         // data[4] = null;
         return {
@@ -69,6 +72,21 @@ Page({
         }
     },
     onLoad: function (e) {
+        let url=app.url;
+        let that=this;
+        this.setData({
+            url:url
+        });
+
+        // 页面请求
+        wx.request({
+            url:that.data.url+"",
+            method:"POST",
+            data:{},
+            success:function (res) {
+                console.log(res);
+            }
+        });
         var windowWidth = 320;
         try {
             var res = wx.getSystemInfoSync();
@@ -85,23 +103,17 @@ Page({
             animation: true,
             background: '#f5f5f5',
             series: [{
-                name: '成交量1',
+                name: '销售数量',
                 data: simulationData.data,
                 format: function (val, name) {
-                    return val.toFixed(2) + '万';
-                }
-            }, {
-                name: '成交量2',
-                data: [],
-                format: function (val, name) {
-                    return val.toFixed(2) + '万';
+                    return val + '万';
                 }
             }],
             xAxis: {
                 disableGrid: true
             },
             yAxis: {
-                title: '成交金额 (万元)',
+                title: "",
                 format: function (val) {
                     return val.toFixed(2);
                 },

@@ -3,13 +3,14 @@ var app = getApp();
 var lineChart = null;
 Page({
     data: {
-        data: ["最近7天", "最近14天", "最近28天"],
+        url:"",
+        date: ["最近7天", "最近14天", "最近28天"],
         area: ["A", "B"],
         shop: ["a", "b", "c"],
-        dataIndex: 0,
+        dateIndex: 0,
         shopIndex: 0,
         money:2000,
-        day:10,
+        day:'第',
     },
     touchHandler: function (e) {
         console.log(lineChart.getCurrentDataIndex(e));
@@ -21,10 +22,12 @@ Page({
         });
     },    
     createSimulationData: function () {
+        var that=this;
         var categories = [];
         var data = [];
         for (var i = 0; i < 7; i++) {
-            categories.push('16-' + (i + 1)+"~16-"+i);
+            let num='';
+            categories.push(this.data.day +(i + 1)+'天');
             data.push(Math.random()*(1200-10)+10);
         }
         // data[4] = null;
@@ -53,7 +56,7 @@ Page({
         if(Type==1){
             var value=e.detail.value;
             this.setData({
-                dataIndex:value
+                dateIndex:value
             })
         }else if(Type==2){
             var value=e.detail.value;
@@ -84,14 +87,8 @@ Page({
             animation: true,
             background: '#f5f5f5',
             series: [{
-                name: '成交量1',
+                name: '销售数量',
                 data: simulationData.data,
-                format: function (val, name) {
-                    return val.toFixed(2) + '万';
-                }
-            }, {
-                name: '成交量2',
-                data: [],
                 format: function (val, name) {
                     return val.toFixed(2) + '万';
                 }

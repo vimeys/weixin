@@ -11,6 +11,7 @@ Page({
       urlList:'', //销售单页面
       urlCount:"",//统计单页面
       urlMoney:"",//销售额页面
+      urlExcel:""//销售图标
 
   },
    bindUrlTap:function (e) {
@@ -27,19 +28,22 @@ Page({
         this.setData({
             urlList:"../sell_list_store/sell_store",
             urlCount:"../sell_count_store/sell_count_store",
-            urlMoney:"../sell_money_store/sell_money_store"
+            urlMoney:"../sell_money_store/sell_money_store",
+            urlExcel:"../charts/line/line"
         })
     }else if(level==3){
             this.setData({
                 urlList: "../sell_list_area/sell_list_area",
                 urlCount:"../sell_count_area/sell_count_area",
-                urlMoney:"../sell_money_area/sell_money_area"
+                urlMoney:"../sell_money_area/sell_money_area",
+                urlExcel:"../charts_area/charts_ares"
             })
     }else if(level==4){
         this.setData({
             urlList: "../sell_list_all/sell_list_all",
             urlCount:"../sell_count_all/sell_count_all",
-            urlMoney:"../sell_money_all/sell_money_all"
+            urlMoney:"../sell_money_all/sell_money_all",
+            urlExcel:"../charts_all/charts_all"
         })
     }
     // getStor.getStor(this);

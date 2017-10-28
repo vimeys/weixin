@@ -1,4 +1,3 @@
-/* pages/shopOut_order/shopOut_order.wxss */
 /* pages/strOut_order/strOut_order.wxss */
 .time{
     width: 100%;
@@ -29,7 +28,7 @@
     top:0rpx;
 }
 .express{
-    width: 330rpx;
+    width: 96%;
     font-size: 30rpx;
     position: relative;
     display: inline-block;
@@ -37,6 +36,7 @@
 }
 .express .input{
     display: inline-block;
+    position: relative;
     margin-left: 7rpx;
     width: 200rpx;
     height: 46rpx;
@@ -53,12 +53,19 @@
     right:15rpx;
     top:5rpx;
 }
+.shop{
+    display: inline-block;
+    float:right;
+}
+.shop .input{
+    border: 1px solid #ccc;
+}
 .margin{
     margin-left: 57rpx;
 }
-.margin-right{
-    margin-right: 100rpx;
-}
+/*.margin-right{*/
+    /*margin-right: 100rpx;*/
+/*}*/
 .express_num{
     /*display: inline-block;*/
     font-size: 30rpx;

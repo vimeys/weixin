@@ -21,5 +21,5 @@
 </view>
 <view class="container">
     <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
-    <button type="primary" bindtap="updateData">更新数据</button>
+    <!--<button type="primary" bindtap="updateData">更新数据</button>-->
 </view>

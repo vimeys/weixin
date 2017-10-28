@@ -7,7 +7,7 @@ Page({
    */
   data: {
       UserID:"",//用户姓名
-      url:"",
+      url:"",//
       choose:1,//选中样式
       btnWord:"确认",//确认按钮的样式
       urlData:""//请求路径

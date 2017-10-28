@@ -13,7 +13,7 @@
         <view class="r-bdt">销售额统计</view>
     </navigator>
 
-    <navigator url="../charts_all/charts_all" class="r-con" data-type="{{}}">
+    <navigator url="{{urlExcel}}" class="r-con" data-type="{{urlExcel?1:2}}" bindtap="bindUrlTap">
         <image src="../images/trending.png" class="r-bdi"></image>
         <view class="r-bdt">销售趋势</view>
     </navigator>
