@@ -74,7 +74,7 @@ Page({
    */
   onLoad: function (options) {
       var that=this
-    var data=this.data;
+      var data=this.data;
       var url=app.url;
       this.setData({
           url:url
