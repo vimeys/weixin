@@ -39,21 +39,25 @@ Page({
         shopId:""//店铺id
     },
     DateChange:function (e) {
-        Datechange.DateChange(e,this,"wearhouse/searchin");
+        Datechange.DateChange(e,this,"shopout/searchin");
     },
     output:function (e) {
-        output.output(e,this,"wearhouse/searchin");
+        output.output(e,this,"shopout/searchin");
     },
     optionChange:function (e) {
-        optionChange.optionChange(e,this,"wearhouse/searchin");
+        optionChange.optionChange(e,this,"shopout/searchin");
     },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
         let url=app.url;
+        let that=this;
+        let data=this.data;
+        let  shopId=wx.getStorageSync('shopId');
         this.setData({
-            url:url
+            url:url,
+            shopId:shopId
         });
         wx.request({
             url:data.url+"sundry/sizes",
@@ -96,7 +100,7 @@ Page({
                 })
             }
         });
-        request
+        request.shopOutCount(this,"shopout/searchin");
     },
 
     /**

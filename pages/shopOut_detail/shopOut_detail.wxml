@@ -1,6 +1,5 @@
-<!--pages/strOut_detailConfirm/strOut_detailConfirm.wxml-->
-<!--pages/strOut_detail/strOut_detail.wxml-->
-<view class="det_title">发货修改</view>
+<!--pages/shopOut_detail/shopOut_detail.wxml-->
+<view class="det_title">待收货</view>
 <view class="orderList">
     <view class="second">收货人：{{order.receiver}}<text>联系电话：{{order.rephone}}</text></view>
     <view class="third">店铺地址：{{order.address}}</view>
@@ -8,7 +7,7 @@
     <view class="small">发货时间：{{order.okTime}} </view>
 </view>
 <view class="detail">
-    <view class="num">订单号：{{order.orderId}}</view>
+    <view class="num">订单号：{{order.orderCode}}</view>
     <block wx:for="{{Data}}" wx:for-item="item">
         <view class="list">
             <view class="img">
@@ -19,14 +18,16 @@
                 <view>款号：<text>{{item.goodsGirard}}</text></view>
                 <view>条码号：<text>{{item.goodsCode}}</text></view>
                 <view class="last">
-                    尺码：<text>{{item.sizeName}}</text>颜色：<text>{{item.colorName}}</text> 数量： <text class="del">{{item}}</text><text class="red">{{item.goodsStock}}</text>
+                    尺码：<text>{{item.sizeName}}</text>颜色：<text>{{item.colorName}}</text> 数量： <text class="red">{{item.goodsStock}}</text>
                 </view>
             </view>
         </view>
     </block>
 
+
+
     <view class="express">{{order.expressName}}：{{item.expressCode}}</view>
 </view>
-<view class="fix"  bindtap="confirm">
-    确认修改
+<view class="fix"  bindtap="return">
+    返回首页
 </view>

@@ -5,12 +5,13 @@ var optionChange = require("../../utils/optionChange");
 var common = require("../../utils/common");
 var output = require("../../utils/output");
 var request = require("../../utils/totalRequest");
+var formatTime=require("../../utils/util");
 Page({
     /**
      * 页面的初始数据
      */
     data: {
-        active1: '1',
+        active: '1',
         select: {
             use: false,
             style:"",
@@ -25,8 +26,8 @@ Page({
             sizeId:"",
             name:["长","宽","高"],
             nameId:[],
-            ways:['正常入库','退货入库'],
-            waysId:[0,1],
+            ways:['调货出库','退货出库'],
+            waysId:[7,6],
             nameIndex:0,
             sizeIndex:0,
             waysIndex:0
@@ -38,25 +39,33 @@ Page({
         shopId:""//店铺id
     },
     DateChange: function (e) {
-        Datechange.DateChange(e, this)
+        Datechange.DateChange(e, this,"shopout/loglist")
     },
     optionChange: function (e) {
-        optionChange.optionChange(e, this)
+        optionChange.optionChange(e, this,"shopout/loglist")
+    },
+    output:function (e) {
+      output.output(e,this,"shopout/loglist")
     },
     changeNew: function (e) {
         var active = e.currentTarget.dataset.type;
         this.setData({
-            active1: active
+            active: active
         });
+        request.shopOutnote(this,"shopout/loglist")
     },
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
         let url=app.url;
+        let  shopId=wx.getStorageSync('shopId');
         this.setData({
-            url:url
+            url:url,
+            shopId:shopId
         });
+        let that=this;
+        let data=this.data;
         wx.request({
             url:data.url+"sundry/sizes",
             method:"POST",
@@ -98,6 +107,33 @@ Page({
                 })
             }
         });
+        wx.request({
+            url:that.data.url+"shopout/loglist",
+            method:"POST",
+            data:{select:1,shopId:shopId},
+            success:function (res) {
+                var num=[];
+                function change(item,index) {
+                    item.okTime=formatTime.formatTime(item.logCtime);
+                    if(item.logType==6){
+                        item.type="退货出库"
+                    }else if(item.logType==7){
+                        item.type="调货出库"
+                    }else if(item.logType==8){
+                        item.type="销售出库"
+                    }else if(item.logType==9||item.logType==10){
+                        item.type="错误信息"
+                    }
+                    num.push(item)
+                }
+                res.data.data.forEach(change);
+                console.log(num);
+                let data=res.data.data;
+                that.setData({
+                    Data:data
+                })
+            }
+        })
     },
 
     /**

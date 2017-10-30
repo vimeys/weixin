@@ -177,7 +177,6 @@ function storNote(that,nav) {
 //收货店铺日志的请求
 function requestShop(that,nav) {
     var data = {};
-    data.shopId = that.data.select.shopId;
     data.begintime = that.data.select.Start;
     data.endtime = that.data.select.End;
     data.goodsFashion = that.data.select.style;
@@ -224,6 +223,104 @@ function requestShop(that,nav) {
         }
     })
 }
+//店铺出库日志请求
+function requestShopOutNote(that,nav) {
+    var data = {};
+    data.shopId = that.data.shopId;
+    data.begintime = that.data.select.Start;
+    data.endtime = that.data.select.End;
+    data.goodsFashion = that.data.select.style;
+    data.goodsGirard = that.data.select.styleNum;
+    data.formatCode = that.data.select.Barcode;
+    data.sizeId = that.data.select.sizeId[that.data.select.sizeIndex];
+    data.catId = that.data.select.nameId[that.data.select.nameIndex];
+    data.type = that.data.select.waysId[that.data.select.waysIndex];
+    data.select=that.data.active;
+    console.log(data);
+    wx.request({
+        url:that.data.url+nav,
+        method:"POST",
+        data:data,
+        success:function (res) {
+            console.log(res);
+            if(res.data.code==202){
+                that.setData({
+                    noMOre:false,
+                    Data:[]
+                })
+            }else if(res.data.code==200){
+                var num=[];
+                function change(item,index) {
+                    item.okTime=formatTime.formatTime(res.data.data[index].logCtime)
+                    if(item.logType==6){
+                        item.type="退货出库"
+                    }else if(item.logType==7){
+                        item.type="调货出库"
+                    }else if(item.logType==8){
+                        item.type="销售出库"
+                    }else if(item.logType==9||item.logType==10){
+                        item.type="错误信息"
+                    }
+                    num.push(item);
+                }
+                res.data.data.forEach(change);
+                that.setData({
+                    Data:num,
+                    noMore:false
+                })
+            }
+        }
+    })
+}
+//店铺出库统计的请求
+function shopOutCount(that,nav) {
+    var data = {};
+    data.shopId = that.data.select.shopId;
+    data.begintime = that.data.select.Start;
+    data.endtime = that.data.select.End;
+    data.goodsFashion = that.data.select.style;
+    data.goodsGirard = that.data.select.styleNum;
+    data.formatCode = that.data.select.Barcode;
+    data.shopId=that.data.shopId;
+    data.sizeId = that.data.select.sizeId[that.data.select.sizeIndex];
+    data.catId = that.data.select.nameId[that.data.select.nameIndex];
+    data.type = that.data.select.waysId[that.data.select.waysIndex];
+    // console.log(data);
+    wx.request({
+        url:that.data.url+nav,
+        method:"POST",
+        data:data,
+        success:function (res) {
+            console.log(res);
+            if(res.data.code==202){
+                that.setData({
+                    noMOre:true,
+                    Data:[]
+                })
+            }else if(res.data.code==200){
+                var num=[];
+                function change(item,index) {
+                    item.okTime=formatTime.formatTime(res.data.data[index].ctime);
+                    if(item.type==6){
+                        item.Type="退货出库"
+                    }else if(item.type==7){
+                        item.Type="收货出库"
+                    }else if(item.type==8){
+                        item.Type="销售出库"
+                    }
+                    num.push(item);
+                }
+                res.data.data.forEach(change);
+                console.log(num);
+                that.setData({
+                    Data:num,
+                    noMore:false
+                });
+                console.log(that.data.Data)
+            }
+        }
+    })
+}
 //仓库出库列表请求
 function storList(that,nav) {
     var data = {};
@@ -235,6 +332,51 @@ function storList(that,nav) {
     data.expressId = that.data.select.expressId[that.data.select.expressIndex];
     data.expressCode=that.data.select.expressNum;
     console.log(data);
+    wx.request({
+        url:that.data.url+nav,
+        method:"POST",
+        data:data,
+        success:function (res) {
+            console.log(res);
+            if(res.data.code==202){
+                that.setData({
+                    noMOre:false,
+                    Data:[]
+                })
+            }else if(res.data.code==200){
+                var num=[];
+                function change(item,index) {
+                    item.okTime=formatTime.formatTime(res.data.data[index].ctime)
+                    // if(item.logType==2){
+                    //     item.type="退货入库"
+                    // }else if(item.logType==3){
+                    //     item.type="收货入库"
+                    // }else if(item.logType==4){
+                    //     item.type="调货入库"
+                    // }
+                    num.push(item);
+                }
+                res.data.data.forEach(change);
+                that.setData({
+                    Data:num,
+                    noMore:false
+                })
+            }
+        }
+    })
+}
+//店铺出库列表请求
+function shopOutOrder(that,nav) {
+    var data = {};
+    data.begintime = that.data.select.Start;
+    data.endtime = that.data.select.End;
+    data.areaId=that.data.select.areaId[that.data.select.areaIndex];
+    data.shopId = that.data.select.shopId[that.data.select.shopIndex];
+    data.status = that.data.select.styleId[that.data.select.styleIndex];
+    data.expressId = that.data.select.expressId[that.data.select.expressIndex];
+    data.expressCode=that.data.select.expressNum;
+    data.nowShopId=that.data.shopId;
+    data.type=that.data.select.return[that.data.select.returnIndex];
     wx.request({
         url:that.data.url+nav,
         method:"POST",
@@ -475,4 +617,7 @@ module.exports={
     storCount:storCount,
     storNote:storNote,
     storList:storList,
+    shopOutnote:requestShopOutNote,
+    shopOutCount:shopOutCount,
+    shopOutOrder: shopOutOrder,
 };

@@ -36,7 +36,7 @@ Page({
                                 content: '该条码不存在,请核对后再扫描',
                                 success: res=>{
                                     wx.navigateTo({
-                                        url: '../storage_JOG/storage_JOG'
+                                        url: '../shopOut_JOG/sellOut_JOG'
                                     })
                                 }
                             })

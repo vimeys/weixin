@@ -22,11 +22,11 @@ Page({
             shop:["成华","金牛"],
             shopId:[],
             shopIndex:0,
-            style: ["待收货", "已入库", "发货修改"],//发货状态
+            style: ["待收货", "已出库", "发货修改"],//发货状态
 
             styleId:[0,1,2],//具体状态
             styleIndex: 0,
-            return:['退货入库',"调货入库"],
+            return:['退货出库',"调货出库"],
             returnId:[6,7],
             returnIndex:0,
             express: ["圆通", "申通", "汇通"],//快递
@@ -34,7 +34,8 @@ Page({
             expressIndex: 0,
             expressNum: ""//快递单号
         },
-        Data:""
+        Data:"",
+        shopId:''
     },
     DateChange: function (e) {
         var Type = e.target.dataset.type;
@@ -73,7 +74,7 @@ Page({
             this.setData({
                 select: select,
             });
-            request.storList(this,"wearout/orderlist")
+            request.shopOutOrder(this,"shopout/orderlist")
             console.log(e);
         } else if (Type == 2) {
             var i = e.detail.value;
@@ -82,7 +83,7 @@ Page({
             this.setData({
                 select: select,
             })
-            request.storList(this,"wearout/orderlist")
+            request.shopOutOrder(this,"shopout/orderlist")
         } else if(Type==3) {
             var i = e.detail.value;
             var select=this.data.select;
@@ -90,15 +91,23 @@ Page({
             this.setData({
                 select: select,
             })
-            request.storList(this,"wearout/orderlist")
+            request.shopOutOrder(this,"shopout/orderlist")
         }else if(Type==4){
             var i=e.detail.value;
             var select=this.data.select;
             select.expressIndex=i
             this.setData({
                 select: select,
+            });
+            request.shopOutOrder(this,"shopout/orderlist")
+        }else if(Type==5){
+            var i=e.detail.value;
+            var select=this.data.select;
+            select.returnIndex=i
+            this.setData({
+                select: select,
             })
-            request.storList(this,"wearout/orderlist")
+            request.shopOutOrder(this,"shopout/orderlist")
         }
     },
     output: function (e) {
@@ -106,7 +115,7 @@ Page({
         this.setData({
             expressNum: Num
         })
-        request.storList(this,"wearout/orderlist")
+        request.shopOutOrder(this,"shopout/orderlist")
     },
     bindpick:function () {
         common.bindpick(this);
@@ -118,11 +127,11 @@ Page({
         var type=e.currentTarget.dataset.type;
         if(name=="待收货"){
             wx.navigateTo({
-                url: '../strOut_detail/strOut_detail?orderId='+type
+                url: '../shopOut_detail/shopOut_detail?orderId='+type
             })
         }if(name=="发货修改"){
             wx.navigateTo({
-                url:"../strOut_detailConfirm/strOut_detailConfirm"+type
+                url:"../shopOut_detailConfirm/shopOut_detailConfirm?orderId="+type
             })
         }
     },
@@ -132,6 +141,7 @@ Page({
     onLoad: function (options) {
         var url=app.url;
         var that=this;
+        let shopId=wx.getStorageSync('shopId');
         this.setData({
             url:url
         })
@@ -147,13 +157,11 @@ Page({
                     size.push(item.area);
                     sizeId.push(item.areaid);
                 }
-
                 res.data.data.forEach(sizePush);
-                console.log(size);
                 var select = that.data.select;
                 select.area = size;
                 select.areaId = sizeId
-                console.log(size);
+                console.log(select);
                 that.setData({
                     select: select
                 })
@@ -163,7 +171,6 @@ Page({
             url:this.data.url+"sundry/shop",
             method:"POST",
             success:function (res) {
-                console.log(res);
                 var size=[];
                 var sizeId=[];
                 function sizePush(item,index){
@@ -174,7 +181,6 @@ Page({
                 var select=that.data.select;
                 select.shop=size;
                 select.shopId=sizeId
-                console.log(size);
                 that.setData({
                     select:select
                 })
@@ -184,7 +190,6 @@ Page({
             url:this.data.url+"sundry/express",
             method:"POST",
             success:function (res) {
-                console.log(res);
                 var size=[];
                 var sizeId=[];
                 function sizePush(item,index){
@@ -195,7 +200,6 @@ Page({
                 var select=that.data.select;
                 select.express=size;
                 select.expressId=sizeId
-                console.log(size);
                 that.setData({
                     select:select
                 })
@@ -203,21 +207,22 @@ Page({
             }
         });
         wx.request({
-            url:this.data.url+'wearout/orderlist',
+            url:this.data.url+'shopout/orderlist',
             method:"POST",
-            data:{},
+            data:{nowShopId:shopId},
             success:function (res) {
+                console.log(res);
                 if(res.data.code==200){
                     var num=[];
                     function change(item,index) {
                         item.okTime=formatTime.formatTime(res.data.data[index].ctime)
-                        // if(item.logType==2){
-                        //     item.type="退货入库"
-                        // }else if(item.logType==3){
-                        //     item.type="收货入库"
-                        // }else if(item.logType==4){
-                        //     item.type="调货入库"
-                        // }
+                        if(item.status==0){
+                            item.Type="待收货"
+                        }else if(item.type==1){
+                            item.Type="已入库"
+                        }else if(item.type==2){
+                            item.Type='发货修改'
+                        }
                         num.push(item);
                     }
                     res.data.data.forEach(change);

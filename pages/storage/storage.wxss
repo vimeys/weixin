@@ -43,8 +43,16 @@ page{
 }
 
 .contain .r-con{
+    /*float: left;*/
+    /*width: 375rpx;*/
+    /*height: 225rpx;*/
+    /*background-color: #fff;*/
+    /*box-sizing: border-box;*/
+    /*padding-top: 39rpx;*/
+    /*border-right:1rpx solid #efefef;*/
+    /*border-bottom: 1rpx solid #efefef;*/
     float: left;
-    width: 375rpx;
+    width: 250rpx;
     height: 225rpx;
     background-color: #fff;
     box-sizing: border-box;

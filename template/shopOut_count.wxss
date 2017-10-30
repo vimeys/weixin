@@ -1,0 +1,74 @@
+.list{
+    border-top: 1rpx solid #ccc;
+    width: 100%;
+    border-bottom: 1rpx solid #ccc;
+    display: flex;
+    padding-top: 30rpx;
+}
+.img{
+    padding-left: 20rpx;
+    width: 270rpx;
+    flex: initial;
+}
+image{
+    width:250rpx;
+    height: 178rpx;
+}
+.table{
+    padding-top: 10rpx;
+    padding-bottom: 10rpx;
+    flex:1;
+    font-size: 24rpx;
+    line-height:44rpx;
+    position: relative;
+}
+.table .title{
+    font-size: 28rpx;
+    margin-bottom: 10rpx;
+    position: relative;
+}
+.table .title text{
+    position: absolute;
+    right: 20rpx;
+    top:0;
+    color:red;
+
+}
+.table input{
+    display: inline-block;
+    border: 1rpx solid #333333;
+    width: 80rpx;
+    height: 38rpx;
+    color:#FF0202;
+    vertical-align: middle;
+    font-size: 28rpx;
+    min-height: 38rpx;
+    padding-left: 5rpx;
+    box-sizing: border-box;
+}
+.table .last{
+    line-height: 44rpx;
+}
+.table .last text{
+    margin-right: 35rpx;
+}
+.table .last .red{
+    color:red;
+}
+.record{
+    font-size: 24rpx;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20rpx;
+    border-bottom: 1rpx solid #ccc;
+    position:relative;
+}
+.record text{
+    display: inline-block;
+    position:absolute;
+    right:20rpx;
+    top:20rpx;
+}
+.error{
+    background: #e8e8e8;
+}

@@ -14,6 +14,7 @@
     "pages/strOut_JOG/strOut_JOG",
     "pages/ruku/ruku",
     "pages/storage/storage",
+    "pages/storage_change/storage_change",
     "pages/storage_note/storage_note",
     "pages/storage_list/storage_list",
     "pages/storage_JOG/storage_JOG",
@@ -21,6 +22,7 @@
     "pages/storage_detail/storage_detail",
     "pages/storage_count/storage_count",
     "pages/shopIn/shopIn",
+    "pages/shopIn_changeAll/shopIn_changeAll",
     "pages/shopIn_count/shopIn_count",
     "pages/shopIn_note/shopIn_note",
     "pages/shopIn_take/shopIn_take",
@@ -39,6 +41,8 @@
     "pages/shopOut_order/shopOut_order",
     "pages/shopOut_sellList/sellLsit",
     "pages/shopOut_JOG/sellOut_JOG",
+    "pages/shopOut_detail/shopOut_detail",
+    "pages/shopOut_detailConfirm/shopOut_detailConfirm",
     "pages/stock/stock",
     "pages/stock_storage/stock_storage",
     "pages/stock_store/stock_store",
@@ -90,7 +94,7 @@
         "text": "出库"
       },
       {
-        "pagePath": "pages/shopOut/shopOut",
+        "pagePath": "pages/shopIn_changeAll/shopIn_changeAll",
         "iconPath": "pages/images/tabIcon/xiaoshou-1.png",
         "selectedIconPath": "pages/images/tabIcon/xiaoshou.png",
         "text": "销售"

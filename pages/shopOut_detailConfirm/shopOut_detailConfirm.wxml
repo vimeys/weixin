@@ -1,5 +1,4 @@
-<!--pages/strOut_detailConfirm/strOut_detailConfirm.wxml-->
-<!--pages/strOut_detail/strOut_detail.wxml-->
+<!--pages/shopOut_detailConfirm/shopOut_detailConfirm.wxml-->
 <view class="det_title">发货修改</view>
 <view class="orderList">
     <view class="second">收货人：{{order.receiver}}<text>联系电话：{{order.rephone}}</text></view>
@@ -8,7 +7,7 @@
     <view class="small">发货时间：{{order.okTime}} </view>
 </view>
 <view class="detail">
-    <view class="num">订单号：{{order.orderId}}</view>
+    <view class="num">订单号：{{order.orderCode}}</view>
     <block wx:for="{{Data}}" wx:for-item="item">
         <view class="list">
             <view class="img">
@@ -19,7 +18,7 @@
                 <view>款号：<text>{{item.goodsGirard}}</text></view>
                 <view>条码号：<text>{{item.goodsCode}}</text></view>
                 <view class="last">
-                    尺码：<text>{{item.sizeName}}</text>颜色：<text>{{item.colorName}}</text> 数量： <text class="del">{{item}}</text><text class="red">{{item.goodsStock}}</text>
+                    尺码：<text>{{item.sizeName}}</text>颜色：<text>{{item.colorName}}</text> 数量： <text class="del">{{item.goodsStock}}</text><text class="red">{{item.fixnumber}}</text>
                 </view>
             </view>
         </view>

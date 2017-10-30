@@ -1,0 +1,135 @@
+/* pages/shopOut_detail/shopOut_detail.wxss */
+/* pages/strOut_detail/strOut_detail.wxss */
+.det_title{
+    width: 100%;
+    text-align: center;
+    padding-top: 40rpx;
+    padding-bottom: 20rpx;
+    font-size: 40rpx;
+    border-bottom: 10rpx solid #e5e5e5;
+}
+.orderList{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /*align-items: center;*/
+    font-size: 30rpx;
+    border-bottom: 10rpx solid #e5e5e5;
+}
+.fourth{
+    margin-top: 30rpx;
+    padding-right: 20rpx;
+    padding-left: 20rpx;
+    position: relative;
+}
+.fourth text{
+    /*font-size:24rpx;*/
+    position: absolute;
+    right: 20rpx;
+}
+
+.second{
+    margin-top: 30rpx;
+    margin-bottom: 30rpx;
+    padding-left: 20rpx;
+    position: relative;
+}
+.second text{
+    position: absolute;
+    right: 20rpx;
+
+}
+.third{
+    padding-bottom: 20rpx;
+    padding-left: 20rpx;
+    border-bottom: 1rpx solid #ccc;
+}
+.small{
+    /*font-size: 24rpx;*/
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
+    position:relative;
+    padding-left: 20rpx;
+}
+.small test{
+    position: absolute;
+    right: 20rpx;
+}
+
+.detail{
+    margin-bottom: 100px;
+}
+.num{
+    padding-left: 20rpx;
+    font-size: 30rpx;
+    margin-top: 30rpx;
+    margin-bottom: 20rpx;
+}
+.list{
+    border-top: 1rpx solid #ccc;
+    width: 100%;
+    border-bottom: 1rpx solid #ccc;
+    display: flex;
+    padding-top: 30rpx;
+}
+.img{
+    padding-left: 20rpx;
+    width: 270rpx;
+    flex: initial;
+}
+image{
+    width:250rpx;
+    height: 178rpx;
+}
+.table{
+    padding-top: 10rpx;
+    padding-bottom: 10rpx;
+    flex:1;
+    font-size: 24rpx;
+    line-height:44rpx;
+    position: relative;
+}
+.table .title{
+    font-size: 28rpx;
+    margin-bottom: 10rpx;
+
+}
+.table input{
+    display: inline-block;
+    border: 1rpx solid #333333;
+    width: 80rpx;
+    height: 38rpx;
+    color:#FF0202;
+    vertical-align: middle;
+    font-size: 28rpx;
+    min-height: 38rpx;
+    padding-left: 5rpx;
+    box-sizing: border-box;
+}
+.table .last{
+    line-height: 44rpx;
+}
+.table .last text{
+    margin-right: 35rpx;
+}
+.table .last .red{
+    color:red;
+}
+.express{
+    font-size: 28rpx;
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
+    padding-right: 20rpx;
+    float:right;
+}
+.fix{
+    width: 100%;
+    color:white;
+    height: 100rpx;
+    text-align: center;
+    line-height: 100rpx;
+    font-size: 32rpx;
+    background: #1caba2;
+    position: fixed;
+    bottom:0;
+}

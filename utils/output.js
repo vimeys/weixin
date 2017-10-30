@@ -32,6 +32,10 @@ function output(e,that,nav) {
         request.storCount(that,nav)
     }else if(nav=="wearout/outlog"){//仓库出库日志请求
         request.storNote(that,nav)
+    }else if(nav=="shopout/loglist"){//店铺出库日志请求
+        request.shopOutnote(that,nav)
+    }else if(nav=='shopout/searchin'){//店铺出库统计请求
+        request.shopOutCount(that,nav)
     }
 }
 module.exports={

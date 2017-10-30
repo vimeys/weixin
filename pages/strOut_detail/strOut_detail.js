@@ -43,7 +43,7 @@ Page({
               console.log(res)
               let json=res.data.data.goodsinfo;
               let order=res.data.data.topinfo;
-              order.okTime=  item.okTime=formatTime.formatTime(res.data.data.topinfo.ctime);
+              order.okTime=formatTime.formatTime(res.data.data.topinfo.ctime);
               that.setData({
                   Data:json,
                   order:order,

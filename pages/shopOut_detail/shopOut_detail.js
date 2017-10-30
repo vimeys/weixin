@@ -14,22 +14,13 @@ Page({
         order:"",
     },
     //返回首页
-
-    //确认修改
-    confirm:function (e) {
-        let that=this;
-        let user=wx.getStorageSync('uname');
-        wx.request({
-            url:that.data.url+"wearout/fixok",
-            method:"POST",
-            data:{
-                logEditer:user
-            },
-            success:function (res) {
-                console.log(res);
-            }
+    return:function (e) {
+        wx.navigateBack({
+            delta:1
         })
     },
+    //确认修改
+
     /**
      * 生命周期函数--监听页面加载
      */
@@ -41,7 +32,7 @@ Page({
             url:url
         })
         wx.request({
-            url:that.data.url+"wearout/orderinfofix",
+            url:that.data.url+"shopstore/orderinfo",
             method:"POST",
             data:{
                 orderId:orderId
@@ -49,8 +40,8 @@ Page({
             success:function (res) {
                 console.log(res);
                 let json=res.data.data.goodsinfo;
-                let order=res.data.data.topinfo;
-                order.okTime=formatTime.formatTime(res.data.data.topinfo.ctime);
+                let order=res.data.data.order;
+                order.okTime=formatTime.formatTime(res.data.data.order.ctime);
                 that.setData({
                     Data:json,
                     order:order,

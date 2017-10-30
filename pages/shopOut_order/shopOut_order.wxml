@@ -28,7 +28,7 @@
         </picker>
     </view>
         <view class="shop">
-            出库方式 <picker mode="selector" value="select.shopIndex" data-type="5" bindchange="optionChange" class="input" range="{{select.shop}}">{{select.shop[select.shopIndex]}}</picker>
+            出库方式 <picker mode="selector" value="select.returnIndex" data-type="5" bindchange="optionChange" class="input" range="{{select.return}}">{{select.return[select.returnIndex]}}</picker>
         </view>
     </view>
     <view class="express  margin-right">
@@ -43,7 +43,7 @@
     </view>
 </view>
 <block wx:for="{{Data}}" wx:for-item="item">
-    <view class="orderList" bindtap="bindNav" data-type="{{item.orderId}}" data-name="待收货">
+    <view class="orderList" bindtap="bindNav" data-type="{{item.orderId}}" data-name="{{item.Type}}">
         <view class="first">订单号：{{item.orderCode}} <text>{{item.Type}}</text></view>
         <view class="second">收货人：{{item.receiver}} <text>联系电话：{{item.rephone}}</text></view>
         <view class="third">店铺地址：{{item.city}}{{item.area}}{{item.address }}</view>

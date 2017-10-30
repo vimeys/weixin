@@ -1,5 +1,6 @@
 // pages/shopOut_restock/shopOut_restock.js
 var app=getApp();
+let common=require("../../utils/common");
 Page({
 
   /**
@@ -10,64 +11,108 @@ Page({
       url:"",//
       choose:1,//选中样式
       btnWord:"确认",//确认按钮的样式
-      urlData:""//请求路径
+      urlData:"",//请求路径
+      sell:true,
+      restock:false,
+      return:false,
+      Data:"",
   },
     //选择发货方式
   chooseStyle:function (e) {
     var Type=e.currentTarget.dataset.type;
+    wx.setStorageSync('choose', Type);
     if(Type==2){
+        let choose=wx.getStorageSync('choose');
         this.setData({
-            choose:2,
-
+            choose:choose,
+            sell:false,
+            restock:true,
+            return:false,
         })
     }else if(Type==1){
+        let choose=wx.getStorageSync('choose');
       this.setData({
-          choose:1,
-          btnWord:"确认"
+          choose:choose,
+          sell:true,
+          restock:false,
+          return:false,
       })
+    }else if(Type==3){
+        let choose=wx.getStorageSync('choose');
+        this.setData({
+            choose:choose,
+            sell:true,
+            restock:true,
+            return:false,
+        })
     }
     console.log(e);
   },
-  //跳转退货页面
-  navTo:function (e) {
-    wx.navigateTo({
-      url: '../shopOut_return/shopOut_return'
-    })
-  },
+    //删除数据
+    delGoods:function (e) {
+        common.delGoods(e,this,"shopout/dellist")
+    },
+    //修改数量
+    output:function (e) {
+        common.output(e,this,"shopout/fixnumber")
+    },
   //选择确认页面
-    getNav:function (e) {
+    sell:function (e) {
+      let that=this;
       var Type=e.currentTarget.dataset.type;
-      if(Type==1) {
-          // wx.request({
-          //     url:this.data.url+"",
-          //
-          // })
-          wx.navigateTp({
-              url:"../strageOutput/strageOutput"
-          })
-      }else{
-        // wx.request({
-        //     url:this.data.url+"",
-        //     method:"POST",
-        //     data:{},
-        //     success:function (res) {
-        //
-        //     }
-        // });
-        wx.navigateTo({
-          url: '../express/express'
-        })
-      }
+      wx.removeStorageSync("choose");
+      wx.request({
+          url:that.data.url+"shopout/changetype",
+          method:"POST",
+          data:{
+              type:Type
+          },
+          success:function (res) {
+              if(res.data.code==200){
+                  if(Type==1){
+                      wx.navigateTo({
+                        url: '../shopOut_sellList/shopOut_sellList'
+                      })
+                  }else if(Type==2){
+                      wx.navigateTo({
+                          url:"../express/express"
+                      })
+                  }else if(Type==3){
+                      wx.navigateTo({
+                          url:"../expressReturn/expressReturn"
+                      })
+                  }
+              }
+          }
+      })
     },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+      let that=this;
+      let choose=wx.getStorageSync('choose');
+      let shopId=wx.getStorageSync("shopId");
       var url=app.url;
       this.setData({
-          url:url
+          url:url,
+          choose:choose,
+          shopId:shopId
+      });
+      wx.request({
+          url:that.data.url+"shopout/outlist",
+          method:"POST",
+          data:{
+              shopId:shopId
+          },
+          success:function (res) {
+              console.log(res);
+              let json=res.data.data;
+              that.setData({
+                  Data:json
+              })
+          }
       })
-
   },
 
   /**
