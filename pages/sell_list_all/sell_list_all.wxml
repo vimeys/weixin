@@ -14,7 +14,7 @@
         </picker>
     </view>
     <view class="shop">区域选择
-        <picker mode="selector" class="addr before"  disabled="{{select.use}}" value="{{select.areaIndex}}" data-type="1"
+        <picker mode="selector" class="addr before" disabled="{{select.use}}" value="{{select.areaIndex}}" data-type="1"
                 bindchange="optionChange" range="{{select.area}}">
             {{select.area[select.areaIndex]}}
         </picker>
@@ -26,7 +26,7 @@
         </view>
     </view>
     <view class="list">对账
-        <picker mode="selector" class="select before"  disabled="{{select.use}}" value="{{select.listIndex}}"
+        <picker mode="selector" class="select before" disabled="{{select.use}}" value="{{select.listIndex}}"
                 data-type="3" bindchange="optionChange" range="{{select.list}}">
             {{select.list[select.listIndex]}}
         </picker>
@@ -34,15 +34,3 @@
 </view>
 <import src="../../template/sell_list"/>
 <template is="sell_list" data="{{Data}}"></template>
-<!--<navigator class="ul">-->
-    <!--<view class="ul_title">点单号：1313465151-->
-        <!--<text>已对账</text>-->
-    <!--</view>-->
-    <!--<view class="ul_time">销售时间：2017-18-12 13:32:32</view>-->
-<!--</navigator>-->
-<!--<navigator class="ul">-->
-    <!--<view class="ul_title">点单号：1313465151-->
-        <!--<text>已对账</text>-->
-    <!--</view>-->
-    <!--<view class="ul_time">销售时间：2017-18-12 13:32:32</view>-->
-<!--</navigator>-->

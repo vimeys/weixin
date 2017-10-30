@@ -15,6 +15,7 @@
     "pages/ruku/ruku",
     "pages/storage/storage",
     "pages/storage_change/storage_change",
+    "pages/storage_changeDetail/storage_changeDetail",
     "pages/storage_note/storage_note",
     "pages/storage_list/storage_list",
     "pages/storage_JOG/storage_JOG",
@@ -94,7 +95,7 @@
         "text": "出库"
       },
       {
-        "pagePath": "pages/shopIn_changeAll/shopIn_changeAll",
+        "pagePath": "pages/sell/sell",
         "iconPath": "pages/images/tabIcon/xiaoshou-1.png",
         "selectedIconPath": "pages/images/tabIcon/xiaoshou.png",
         "text": "销售"

@@ -7,8 +7,24 @@ Page({
    */
   data: {
       url:"",
-      Data:"",//回传数据
-      number:""
+      noMore:false,
+      select:{
+          use:false,
+          start:"开始时间",
+          Start:"",
+          end:"结束时间",
+          End:"",
+          area:"",//区域
+          areaId:"",
+          areaIndex:"",
+          shop:"",//店铺
+          shopId:"",
+          shopIndex:"",
+          list:["已对账","未对账"],//账单选择
+          listId:[1,2],
+          listIndex:0
+      },
+      Data:""//返回数据
   },
 
   /**

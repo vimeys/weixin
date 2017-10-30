@@ -1,22 +1,29 @@
 <!--pages/sell_list_store/sell_store.wxml-->
 <view class="time">
-    <view class="timeStart"><picker  class="before" mode="date" start="{{select.start}}" disabled="{{select.use}}" value="{{Edate}}" data-type="1" bindchange="DateChange">
-        {{select.start}}
-    </picker>
+    <view class="timeStart">
+        <picker class="before" mode="date" start="{{select.start}}" disabled="{{select.use}}" value="{{Edate}}"
+                data-type="1" bindchange="DateChange">
+            {{select.start}}
+        </picker>
     </view>
     <text>~~</text>
-    <view class="timeStart" bindtap="bindPick"><picker mode="date" start="{{select.end}}" class=" before"disabled="{{select.use}}" value="{{Edate}}" data-type="2" bindchange="DateChange">
-        {{select.end}}
-    </picker></view>
-    <view class="shop">区域选择sljdfkasjdlfjal
+    <view class="timeStart" bindtap="bindPick">
+        <picker mode="date" start="{{select.end}}" class=" before" disabled="{{select.use}}" value="{{Edate}}"
+                data-type="2" bindchange="DateChange">
+            {{select.end}}
+        </picker>
+    </view>
+    <view class="shop">区域选择
 
-        <view class="store">店铺选择sdjlfjalsd
+        <view class="store">店铺选择
 
         </view>
     </view>
-    <view class="list">对账 <picker mode="selector"  class="select before" disabled="{{select.use}}" value="{{index}}" data-type="1" bindchange="optionChange" range="{{select.state}}">
-        {{select.list[select.listIndex]}}
-    </picker>
+    <view class="list">对账
+        <picker mode="selector" class="select before" disabled="{{select.use}}" value="{{select.listIndex}}"
+                data-type="3" bindchange="optionChange" range="{{select.list}}">
+            {{select.list[select.listIndex]}}
+        </picker>
     </view>
 </view>
 <import src="../../template/sell_list"/>

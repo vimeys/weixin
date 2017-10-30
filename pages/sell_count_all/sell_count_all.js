@@ -1,14 +1,16 @@
 // pages/sell_count_all/sell_count_all.js
+let app=getApp();
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
+        url:'',
         date: ["最近7天", "最近14天", "最近28天"],
         area: ["A", "B"],
         shop: ["a", "b", "c"],
-        dateIndex: 0,
+        index: 0,
         areaIndex: 0,
         shopIndex: 0,
     },
@@ -20,12 +22,12 @@ Page({
             this.setData({
                 dataIndex:value
             })
-        }else if(Type==2){
+        }else if(Type==3){
             var value=e.detail.value;
             this.setData({
                 areaIndex:value
             })
-        }else if(Type==3){
+        }else if(Type==2){
             var value=e.detail.value;
             this.setData({
                 shopIndex:value
@@ -36,7 +38,11 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        let url=app.url;
+        let that=this;
+        that.setData({
+            url:url
+        })
     },
 
     /**

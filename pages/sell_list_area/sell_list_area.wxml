@@ -1,20 +1,31 @@
 <!--pages/sell_list_area/sell_list_area.wxml-->
 <view class="time">
     <view class="timeStart">
-        <picker  class="before" mode="date" start="{{start}}" disabled="{{select.use}}" value="{{Edate}}" data-type="1" bindchange="DateChange">
-        {{select.start}}
-    </picker>
+        <picker class="before" mode="date" start="{{start}}" disabled="{{select.use}}" value="{{Edate}}" data-type="1"
+                bindchange="DateChange">
+            {{select.start}}
+        </picker>
     </view>
     <text>~~</text>
-    <view class="timeStart" bindtap="bindPick"><picker mode="date" start="{{start}}" class=" before"disabled="{{select.use}}" value="{{Edate}}" data-type="2" bindchange="DateChange">
-        {{select.end}}
-    </picker></view>
-    <view class="shop">成都市成华区跳蹬河 <view class="store">店铺选择<picker mode="selector"  class="select before" disabled="{{select.use}}" value="{{select.shopIndex}}" data-type="2" bindchange="optionChange" range="{{select.shop}}">
-        {{select.shop[select.shopIndex]}}
-    </picker></view></view>
-    <view class="list">对账 <picker mode="selector"  class="select before"  disabled="{{selelct.use}}" value="{{select.list}}" data-type="2" bindchange=optionChange" range="{{select.list}}">
-        {{select.list[select.listIndex]}}
-    </picker>
+    <view class="timeStart" bindtap="bindPick">
+        <picker mode="date" start="{{start}}" class=" before" disabled="{{select.use}}" value="{{Edate}}" data-type="2"
+                bindchange="DateChange">
+            {{select.end}}
+        </picker>
+    </view>
+    <view class="shop">成都市成华区跳蹬河
+        <view class="store">店铺选择
+            <picker mode="selector" class="select before" disabled="{{select.use}}" value="{{select.shopIndex}}"
+                    data-type="2" bindchange="optionChange" range="{{select.shop}}">
+                {{select.shop[select.shopIndex]}}
+            </picker>
+        </view>
+    </view>
+    <view class="list">对账
+        <picker mode="selector" class="select before" disabled="{{select.use}}" value="{{select.listIndex}}"
+                data-type="3" bindchange="optionChange" range="{{select.list}}">
+            {{select.list[select.listIndex]}}
+        </picker>
     </view>
 </view>
 <import src="../../template/sell_list"/>

@@ -1,15 +1,33 @@
 <!--pages/sell_count_area/sell_count_area.wxml-->
 <view class="title">
-    <view class="time">时间<picker mode="selector"  class="select before" start="{{start}}" disabled="{{use}}" value="{{index}}" data-type="2" bindchange="DateChange" range="{{date}}">
-        {{date[index]}}
-    </picker>
+    <view class="time">时间
+        <picker mode="selector"  class="select before"  disabled="{{use}}" value="{{index}}" data-type="1" bindchange="optionChange" range="{{date}}">
+            {{date[index]}}
+        </picker>
     </view>
-    <view class="shop">成都市成华区跳蹬河 <view class="store">店铺选择<picker mode="selector"  class="select before" start="{{start}}" disabled="{{use}}" value="{{index}}" data-type="2" bindchange="DateChange" range="{{array}}">
-        {{array[index]}}
-    </picker></view></view>
+    <view class="shop">成都市成华区跳蹬河
+        <view class="store">店铺选择
+            <picker mode="selector" class="select before"  disabled="{{use}}" value="{{shopIndex}}"
+                    data-type="2" bindchange="optionChange" range="{{shop}}">
+                {{shop[shopIndex]}}
+            </picker>
+        </view>
+    </view>
 </view>
 <view list="list">
-    <view class="ul">超级无敌好看的鞋子 <view class="right">已售 ：<text>¥3214.00</text></view></view>
-    <view class="ul">超级无敌好看的鞋子 <view class="right">已售 ：<text>¥3214.00</text></view></view>
-    <view class="ul">超级无敌好看的鞋子 <view class="right">已售 ：<text>¥3214.00</text></view></view>
+    <view class="ul">超级无敌好看的鞋子
+        <view class="right">已售 ：
+            <text>¥3214.00</text>
+        </view>
+    </view>
+    <view class="ul">超级无敌好看的鞋子
+        <view class="right">已售 ：
+            <text>¥3214.00</text>
+        </view>
+    </view>
+    <view class="ul">超级无敌好看的鞋子
+        <view class="right">已售 ：
+            <text>¥3214.00</text>
+        </view>
+    </view>
 </view>

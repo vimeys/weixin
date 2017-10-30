@@ -23,7 +23,6 @@ Page({
           shop:"",//店铺
           shopId:"",
           shopIndex:"",
-
           list:["已对账","未对账"],//账单选择
           listId:[1,2],
           listIndex:0

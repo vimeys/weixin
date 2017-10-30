@@ -1,0 +1,104 @@
+/* pages/storage_changeDetail/storage_changeDetail.wxss */
+.num{
+    padding: 30rpx 0 30rpx 20rpx;
+    font-size: 30rpx;
+    border-bottom: 10rpx solid #e5e5e5;
+}
+.list{
+    font-size: 28rpx;
+    width: 100%;
+    border-bottom: 1rpx solid #ccc;
+    display: flex;
+    padding-top: 30rpx;
+}
+.img{
+    padding-left: 20rpx;
+    width: 270rpx;
+    flex: initial;
+}
+image{
+    width:250rpx;
+    height: 178rpx;
+}
+.table{
+    padding-top: 10rpx;
+    padding-bottom: 10rpx;
+    flex:1;
+    font-size: 24rpx;
+    line-height:44rpx;
+    position: relative;
+}
+.table .title{
+    font-size: 28rpx;
+    margin-bottom: 10rpx;
+
+}
+.table input{
+    display: inline-block;
+    border: 1rpx solid #333333;
+    width: 80rpx;
+    height: 38rpx;
+    color:#FF0202;
+    vertical-align: middle;
+    font-size: 28rpx;
+    min-height: 38rpx;
+    padding-left: 5rpx;
+    box-sizing: border-box;
+}
+.table .last{
+    line-height: 44rpx;
+}
+.table .last text{
+    margin-right: 35rpx;
+}
+.table .del text{
+    margin-right: 15rpx;
+}
+.table .last .red{
+    color:red;
+}
+.table .last .del{
+    color:#cccccc;
+    text-decoration:line-through;
+}
+.table .del text:last-child{
+    text-decoration: line-through;
+    color:#ccc;
+}
+.table image{
+    width: 28rpx;
+    height: 33rpx;
+    position: absolute;
+    right: 20rpx;
+    top: 5rpx;
+}
+.express{
+    width: 100%;
+    text-align: right;
+    padding: 30rpx 20rpx 30rpx 0;
+    border-bottom: 1rpx solid #ccc;
+}
+.btn{
+    margin-top: 150rpx;
+    width: 100%;
+}
+.change{
+    display: inline-block;
+    width: 300rpx;
+    height: 90rpx;
+    background:#1caba2;
+    color:#fff;
+    line-height: 90rpx;
+    text-align: center;
+    margin-left: 40rpx;
+}
+.confirm{
+    display: inline-block;
+    width: 300rpx;
+    height: 90rpx;
+    background:#1caba2;
+    color:#fff;
+    line-height: 90rpx;
+    text-align: center;
+    margin-left: 70rpx;
+}

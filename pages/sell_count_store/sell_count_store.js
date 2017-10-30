@@ -1,18 +1,44 @@
 // pages/sell_count_store/sell_count_store.js
+let app=getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+      url:"",
+      date: ["最近7天", "最近14天", "最近28天"],
+      Data: "",
+      index: 0,
   },
-
+    optionChange:function (e) {
+        var Type=e.target.dataset.type;
+        if(Type==1){
+            var value=e.detail.value;
+            this.setData({
+                index:value
+            })
+        }else if(Type==2){
+            var value=e.detail.value;
+            this.setData({
+                shopIndex:value
+            })
+        }else if(Type==3){
+            var value=e.detail.value;
+            this.setData({
+                shopIndex:value
+            })
+        }
+    },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+      let url=app.url;
+      let that=this;
+      that.setData({
+          url:url
+      })
   },
 
   /**
