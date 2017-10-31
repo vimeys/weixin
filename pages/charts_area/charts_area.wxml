@@ -2,7 +2,7 @@
 
 <view class="container">
     <view class="title">
-        <view class="title">
+        <view class="">
             <view class="time">统计周期
                 <picker mode="selector" class="select before"  disabled="{{use}}" value="{{dataIndex}}"
                         data-type="1" bindchange="optionChange" range="{{data}}">

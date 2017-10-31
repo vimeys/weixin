@@ -1,0 +1,107 @@
+/* pages/expressReturn/expressReturn.wxss */
+/* pages/express/express.wxss */
+page{
+    font-size: 30rpx;
+}
+.timeStart{
+    padding-left: 20rpx;
+    width: 100%;
+    margin-top: 20rpx;
+    font-size: 30rpx;
+    display: flex;
+    align-items: center;
+}
+.timeStart picker{
+    display: inline-block;
+    width: 300rpx;
+    height: 46rpx;
+    border: 1rpx solid #ccc;
+    position:relative;
+    margin-left: 20rpx;
+}
+.before::before{
+    position: absolute;
+    color:#333;
+    content:"▼";
+    right:15rpx;
+    top:0rpx;
+}
+.express{
+    padding-left: 20rpx;
+    width: 330rpx;
+    position: relative;
+    height: 50rpx;
+    margin-top: 30rpx;
+    display: inline-block;
+    overflow: hidden;
+}
+.express text{
+    vertical-align: 20rpx;
+}
+.express .input{
+    display: inline-block;
+    margin-left: 7rpx;
+    width: 200rpx;
+    height: 46rpx;
+    border: 1rpx solid #ccc;
+    padding-top: 5rpx;
+    padding-left: 5rpx;
+    box-sizing: border-box;
+}
+.express input{
+    display:inline-block;
+    /*width: 580rpx;*/
+    height: 40rpx;
+    margin-left: 10rpx;
+    box-sizing: border-box;
+    min-height: 46rpx;
+}
+.express .input_big{
+    width: 225rpx;
+}
+.margin-right{
+    width: 350rpx;
+    margin-left: 20rpx;
+}
+.express_num{
+    padding-left: 20rpx;
+    font-size: 30rpx;
+    height: 46rpx;
+    line-height: 46rpx;
+    margin-top: 20rpx;
+    display:flex ;
+    align-items: center;
+}
+.express_num input{
+    display:inline-block;
+    width: 580rpx;
+    height: 46rpx;
+    margin-left: 10rpx;
+    box-sizing: border-box;
+    border: 1rpx solid #ccc;
+    min-height: 46rpx;
+}
+.express_margin{
+    padding-bottom: 20rpx;
+    border-bottom: 10rpx solid #e5e5e5;
+}
+textarea{
+    width: 666rpx;
+    height: 200rpx;
+    border: 1rpx solid #ccc;
+    margin: 40rpx  auto 100rpx;
+    padding-left: 20rpx;
+    padding-top: 20rpx;
+    font-size: 30rpx;
+}
+.fix{
+    width: 100%;
+    color:white;
+    height: 100rpx;
+    text-align: center;
+    line-height: 100rpx;
+    font-size: 32rpx;
+    background: #1caba2;
+    position: fixed;
+    bottom:0;
+}

@@ -50,34 +50,43 @@ Page({
   },
     //删除数据
     delGoods:function (e) {
-        common.delGoods(e,this,"shopout/dellist")
+        common.delGoodsShop(e,this,"shopout/dellist")
     },
     //修改数量
     output:function (e) {
-        common.output(e,this,"shopout/fixnumber")
+        common.shopOutput(e,this,"shopout/fixnumber")
     },
   //选择确认页面
     sell:function (e) {
       let that=this;
       var Type=e.currentTarget.dataset.type;
+      var name=e.currentTarget.dataset.name;
       wx.removeStorageSync("choose");
+      let num=[]
+      function push(item,index) {
+          num.push(item.storeId);
+      }
+      that.data.Data.forEach(push);
       wx.request({
           url:that.data.url+"shopout/changetype",
           method:"POST",
           data:{
-              type:Type
+              type:Type,
+              storeId:num
           },
           success:function (res) {
+              console.log(res);
               if(res.data.code==200){
-                  if(Type==1){
+                  if(name==1){
                       wx.navigateTo({
-                        url: '../shopOut_sellList/shopOut_sellList'
+                        url: '../shopOut_sellList/sellLsit?storeId='+num
                       })
-                  }else if(Type==2){
+                  }else if(name==2){
+                      wx.setStorageSync('nav', 1);
                       wx.navigateTo({
                           url:"../express/express"
                       })
-                  }else if(Type==3){
+                  }else if(name==3){
                       wx.navigateTo({
                           url:"../expressReturn/expressReturn"
                       })
@@ -85,6 +94,9 @@ Page({
               }
           }
       })
+    },
+    go:function (e) {
+        common.go(this);
     },
   /**
    * 生命周期函数--监听页面加载

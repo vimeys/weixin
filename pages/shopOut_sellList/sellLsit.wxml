@@ -1,23 +1,26 @@
 <!--pages/shopOut_sellList/sellLsit.wxml-->
 <view class="list">
-    <view class="img">
+    <block wx:for="{{Data}}" wx:for-item="item"><view class="img">
         <image src="../images/scan.png"></image>
     </view>
-    <view class="table">
-        <view class="title">超级好看的鞋子</view>
-        <view>款号：<text>45574543156</text></view>
-        <view>条码号：<text>461646164164</text></view>
-        <view class="last">
-            尺码：<text>L</text>颜色：<text>大红色</text>
+        <view class="table">
+            <view class="title">{{item.goodsFashion}}</view>
+            <view>款号：<text>{{item.goodsGirard}}</text></view>
+            <view>条码号：<text>{{item.goodsCode}}</text></view>
+            <view class="last">
+                尺码：<text>{{item.sizeName}}</text>颜色：<text>{{item.colorName}}</text>
+            </view>
+            <view class="end">
+                单价：<text>￥{{item.price}}</text>数量：<text>{{item.goodsStock}}</text>
+            </view>
         </view>
-        <view class="end">
-            单价：<text>￥9999.00</text>数量：<text>4523</text>
-        </view>
-    </view>
+    </block>
+
 </view>
 <view class="total">
-    <view>总数量 <text>52352</text></view>
-    <view>总金额 <text>¥52352.00</text></view>
-    <view>操作人 <text>老王</text></view>
+    <view>总数量 <text>{{totalNum}}</text></view>
+    <view>总金额 <text>¥{{price}}</text></view>
+    <view>操作人 <text>{{name}}</text></view>
     <view>操作时间 <text>2017-08-01   13:32:34</text></view>
 </view>
+<view class="fix" bindtap="click">确认</view>

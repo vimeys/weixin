@@ -32,6 +32,9 @@ App({
                       wx.setStorageSync('uid', data.userinfo.uid);
                       wx.setStorageSync('uname', data.userinfo.uname);
                       wx.setStorageSync('level',data.userinfo.level);
+                      if(res.data.data.userinfo.shopId){
+                        wx.setStorageSync('shopId',data.userinfo.shopId)
+                      }
                   }
                     console.log(data);
                     if(data.shop){

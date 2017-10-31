@@ -36,7 +36,7 @@ Page({
                 urlList: "../sell_list_area/sell_list_area",
                 urlCount:"../sell_count_area/sell_count_area",
                 urlMoney:"../sell_money_area/sell_money_area",
-                urlExcel:"../charts_area/charts_ares"
+                urlExcel:"../charts_area/charts_area"
             })
     }else if(level==4){
         this.setData({

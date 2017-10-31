@@ -12,19 +12,16 @@
         订单号<view class="codeInput">
         <input type="text" bindblur="output" data-type="1"/>
     </view>
-        <view class="shop">
-            入库 <picker mode="selector" value="select.putIndex" data-type="2" bindchange="optionChange" class="input" range="{{select.put}}">{{select.put[select.putIndex]}}</picker>
-        </view>
+        <!--<view class="shop">-->
+            <!--入库 <picker mode="selector" value="select.putIndex" data-type="2" bindchange="optionChange" class="input" range="{{select.put}}">{{select.put[select.putIndex]}}</picker>-->
+        <!--</view>-->
     </view>
 </view>
-<!--<block wx:for="{{Data}}" wx:for-item="item">-->
-<view class="list" bindtap="click">
-    <view class="order">订单号：12312</view>
-    <view class="red">收货入库</view>
-    <view class="orderTime">入库时间：41634321316313</view>
-</view>
-<view class="list">
-    <view class="order">订单号：12312</view>
-    <view class="red">收货入库</view>
-    <view class="orderTime">入库时间：41634321316313</view>
-</view>
+
+<block wx:for="{{Data}}" wx:for-item="item">
+    <view class="list" bindtap="click" data-type="{{item.orderId}}">
+        <view class="order">订单号：{{item.orderCode}}</view>
+        <view class="red">收货入库</view>
+        <view class="orderTime">入库时间：{{item.okTime}}</view>
+    </view>
+</block>

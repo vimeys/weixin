@@ -73,3 +73,14 @@ image{
 .total text{
     float:right;
 }
+.fix{
+    width: 100%;
+    color:white;
+    height: 100rpx;
+    text-align: center;
+    line-height: 100rpx;
+    font-size: 32rpx;
+    background: #1caba2;
+    position: fixed;
+    bottom:0;
+}

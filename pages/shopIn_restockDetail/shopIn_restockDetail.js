@@ -23,7 +23,7 @@ Page({
         function push(item, index) {
             var obj = {};
             obj.storeId = item.storeId;
-            obj.goodsStock = item.goodsStock;
+            // obj.goodsStock = item.goodsStock;
             obj.logEditer = that.data.log;
             data.push(obj);
         }

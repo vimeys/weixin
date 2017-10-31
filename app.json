@@ -7,6 +7,7 @@
     "pages/strOut_list/strout_list",
     "pages/strOut_order/strOut_order",
     "pages/express/express",
+    "pages/expressReturn/expressReturn",
     "pages/strOut_note/strOut_note",
     "pages/strOut_detail/strOut_detail",
     "pages/strOut_detailConfirm/strOut_detailConfirm",

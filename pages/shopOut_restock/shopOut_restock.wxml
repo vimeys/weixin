@@ -34,8 +34,8 @@
         </view>
         退货出库
     </view>
-    <view class="add" url="../strageOutput/strageOutput">继续添加</view>
-    <view class="fix" bindtap="sell" data-type="{{choose}}"wx:if="{{sell}}">确认</view>
-    <view class="fix" bindtap="sell" data-type="{{choose}}"wx:if="{{restock}}">确认并填写发货单</view>
-    <view class="fix" bindtap="sell" data-type="{{choose}}"wx:if="{{return}}">确认并填写发货单</view>
+    <view class="add" url="../strageOutput/strageOutput" bindtap="go">继续添加</view>
+    <view class="fix" bindtap="sell" data-type="8" data-name="1" wx:if="{{sell}}">确认</view>
+    <view class="fix" bindtap="sell" data-type="7" data-name="2" wx:if="{{restock}}">确认并填写发货单</view>
+    <view class="fix" bindtap="sell" data-type="6" data-name="3" wx:if="{{return}}">确认并填写发货单</view>
 </view>

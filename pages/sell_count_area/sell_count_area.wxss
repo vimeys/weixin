@@ -11,7 +11,7 @@
 }
 .select{
     display: inline-block;
-    width: 588rpx;
+    width: 578rpx;
     height: 46rpx;
     padding-left: 10rpx;
     padding-top: 5rpx;
@@ -20,7 +20,7 @@
     margin-left: 10rpx;
     position: relative;
     font-size: 24rpx;
-    vertical-align: -14rpx;
+    
 }
 .shop{
     width: 100%;

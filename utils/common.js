@@ -93,6 +93,29 @@ function output(e,that,nav) {
     })
     console.log(that.data.Data);
 }
+function shopOutput(e,that,nav) {
+    var value=e.detail.value;
+    var Type=e.currentTarget.dataset.type;//获取
+    var data=that.data;
+    var count=data.Data;
+    count[Type].goodsStock=value;
+    that.setData({
+        Data:count
+    });
+    var num={};
+    num.storeId=that.data.Data[Type].storeId;
+    num.goodsStock=that.data.Data[Type].goodsStock;
+    console.log(num);
+    wx.request({
+        url:that.data.url+nav,
+        method:"POST",
+        data:num,
+        success:function (res) {
+            console.log(res);
+        }
+    })
+    console.log(that.data.Data);
+}
 
 
 
@@ -127,7 +150,6 @@ function delGoods(e,that,nav) {
         }
       }
     })
-
 }
 //退货入库删除商品
 function delGoodsShop(e,that,nav) {
@@ -173,5 +195,6 @@ module.exports={
     output:output,
     delGoods:delGoods,
     delGoodsShop:delGoodsShop,
-    go:go
+    go:go,
+    shopOutput:shopOutput
 }

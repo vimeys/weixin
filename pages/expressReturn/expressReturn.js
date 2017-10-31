@@ -1,5 +1,5 @@
-// pages/express/express.js
-var app=getApp();
+// pages/expressReturn/expressReturn.js
+var app = getApp();
 Page({
 
     /**
@@ -24,7 +24,8 @@ Page({
         expressIndex: 0,
         expressNum: '',//快递单号
         sendPeople: "",//发货人
-        sendPhone: ""//发货人电话
+        sendPhone: "",//发货人电话
+        return:""
     },
     //时间选择
     DateChange: function (e) {
@@ -58,8 +59,6 @@ Page({
             })
         }
     },
-
-    //input值的存储
     outPut: function (e) {
         var Type = e.currentTarget.dataset.type;
         var value = e.detail.value;
@@ -92,87 +91,52 @@ Page({
             console.log(this.data)
         }
     },
+    outputArea:function (e) {
+        var type=e.detail.value;
+        this.setData({
+            return:type
+        })
+    },
     //发货选择
     sendExpress: function (e) {
-        let nav=wx.getStorageSync('nav');
-        if(nav==1){
-            var data = this.data;
-            let obj={};
-            var storeId=data.storeId;
-            obj.ctime=data.Date;
-            obj.receiver=data.takePeople;
-            obj.rephone=data.takePhone;
-            obj.areaId=data.areaId[data.areaIndex];
-            obj.reshopId=data.shopId[data.shopIndex];
-            obj.address=data.takePlace;
-            obj.expressId=data.expressId[data.expressIndex];
-            obj.expressCode=data.expressNum;
-            obj.shipper=data.sendPeople;
-            obj.shphone=data.sendPhone;
-            console.log(obj);
-            wx.request({
-                url:data.url+"shopout/backstore",
-                method:"POST",
-                data:{
-                    data:obj,
-                    storeId:storeId
-                },
-                success:function (res) {
-                    console.log(1);
-                    wx.showModal({
-                        title: '提示',
-                        content: '发货成功',
-                        showCancel:false,
-                        success: res=>{
-                            if (res.confirm) {
-                                wx.navigateBack({
-                                    delta: 3
-                                })
-                            }
+        var data = this.data;
+        let obj={};
+        var storeId=data.storeId;
+        obj.remark=data.return;
+        obj.ctime=data.Date;
+        obj.receiver=data.takePeople;
+        obj.rephone=data.takePhone;
+        obj.areaId=data.areaId[data.areaIndex];
+        obj.reshopId=data.shopId[data.shopIndex];
+        obj.address=data.takePlace;
+        obj.expressId=data.expressId[data.expressIndex];
+        obj.expressCode=data.expressNum;
+        obj.shipper=data.sendPeople;
+        obj.shphone=data.sendPhone;
+        console.log(obj);
+        wx.request({
+            url:data.url+"wearout/orderok",
+            method:"POST",
+            data:{
+                data:obj,
+                storeId:storeId
+            },
+            success:function (res) {
+                console.log(1);
+                wx.showModal({
+                    title: '提示',
+                    content: '发货成功',
+                    showCancel:false,
+                    success: res=>{
+                        if (res.confirm) {
+                            wx.navigateBack({
+                                delta: 3
+                            })
                         }
-                    })
-                }
-            });
-        }else{
-            var data = this.data;
-            let obj={};
-            var storeId=data.storeId;
-            obj.ctime=data.Date;
-            obj.receiver=data.takePeople;
-            obj.rephone=data.takePhone;
-            obj.areaId=data.areaId[data.areaIndex];
-            obj.reshopId=data.shopId[data.shopIndex];
-            obj.address=data.takePlace;
-            obj.expressId=data.expressId[data.expressIndex];
-            obj.expressCode=data.expressNum;
-            obj.shipper=data.sendPeople;
-            obj.shphone=data.sendPhone;
-            console.log(obj);
-            wx.request({
-                url:data.url+"wearout/orderok",
-                method:"POST",
-                data:{
-                    data:obj,
-                    storeId:storeId
-                },
-                success:function (res) {
-                    console.log(1);
-                    wx.showModal({
-                        title: '提示',
-                        content: '发货成功',
-                        showCancel:false,
-                        success: res=>{
-                            if (res.confirm) {
-                                wx.navigateBack({
-                                    delta: 3
-                                })
-                            }
-                        }
-                    })
-                }
-            });
-        }
-
+                    }
+                })
+            }
+        });
 
     },
     /**
