@@ -21,7 +21,7 @@
         <image src="../images/diary.png" class="r-bdi"></image>
         <view class="r-bdt">入库日志</view>
     </navigator>
-    <navigator url="../shopIn_note/shopIn_note" class="r-con">
+    <navigator url="../shopIn_changeAll/shopIn_changeAll" class="r-con">
         <image src="../images/diary.png" class="r-bdi"></image>
         <view class="r-bdt">入库修改</view>
     </navigator>

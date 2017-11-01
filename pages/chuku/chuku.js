@@ -39,6 +39,7 @@ Page({
         }
         getUrl.getUrl(e, this)
     },
+    //店铺链接权限
     bindUrl1Tap: function (e) {
         var level = wx.getStorageSync('level');
         if (level == 3 || level == 4) {
@@ -71,7 +72,7 @@ Page({
             })
         } else if (level == 3 || level == 4) {
             this.setData({
-                url: "..strageOutput/strageOutput"
+                url: "../strageOutput/strageOutput"
             })
         }
     },

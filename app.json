@@ -25,6 +25,7 @@
     "pages/storage_count/storage_count",
     "pages/shopIn/shopIn",
     "pages/shopIn_changeAll/shopIn_changeAll",
+    "pages/shopIn_changeAllDetail/shopIn_changeAllDetail",
     "pages/shopIn_count/shopIn_count",
     "pages/shopIn_note/shopIn_note",
     "pages/shopIn_take/shopIn_take",

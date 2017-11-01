@@ -605,7 +605,7 @@ function shopreturn(that,nav) {
             }
         })
     }
-    //店铺退货入库请求
+    //仓库退货入库修改请求
 function storChange(that, nav) {
     var obj = {};
     obj.begintime = that.data.select.Start;
@@ -628,6 +628,29 @@ function storChange(that, nav) {
     })
 
 }
+//店铺退货入库修改请求
+function shopInChange(that, nav) {
+    var obj = {};
+    obj.begintime = that.data.select.Start;
+    obj.endtime=that.data.select.End;
+    obj.orderCode=that.data.select.put[that.data.select.putIndex];
+    obj.orderCode=that.data.orderId;
+    wx.request({
+        url:that.data.url+nav,
+        method:"POST",
+        data:obj,
+        success:function (res) {
+            let json =res.data.data;
+            function push(item,index) {
+                item.okTime=timer.formatTime(item.ctime)
+            }
+            res.data.data.forEach(push);
+            that.setData({
+                Data:json
+            })
+        }
+    })
+}
 module.exports={
     request:request,
     requesttime:requesttime,
@@ -643,5 +666,6 @@ module.exports={
     shopOutnote:requestShopOutNote,
     shopOutCount:shopOutCount,
     shopOutOrder: shopOutOrder,
-    storChange:storChange
+    storChange:storChange,
+    shopInChange:shopInChange
 };

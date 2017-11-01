@@ -17,15 +17,11 @@
         </view>
     </view>
 </view>
-<!--<block wx:for="{{Data}}" wx:for-item="item">-->
-    <view class="list" bindtap="click">
-        <view class="order">订单号：12312</view>
+<block wx:for="{{Data}}" wx:for-item="item">
+    <view class="list" bindtap="click" data-type="{{item.orderId}}">
+        <view class="order">订单号：{{item.orderCode}}</view>
         <view class="red">收货入库</view>
-        <view class="orderTime">入库时间：41634321316313</view>
+        <view class="orderTime">入库时间：{{item.okTime}}</view>
     </view>
-<view class="list">
-    <view class="order">订单号：12312</view>
-    <view class="red">收货入库</view>
-    <view class="orderTime">入库时间：41634321316313</view>
-</view>
-<!--</block>-->
+</block>
+<!--<view>123</view>-->

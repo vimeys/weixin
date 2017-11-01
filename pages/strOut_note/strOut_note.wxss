@@ -80,3 +80,9 @@ image{
     right:20rpx;
     top:20rpx;
 }
+/*.nothing{*/
+    /*font-size: 35rpx;*/
+    /*color:red;*/
+    /*padding-top: 50rpx;*/
+    /*text-align: center;*/
+/*}*/

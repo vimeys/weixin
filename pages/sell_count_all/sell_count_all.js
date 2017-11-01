@@ -9,6 +9,7 @@ Page({
         url:'',
         date: ["最近7天", "最近14天", "最近28天"],
         area: ["A", "B"],
+        areaId:[],
         shop: ["a", "b", "c"],
         index: 0,
         areaIndex: 0,
@@ -42,6 +43,14 @@ Page({
         let that=this;
         that.setData({
             url:url
+        });
+        //获取全部区域
+        wx.request({
+            url:that.data.url+"sell/city",
+            method:"POST",
+            success:function (res) {
+                console.log(res);
+            }
         })
     },
 

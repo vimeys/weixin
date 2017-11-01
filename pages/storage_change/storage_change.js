@@ -44,7 +44,7 @@ Page({
         let url=app.url;
         this.setData({
             url:url,
-        })
+        });
         wx.request({
             url:that.data.url+"wearhouse/backingoods",
             method:"POST",
@@ -59,7 +59,7 @@ Page({
                     Data:json
                 })
             }
-        })
+        });
     },
 
     /**

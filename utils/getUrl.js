@@ -6,6 +6,7 @@ function getUrl(e,that) {
     wx.showModal({
       title: '警告',
       content: '你没有权限查看内容',
+        showCancel:false,
       success: res=>{
         if (res.confirm) {
 

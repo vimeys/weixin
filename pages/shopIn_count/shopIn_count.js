@@ -51,9 +51,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      common.url(this);
+      // common.url(this);
+      let url=app.url;
       var shopId=options.shopId;
       this.setData({
+          url:url,
           shopId:shopId
       });
       var that=this;
@@ -99,7 +101,7 @@ Page({
               })
           }
       });
-      request.requestshop(this,"wearhouse/searchin")
+      request.requestShop(this,"wearhouse/searchin")
   },
 
   /**

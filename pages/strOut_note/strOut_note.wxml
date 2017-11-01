@@ -20,3 +20,4 @@
         入库时间：{{item.okTime}} <text>操作人：{{item.logEditer}}</text>
     </view>
 </block>
+<include src="../../template/nothing.wxml"/>

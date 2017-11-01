@@ -136,21 +136,18 @@ Page({
             url:this.data.url+"sundry/areas",
             method:"POST",
             success:function (res) {
-                console.log(res);
                 var size = [];
                 var sizeId = [];
-
+                console.log(res);
                 function sizePush(item, index) {
                     size.push(item.area);
                     sizeId.push(item.areaid);
                 }
 
                 res.data.data.forEach(sizePush);
-                console.log(size);
                 var select = that.data.select;
                 select.area = size;
                 select.areaId = sizeId
-                console.log(size);
                 that.setData({
                     select: select
                 })
@@ -160,7 +157,6 @@ Page({
             url:this.data.url+"sundry/shop",
             method:"POST",
             success:function (res) {
-                console.log(res);
                 var size=[];
                 var sizeId=[];
                 function sizePush(item,index){
@@ -171,7 +167,6 @@ Page({
                 var select=that.data.select;
                 select.shop=size;
                 select.shopId=sizeId
-                console.log(size);
                 that.setData({
                     select:select
                 })
@@ -181,7 +176,6 @@ Page({
             url:this.data.url+"sundry/express",
             method:"POST",
             success:function (res) {
-                console.log(res);
                 var size=[];
                 var sizeId=[];
                 function sizePush(item,index){
@@ -192,7 +186,6 @@ Page({
                 var select=that.data.select;
                 select.express=size;
                 select.expressId=sizeId
-                console.log(size);
                 that.setData({
                     select:select
                 })

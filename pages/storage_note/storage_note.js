@@ -9,7 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-      active1: '1',
+      active: '1',
       count: [1, 2, 3],
       time: 1477808630404,
       goodsMeg: {
@@ -58,9 +58,9 @@ Page({
   changeNew:function (e) {
     var active=e.currentTarget.dataset.type;
     this.setData({
-      active1:active
+      active:active
     });
-
+      request.storNote(that,nav)
   },
   /**
    * 生命周期函数--监听页面加载
