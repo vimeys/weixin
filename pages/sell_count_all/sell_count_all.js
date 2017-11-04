@@ -1,19 +1,26 @@
 // pages/sell_count_all/sell_count_all.js
 let app=getApp();
+var request=require("../../utils/totalRequest");
+var optionChange=require("../../utils/optionChange");
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        url:'',
+        url: "",
+        noMore: false,
         date: ["最近7天", "最近14天", "最近28天"],
-        area: ["A", "B"],
-        areaId:[],
-        shop: ["a", "b", "c"],
+        Id: [7, 14, 28],
         index: 0,
+        use: false,
+        area: ['全部区域'],//区域
+        areaId: [0],
         areaIndex: 0,
+        shop: ['全部店铺'],//店铺
+        shopId: [0],
         shopIndex: 0,
+        Data: ""//返回数据
     },
     //选择框改变事件
     optionChange:function (e) {
@@ -21,19 +28,20 @@ Page({
         if(Type==1){
             var value=e.detail.value;
             this.setData({
-                dataIndex:value
+                index:value
             })
-        }else if(Type==3){
+        }else if(Type==2){
             var value=e.detail.value;
             this.setData({
                 areaIndex:value
             })
-        }else if(Type==2){
+        }else if(Type==3){
             var value=e.detail.value;
             this.setData({
                 shopIndex:value
             })
         }
+        request.sellCountAll(this,'sell/bosssellnumber')
     },
     /**
      * 生命周期函数--监听页面加载
@@ -50,8 +58,26 @@ Page({
             method:"POST",
             success:function (res) {
                 console.log(res);
+                let json=res.data.data;
+                json.unshift({city:'全部区域',cityid:'0'});
+                let arr=[];
+                let arr1=[];
+                function push(item,index) {
+                    arr.push(item.city);
+                    arr1.push(item.cityid);
+                }
+                json.forEach(push);
+                let obj=that.data.select;
+                // obj.area=arr;
+                // obj.areaId=arr1;
+                // console.log(obj);
+                that.setData({
+                    area:arr,
+                    areaId:arr1
+                })
             }
         })
+        request.sellCountAll(this,"sell/bosssellnumber")
     },
 
     /**

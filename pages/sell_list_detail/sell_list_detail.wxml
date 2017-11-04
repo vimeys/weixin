@@ -1,23 +1,55 @@
 <!--pages/sell_list_detail/sell_list_detail.wxml-->
 <view>
-    <view class="detail">订单号：4654631694616164 <text>{{}}</text></view>
-    <view class="list">
-        <view class="img">
-            <image src="../images/scan.png"></image>
-        </view>
-        <view class="table">
-            <view class="title">超级好看的鞋子</view>
-            <view>款号：<text>45574543156</text></view>
-            <view>条码号：<text>461646164164</text></view>
-            <view class="last">
-                尺码：<text>L</text>颜色：<text>红色</text> 数量： <text>4545</text>
+    <view class="detail">订单号：{{order.sellCode}} <text>{{order.status==0?'未对账':'已对账'}}</text></view>
+    <!--<block wx:for="{{Data}}" wx:for-item="item">-->
+        <!--<view class="list">-->
+            <!--<view class="img">-->
+                <!--<image src="../images/scan.png"></image>-->
+            <!--</view>-->
+            <!--<view class="table">-->
+                <!--<view class="title">{{item.goodsFashion}}</view>-->
+                <!--<view>款号：<text>{{item.goodsGirard}}</text></view>-->
+                <!--<view>条码号：<text>{{item.goodsCode}}</text></view>-->
+                <!--<view class="last">-->
+                    <!--尺码：<text>{{item.sizeName}}</text>颜色：<text>{{item.colorName}}</text> 数量： <text>{{item.number}}</text>-->
+                <!--</view>-->
+                <!--<image src="../images/pencil.png"></image>-->
+            <!--</view>-->
+        <!--</view>-->
+    <!--</block>-->
+
+        <block wx:for="{{[1,2]}}" wx:for-item="item">
+            <view class="list">
+            <view class="img">
+                <image src="../images/scan.png"></image>
             </view>
-            <image src="../images/pencil.png"></image>
-        </view>
-    </view>
+            <view class="table">
+                <view class="title">{{item.goodsFashion}}</view>
+                <view>款号：
+                    <text>{{item.goodsGirard}}</text>
+                </view>
+                <view>条码号：
+                    <text>{{item.goodsCode}}</text>
+                </view>
+                <view class="last">
+                    尺码：
+                    <text>{{item.sizeName}}</text>
+                    颜色：
+                    <text>{{item.colorName}}</text>
+                </view>
+                <view class="end">
+                    单价：
+                    <text>￥{{item.price}}</text>
+                    数量：
+                    <text>{{item.number}}</text>
+                </view>
+            </view>
+            </view>
+        </block>
+
     <view class="total">
-        <view>总数量 <text>52352</text></view>
-        <view>总金额 <text>¥52352.00</text></view>
-        <view>操作时间 <text>2017-08-01   13:32:34</text></view>
+        <view>总数量 <text>{{order.number}}</text></view>
+        <view>总金额 <text>¥{{order.price}}</text></view>
+        <view>操作时间 <text>{{order.okTime}}</text></view>
     </view>
 </view>

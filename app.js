@@ -12,6 +12,7 @@ App({
         // console.log("在onlaunch里面的url"+url);
         // console.log("nickname"+nickname)
         // console.log("nickname"+userInfoAvatar);
+        console.log(nickname);
         wx.login({
           success: function (res) {
             if (res.code) {
@@ -22,8 +23,8 @@ App({
                 method:"POST",
                 data:{
                   code:res.code,
-                  Img:userInfoAvatar,
-                  Name:nickname
+                  img:userInfoAvatar,
+                  uname:nickname
                 },
                 success: function (res) {
                   console.log(res);

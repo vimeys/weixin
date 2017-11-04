@@ -7,12 +7,12 @@
         </picker>
     </view>
     <view class="shop">区域选择
-        <picker mode="selector" class="addr before" disabled="{{use}}" value="{{areaIndex}}" data-type="3"
+        <picker mode="selector" class="addr before" disabled="{{use}}" value="{{areaIndex}}" data-type="2"
                 bindchange="optionChange" range="{{area}}">
             {{area[areaIndex]}}
         </picker>
         <veiw class="shop_choose">店铺选择
-            <picker mode="selector" class="select before" disabled="{{use}}" value="{{shopIndex}}" data-type="2"
+            <picker mode="selector" class="select before" disabled="{{use}}" value="{{shopIndex}}" data-type="3"
                     bindchange="optionChange" range="{{shop}}">
                 {{shop[shopIndex]}}
             </picker>
@@ -20,24 +20,11 @@
     </view>
 </view>
 <view class="list">
-    <view class="ul">成都市成华区跳蹬河-跳蹬河点
-        <view class="right">销售额 ：
-            <text>¥3214.00</text>
+    <block wx:for="{{Data}}" wx:for-item="item">
+        <view class="ul">成都市成华区跳蹬河-跳蹬河点
+            <view class="right">销售额 ：
+                <text>¥3214.00</text>
+            </view>
         </view>
-    </view>
-    <view class="ul">成都市成华区跳蹬河-跳蹬河点
-        <view class="right">销售额 ：
-            <text>¥3214.00</text>
-        </view>
-    </view>
-    <view class="ul">成都市成华区跳蹬河-跳蹬河点
-        <view class="right">销售额 ：
-            <text>¥3214.00</text>
-        </view>
-    </view>
-    <view class="ul">成都市成华区跳蹬河-跳蹬河点
-        <view class="right">销售额 ：
-            <text>¥3214.00</text>
-        </view>
-    </view>
+    </block>
 </view>

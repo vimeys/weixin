@@ -1,5 +1,6 @@
 // pages/sell_list_detail/sell_list_detail.js
 var app=getApp();
+let timer=require("../../utils/util");
 Page({
 
   /**
@@ -8,6 +9,7 @@ Page({
   data: {
       url:"",
       noMore:false,
+      number:"",
       select:{
           use:false,
           start:"开始时间",
@@ -24,6 +26,7 @@ Page({
           listId:[1,2],
           listIndex:0
       },
+      order:"",//
       Data:""//返回数据
   },
 
@@ -32,10 +35,26 @@ Page({
    */
   onLoad: function (options) {
       var url=app.url;
-      var num=options.list;
+      var num=options.sellId;
+      let that=this;
       this.setData({
           url:url,
           number:num
+      })
+      wx.request({
+          url:that.data.url+"sell/sellorderinfo",
+          method:"POST",
+          data:{sellId:num},
+          success:function (res) {
+              console.log(res);
+              let goods=res.data.data.goods;
+              let order=res.data.data.order;
+              order.okTime=timer.formatTime(res.data.data.order.sellCtime);
+              that.setData({
+                  order:order,
+                  Data:goods
+              })
+          }
       })
   },
 

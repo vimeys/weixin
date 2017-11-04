@@ -110,6 +110,7 @@ Page({
             obj.shipper=data.sendPeople;
             obj.shphone=data.sendPhone;
             console.log(obj);
+            console.log(storeId);
             wx.request({
                 url:data.url+"shopout/backstore",
                 method:"POST",
@@ -148,6 +149,7 @@ Page({
             obj.shipper=data.sendPeople;
             obj.shphone=data.sendPhone;
             console.log(obj);
+            console.log(storeId);
             wx.request({
                 url:data.url+"wearout/orderok",
                 method:"POST",
@@ -180,12 +182,12 @@ Page({
      */
     onLoad: function (options) {
         let url=app.url;
-        // var str=options.storeId;
-        // let storeId=str.split(",");
+        var str=options.storeId;
+        let storeId=str.split(",");
         var that=this;
         that.setData({
             url:url,
-            // storeId:storeId
+            storeId:storeId
         })
         wx.request({//获取区域
             url:this.data.url+"sundry/areas",

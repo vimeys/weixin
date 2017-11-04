@@ -39,13 +39,13 @@ Page({
       shopId:""//店铺id
   },
     DateChange:function (e) {
-        Datechange.DateChange(e,this,"wearhouse/searchin");
+        Datechange.DateChange(e,this,"shopstore/countsearch");
     },
     output:function (e) {
-        output.output(e,this,"wearhouse/searchin");
+        output.output(e,this,"shopstore/countsearch");
     },
     optionChange:function (e) {
-        optionChange.optionChange(e,this,"wearhouse/searchin");
+        optionChange.optionChange(e,this,"shopstore/countsearch");
     },
   /**
    * 生命周期函数--监听页面加载
@@ -101,7 +101,7 @@ Page({
               })
           }
       });
-      request.requestShop(this,"wearhouse/searchin")
+      request.requestShop(this,"shopstore/countsearch")
   },
 
   /**

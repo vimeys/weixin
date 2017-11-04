@@ -47,12 +47,13 @@ function optionChange(e,that,nav) {
 function optionChangeSellAll(e,that,nav) {
     var select=that.data.select;
     var Type=e.target.dataset.type;
-    if(Type==1){
-        select.areaIndex=e.detail.value;
-        that.setData({
-            select:select
-        })
-    }else if(Type==2){
+    // if(Type==1){
+    //     select.areaIndex=e.detail.value;
+    //     that.setData({
+    //         select:select
+    //     })
+    // }else
+        if(Type==2){
         select.shopIndex = e.detail.value;
         that.setData({
             select: select

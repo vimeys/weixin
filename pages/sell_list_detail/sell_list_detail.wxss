@@ -10,7 +10,6 @@
     float:right;
 }
 .list{
-    font-size: 28rpx;
     width: 100%;
     border-bottom: 1rpx solid #ccc;
     display: flex;
@@ -40,7 +39,7 @@ image{
 }
 .table input{
     display: inline-block;
-    border: 1rpx solid #333333;
+    border: 1rpx solid #ccc;
     width: 80rpx;
     height: 38rpx;
     color:#FF0202;
@@ -53,26 +52,18 @@ image{
 .table .last{
     line-height: 44rpx;
 }
-.table .last text{
-    margin-right: 35rpx;
+.table .last text:first-child{
+    margin-right: 220rpx;
 }
-.table .del text{
-    margin-right: 15rpx;
-}
-.table .last text:last-child{
+.table .end text:first-child{
     color:red;
-
+    display: inline-block;
+    width: 225rpx;
+    text-align: left;
+    /*margin-left: 100rpx;*/
 }
-.table .del text:last-child{
-    text-decoration: line-through;
-    color:#ccc;
-}
-.table image{
-    width: 28rpx;
-    height: 33rpx;
-    position: absolute;
-    right: 20rpx;
-    top: 5rpx;
+.table .end text:last-child{
+    color:red;
 }
 .total{
     font-size: 30rpx;

@@ -464,14 +464,15 @@ function sellListAll(that,nav) {
     var data={};
     data.begintime=that.data.select.Start;
     data.endtime=that.data.select.End;
-    data.area=that.data.select.areaId[that.data.select.areaIndex];
-    data.shop=that.data.select.shopId[that.data.select.shopIndex];
-    data.list=that.data.select.listId[that.data.select.listId];
+    data.cityId=that.data.select.areaId[that.data.select.areaIndex];
+    data.shopId=that.data.select.shopId[that.data.select.shopIndex];
+    data.status=that.data.select.listId[that.data.select.listIndex];
     wx.request({
         url:that.data.url+nav,
         method:"POST",
         data:data,
         success:function (res) {
+            console.log(res);
             if(res.data.code==202){
                 that.setData({
                     noMOre:false
@@ -479,12 +480,13 @@ function sellListAll(that,nav) {
             }else if(res.data.code==200){
                 var num=[];
                 function change(item,index){
-                    item.okTime=formatTime.formatTime(res.data.data[index].ctime);
+                    item.okTime=formatTime.formatTime(res.data.data.order[index].sellCtime);
                     num.push(item)
                 }
-                res.data.data.forEach(change);
+                res.data.data.order.forEach(change);
+                console.log(num);
                 that.setData({
-                    Date:num,
+                    Data:num,
                     noMore:false
                 })
             }
@@ -651,6 +653,62 @@ function shopInChange(that, nav) {
         }
     })
 }
+//销售统计请求
+function sellCountAll(that,nav) {
+    let obj={};
+    obj.cityId=that.data.areaId[that.data.areaIndex];
+    obj.interval=that.data.Id[that.data.index];
+    obj.shopId=that.data.shopId[that.data.shopIndex];
+    wx.request({
+        url:that.data.url+nav,
+        method:"POST",
+        data:obj,
+        success:function (res) {
+            console.log(res);
+            if(res.data.code==202){
+                that.setData({
+                    noMOre:false
+                })
+            }else if(res.data.code==200){
+                // var num=[];
+                // function change(item,index){
+                //     item.okTime=formatTime.formatTime(res.data.data[index].ctime);
+                //     num.push(item)
+                // }
+                // res.data.data.sellinfo.forEach(change);
+                that.setData({
+                    Data:res.data.data.sellinfo,
+                    noMore:false
+                })
+            }
+        }
+    })
+}
+//销售额统计
+function sellMoneyAll(that,nav) {
+    let obj={};
+    obj.cityId=that.data.areaId[that.data.areaIndex];
+    obj.interval=that.data.Id[that.data.index];
+    obj.shopId=that.data.shopId[that.data.shopIndex];
+    wx.request({
+        url:that.data.url+nav,
+        method:"POST",
+        data:obj,
+        success:function (res) {
+            console.log(res);
+            if(res.data.code==202){
+                that.setData({
+                    noMOre:false
+                })
+            }else if(res.data.code==200){
+                that.setData({
+                    Data:res.data.data.sell,
+                    noMore:false
+                })
+            }
+        }
+    })
+}
 module.exports={
     request:request,
     requesttime:requesttime,
@@ -667,5 +725,7 @@ module.exports={
     shopOutCount:shopOutCount,
     shopOutOrder: shopOutOrder,
     storChange:storChange,
-    shopInChange:shopInChange
+    shopInChange:shopInChange,
+    sellCountAll:sellCountAll,
+    sellMoneyAll:sellMoneyAll,
 };

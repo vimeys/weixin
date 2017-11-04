@@ -15,7 +15,7 @@
     </view>
     <view class="shop">区域选择
         <picker mode="selector" class="addr before" disabled="{{select.use}}" value="{{select.areaIndex}}" data-type="1"
-                bindchange="optionChange" range="{{select.area}}">
+                bindchange="areaChange" range="{{select.area}}">
             {{select.area[select.areaIndex]}}
         </picker>
         <view class="store">店铺选择
