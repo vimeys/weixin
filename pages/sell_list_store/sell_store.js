@@ -32,7 +32,7 @@ Page({
   },
     //时间选择
     DataChange:function (e) {
-        DateChange.DateChange(e.this,"")
+        DateChange.DateChange(e.this,"sell/shopsellorder")
     },
     //选择框
     optionChange:function (e) {
