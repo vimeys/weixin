@@ -3,9 +3,9 @@
     <view class="time">统计周期<picker mode="selector"  class="select before"  disabled="{{use}}" value="{{index}}" data-type="1" bindchange="optionChange" range="{{date}}">
         {{date[index]}}
     </picker></view>
-    <view class="shop">成都市成华区跳蹬河 <text>跳蹬河</text></view>
+    <view class="shop">{{Data.address}} <text>{{Data.shopName}}</text></view>
 </view>
 <view class="total">
     <text>本时段销售额</text>
-    <text>¥{{Data.price}}</text>
+    <text>¥{{Data.sumPrice}}</text>
 </view>

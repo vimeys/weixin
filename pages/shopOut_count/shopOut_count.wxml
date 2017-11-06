@@ -3,3 +3,4 @@
 <template is="output" data="{{select}}"/>
 <import src="../../template/shopOut_note.wxml"/>
 <template is="shopOut_count" data="{{Data}}"></template>
+<include src="../../template/nothing.wxml"></include>

@@ -31,3 +31,4 @@
 </view>
 <import src="../../template/goods_detail"/>
 <template is="goods_detail" data="{{Data}}"></template>
+<include src="../../template/nothing.wxml"></include>

@@ -1,15 +1,28 @@
 // pages/sell_money_store/sell_money_store.js
 let app = getApp();
+var request=require("../../utils/totalRequest");
+var optionChange=require("../../utils/optionChange");
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-      url:"",
+      url: "",
+      noMore: false,
       date: ["最近7天", "最近14天", "最近28天"],
-      Data:"",
-      index:0
+      Id: [7, 14, 28],
+      index: 0,
+      use: false,
+      // area: ['全部区域'],//区域
+      // areaId: [0],
+      // areaIndex: 0,
+      // shop: ['全部店铺'],//店铺
+      // shopId: [0],
+      // shopIndex: 0,
+      Data: "",//返回数据
+      shopId:"",
+      order:""
   },
     optionChange:function (e) {
         var Type=e.target.dataset.type;
@@ -18,17 +31,8 @@ Page({
             this.setData({
                 index:value
             })
-        }else if(Type==2){
-            var value=e.detail.value;
-            this.setData({
-                shopIndex:value
-            })
-        }else if(Type==3){
-            var value=e.detail.value;
-            this.setData({
-                shopIndex:value
-            })
         }
+        request.sellMoneyStore(this,"sell/annuasales");
     },
   /**
    * 生命周期函数--监听页面加载
@@ -36,9 +40,14 @@ Page({
   onLoad: function (options) {
       let url=app.url;
       let that=this;
-      that.setData({
-          url:url
-      })
+      let shop=wx.getStorageSync('shop');
+      let shopId=shop[0].name;
+      this.setData({
+          url:url,
+          shopId:shopId
+      });
+      //
+      request.sellMoneyStore(this,"sell/annuasales");
   },
 
   /**

@@ -1,6 +1,6 @@
 
 <template name="do_detail">
-    <!--<block wx:for="{{Data}}" wx:for-item="item">-->
+    <block wx:for="{{Data}}" wx:for-item="item">
         <view class="list">
             <view class="img">
                 <image src="../images/scan.png"></image>
@@ -17,5 +17,5 @@
         <view class="record">
             操作时间：{{item.okTime}} <text>操作人：{{item.logEditer}}</text>
         </view>
-    <!--</block>-->
+    </block>
 </template>

@@ -1,7 +1,7 @@
 /* pages/sell_list_detail/sell_list_detail.wxss */
 .detail{
     width: 100%;
-    padding: 30rpx 20rpx 1rpx 20rpx;
+    padding: 30rpx 20rpx 20rpx 20rpx;
     box-sizing: border-box;
     font-size: 30rpx;
     border-bottom: 10rpx solid #e5e5e5;
@@ -53,7 +53,7 @@ image{
     line-height: 44rpx;
 }
 .table .last text:first-child{
-    margin-right: 220rpx;
+    margin-right: 190rpx;
 }
 .table .end text:first-child{
     color:red;

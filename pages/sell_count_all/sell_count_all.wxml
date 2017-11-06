@@ -24,7 +24,7 @@
     <block wx:for="{{Data}}" wx:for-item="item">
         <view class="ul">{{item.goodsFashion}}
             <view class="right">已售 ：
-                <text>¥{{item.sum(inStock)}}</text>
+                <text>{{item.inStock}}</text>
             </view>
         </view>
     </block>

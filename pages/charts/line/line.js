@@ -5,8 +5,10 @@ Page({
     data: {
         url:"",
         date: ["最近7天", "最近14天", "最近28天"],
-        area: ["A", "B"],
-        shop: ["a", "b", "c"],
+        id:[7,14,28],
+        index:0,
+        // area: ["A", "B"],
+        // shop: ["a", "b", "c"],
         dateIndex: 0,
         shopIndex: 0,
         money:2000,

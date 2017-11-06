@@ -26,8 +26,8 @@ Page({
         sizeId:"",
         name:["长","宽","高"],
         nameId:[],
-        ways:['正常入库','退货入库'],
-        waysId:[0,1],
+        ways:['收货入库','退货入库','调货入库'],
+        waysId:[3,2,4],
         nameIndex:0,
         sizeIndex:0,
         waysIndex:0
@@ -53,7 +53,11 @@ Page({
   onLoad: function (options) {
       // common.url(this);
       let url=app.url;
-      var shopId=options.shopId;
+      if(options.shopId==undefined){
+          var shopId=wx.getStorageSync('shopId');
+      }else {
+          var shopId=options.shopId;
+      }
       this.setData({
           url:url,
           shopId:shopId
@@ -101,7 +105,7 @@ Page({
               })
           }
       });
-      request.requestShop(this,"shopstore/countsearch")
+      request.requestShopCount(this,"shopstore/countsearch")
   },
 
   /**

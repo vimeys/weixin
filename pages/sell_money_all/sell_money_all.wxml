@@ -21,9 +21,9 @@
 </view>
 <view class="list">
     <block wx:for="{{Data}}" wx:for-item="item">
-        <view class="ul">成都市成华区跳蹬河-跳蹬河点
+        <view class="ul">{{item.city}}{{item.area}}-{{item.shopName}}
             <view class="right">销售额 ：
-                <text>¥3214.00</text>
+                <text>¥{{item.sumPrice}}</text>
             </view>
         </view>
     </block>

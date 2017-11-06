@@ -25,9 +25,16 @@ console.log(12312312)
             success:function (res) {
                 console.log(res.data.data);
                 console.log(res);
-                that.setData({
-                    Data:res.data.data
-                })
+                if(res.data.code==202){
+                    that.setData({
+                        Data:[],
+                    })
+                }else if(res.data.code==200){
+                    that.setData({
+                        Data:res.data.data.goodsinfo
+                    })
+                }
+
             }
         })
     }else {
@@ -413,13 +420,13 @@ function shopOutOrder(that,nav) {
 //收货店铺统计的请求
 function requestShopCount(that,nav) {
     var data = {};
-    data.shopId = that.data.select.shopId;
+    // data.shopId = that.data.select.shopId;
     data.begintime = that.data.select.Start;
     data.endtime = that.data.select.End;
     data.goodsFashion = that.data.select.style;
     data.goodsGirard = that.data.select.styleNum;
     data.formatCode = that.data.select.Barcode;
-    data.shopId=that.data.shopId;
+    data.shopId = that.data.shopId;
     data.sizeId = that.data.select.sizeId[that.data.select.sizeIndex];
     data.catId = that.data.select.nameId[that.data.select.nameIndex];
     data.type = that.data.select.waysId[that.data.select.waysIndex];
@@ -480,10 +487,10 @@ function sellListAll(that,nav) {
             }else if(res.data.code==200){
                 var num=[];
                 function change(item,index){
-                    item.okTime=formatTime.formatTime(res.data.data.order[index].sellCtime);
+                    item.okTime=formatTime.formatTime(res.data.data[index].sellCtime);
                     num.push(item)
                 }
-                res.data.data.order.forEach(change);
+                res.data.data.forEach(change);
                 console.log(num);
                 that.setData({
                     Data:num,
@@ -493,7 +500,76 @@ function sellListAll(that,nav) {
         }
     })
 }
-
+//销售单区域经理请求
+function sellListArea(that,nav) {
+    var data={};
+    data.begintime=that.data.select.Start;
+    data.endtime=that.data.select.End;
+    data.space=that.data.city;
+    data.shopId=that.data.select.shopId[that.data.select.shopIndex];
+    data.status=that.data.select.listId[that.data.select.listIndex];
+    wx.request({
+        url:that.data.url+nav,
+        method:"POST",
+        data:data,
+        success:function (res) {
+            console.log(res);
+            if(res.data.code==202){
+                that.setData({
+                    noMOre:false
+                })
+            }else if(res.data.code==200){
+                var num=[];
+                function change(item,index){
+                    item.okTime=formatTime.formatTime(res.data.data[index].sellCtime);
+                    num.push(item)
+                }
+                res.data.data.forEach(change);
+                console.log(num);
+                that.setData({
+                    Data:num,
+                    noMore:false
+                })
+            }
+        }
+    })
+}
+//店长销售单请求
+function sellListStore(that,nav) {
+    var data={};
+    data.begintime=that.data.select.Start;
+    data.endtime=that.data.select.End;
+    // data.space=that.data.city;
+    data.shopId=that.data.shopId;
+    data.status=that.data.select.listId[that.data.select.listIndex];
+    wx.request({
+        url:that.data.url+nav,
+        method:"POST",
+        data:data,
+        success:function (res) {
+            console.log(res);
+            if(res.data.code==202){
+                that.setData({
+                    noMOre:false,
+                    Data:''
+                })
+            }else if(res.data.code==200){
+                var num=[];
+                function change(item,index){
+                    item.okTime=formatTime.formatTime(res.data.data.order[index].sellCtime);
+                    num.push(item)
+                }
+                res.data.data.order.forEach(change);
+                console.log(num);
+                that.setData({
+                    Data:num,
+                    noMore:false
+                })
+                console.log(that.data.Data);
+            }
+        }
+    })
+}
 //店铺退货列表页面请求
 function shopreturn(that,nav) {
     var data={};
@@ -653,7 +729,7 @@ function shopInChange(that, nav) {
         }
     })
 }
-//销售统计请求
+//销售总经理统计请求
 function sellCountAll(that,nav) {
     let obj={};
     obj.cityId=that.data.areaId[that.data.areaIndex];
@@ -677,6 +753,38 @@ function sellCountAll(that,nav) {
                 // }
                 // res.data.data.sellinfo.forEach(change);
                 that.setData({
+                    Data:res.data.data,
+                    noMore:false
+                })
+            }
+        }
+    })
+}
+//销售区域经理统计请求
+function sellCountArea(that,nav) {
+    let obj={};
+    obj.space=that.data.city;
+    obj.interval=that.data.Id[that.data.index];
+    obj.shopId=that.data.shopId[that.data.shopIndex];
+    wx.request({
+        url:that.data.url+nav,
+        method:"POST",
+        data:obj,
+        success:function (res) {
+            console.log(res);
+            if(res.data.code==202){
+                that.setData({
+                    noMOre:false,
+                    Data:[]
+                })
+            }else if(res.data.code==200){
+                // var num=[];
+                // function change(item,index){
+                //     item.okTime=formatTime.formatTime(res.data.data[index].ctime);
+                //     num.push(item)
+                // }
+                // res.data.data.sellinfo.forEach(change);
+                that.setData({
                     Data:res.data.data.sellinfo,
                     noMore:false
                 })
@@ -684,7 +792,41 @@ function sellCountAll(that,nav) {
         }
     })
 }
-//销售额统计
+//销售区域经理统计请求
+function sellCountStore(that,nav) {
+    let obj={};
+    // obj.space=that.data.city;
+    obj.interval=that.data.Id[that.data.index];
+    obj.shopId=that.data.shopId
+    wx.request({
+        url:that.data.url+nav,
+        method:"POST",
+        data:obj,
+        success:function (res) {
+            console.log(res);
+            if(res.data.code==202){
+                that.setData({
+                    noMOre:false,
+                    Data:[]
+                })
+            }else if(res.data.code==200){
+
+                // var num=[];
+                // function change(item,index){
+                //     item.okTime=formatTime.formatTime(res.data.data[index].ctime);
+                //     num.push(item)
+                // }
+                // res.data.data.sellinfo.forEach(change);
+                that.setData({
+                    order:res.data.data.shop,
+                    Data:res.data.data.sellinfo,
+                    noMore:false
+                })
+            }
+        }
+    })
+}
+//总经理销售额统计
 function sellMoneyAll(that,nav) {
     let obj={};
     obj.cityId=that.data.areaId[that.data.areaIndex];
@@ -709,12 +851,66 @@ function sellMoneyAll(that,nav) {
         }
     })
 }
+//区域经理销售额统计
+function sellMoneyArea(that,nav) {
+    let obj={};
+    obj.space=that.data.city;
+    obj.interval=that.data.Id[that.data.index];
+    obj.shopId=that.data.shopId[that.data.shopIndex];
+    wx.request({
+        url:that.data.url+nav,
+        method:"POST",
+        data:obj,
+        success:function (res) {
+            console.log(res);
+            if(res.data.code==202){
+                that.setData({
+                    noMOre:false,
+                    Data:[]
+                })
+            }else if(res.data.code==200){
+                that.setData({
+                    Data:res.data.data.sell,
+                    noMore:false
+                })
+            }
+        }
+    })
+}
+//店长销售额统计
+function sellMoneyStore(that,nav) {
+    let obj={};
+    // obj.space=that.data.city;
+    obj.interval=that.data.Id[that.data.index];
+    obj.shopId=that.data.shopId;
+    wx.request({
+        url:that.data.url+nav,
+        method:"POST",
+        data:obj,
+        success:function (res) {
+            console.log(res);
+            if(res.data.code==202){
+                that.setData({
+                    noMOre:false,
+                    Data:[]
+                })
+            }else if(res.data.code==200){
+                that.setData({
+                    Data:res.data.data,
+                    noMore:false
+                })
+            }
+        }
+    })
+}
 module.exports={
     request:request,
     requesttime:requesttime,
     requestShop:requestShop,
     requestShopCount:requestShopCount,
     sellListAll:sellListAll,
+    sellListArea:sellListArea,
+    sellListStore:sellListStore,
     storReturn:storReturn,
     storNote:storNote,
     shopreturn:shopreturn,
@@ -727,5 +923,9 @@ module.exports={
     storChange:storChange,
     shopInChange:shopInChange,
     sellCountAll:sellCountAll,
+    sellCountArea:sellCountArea,
+    sellCountStore:sellCountStore,
     sellMoneyAll:sellMoneyAll,
+    sellMoneyArea:sellMoneyArea,
+    sellMoneyStore:sellMoneyStore
 };

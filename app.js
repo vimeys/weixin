@@ -1,7 +1,7 @@
 //app.js
 App({
-  // url:'http://192.168.0.122/jxc1/index.php/invo/',
-  url:'http://jxc.scmxkj.com/index.php/invo/',
+  url:'http://192.168.0.122/jxc/index.php/invo/',
+  // url:'http://jxc.scmxkj.com/index.php/invo/',
   onLaunch: function () {
     var url=this.url;
     //登录信息
@@ -37,6 +37,9 @@ App({
                       if(res.data.data.userinfo.shopId){
                         wx.setStorageSync('shopId',data.userinfo.shopId)
                       }
+                      if(res.data.data.userinfo.space){
+                        wx.setStorageSync('space',data.userinfo.space)
+                      }
                   }
                     console.log(data);
                     if(data.shop){
@@ -50,6 +53,7 @@ App({
                       data.shop.forEach(push);
                       console.log(num);
                       wx.setStorageSync('shop',num);
+                      wx.setStorageSync('shopId',data.shop[0].shopId);
                   }
                   // if(data.shopId){
                   //     wx.request({

@@ -1,8 +1,8 @@
 //店铺手动输入事件--退货入库
 function shopOut_JOG(nav,that) {
     var data={};
-    data.shopId=that.data.number;
-    data.goodsCode=that.data.shopId;
+    data.goodsCode=that.data.number;
+    data.shopId=that.data.shopId;
     console.log(data);
     wx.request({
         url:that.data.url+nav,

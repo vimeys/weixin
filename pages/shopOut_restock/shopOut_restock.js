@@ -41,9 +41,9 @@ Page({
         let choose=wx.getStorageSync('choose');
         this.setData({
             choose:choose,
-            sell:true,
-            restock:true,
-            return:false,
+            sell:false,
+            restock:false,
+            return:true,
         })
     }
     console.log(e);

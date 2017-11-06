@@ -4,3 +4,4 @@
 <include src="../../template/note.wxml"></include>
 <import src="../../template/do_detail.wxml"/>
 <template is="do_detail" data="{{Data}}"></template>
+<include src="../../template/nothing.wxml"></include>

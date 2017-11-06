@@ -4,3 +4,4 @@
 <include src="../../template/note.wxml"/>
 <import src="../../template/shopOUt_count.wxml"/>
 <template is="shopOut_count" data="{{Data}}"></template>
+<include src="../../template/nothing.wxml"></include>

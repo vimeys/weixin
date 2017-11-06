@@ -11,32 +11,38 @@ Page({
   data: {
       url:"",
       noMore:false,
+      shopId:'',
       select:{
           use:false,
           start:"开始时间",
           Start:"",
           end:"结束时间",
           End:"",
-          area:"",//区域
-          areaId:"",
-          areaIndex:"",
-          shop:"",//店铺
-          shopId:"",
-          shopIndex:"",
-
+          area:['全部区域'],//区域
+          areaId:[0],
+          areaIndex:0,
+          shop:['全部店铺'],//店铺
+          shopId:'',
+          shopIndex:0,
           list:["已对账","未对账"],//账单选择
-          listId:[1,2],
+          listId:[1,0],
           listIndex:0
       },
       Data:""//返回数据
   },
+    getUrl:function (e) {
+      let Type=e.currentTarget.dataset.type;
+      wx.navigateTo({
+        url: '../sell_list_detail/sell_list_detail?sellId='+Type
+      })
+    },
     //时间选择
-    DataChange:function (e) {
-        DateChange.DateChange(e.this,"sell/shopsellorder")
+    DateChange:function (e) {
+        DateChange.DateChange(e,this,"sell/shopsellorder")
     },
     //选择框
     optionChange:function (e) {
-        optionChange.optionChangeSellAll(e,this,"");
+        optionChange.optionChangeSellStore(e,this,"sell/shopsellorder");
     },
 
   /**
@@ -44,10 +50,14 @@ Page({
    */
   onLoad: function (options) {
       var url=app.url;
+      let shop=wx.getStorageSync('shop');
+      let shopId=shop[0].name;
       this.setData({
-          url:url
-      })
-      request.sellListAll(this,"")
+          url:url,
+          shopId:shopId
+      });
+      // console.log(this.data.)
+      request.sellListStore(this,"sell/shopsellorder");
   },
 
   /**

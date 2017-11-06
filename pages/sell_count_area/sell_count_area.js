@@ -1,17 +1,28 @@
 // pages/sell_count_area/sell_count_area.js
 let app=getApp();
+var request=require("../../utils/totalRequest");
+var optionChange=require("../../utils/optionChange");
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-      url:"",
+      url: "",
+      city:"",
+      noMore: false,
       date: ["最近7天", "最近14天", "最近28天"],
-      shop: [1,2],
-      Data: "",
+      Id: [7, 14, 28],
       index: 0,
-      shopIndex:0
+      use: false,
+      area: ['全部区域'],//区域
+      areaId: [0],
+      areaIndex: 0,
+      shop: ['全部店铺'],//店铺
+      shopId: [0],
+      shopIndex: 0,
+      Data: "",//返回数据
+      city:""
   },
     optionChange:function (e) {
         var Type=e.target.dataset.type;
@@ -25,12 +36,8 @@ Page({
             this.setData({
                 shopIndex:value
             })
-        }else if(Type==3){
-            var value=e.detail.value;
-            this.setData({
-                shopIndex:value
-            })
         }
+        request.sellCountArea(this,"sell/areasellnumber")
     },
   /**
    * 生命周期函数--监听页面加载
@@ -38,9 +45,41 @@ Page({
   onLoad: function (options) {
       let url=app.url;
       let that=this;
+      let city=wx.getStorageSync('space');
       that.setData({
-          url:url
+          url:url,
+          city:city
       })
+      //区域选择
+      wx.request({
+          url:that.data.url+"sell/shopname",
+          method:"POST",
+          data:{
+              cityId:that.data.city
+          },
+          success:function (res) {
+              console.log(res.data.data);
+              let json=res.data.data;
+              json.unshift({shopName:'全部店铺',shopId:0});
+              let arr=[];
+              let arr1=[];
+              function push(item,index) {
+                  arr.push(item.shopName);
+                  arr1.push(item.shopId);
+              }
+              json.forEach(push);
+              // let obj=that.data.select;
+              // obj.shop=arr;
+              // obj.shopId=arr1;
+              // console.log(obj);
+              that.setData({
+                  shop:arr,
+                  shopId:arr1
+              })
+              console.log(that.data.shopId);
+          }
+      });
+      request.sellCountArea(this,"sell/areasellnumber")
   },
 
   /**

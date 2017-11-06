@@ -43,7 +43,7 @@ image{
     line-height: 44rpx;
 }
 .table .last text:first-child{
-    margin-right: 220rpx;
+    margin-right: 190rpx;
 }
 .table .end text:first-child{
     color:red;

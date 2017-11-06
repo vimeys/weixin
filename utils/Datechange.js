@@ -43,6 +43,12 @@ var request=require("totalRequest");
           request.shopInChange(that,nav)
       }else if(nav=="wearhouse/loglist"){//仓库入库日志请求
           request.storNote(that,nav)
+      }else if(nav=="sell/bosssellorder"){//销售单总经理
+          request.sellListAll(that,nav)
+      }else if(nav=="sell/citysellorder"){//销售单区域经理
+          request.sellListArea(that,nav)
+      } else if(nav=="sell/shopsellorder"){//销售单店长
+          request.sellListStore(that,nav)
       }
 
   } else {
@@ -66,7 +72,6 @@ var request=require("totalRequest");
     }else if(nav=="shopstore/shougoods"){//店铺退货列表
         request.shopreturn(that,nav)
     }else if(nav=="wearout/outcount"){//仓库出库统计请求
-        console.log(1);
         request.storCount(that,nav)
     }else if(nav=="wearout/outlog"){//仓库出库日志请求
         request.storNote(that,nav)
@@ -80,6 +85,12 @@ var request=require("totalRequest");
         request.shopInChange(that,nav)
     }else if(nav=="wearhouse/loglist"){//仓库入库日志请求
         request.storNote(that,nav)
+    }else if(nav=="sell/bosssellorder"){//销售单总经理
+        request.sellListAll(that,nav)
+    }else if(nav=="sell/citysellorder"){//销售单区域经理
+        request.sellListArea(that,nav)
+    } else if(nav=="sell/shopsellorder"){//销售单店长
+        request.sellListStore(that,nav)
     }
   }
 }

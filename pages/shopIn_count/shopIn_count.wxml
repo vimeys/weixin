@@ -3,6 +3,4 @@
 <template is="output" data="{{select}}"></template>
 <import src="../../template/shop_count.wxml"/>
 <template is="shop_count" data="{{Data}}"></template>
-<view class="noMore" wx:if="{{noMore}}">
-    相关条件下没有产品,请重新选择条件
-</view>
+<include src="../../template/nothing.wxml"></include>

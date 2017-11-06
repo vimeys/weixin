@@ -5,24 +5,16 @@
             {{date[index]}}
         </picker>
     </view>
-    <view class="shop">成都市成华区跳蹬河
-        <text>跳蹬河</text>
+    <view class="shop">{{order.city}}{{order.area}}
+        <text>{{order.shopName}}</text>
     </view>
 </view>
 <view list="list">
-    <view class="ul">超级无敌好看的鞋子
-        <view class="right">已售 ：
-            <text>¥3214.00</text>
+    <block wx:for="{{Data}}" wx:for-item="item">
+        <view class="ul">{{item.goodsFashion}}
+            <view class="right">已售 ：
+                <text>{{item.inStock}}</text>
+            </view>
         </view>
-    </view>
-    <view class="ul">超级无敌好看的鞋子
-        <view class="right">已售 ：
-            <text>¥3214.00</text>
-        </view>
-    </view>
-    <view class="ul">超级无敌好看的鞋子
-        <view class="right">已售 ：
-            <text>¥3214.00</text>
-        </view>
-    </view>
+    </block>
 </view>

@@ -41,7 +41,7 @@ Page({
                 shopIndex:value
             })
         }
-        request.sellCountAll(this,'sell/bosssellnumber')
+        request.sellCountAll(this,'sell/bosssellnumber');
     },
     /**
      * 生命周期函数--监听页面加载
@@ -59,7 +59,7 @@ Page({
             success:function (res) {
                 console.log(res);
                 let json=res.data.data;
-                json.unshift({city:'全部区域',cityid:'0'});
+                json.unshift({city:'全部区域',cityid:0});
                 let arr=[];
                 let arr1=[];
                 function push(item,index) {
@@ -76,7 +76,7 @@ Page({
                     areaId:arr1
                 })
             }
-        })
+        });
         request.sellCountAll(this,"sell/bosssellnumber")
     },
 

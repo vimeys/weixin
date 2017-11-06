@@ -18,7 +18,7 @@
         <!--</view>-->
     <!--</block>-->
 
-        <block wx:for="{{[1,2]}}" wx:for-item="item">
+        <block wx:for="{{Data}}" wx:for-item="item">
             <view class="list">
             <view class="img">
                 <image src="../images/scan.png"></image>
@@ -29,7 +29,7 @@
                     <text>{{item.goodsGirard}}</text>
                 </view>
                 <view>条码号：
-                    <text>{{item.goodsCode}}</text>
+                    <text>{{item.formatCode}}</text>
                 </view>
                 <view class="last">
                     尺码：
@@ -39,7 +39,7 @@
                 </view>
                 <view class="end">
                     单价：
-                    <text>￥{{item.price}}</text>
+                    <text>￥{{item.formatPrice}}</text>
                     数量：
                     <text>{{item.number}}</text>
                 </view>

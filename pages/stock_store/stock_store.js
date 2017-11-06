@@ -64,8 +64,15 @@ Page({
       var url=app.url;
       var that=this;
       var data=this.data;
-      var shopId=options.shopId;
-      console.log(shopId);
+      console.log(options.shopId);
+      if(options.shopId==undefined){
+          var shopId=wx.getStorageSync('shopId');
+          console.log(1);
+      }else {
+          var shopId=options.shopId;
+      }
+      // console.log(shopId);
+
       this.setData({
           url:url,
           shopId:shopId
@@ -87,7 +94,6 @@ Page({
               newsize.sizeId=sizeId;
               that.setData({
                   select:newsize,
-
               })
           }
       })

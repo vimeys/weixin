@@ -1,14 +1,14 @@
 <!--pages/sell_list_all/sell_list_all.wxml-->
 <view class="time">
     <view class="timeStart">
-        <picker class="before" mode="date" start="{{start}}" disabled="{{select.use}}" value="{{Edate}}" data-type="1"
+        <picker class="before" mode="date" start="{{start}}" disabled="{{select.use}}" value="{{select.start}}" data-type="1"
                 bindchange="DateChange">
             {{select.start}}
         </picker>
     </view>
     <text>~~</text>
     <view class="timeStart" bindtap="bindPick">
-        <picker mode="date" start="{{start}}" class=" before" disabled="{{select.use}}" value="{{Edate}}" data-type="2"
+        <picker mode="date" start="{{start}}" class=" before" disabled="{{select.use}}" value="{{select.end}}" data-type="2"
                 bindchange="DateChange">
             {{select.end}}
         </picker>

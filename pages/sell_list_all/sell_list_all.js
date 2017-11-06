@@ -38,8 +38,8 @@ Page({
         })
     },
   //时间选择
-    DataChange:function (e) {
-        DateChange.DateChange(e.this,"")
+    DateChange:function (e) {
+        DateChange.DateChange(e,this,"sell/bosssellorder");
     },
     //选择框
     optionChange:function (e) {
@@ -90,13 +90,14 @@ Page({
           url:url
       });
       // request.sellListAll(this,"")
+      //区域选择
       wx.request({
           url:that.data.url+"sell/city",
           method:"POST",
           success:function (res) {
               console.log(res.data.data);
               let json=res.data.data;
-              json.unshift({city:'全部区域',cityid:'0'});
+              json.unshift({city:'全部区域',cityid:0});
               let arr=[];
               let arr1=[];
               function push(item,index) {

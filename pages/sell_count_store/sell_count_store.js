@@ -1,15 +1,21 @@
 // pages/sell_count_store/sell_count_store.js
 let app=getApp();
+var request=require("../../utils/totalRequest");
+var optionChange=require("../../utils/optionChange");
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-      url:"",
+      url: "",
+      noMore: false,
       date: ["最近7天", "最近14天", "最近28天"],
-      Data: "",
+      Id: [7, 14, 28],
       index: 0,
+      use: false,
+      Data:"",
+      shopId:''
   },
     optionChange:function (e) {
         var Type=e.target.dataset.type;
@@ -18,17 +24,8 @@ Page({
             this.setData({
                 index:value
             })
-        }else if(Type==2){
-            var value=e.detail.value;
-            this.setData({
-                shopIndex:value
-            })
-        }else if(Type==3){
-            var value=e.detail.value;
-            this.setData({
-                shopIndex:value
-            })
         }
+        request.sellCountStore(this,"sell/shopersellnumber");
     },
   /**
    * 生命周期函数--监听页面加载
@@ -36,9 +33,14 @@ Page({
   onLoad: function (options) {
       let url=app.url;
       let that=this;
-      that.setData({
-          url:url
-      })
+      let shop=wx.getStorageSync('shop');
+      let shopId=shop[0].name;
+      this.setData({
+          url:url,
+          shopId:shopId
+      });
+      //
+      request.sellCountStore(this,"sell/shopersellnumber");
   },
 
   /**
