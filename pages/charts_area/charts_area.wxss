@@ -10,7 +10,7 @@
 }
 .select{
     display: inline-block;
-    width: 528rpx;
+    width: 578rpx;
     height: 46rpx;
     padding-left: 10rpx;
     padding-top: 5rpx;
@@ -61,6 +61,32 @@
     content:"▼";
     right:1rpx;
     top:0rpx;
+}
+.shop .addr{
+    display: inline-block;
+    width: 200rpx;
+    height: 46rpx;
+    padding-left: 10rpx;
+    padding-top: 5rpx;
+    box-sizing: border-box;
+    border: 1rpx solid #ccc;
+    margin-left: 10rpx;
+    position: relative;
+    font-size: 24rpx;
+    /*vertical-align: -14rpx;*/
+}
+.style{
+    width: 100%;
+    margin-top: 20rpx;
+}
+.style input{
+    display: inline-block;
+    border: 1px solid #e5e5e5;
+    width: 588rpx;
+    height: 46rpx;
+    min-height: 46rpx;
+    vertical-align: -12rpx;
+    margin-left: 50rpx;
 }
 .canvas{
     width:100%;

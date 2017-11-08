@@ -13,7 +13,7 @@
             {{select.end}}
         </picker>
     </view>
-    <view class="shop">成都市成华区跳蹬河
+    <view class="shop">{{order.city}}{{order.area}}
         <view class="store">店铺选择
             <picker mode="selector" class="select before" disabled="{{select.use}}" value="{{select.shopIndex}}"
                     data-type="2" bindchange="optionChange" range="{{select.shop}}">
@@ -29,4 +29,4 @@
     </view>
 </view>
 <import src="../../template/sell_list"/>
-<template is="sell_list" data-type="{{Date}}"></template>
+<template is="sell_list" data="{{Data}}"></template>

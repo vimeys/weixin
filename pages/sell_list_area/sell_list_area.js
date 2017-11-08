@@ -25,18 +25,27 @@ Page({
           shopId:[0],
           shopIndex:0,
           list:["已对账","未对账"],//账单选择
-          listId:[1,2],
+          listId:[1,0],
           listIndex:0
       },
-      Data:""//返回数据
+      Data:"",//返回数据
+      order:'',
   },
     //时间选择
-    DataChange:function (e) {
-        DateChange.DateChange(e.this,"sell/citysellorder")
+    DateChange:function (e) {
+        DateChange.DateChange(e,this,"sell/citysellorder")
     },
     //选择框
     optionChange:function (e) {
         optionChange.optionChangeSellArea(e,this,"sell/citysellorder");
+    },
+    //选择已对账
+    getUrl:function (e) {
+        console.log(e);
+        let Type=e.currentTarget.dataset.type;
+        wx.navigateTo({
+            url: '../sell_list_areaDetail/sell_list_areaDetail?sellId='+Type
+        })
     },
   /**
    * 生命周期函数--监听页面加载

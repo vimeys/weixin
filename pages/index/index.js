@@ -86,7 +86,7 @@ Page({
       this.setData({
         url1:"../stock_store/stock_store",
       })
-    }else{
+    }else if(url==3||url==4){
       this.setData({
         url:"../stock_storage/stock_storage"
       })

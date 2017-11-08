@@ -61,7 +61,7 @@ Page({
     //发货数量修改跳转页面
     click: function (e) {
         var Type = e.currentTarget.dataset.type;
-        wx.setStorageSync('detail', 'restock');
+        wx.setStorageSync('detail', 'shopInChange');
         wx.navigateTo({
             url: '../shopIn_change/shopIn_change?storeId=' + Type
         })

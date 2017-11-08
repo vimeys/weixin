@@ -3,7 +3,7 @@
     <block wx:for="{{Data}}" wx:for-item="item">
         <view class="list">
             <view class="img">
-                <image src="{{}}"></image>
+                <image src="{{item.goodsImages}}"></image>
             </view>
             <view class="table">
                 <view class="title">{{item.goodsFashion}}</view>

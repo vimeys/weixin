@@ -13,7 +13,8 @@
 <block wx:for="{{Data}}" wx:for-item="item">
     <navigator url="../shopIn_takeDetail/shopIN_takeDetail?orderId={{item.orderId}}"  class="list">
         <view class="title {{item.msgMark==0?'new':''}}">订单号：{{item.orderCode}}</view>
-        <view class="shop">发货店铺：{{item.city}}{{item.area}}{{item.address}}---{{item.shopName}}</view>
+        <!--<view class="shop">发货店铺：{{item.city}}{{item.area}}{{item.address}}-&#45;&#45;{{item.shopName}}</view>-->
+        <view class="shop">发货店铺：仓库</view>
         <view class="list_time">发货时间：{{item.okTime}}</view>
         <view class="state">{{item.Type}}</view>
     </navigator>

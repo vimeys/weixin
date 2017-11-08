@@ -21,7 +21,7 @@
 <block wx:for="{{Data}}" wx:for-item="item">
     <view class="list" bindtap="click" data-type="{{item.orderId}}">
         <view class="order">订单号：{{item.orderCode}}</view>
-        <view class="red">收货入库</view>
+        <view class="red">{{item.status==1?'退货入库':'发货修改'}}</view>
         <view class="orderTime">入库时间：{{item.okTime}}</view>
     </view>
 </block>

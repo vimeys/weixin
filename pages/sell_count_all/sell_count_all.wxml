@@ -8,7 +8,7 @@
     </view>
     <view class="shop">区域选择
         <picker mode="selector" class="addr before" disabled="{{use}}" value="{{areaIndex}}" data-type="2"
-                bindchange="optionChange" range="{{area}}">
+                bindchange="areaChange" range="{{area}}">
             {{area[areaIndex]}}
         </picker>
         <view class="store">店铺选择
@@ -20,9 +20,8 @@
     </view>
 </view>
 <view list="list">
-
     <block wx:for="{{Data}}" wx:for-item="item">
-        <view class="ul">{{item.goodsFashion}}
+        <view class="ul">{{item.goodsFashion}}-{{item.colorName}}-{{item.sizeName}}
             <view class="right">已售 ：
                 <text>{{item.inStock}}</text>
             </view>

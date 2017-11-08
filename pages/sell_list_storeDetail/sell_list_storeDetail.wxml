@@ -1,0 +1,25 @@
+<!--pages/sell_list_storeDetail/sell_list_storeDetail.wxml-->
+<view class="detail">订单号：{{order.sellCode}} <text>{{order.status==0?'未对账':'已对账'}}</text></view>
+<block wx:for="{{Data}}" wx:for-item="item">
+    <view class="list">
+        <view class="img">
+            <image src="{{item.goodsImage}}"></image>
+        </view>
+        <view class="table">
+            <view class="title">{{item.goodsFashion}}</view>
+            <view>款号：<text>{{item.goodsGirard}}</text></view>
+            <view>条码号：<text>{{item.formatCode}}</text></view>
+            <view class="last">
+                尺码：<text>{{item.sizeName}}</text>颜色：<text>{{item.colorName}}</text> 数量： <text class="red">{{item.number}}</text>
+                <!--<text   class="red" wx:if="{{item.fixnumber>0}}">{{item.fixnumber}}</text>-->
+            </view>
+            <image src="../images/pencil.png" data-type="{{item.sellBookId}}" bindtap="click"></image>
+        </view>
+    </view>
+</block>
+<view class="total" style="padding-bottom: 100rpx">
+    <view>总数量 <text>{{order.number}}</text></view>
+    <view>总金额 <text>¥{{order.price}}</text></view>
+    <view>操作时间 <text>{{order.okTime}}</text></view>
+</view>
+<view class="fix" >保存</view>

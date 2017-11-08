@@ -62,6 +62,8 @@
     "pages/sell_money_area/sell_money_area",
     "pages/sell_money_all/sell_money_all",
     "pages/sell_list_detail/sell_list_detail",
+    "pages/sell_list_storeDetail/sell_list_storeDetail",
+    "pages/sell_list_areaDetail/sell_list_areaDetail",
     "pages/charts/line/line",
     "pages/charts_area/charts_area",
     "pages/charts_all/charts_all",

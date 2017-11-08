@@ -119,7 +119,7 @@ Page({
             })
         }if(name=="发货修改"){
             wx.navigateTo({
-                url:"../strOut_detailConfirm/strOut_detailConfirm"+type
+                url:"../strOut_detailConfirm/strOut_detailConfirm?orderId="+type
             })
         }
     },
@@ -195,19 +195,22 @@ Page({
         wx.request({
             url:this.data.url+'wearout/orderlist',
             method:"POST",
-            data:{},
+            data:{
+                areaId:0,
+                expressId:0
+            },
             success:function (res) {
                 if(res.data.code==200){
                     var num=[];
                     function change(item,index) {
                         item.okTime=formatTime.formatTime(res.data.data[index].ctime)
-                        // if(item.logType==2){
-                        //     item.type="退货入库"
-                        // }else if(item.logType==3){
-                        //     item.type="收货入库"
-                        // }else if(item.logType==4){
-                        //     item.type="调货入库"
-                        // }
+                        if(item.status==0){
+                            item.type="待收货"
+                        }else if(item.status==1){
+                            item.type="已入库"
+                        }else if(item.status==2){
+                            item.type="发货修改"
+                        }
                         num.push(item);
                     }
                     res.data.data.forEach(change);
@@ -235,7 +238,40 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+        let that=this;
+        wx.request({
+            url:this.data.url+'wearout/orderlist',
+            method:"POST",
+            data:{
+                areaId:0,
+                expressId:0
+            },
+            success:function (res) {
+                if(res.data.code==200){
+                    var num=[];
+                    function change(item,index) {
+                        item.okTime=formatTime.formatTime(res.data.data[index].ctime)
+                        if(item.status==0){
+                            item.type="待收货"
+                        }else if(item.status==1){
+                            item.type="已入库"
+                        }else if(item.status==2){
+                            item.type="发货修改"
+                        }
+                        num.push(item);
+                    }
+                    res.data.data.forEach(change);
+                    that.setData({
+                        Data:num
+                    })
+                }else{
+                    that.setData({
+                        Data:[]
+                    })
+                }
 
+            }
+        })
     },
 
     /**

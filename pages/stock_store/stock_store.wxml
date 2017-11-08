@@ -1,7 +1,7 @@
 <!--pages/stock_store/stock_store.wxml-->
 <!--index.wxml-->
 <view class="time">
-    <view class="shop">成都市成华区跳蹬河 <text>跳蹬河店</text></view>
+    <view class="shop">{{order.city}}{{order.area}}{{order.address}} <text>{{order.shopName}}</text></view>
     <view class="good_num">
         <view class=""><text>款式</text>
             <input type="text" bindblur="stock" data-type="1"/></view>

@@ -60,7 +60,7 @@ Page({
     this.setData({
       active:active
     });
-      request.storNote(that,nav)
+      request.storNote(this,"wearhouse/loglist")
   },
   /**
    * 生命周期函数--监听页面加载

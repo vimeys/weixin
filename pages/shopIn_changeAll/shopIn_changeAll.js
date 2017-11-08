@@ -19,7 +19,7 @@ Page({
             End: "",//结束时间撮
             orderId: "",//快递单号
             put:['收货入库','调货入库'],
-            putId:[0,4],
+            putId:[0,3],
             putIndex:0
         },
         Data:""

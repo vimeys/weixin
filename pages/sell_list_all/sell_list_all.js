@@ -24,7 +24,7 @@ Page({
           shopId:[0],
           shopIndex:0,
           list:["已对账","未对账"],//账单选择
-          listId:[1,2],
+          listId:[1,0],
           listIndex:0
       },
       Data:""//返回数据
@@ -73,6 +73,7 @@ Page({
                 let obj=that.data.select;
                 obj.shop=arr;
                 obj.shopId=arr1;
+                obj.shopIndex=0;
                 console.log(obj);
                 that.setData({
                     select:obj
@@ -128,7 +129,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+      request.sellListAll(this,"sell/bosssellorder");
   },
 
   /**

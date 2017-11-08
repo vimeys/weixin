@@ -43,6 +43,41 @@ Page({
         }
         request.sellCountAll(this,'sell/bosssellnumber');
     },
+    areaChange:function (e) {
+        var that=this;
+        let areaIndex=e.detail.value;
+        this.setData({
+            areaIndex:areaIndex
+        });
+        wx.request({
+            url:that.data.url+"sell/shopname",
+            method:"POST",
+            data:{
+                cityId:that.data.areaId[that.data.areaIndex]
+            },
+            success:function (res) {
+                console.log(res)
+                let json=res.data.data;
+                json.unshift({shopName:'全部店铺',shopId:'0'});
+                let arr=[];
+                let arr1=[];
+                function push(item,index) {
+                    arr.push(item.shopName);
+                    arr1.push(item.shopId);
+                }
+                json.forEach(push);
+                // let obj=that.data.select;
+                // shop=arr;
+                // shopId=arr1;
+                // console.log(obj);
+                that.setData({
+                    shop:arr,
+                    shopId:arr1,
+                    shopIndex:0
+                })
+            }
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */

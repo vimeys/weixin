@@ -143,7 +143,8 @@ Page({
         var that=this;
         let shopId=wx.getStorageSync('shopId');
         this.setData({
-            url:url
+            url:url,
+            shopId:shopId
         })
         wx.request({//获取区域
             url:this.data.url+"sundry/areas",

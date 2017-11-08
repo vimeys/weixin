@@ -28,13 +28,22 @@ Page({
           listId:[1,0],
           listIndex:0
       },
-      Data:""//返回数据
+      Data:"",//返回数据
+      order:'',
   },
     getUrl:function (e) {
       let Type=e.currentTarget.dataset.type;
-      wx.navigateTo({
-        url: '../sell_list_detail/sell_list_detail?sellId='+Type
-      })
+      let name=e.currentTarget.dataset.name;
+      if(name==1){
+          wx.navigateTo({
+              url: '../sell_list_detail/sell_list_detail?sellId='+Type
+          })
+      }else if(name==0){
+          wx.navigateTo({
+              url:'../sell_list_storeDetail/sell_list_storeDetail?sellId='+Type
+          })
+      }
+
     },
     //时间选择
     DateChange:function (e) {

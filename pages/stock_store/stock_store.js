@@ -26,7 +26,8 @@ Page({
           nameIndex: 0,
           waysIndex: 0
       },
-      Data:""//接受数据
+      Data:"",//接受数据
+      order:''
   },
     //选择框时间
     optionChange:function (e) {

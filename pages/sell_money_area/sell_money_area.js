@@ -21,7 +21,8 @@ Page({
         shopId: [0],
         shopIndex: 0,
         Data: "",//返回数据
-        city:""
+        city:"",
+        order:''
     },
     optionChange:function (e) {
         var Type=e.target.dataset.type;

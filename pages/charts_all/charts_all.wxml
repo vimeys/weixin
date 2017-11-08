@@ -1,25 +1,27 @@
 <!--pages/charts_all/charts_all.wxml-->
 <view class="title">
     <view class="time">统计周期
-        <picker mode="selector" class="select before" disabled="{{use}}" value="{{dataIndex}}" data-type="1" bindchange="optionChange" range="{{date}}">
-            {{date[dataIndex]}}
+        <picker mode="selector" class="select before" disabled="{{use}}" value="{{index}}" data-type="1"
+                bindchange="optionChange" range="{{date}}">
+            {{date[index]}}
         </picker>
     </view>
     <view class="shop">区域选择
-        <picker mode="selector" class="addr before"  disabled="{{use}}" value="{{areaIndex}}" data-type="2"
-                bindchange="optionChange" range="{{area}}">
+        <picker mode="selector" class="addr before" disabled="{{use}}" value="{{areaIndex}}" data-type="2"
+                bindchange="areaChange" range="{{area}}">
             {{area[areaIndex]}}
         </picker>
         <veiw class="shop_choose">店铺选择
-            <picker mode="selector" class="select before"  disabled="{{use}}" value="{{shopIndex}}"
+            <picker mode="selector" class="select before" disabled="{{use}}" value="{{shopIndex}}"
                     data-type="3" bindchange="optionChange" range="{{shop}}">
                 {{shop[shopIndex]}}
             </picker>
         </veiw>
     </view>
-    <view class="style">款式 <input type="text"/></view>
+    <view class="style">款式 <input type="text" bindblur="output"/></view>
 </view>
 <view class="container">
-    <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
-    <!--<button type="primary" bindtap="updateData">更新数据</button>-->
+    <canvas wx:if="{{disable}}" canvas-id="lineCanvas" disable-scroll="true" class="canvas"
+            bindtouchstart="touchHandler"></canvas>
+    <button type="primary" bindtap="updateData">更新数据</button>
 </view>

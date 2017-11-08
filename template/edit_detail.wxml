@@ -14,9 +14,9 @@
                 </view>
                 <view class="last">
                     尺码：
-                    <text>L</text>
+                    <text>{{item.sizeName}}</text>
                     颜色：
-                    <text>红色</text>
+                    <text>{{item.colorName}}</text>
                     数量： <input type="number" value="{{item.goodsStock}}" data-type="{{index}}" bindblur="output"/>
                 </view>
                 <image src="../images/delete.png" bindtap="delGoods" data-type="{{index}}"></image>

@@ -105,12 +105,13 @@ function optionChangeSellStore(e,that,nav) {
     //         select:select
     //     })
     // }else
-    if(Type==2){
-        select.shopIndex = e.detail.value;
-        that.setData({
-            select: select
-        })
-    }else if(Type==3){
+    // if(Type==2){
+    //     select.shopIndex = e.detail.value;
+    //     that.setData({
+    //         select: select
+    //     })
+    // }else
+    if(Type==3){
         select.listIndex = e.detail.value;
         that.setData({
             select: select

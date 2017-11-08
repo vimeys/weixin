@@ -6,7 +6,7 @@
             {{date[index]}}
         </picker>
     </view>
-    <view class="shop">成都市成华区跳蹬河
+    <view class="shop">{{order.city}}{{order.area}}
         <view class="store">店铺选择
             <picker mode="selector" class="select before" disabled="{{use}}" value="{{shopIndex}}" data-type="2"
                     bindchange="optionChange" range="{{shop}}">
@@ -17,7 +17,7 @@
 </view>
 <view list="list">
     <block wx:for="{{Data}}" wx:for-item="item">
-        <view class="ul">{{item.goodsFashion}}
+        <view class="ul">{{item.goodsFashion}}-{{item.colorName}}-{{item.sizeName}}
             <view class="right">已售 ：
                 <text>{{item.inStock}}</text>
             </view>

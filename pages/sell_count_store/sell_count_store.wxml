@@ -11,7 +11,7 @@
 </view>
 <view list="list">
     <block wx:for="{{Data}}" wx:for-item="item">
-        <view class="ul">{{item.goodsFashion}}
+        <view class="ul">{{item.goodsFashion}}-{{item.colorName}}-{{item.sizeName}}
             <view class="right">已售 ：
                 <text>{{item.inStock}}</text>
             </view>

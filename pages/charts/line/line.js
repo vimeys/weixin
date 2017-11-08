@@ -9,10 +9,14 @@ Page({
         index:0,
         // area: ["A", "B"],
         // shop: ["a", "b", "c"],
+        shopId:'',
         dateIndex: 0,
         shopIndex: 0,
-        money:2000,
+        money:[1,2,3,4,5,6,7],
         day:'第',
+        num:'',
+        order:'',
+        disable:false,
     },
     touchHandler: function (e) {
         console.log(lineChart.getCurrentDataIndex(e));
@@ -24,15 +28,21 @@ Page({
         });
     },    
     createSimulationData: function () {
-        var that=this;
+        let that=this;
         var categories = [];
         var data = [];
+        // 页面请求
         for (var i = 0; i < 7; i++) {
-            let num='';
-            categories.push(this.data.day +(i + 1)+'天');
-            data.push(Math.random()*(1200-10)+10);
+            if(that.data.num==2){
+                categories.push(this.data.day + (2*i + 1) + '天');
+            }else if(that.data.num==4) {
+                categories.push(this.data.day + (4*i + 1) + '天');
+            }else {
+                categories.push(this.data.day + (i + 1) + '天');
+            }
+            // data.push(Math.random() * (this.data.money - 10) + 10);
+            data.push(that.data.money[i]);
         }
-        // data[4] = null;
         return {
             categories: categories,
             data: data
@@ -51,6 +61,19 @@ Page({
             categories: simulationData.categories,
             series: series
         });
+        this.setData({
+            disable:true
+        })
+    },
+    //输入框事件
+    output:function (e) {
+        // console.log(e);
+        let value=e.detail.value;
+        this.setData({
+            code:value
+        })
+        console.log(this.data.code);
+        request.logAll(this,"sell/shopertrend")
     },
     //选择框的改变事件
     optionChange:function (e) {
@@ -58,7 +81,7 @@ Page({
         if(Type==1){
             var value=e.detail.value;
             this.setData({
-                dateIndex:value
+                index:value
             })
         }else if(Type==2){
             var value=e.detail.value;
@@ -71,8 +94,42 @@ Page({
                 shopIndex:value
             })
         }
+        request.logstore(this,"sell/bosstrend")
     },
     onLoad: function (e) {
+        let shop=wx.getStorageSync('shop');
+        let shopId=shop[0].name;
+        console.log(shopId);
+        let url=app.url;
+        let that=this;
+        this.setData({
+            url:url,
+            shopId:shopId
+        });
+        wx.request({
+            url:that.data.url+"sell/shopertrend",
+            method:"POST",
+            data:{
+                // cityId:0,
+                shopId:10,
+                interval:7
+            },
+            success:function (res) {
+                console.log(res);
+                let arr=[];
+                let con=res.data.data[0];
+                function push(item,index) {
+                    arr.push(item.number)
+                }
+                res.data.data.data.forEach(push);
+                console.log(arr);
+                that.setData({
+                    money:arr,
+                    num:con,
+                    order:res.data.data.address
+                })
+            }
+        });
         var windowWidth = 320;
         try {
             var res = wx.getSystemInfoSync();
@@ -99,9 +156,9 @@ Page({
                 disableGrid: true
             },
             yAxis: {
-                title: '成交金额 (万元)',
+                title: '',
                 format: function (val) {
-                    return val.toFixed(2);
+                    return val.toFixed(0);
                 },
                 min: 0
             },

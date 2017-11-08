@@ -38,6 +38,11 @@
     margin-top: 20rpx;
     margin-bottom: 30rpx;
 }
+.express input{
+    min-height: 46rpx;
+    height: 46rpx;
+    vertical-align: -15rpx;
+}
 .express .codeInput{
     display: inline-block;
     width: 300rpx;

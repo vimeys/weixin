@@ -8,7 +8,7 @@
     </view>
     <view class="shop">区域选择
         <picker mode="selector" class="addr before" disabled="{{use}}" value="{{areaIndex}}" data-type="2"
-                bindchange="optionChange" range="{{area}}">
+                bindchange="areaChange" range="{{area}}">
             {{area[areaIndex]}}
         </picker>
         <veiw class="shop_choose">店铺选择

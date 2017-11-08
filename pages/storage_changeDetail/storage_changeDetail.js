@@ -11,7 +11,8 @@ Page({
     Data: "",
     order: "",
     log: "",
-    shopId: ""
+    shopId: "",
+      user:''
   },
   //确认入库请求
   confirm: function (e) {
@@ -61,7 +62,7 @@ Page({
   //发货数量修改跳转页面
   click: function (e) {
     var Type = e.currentTarget.dataset.type;
-    wx.setStorageSync('detail', 'restock');
+    wx.setStorageSync('detail', 'storChange');
     wx.navigateTo({
       url: '../shopIn_change/shopIn_change?storeId=' + Type
     })
@@ -71,10 +72,11 @@ Page({
   changeConfirm: function (e) {
     let that = this;
     wx.request({
-      url: that.data.url + "shopstore/fixorderstatus",
+      url: that.data.url + "wearhouse/suppot",
       method: "POST",
       data: {
-        orderId: that.data.orderId
+        orderId: that.data.orderId,
+          logEditer:that.data.log
       },
       success: function (res) {
         console.log(res);
@@ -123,14 +125,15 @@ Page({
       shopId: shopId
     })
     wx.request({
-      url: that.data.url + "shopstore/diaoinfo",
+      url: that.data.url + "wearout/orderinfo",
       method: "POST",
       data: {
         orderId: that.data.orderId
       },
       success: function (res) {
         var json = res.data.data.goodsinfo;
-        var order = res.data.data.order;
+        res.data.data.topinfo.okTime=formatTime.formatTime(res.data.data.topinfo.ctime);
+        var order = res.data.data.topinfo;
 
         that.setData({
           Data: json,

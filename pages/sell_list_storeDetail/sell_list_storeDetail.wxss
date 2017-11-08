@@ -1,8 +1,14 @@
-/* pages/storage_changeDetail/storage_changeDetail.wxss */
-.num{
-    padding: 30rpx 0 30rpx 20rpx;
+/* pages/sell_list_storeDetail/sell_list_storeDetail.wxss */
+.detail{
+    width: 100%;
+    padding: 30rpx 20rpx 20rpx 20rpx;
+    box-sizing: border-box;
     font-size: 30rpx;
     border-bottom: 10rpx solid #e5e5e5;
+}
+.detail text{
+    float:right;
+    color:red;
 }
 .list{
     font-size: 28rpx;
@@ -72,51 +78,23 @@ image{
     right: 20rpx;
     top: 5rpx;
 }
-.express{
-    width: 100%;
-    text-align: right;
-    padding: 30rpx 20rpx 30rpx 0;
-    border-bottom: 1rpx solid #ccc;
-}
-.btn{
-    margin-top: 150rpx;
-    width: 100%;
-}
-.change{
-    display: inline-block;
-    width: 300rpx;
-    height: 90rpx;
-    background:#1caba2;
-    color:#fff;
-    line-height: 90rpx;
-    text-align: center;
-    margin-left: 40rpx;
-}
-.confirm{
-    display: inline-block;
-    width: 300rpx;
-    height: 90rpx;
-    background:#1caba2;
-    color:#fff;
-    line-height: 90rpx;
-    text-align: center;
-    margin-left: 70rpx;
-}
-.reason{
+.total{
+    font-size: 30rpx;
     padding-left: 20rpx;
     padding-right: 20rpx;
-    font-size: 24rpx;
-    border-bottom: 1rpx solid #ccc;
-    margin-bottom: 120rpx;
 }
-.return_reason{
-    margin-top: 20rpx;
-    text-align: left;
+.total view{
+    line-height: 60rpx;
+    height: 60rpx;
 }
-.return_time{
-    margin-top: 70rpx;
-    text-align: right;
-    margin-bottom: 20rpx;
+.total view:first-child text{
+    color:#fd0400;
+}
+.total view:nth-child(2) text{
+    color:#fd0400;
+}
+.total text{
+    float:right;
 }
 .fix{
     width: 100%;

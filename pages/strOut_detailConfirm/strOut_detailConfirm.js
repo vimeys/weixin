@@ -12,6 +12,7 @@ Page({
         url:"",
         Data:"",
         order:"",
+        orderId:''
     },
     //返回首页
 
@@ -23,10 +24,25 @@ Page({
             url:that.data.url+"wearout/fixok",
             method:"POST",
             data:{
+                orderId:that.data.orderId,
                 logEditer:user
             },
             success:function (res) {
                 console.log(res);
+                if(res.data.code==200){
+                    wx.showModal({
+                      title: '提示',
+                      content: '确认成功',
+                        showCancel:false,
+                      success: res=>{
+                        if (res.confirm) {
+                            wx.navigateBack({
+                                delta:1
+                            })
+                        }
+                      }
+                    })
+                }
             }
         })
     },
@@ -35,13 +51,14 @@ Page({
      */
     onLoad: function (options) {
         var url=app.url;
-        let orderId=options.orderId
+        let orderId=options.orderId;
         var that=this;
         this.setData({
-            url:url
+            url:url,
+            orderId:orderId
         })
         wx.request({
-            url:that.data.url+"wearout/orderinfofix",
+            url:that.data.url+"wearout/orderinfo",
             method:"POST",
             data:{
                 orderId:orderId
@@ -71,7 +88,25 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+        let that=this
+        wx.request({
+            url:that.data.url+"wearout/orderinfo",
+            method:"POST",
+            data:{
+                orderId:that.data.orderId
+            },
+            success:function (res) {
+                console.log(res);
+                let json=res.data.data.goodsinfo;
+                let order=res.data.data.topinfo;
+                order.okTime=formatTime.formatTime(res.data.data.topinfo.ctime);
+                that.setData({
+                    Data:json,
+                    order:order,
+                });
+            }
 
+        })
     },
 
     /**

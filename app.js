@@ -13,12 +13,12 @@ App({
         // console.log("在onlaunch里面的url"+url);
         // console.log("nickname"+nickname)
         // console.log("nickname"+userInfoAvatar);
-        console.log(nickname);
+        
         wx.login({
           success: function (res) {
             if (res.code) {
               //发起网络请求
-              console.log(res.code)
+              
               wx.request({
                 url: url+'user/info',
                 method:"POST",
@@ -28,7 +28,7 @@ App({
                   uname:nickname
                 },
                 success: function (res) {
-                  console.log(res);
+                  
                   var data=res.data.data;
                   if(res.data.code ==200){
                       wx.setStorageSync('uid', data.userinfo.uid);
@@ -41,7 +41,7 @@ App({
                         wx.setStorageSync('space',data.userinfo.space)
                       }
                   }
-                    console.log(data);
+                    
                     if(data.shop){
                     var num=[];
                       function push(item,index) {
@@ -51,7 +51,7 @@ App({
                           num.push(obj)
                       }
                       data.shop.forEach(push);
-                      console.log(num);
+                      
                       wx.setStorageSync('shop',num);
                       wx.setStorageSync('shopId',data.shop[0].shopId);
                   }
@@ -69,7 +69,7 @@ App({
                   // }
                 },
                 fail: function () {
-                  console.log(123);
+                  
                   wx.setStorageSync('user', userInfoAvatar);
                 },
                 complete: function () {
@@ -89,7 +89,7 @@ App({
       },
       complete: function () {
         // complete
-        console.log("获取用户信息完成！")
+        
       }
     })
   },

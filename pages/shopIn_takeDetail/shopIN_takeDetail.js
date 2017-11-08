@@ -75,7 +75,8 @@ Page
             url:that.data.url+"shopstore/fixorderstatus",
             method:"POST",
             data:{
-                orderId:that.data.orderId
+                orderId:that.data.orderId,
+                logEditer:that.data.log
             },
             success:function (res) {
                 console.log(res);
@@ -131,7 +132,7 @@ Page
             },
             success: function (res) {
                 var json = res.data.data.goodsinfo;
-                var order = res.data.data.order[0];
+                var order = res.data.data.order;
 
                 that.setData({
                     Data: json,
@@ -154,7 +155,25 @@ Page
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+        var that = this;
+        wx.request({
+            url: that.data.url + "shopstore/orderinfo",
+            method: "POST",
+            data: {
+                orderId: that.data.orderId
+            },
+            success: function (res) {
+                var json = res.data.data.goodsinfo;
+                var order = res.data.data.order;
 
+                that.setData({
+                    Data: json,
+                    order: order
+                });
+                console.log(res.data);
+
+            }
+        })
     },
 
     /**

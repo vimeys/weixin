@@ -142,7 +142,7 @@ Page({
             obj.receiver=data.takePeople;
             obj.rephone=data.takePhone;
             obj.areaId=data.areaId[data.areaIndex];
-            obj.reshopId=data.shopId[data.shopIndex];
+            obj.shopId=data.shopId[data.shopIndex];
             obj.address=data.takePlace;
             obj.expressId=data.expressId[data.expressIndex];
             obj.expressCode=data.expressNum;

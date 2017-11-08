@@ -22,7 +22,7 @@ Page({
       shopId: [0],
       shopIndex: 0,
       Data: "",//返回数据
-      city:""
+      order:'',
   },
     optionChange:function (e) {
         var Type=e.target.dataset.type;
@@ -50,7 +50,7 @@ Page({
           url:url,
           city:city
       })
-      //区域选择
+      //店铺选择
       wx.request({
           url:that.data.url+"sell/shopname",
           method:"POST",

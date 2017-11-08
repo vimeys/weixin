@@ -3,9 +3,9 @@
         <view class="time">时间<picker mode="selector"  class="select before" disabled="{{use}}" value="{{index}}" data-type="1" bindchange="optionChange" range="{{date}}">
             {{date[index]}}
         </picker></view>
-        <view class="shop">成都市成华区跳蹬河 <text>跳蹬河</text></view>
-        <view class="style">款式 <input type="text" /></view>
+        <view class="shop">{{order.city}}{{order.area}} <text>{{order.shopName}}</text></view>
+        <view class="style">款式 <input type="text" bindblur="output"/></view>
     </view>
-    <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
+    <canvas wx:if="{{disable}}" canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
     <button type="primary" bindtap="updateData">更新数据</button>
 </view> 

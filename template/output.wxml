@@ -1,11 +1,11 @@
 <template name="output">
     <view class="time">
-        <view class="timeStart"><picker mode="date" start="{{select.start}}" disabled="{{select.use}}" value="{{Edate}}" data-type="1" bindchange="DateChange">
+        <view class="timeStart"><picker mode="date" end="{{}}" disabled="{{select.use}}" value="{{Edate}}" data-type="1" bindchange="DateChange">
             {{select.start}}
         </picker>
         </view>
         <text>~~</text>
-        <view class="timeStart" bindtap="bindPick"><picker mode="date" end="{{select.end}}" disabled="{{select.use}}" value="{{Edate}}" data-type="2" bindchange="DateChange">
+        <view class="timeStart" bindtap="bindPick"><picker mode="date" start="{{}}" disabled="{{select.use}}" value="{{Edate}}" data-type="2" bindchange="DateChange">
             {{select.end}}
         </picker></view>
         <view class="good_num">

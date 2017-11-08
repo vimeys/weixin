@@ -84,11 +84,11 @@ Page({
                   }else if(name==2){
                       wx.setStorageSync('nav', 1);
                       wx.navigateTo({
-                          url:"../express/express"
+                          url:"../express/express?storeId="+num
                       })
                   }else if(name==3){
                       wx.navigateTo({
-                          url:"../expressReturn/expressReturn"
+                          url:"../expressReturn/expressReturn?storeId="+num
                       })
                   }
               }

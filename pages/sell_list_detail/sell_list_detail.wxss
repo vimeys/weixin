@@ -8,6 +8,7 @@
 }
 .detail text{
     float:right;
+    color:red;
 }
 .list{
     width: 100%;

@@ -1,11 +1,19 @@
-/* pages/strOut_list/strout_list.wxss */
-.container{
-    font-size: 28rpx;
-    color:#333;
+/* pages/sell_list_areaDetail/sell_list_areaDetail.wxss */
+/* pages/sell_list_detail/sell_list_detail.wxss */
+.detail{
+    width: 100%;
+    padding: 30rpx 20rpx 20rpx 20rpx;
+    box-sizing: border-box;
+    font-size: 30rpx;
+    border-bottom: 10rpx solid #e5e5e5;
+}
+.detail text{
+    float:right;
+    color:red;
 }
 .list{
     width: 100%;
-    border-bottom: 1rpx solid #333;
+    border-bottom: 1rpx solid #ccc;
     display: flex;
     padding-top: 30rpx;
 }
@@ -33,7 +41,7 @@ image{
 }
 .table input{
     display: inline-block;
-    border: 1rpx solid #333333;
+    border: 1rpx solid #ccc;
     width: 80rpx;
     height: 38rpx;
     color:#FF0202;
@@ -46,29 +54,36 @@ image{
 .table .last{
     line-height: 44rpx;
 }
-.table .last text{
-    margin-right: 15rpx;
+.table .last text:first-child{
+    margin-right: 190rpx;
 }
-.table image{
-    width: 46rpx;
-    height: 46rpx;
-    position: absolute;
-    right: 20rpx;
-    top: 5rpx;
-}
-.add{
+.table .end text:first-child{
+    color:red;
     display: inline-block;
-
-    width: 200rpx;
-    height: 60rpx;
-    text-align: center;
-    color:white;
-    font-size: 32rpx;
-    background: #1caba2;
+    width: 225rpx;
+    text-align: left;
+    /*margin-left: 100rpx;*/
+}
+.table .end text:last-child{
+    color:red;
+}
+.total{
+    font-size: 30rpx;
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+}
+.total view{
     line-height: 60rpx;
-    margin-left: 275rpx;
-    margin-top: 20rpx;
-    margin-bottom: 120rpx;
+    height: 60rpx;
+}
+.total view:first-child text{
+    color:#fd0400;
+}
+.total view:nth-child(2) text{
+    color:#fd0400;
+}
+.total text{
+    float:right;
 }
 .fix{
     width: 100%;

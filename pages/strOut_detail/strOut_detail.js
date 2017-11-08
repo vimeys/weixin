@@ -12,6 +12,7 @@ Page({
       url:"",
       Data:"",
       order:"",
+      orderId:"",
   },
     //返回首页
   return:function (e) {
@@ -28,7 +29,7 @@ Page({
    */
   onLoad: function (options) {
       var url=app.url;
-      let orderId=options.orderId
+      let orderId=options.orderId;
       var that=this;
       this.setData({
           url:url
