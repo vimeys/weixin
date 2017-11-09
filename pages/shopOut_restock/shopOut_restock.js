@@ -82,7 +82,7 @@ Page({
                         url: '../shopOut_sellList/sellLsit?storeId='+num
                       })
                   }else if(name==2){
-                      wx.setStorageSync('nav', 1);
+                      wx.setStorageSync('nav', '店铺调货出库');
                       wx.navigateTo({
                           url:"../express/express?storeId="+num
                       })

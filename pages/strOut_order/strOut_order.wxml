@@ -13,7 +13,7 @@
 
     <view class="express ">
         发往区域<view class="input">
-            <picker mode="selector" value="{{select.areaIndex}}"  data-type="1" bindchange="optionChange" range="{{select.area}}">
+            <picker mode="selector" value="{{select.areaIndex}}"  data-type="1" bindchange="areaChange" range="{{select.area}}">
                 {{select.area[select.areaIndex]}}
             </picker>
         </view>

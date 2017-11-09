@@ -10,16 +10,17 @@
         <view class="table">
             <view class="title">{{item.goodsFashion}}</view>
             <view>款号：<text>{{item.goodsGirard}}</text></view>
-            <view>条码号：<text>{{item.goodsCode}}</text></view>
+            <view>条码号：<text>{{item.formatCode}}</text></view>
             <view class="last">
                 尺码：<text>{{item.sizeName}}</text>颜色：<text>{{item.colorName}}</text> 数量： <text class="{{item.fixnumber==0?'red':'del'}}">{{item.goodsStock}}</text><text   class="red" wx:if="{{item.fixnumber>0}}">{{item.fixnumber}}</text>
             </view>
-            <image src="../images/pencil.png" data-type="{{item.storeId}}" bindtap="click"></image>
+            <image src="../images/pencil.png" data-type="{{item.storeId}}" bindtap="click" data-name="{{order.type}}"></image>
         </view>
     </view>
 </block>
 
-<view class="btn">
-    <view url="../shopIn_change/shopIn_change" class="change" bindtap="changeConfirm">发货修改</view>
-    <view  class="confirm" bindtap="confirm">确认入库</view>
-</view>
+<!--<view class="btn">-->
+    <!--<view url="../shopIn_change/shopIn_change" class="change" bindtap="changeConfirm">发货修改</view>-->
+    <!--<view  class="confirm" bindtap="confirm">确认入库</view>-->
+<!--</view>-->
+<view class="fix" bindtap="changeConfirm">发货修改</view>

@@ -61,10 +61,12 @@ Page({
     //发货数量修改跳转页面
     click: function (e) {
         var Type = e.currentTarget.dataset.type;
+        let orderType=e.currentTarget.dataset.name;
         wx.setStorageSync('detail', 'shopInChange');
+        wx.setStorageSync('orderType',orderType);
         wx.navigateTo({
             url: '../shopIn_change/shopIn_change?storeId=' + Type
-        })
+        });
         console.log(Type);
     },
     //发货修改确认请求
@@ -123,7 +125,7 @@ Page({
             shopId: shopId
         })
         wx.request({
-            url: that.data.url + "shopstore/diaoinfo",
+            url: that.data.url + "shopstore/orderinfo",
             method: "POST",
             data: {
                 orderId: that.data.orderId

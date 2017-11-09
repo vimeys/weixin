@@ -11,7 +11,9 @@ Page({
         storeId:"",
         Data:[],
         number:"",
-        newUrl:""
+        newUrl:"",
+        orderType:"",
+        log:''
     },
 
     /**
@@ -20,11 +22,15 @@ Page({
     onLoad: function (options) {
         var that=this;
         var url=app.url;
+        let log=wx.getStorageSync('uname');
         var storeId=options.storeId;
         let detail=wx.getStorageSync('detail');
+        let orderType=wx.getStorageSync('orderType');
         this.setData({
             url:url,
             storeId:storeId,
+            log:log,
+            orderType:orderType
         });
 
         console.log(detail);
@@ -44,8 +50,21 @@ Page({
                 }
             });
             console.log(1);
-        }else if(detail=='shopInChange'){//店铺入库请求页面
-            console.log(1);
+        }else if(detail=='shopInChange'){//店铺修改入库请求页面
+            wx.request({
+                url:this.data.url+"shopstore/fixpage",
+                method:"POST",
+                data:{storeId:that.data.storeId},
+                success:function (res) {
+                    console.log(res.data);
+
+                    var json=[];
+                    json.push(res.data.data);
+                    that.setData({
+                        Data:json
+                    })
+                }
+            })
         }else if(detail=='storChange'){//仓库入库修改请求页面
             wx.request({
                 url:this.data.url+"wearhouse/fixpage",
@@ -76,10 +95,22 @@ Page({
                     })
                 }
             })
+        }else if(detail=='restock'){//调货入库修改页面
+            wx.request({
+                url:this.data.url+"shopstore/fixpage",
+                method:"POST",
+                data:{storeId:that.data.storeId},
+                success:function (res) {
+                    console.log(res.data);
+
+                    var json=[];
+                    json.push(res.data.data);
+                    that.setData({
+                        Data:json
+                    })
+                }
+            })
         }
-
-
-
     },
     //修改数量
     output:function (e) {
@@ -112,9 +143,8 @@ Page({
                             content: '商品修改成功',
                             showCancel:false,
                             success: res=>{
-                                console.log("成功");
-                                wx.navigateTo({
-                                    url: that.data.newUrl
+                                wx.navigateBack({
+                                    delta:1
                                 })
                             }
                         })
@@ -277,6 +307,46 @@ Page({
                                             delta:1
                                         })
                                     }
+                                })
+                            }
+                        })
+                    }else if(res.data.code==202||res.data.code==201){
+                        wx.showModal({
+                            title:"警告",
+                            content:"修改失败,请重新修改",
+                            showCancel:false,
+                            success:function (res) {
+                                // wx.navigateBack({
+                                //     delta:1
+                                // })
+                            }
+                        })
+                    }
+                }
+            })
+        }else  if(detail=="shopInChange"){
+            // this.setData({
+            //     newUrl:"..shopIn_takeDetail/shopIN_takeDetail"
+            // })
+            wx.request({
+                url:that.data.url+"wearhouse/changeinfo",
+                method:"POST",
+                data:{
+                    storeId:that.data.storeId,
+                    type:that.data.orderType,
+                    logEditer:that.data.log,
+                    goodsStock:that.data.number
+                },
+                success:function (res) {
+                    console.log(res);
+                    if(res.data.code==200){
+                        wx.showModal({
+                            title: '提示',
+                            content: '商品修改成功',
+                            showCancel:false,
+                            success: res=>{
+                                wx.navigateBack()({
+                                    delta:1
                                 })
                             }
                         })

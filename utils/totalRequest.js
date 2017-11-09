@@ -10,7 +10,7 @@ function request(that, nav) {
     var nameId = that.data.select.nameId[that.data.select.nameIndex];
 
     if (shop) {//店铺库存请求
-        console.log(12312312)
+        //console.log(12312312)
         wx.request({
             url: that.data.url + nav,
             method: "POST",

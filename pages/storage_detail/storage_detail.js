@@ -11,13 +11,15 @@ Page({
       orderId:"",//订单的id
       Data:"",
       order:"",
+      log:'',
   },
     confirm:function (e) {
         var that=this;
         wx.request({
             url:this.data.url+"wearhouse/backinok",
             method:"POST",
-            data:{orderId:that.data.orderId},
+            data:{orderId:that.data.orderId,
+                logEditer:that.data.log},
             success:function (res) {
                 console.log(res.data.code);
                 if(res.data.code==200){
@@ -44,9 +46,11 @@ Page({
       var that=this;
       var url=app.url;
       var num=options.orderId;
+      let log=wx.getStorageSync('uname');
       this.setData({
           url:url,
-          orderId:num
+          orderId:num,
+          log:log
       })
       wx.request({
           url:that.data.url+"wearhouse/backgoodsinfo",
@@ -60,8 +64,8 @@ Page({
               var order=res.data.data.order;
               var num=[];
               function change(item,index) {
-                  item.formatCode=res.data.data.interim[index].goodsCode;
-                  item.formatStock=res.data.data.interim[index].goodsStock
+                  // item.formatCode=res.data.data.interim[index].goodsCode;
+                  item.formatStock=res.data.data.interim[index].goodsStock;
                   num.push(item)
               }
               res.data.data.interim.forEach(change);

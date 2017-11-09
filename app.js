@@ -13,12 +13,12 @@ App({
         // console.log("在onlaunch里面的url"+url);
         // console.log("nickname"+nickname)
         // console.log("nickname"+userInfoAvatar);
-        
+
         wx.login({
           success: function (res) {
             if (res.code) {
               //发起网络请求
-              
+
               wx.request({
                 url: url+'user/info',
                 method:"POST",
@@ -28,7 +28,7 @@ App({
                   uname:nickname
                 },
                 success: function (res) {
-                  
+
                   var data=res.data.data;
                   if(res.data.code ==200){
                       wx.setStorageSync('uid', data.userinfo.uid);
@@ -41,7 +41,7 @@ App({
                         wx.setStorageSync('space',data.userinfo.space)
                       }
                   }
-                    
+
                     if(data.shop){
                     var num=[];
                       function push(item,index) {
@@ -51,7 +51,7 @@ App({
                           num.push(obj)
                       }
                       data.shop.forEach(push);
-                      
+
                       wx.setStorageSync('shop',num);
                       wx.setStorageSync('shopId',data.shop[0].shopId);
                   }
@@ -69,7 +69,7 @@ App({
                   // }
                 },
                 fail: function () {
-                  
+
                   wx.setStorageSync('user', userInfoAvatar);
                 },
                 complete: function () {
@@ -89,7 +89,7 @@ App({
       },
       complete: function () {
         // complete
-        
+
       }
     })
   },

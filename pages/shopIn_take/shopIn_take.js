@@ -30,6 +30,16 @@ Page({
         console.log(123)
         DateChange.DateChange(e,this,"shopstore/shougoods");
     },
+    //点击页面跳转
+    click:function (e) {
+        var Type=e.currentTarget.dataset.type;
+        var orderId=e.currentTarget.dataset.name;
+        if(Type=='待收货'||Type=='发货修改'){
+            wx.navigateTo({
+              url: '../shopIn_takeDetail/shopIN_takeDetail?orderId='+orderId
+            })
+        }
+    },
     /**
      * 生命周期函数--监听页面加载
      */
@@ -82,7 +92,35 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
+        let that=this;
+        wx.request({
+            url:this.data.url+"shopstore/shougoods",
+            method:"POST",
+            data:{shopId:this.data.shopId},
+            success:function (res) {
+                console.log(res);
+                let json=res.data.data;
+                that.setData({
+                    Data:json
+                })
+                var num=[];
+                function change(item,index) {
+                    item.okTime=formatTime.formatTime(res.data.data[index].ctime);
+                    if(item.status==0){
+                        item.Type='待收货'
+                    }else if(item.status==1){
+                        item.Type='已入库'
+                    }else if(item.status==2){
+                        item.Type='发货修改'
+                    }
+                    num.push(item)
+                }
+                res.data.data.forEach(change);
+                that.setData({
+                    Data:num
+                })
+            }
+        })
     },
 
     /**

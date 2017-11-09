@@ -41,22 +41,42 @@ Page({
   },
   //绑定仓库跳转
   bindUrlTap:function (e) {
-    var url=wx.getStorageSync('userNum');
+    var url=wx.getStorageSync('level');
+    console.log(123131);
     if(url==3||url==4){
       this.setData({
-        url:"../stock_storage/stock_storage"
+        url:"../stock_storage/stock_storage1"
       })
+        wx.navigateTo({
+            url: '../stock_storage/stock_storage'
+        })
+    }else if(url==2){
+      this.setData({
+          url:'../stock_storage/stock_storage1'
+      })
+        wx.navigateTo({
+          url: '../stock_storage/stock_storage'
+        })
     }
     getUrl.getUrl(e,this);
   },
 
   //绑定店铺跳转
   bindUrl1Tap:function (e) {
+      //获取店铺信息
+      var shop=wx.getStorageSync("shop");
+      this.setData({
+          items:shop
+      });
     var url=wx.getStorageSync('level');
     if(url==3||url==4){
       this.setData({
         url1:"123",
         Model:true
+      })
+    }else if(url==1){
+      this.setData({
+          url1:"../stock_store/stock_store",
       })
     }
     if(this.data.Model.toString()=="false"){
@@ -71,11 +91,11 @@ Page({
     //   key:"userNum",
     //   data:"3"
     // });
-    var shop=wx.getStorageSync("shop");
-    this.setData({
-        items:shop
-    });
-    console.log(shop);
+      console.log(1231231231231231)
+    // var shop=wx.getStorageSync("shop");
+    // this.setData({
+    //     items:shop
+    // });
     console.log(this.data.userInfo);
     var url=wx.getStorageSync("level");
     if(url==2){
@@ -83,9 +103,11 @@ Page({
         url:"../stock_storage/stock_storage",
       })
     }else if(url==1){
+      console.log('执行成功');
       this.setData({
         url1:"../stock_store/stock_store",
       })
+        console.log("后执行")
     }else if(url==3||url==4){
       this.setData({
         url:"../stock_storage/stock_storage"
@@ -125,8 +147,38 @@ Page({
     //   }
     // })
   },
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide: function () {
+        this.setData({
+            Model:false
+        })
+    },
   onLaunch:function () {
-    console.log(1);
+      var shop=wx.getStorageSync("shop");
+      this.setData({
+          items:shop
+      });
+      console.log(shop);
+      console.log(this.data.userInfo);
+      var url=wx.getStorageSync("level");
+      if(url==2){
+          this.setData({
+              url:"../stock_storage/stock_storage",
+          })
+      }else if(url==1){
+          console.log('执行成功');
+          this.setData({
+              url1:"../stock_store/stock_store",
+          })
+          console.log("后执行")
+      }else if(url==3||url==4){
+          this.setData({
+              url:"../stock_storage/stock_storage"
+          })
+
+      }
   },
   //   DateChange:function (e) {
   //     console.log(e.detail.value);

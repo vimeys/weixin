@@ -7,19 +7,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-        url:""
+        url:"",
+        shopId:''
   },
   //扫描
     bindtap:function(){
         var that=this;
         wx.scanCode({
             success:(res)=>{
-                var number=res.ruslut;
+                var number=res.result;
+                console.log(number+'123');
                 wx.request({
                     url:this.data.url+"shopout/manual",
                     method:"POST",
                     data:{
                         goodsCode:number,
+                        shopId:that.data.shopId
                     },
                     success:function (res) {
                         var data=res.data;
@@ -63,8 +66,10 @@ Page({
    */
   onLoad: function (options) {
         let url=app.url;
+        let shopId=wx.getStorageSync('shopId');
         this.setData({
-            url:url
+            url:url,
+            shopId:shopId
         })
   },
 

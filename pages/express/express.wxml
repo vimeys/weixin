@@ -14,7 +14,7 @@
 </view>
 <view class="express ">
     发往区域<view class="input">
-    <picker class="before" mode="selector" value="{{areaIndex}}" range="{{takeArea}}" data-Type="1" bindchange="optionChange">
+    <picker class="before" mode="selector" value="{{areaIndex}}" range="{{takeArea}}" data-Type="1" bindchange="areaChange">
         {{takeArea[areaIndex]}}
     </picker>
 </view>

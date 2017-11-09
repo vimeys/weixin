@@ -71,9 +71,10 @@ Page({
     changeConfirm: function (e) {
         let that = this;
         wx.request({
-            url: that.data.url + "shopstore/fixorderstatus",
+            url: that.data.url + "shopstore/fixtype",
             method: "POST",
             data: {
+                logEditer:that.data.log,
                 orderId: that.data.orderId
             },
             success: function (res) {
@@ -123,7 +124,7 @@ Page({
             shopId: shopId
         })
         wx.request({
-            url: that.data.url + "shopstore/diaoinfo",
+            url: that.data.url + "shopstore/orderinfo",
             method: "POST",
             data: {
                 orderId: that.data.orderId
@@ -153,7 +154,35 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+        var that = this;
+        // var url = app.url;
+        // var log = wx.getStorageSync('uname');
+        // var shopId = wx.getStorageSync('shopId');
+        // var num = options.orderId;
+        // this.setData({
+        //     url: url,
+        //     orderId: num,
+        //     log: log,
+        //     shopId: shopId
+        // })
+        wx.request({
+            url: that.data.url + "shopstore/orderinfo",
+            method: "POST",
+            data: {
+                orderId: that.data.orderId
+            },
+            success: function (res) {
+                var json = res.data.data.goodsinfo;
+                var order = res.data.data.order;
 
+                that.setData({
+                    Data: json,
+                    order: order
+                });
+                console.log(res);
+
+            }
+        })
     },
 
     /**

@@ -25,7 +25,8 @@ Page({
         expressNum: '',//快递单号
         sendPeople: "",//发货人
         sendPhone: "",//发货人电话
-        return:""
+        return:"",
+        shopID:"",
     },
     //时间选择
     DateChange: function (e) {
@@ -106,16 +107,18 @@ Page({
         obj.ctime=data.Date;
         obj.receiver=data.takePeople;
         obj.rephone=data.takePhone;
-        obj.areaId=data.areaId[data.areaIndex];
-        obj.reshopId=data.shopId[data.shopIndex];
+        obj.reshopId=data.shopID;
+        // obj.areaId=data.areaId[data.areaIndex];
+        // obj.reshopId=data.shopId[data.shopIndex];
         obj.address=data.takePlace;
         obj.expressId=data.expressId[data.expressIndex];
         obj.expressCode=data.expressNum;
         obj.shipper=data.sendPeople;
         obj.shphone=data.sendPhone;
+        obj.remark=data.return;
         console.log(obj);
         wx.request({
-            url:data.url+"wearout/orderok",
+            url:data.url+"shopout/backstore",
             method:"POST",
             data:{
                 data:obj,
@@ -123,18 +126,34 @@ Page({
             },
             success:function (res) {
                 console.log(1);
-                wx.showModal({
-                    title: '提示',
-                    content: '发货成功',
-                    showCancel:false,
-                    success: res=>{
-                        if (res.confirm) {
-                            wx.navigateBack({
-                                delta: 3
-                            })
+                if(res.data.code){
+                    wx.showModal({
+                        title: '提示',
+                        content: '发货成功',
+                        showCancel:false,
+                        success: res=>{
+                            if (res.confirm) {
+                                wx.navigateBack({
+                                    delta: 3
+                                })
+                            }
                         }
-                    }
-                })
+                    })
+                }else if(res.data.code){
+                    wx.showModal({
+                        title: '警告',
+                        content: '发货失败',
+                        showCancel:false,
+                        success: res=>{
+                            if (res.confirm) {
+                                wx.navigateBack({
+                                    delta: 3
+                                })
+                            }
+                        }
+                    })
+                }
+
             }
         });
 
@@ -145,11 +164,13 @@ Page({
     onLoad: function (options) {
         let url=app.url;
         var str=options.storeId;
+        let shopID=wx.getStorageSync('shopId');
         let storeId=str.split(",");
         var that=this;
         that.setData({
             url:url,
-            storeId:storeId
+            storeId:storeId,
+            shopID:shopID
         })
         wx.request({//获取区域
             url:this.data.url+"sundry/areas",

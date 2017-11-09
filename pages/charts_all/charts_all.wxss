@@ -10,7 +10,7 @@
 }
 .select{
     display: inline-block;
-    width: 567rpx;
+    width: 578rpx;
     height: 46rpx;
     padding-left: 10rpx;
     padding-top: 5rpx;
@@ -75,8 +75,8 @@
 }
 .style input{
 	display: inline-block;
-	border: 1px solid #e5e5e5;
-	width: 588rpx;
+	border: 1px solid #ccc;
+	width: 589rpx;
 	height: 46rpx;
 	min-height: 46rpx;
 	vertical-align: -12rpx;

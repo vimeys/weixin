@@ -135,6 +135,40 @@ Page({
             })
         }
     },
+    //获取区域选择
+    areaChange:function (e) {
+        var that=this;
+        let select=that.data.select
+        let areaIndex=e.detail.value;
+        select.areaIndex=areaIndex;
+        this.setData({
+            select:select
+        });
+        wx.request({
+            url:that.data.url+"sell/shopname",
+            method:"POST",
+            data:{
+                cityId:that.data.select.areaId[that.data.select.areaIndex]
+            },
+            success:function (res) {
+                console.log(res);
+                let json=res.data.data;
+                let arr=[];
+                let arr1=[];
+                function push(item,index) {
+                    arr.push(item.shopName);
+                    arr1.push(item.shopId);
+                }
+                json.forEach(push);
+                select.shop=arr;
+                select.shopId=arr1;
+                select.shopIndex=0;
+                that.setData({
+                    select:select
+                })
+            }
+        })
+    },
     /**
      * 生命周期函数--监听页面加载
      */

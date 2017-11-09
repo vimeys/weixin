@@ -5,7 +5,7 @@
 <import src="../../template/goods_detail.wxml"/>
 <template is="goods_detail" data="{{Data}}"></template>
 <view class="express">
-    {{order.expressName}}：{{order.expressUtime}}
+    {{order.expressName}}：{{order.expressCode}}
 </view>
 <view class="reason">
     <view class="return_reason">退货理由：{{order.remark}}</view>

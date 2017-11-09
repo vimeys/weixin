@@ -23,7 +23,7 @@
         <view class="r-bdt">入库日志</view>
     </navigator>
     <navigator url="../storage_change/storage_change" class="r-con">
-        <image src="../images/diary.png" class="r-bdi"></image>
+        <image src="../images/edit.png" class="r-bdi"></image>
         <view class="r-bdt">入库修改</view>
     </navigator>
 </view>

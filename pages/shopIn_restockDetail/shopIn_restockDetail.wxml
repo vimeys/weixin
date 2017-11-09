@@ -6,12 +6,12 @@
 <block wx:for="{{Data}}" wx:for-item="item">
     <view class="list">
         <view class="img">
-            <image src="../images/scan.png"></image>
+            <image src="{{item.goodsImage}}"></image>
         </view>
         <view class="table">
             <view class="title">{{item.goodsFashion}}</view>
             <view>款号：<text>{{item.goodsGirard}}</text></view>
-            <view>条码号：<text>{{item.goodsCode}}</text></view>
+            <view>条码号：<text>{{item.formatCode}}</text></view>
             <view class="last">
                 尺码：<text>{{item.sizeName}}</text>颜色：<text>{{item.colorName}}</text> 数量： <text class="{{item.fixnumber==0?'red':'del'}}">{{item.goodsStock}}</text><text   class="red" wx:if="{{item.fixnumber>0}}">{{item.fixnumber}}</text>
             </view>
