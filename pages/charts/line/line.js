@@ -1,11 +1,12 @@
 var wxCharts = require('../../../utils/wxcharts.js');
 var app = getApp();
 var lineChart = null;
+var request=require("../../../utils/totalRequest");
 Page({
     data: {
         url:"",
         date: ["最近7天", "最近14天", "最近28天"],
-        id:[7,14,28],
+        Id:[7,14,28],
         index:0,
         // area: ["A", "B"],
         // shop: ["a", "b", "c"],
@@ -73,7 +74,7 @@ Page({
             code:value
         })
         console.log(this.data.code);
-        request.logAll(this,"sell/shopertrend")
+        request.logstore(this,"sell/shopertrend")
     },
     //选择框的改变事件
     optionChange:function (e) {
@@ -94,7 +95,7 @@ Page({
                 shopIndex:value
             })
         }
-        request.logstore(this,"sell/bosstrend")
+        request.logstore(this,"sell/shopertrend")
     },
     onLoad: function (e) {
         let shop=wx.getStorageSync('shop');

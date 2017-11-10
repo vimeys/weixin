@@ -1,26 +1,17 @@
 // pages/storage_note/storage_note.js
 var app=getApp();
-var Datechange=require("../../utils/Datechange");
+var DateChange=require("../../utils/Datechange");
 var optionChange=require("../../utils/optionChange");
 var output=require("../../utils/output");
 var request=require("../../utils/totalRequest");
+var formatTime=require("../../utils/util");
 Page({
   /**
    * 页面的初始数据
    */
   data: {
       active: '1',
-      count: [1, 2, 3],
-      time: 1477808630404,
-      goodsMeg: {
-          name: "超级好看的鞋子",
-          sizeNum: "49646164615",
-          codeNum: "546541313",
-          size: "L",
-          color: '红色',
-          many: "7946",
-          state: "1"
-      },
+      time: '',
       select: {
           use: false,
           style:"",
@@ -47,7 +38,7 @@ Page({
       noMore: ""
   },
   DateChange:function (e) {
-    Datechange.DateChange(e,this,"wearhouse/loglist")
+    DateChange.DateChange(e,this,"wearhouse/loglist")
   },
   output:function(e){
     output.output(e,this,"wearhouse/loglist")
@@ -72,11 +63,6 @@ Page({
         url:url
     });
       // var time=new Date(this.data.time)
-    var time=new Date().getDate();
-    var time1=new Date().getHours();
-    var time2=new Date().getMinutes();
-    var time3=new Date().getSeconds();
-    console.log(time+"+"+time1+"+"+time2+"+"+time3)
       wx.request({
           url:this.data.url+"sundry/sizes",
           method:"POST",
@@ -94,7 +80,6 @@ Page({
               newsize.sizeId=sizeId;
               that.setData({
                   select:newsize,
-
               })
           }
       });
@@ -105,7 +90,7 @@ Page({
               var name=[];
               var nameId=[]
               function sizePush(item,index){
-                  name.push(item.catName)
+                  name.push(item.catName);
                   nameId.push(item.catId)
               }
               res.data.data.forEach(sizePush);
@@ -117,7 +102,47 @@ Page({
               })
           }
       });
-      request.storNote(this,"wearhouse/loglist")
+      // request.storNote(this,"wearhouse/loglist")
+      //获取页面数据
+          var data = {};
+          data.select = that.data.active;
+          data.begintime = that.data.select.Start;
+          data.endtime = that.data.select.End;
+          data.goodsFashion = that.data.select.style;
+          data.goodsGirard = that.data.select.styleNum;
+          data.formatCode = that.data.select.Barcode;
+          data.sizeId = that.data.select.sizeId[that.data.select.sizeIndex];
+          data.catId = that.data.select.nameId[that.data.select.nameIndex];
+          // data.type = '';
+          wx.request({
+              url: that.data.url + "wearhouse/loglist",
+              method: "POST",
+              data: data,
+              success: function (res) {
+                  if (res.data.code == 202) {
+                      that.setData({
+                          noMore: true,
+                          Data: []
+                      })
+                  } else if (res.data.code == 200) {
+                      // var t=formatTime.formatTime(res.data.data[0].ctime);
+                      var num = [];
+                      function change(item, index) {
+                          item.okTime = formatTime.formatTime(res.data.data[index].logCtime);
+                          num.push(item);
+                      }
+                      res.data.data.forEach(change);
+                      that.setData({
+                          Data: num,
+                          noMore: false
+                      })
+                  }
+              }
+          })
+      var pages=getCurrentPages();
+      let     pop=pages.shift();
+       // let page=setCurrentPages(pop);
+      console.log(pop);
   },
 
   /**

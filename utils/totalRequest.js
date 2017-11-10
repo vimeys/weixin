@@ -265,7 +265,7 @@ function requestShopOutNote(that, nav) {
             console.log(res);
             if (res.data.code == 202) {
                 that.setData({
-                    noMOre: false,
+                    noMOre: true,
                     Data: []
                 })
             } else if (res.data.code == 200) {
@@ -1013,12 +1013,12 @@ function logstore(that,nav) {
         success:function (res) {
             console.log(res);
             let arr=[];
-            let con=res.data.data[0].day;
+            let con=res.data.data.data[0].day;
             function push(item,index) {
                 arr.push(item.number)
             }
             // arr.push(res.data)
-            res.data.data.forEach(push);
+            res.data.data.data.forEach(push);
             console.log(arr);
             that.setData({
                 money:arr,

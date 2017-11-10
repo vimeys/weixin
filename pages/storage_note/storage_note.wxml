@@ -1,7 +1,7 @@
 <!--pages/storage_note/storage_note.wxml-->
 <import src="../../template/output.wxml"/>
 <template is="output" data="{{select}}"></template>
-<include src="../../template/note.wxml"/>
+<include src="../../template/noteIn.wxml"/>
 <block wx:for="{{Data}}" wx:for-item="item">
     <view class="list ">
         <view class="img">

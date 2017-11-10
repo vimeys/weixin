@@ -10,6 +10,7 @@ Page({
       number:""//条码号
   },
   bindtap:function(e){
+    let that=this;
     wx.scanCode({
       success:(res)=>{
         let number=res.result;
@@ -27,7 +28,7 @@ Page({
                     number:number
                 })
                 wx.navigateTo({
-                  url: '../strOut_list/strOut_list?Number='+result.Number
+                  url: '../strOut_list/strout_list?number='+that.data.number
                 })
               }else{
                 wx.showModal({

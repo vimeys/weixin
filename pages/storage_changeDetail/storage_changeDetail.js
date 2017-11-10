@@ -62,7 +62,9 @@ Page({
   //发货数量修改跳转页面
   click: function (e) {
     var Type = e.currentTarget.dataset.type;
+      let orderType=e.currentTarget.dataset.name;
     wx.setStorageSync('detail', 'storChange');
+      wx.setStorageSync('orderType',orderType);
     wx.navigateTo({
       url: '../shopIn_change/shopIn_change?storeId=' + Type
     })
@@ -125,15 +127,15 @@ Page({
       shopId: shopId
     })
     wx.request({
-      url: that.data.url + "wearout/orderinfo",
+      url: that.data.url + "wearhouse/backgoodsinfo",
       method: "POST",
       data: {
         orderId: that.data.orderId
       },
       success: function (res) {
-        var json = res.data.data.goodsinfo;
-        res.data.data.topinfo.okTime=formatTime.formatTime(res.data.data.topinfo.ctime);
-        var order = res.data.data.topinfo;
+        var json = res.data.data.interim;
+        res.data.data.order.okTime=formatTime.formatTime(res.data.data.order.ctime);
+        var order = res.data.data.order;
 
         that.setData({
           Data: json,
@@ -156,7 +158,26 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var that=this;
+      wx.request({
+          url: that.data.url + "wearhouse/backgoodsinfo",
+          method: "POST",
+          data: {
+              orderId: that.data.orderId
+          },
+          success: function (res) {
+              var json = res.data.data.interim;
+              res.data.data.order.okTime=formatTime.formatTime(res.data.data.order.ctime);
+              var order = res.data.data.order;
 
+              that.setData({
+                  Data: json,
+                  order: order
+              });
+              console.log(res);
+
+          }
+      })
   },
 
   /**

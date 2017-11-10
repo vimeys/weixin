@@ -71,6 +71,7 @@ function request(that){
 
 //订单列表页面修改数量仓库和店铺退货入库
 function output(e,that,nav) {
+    console.log(nav);
     var value=e.detail.value;
     var Type=e.currentTarget.dataset.type;//获取
     var data=that.data;
@@ -186,7 +187,7 @@ function delGoodsShop(e,that,nav) {
 //动态页面返回
 function go(that) {
     wx.navigateBack({
-        delta:2
+        delta:1
     })
 }
 module.exports={

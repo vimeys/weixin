@@ -14,7 +14,9 @@ Page({
       wx.scanCode({
           success:(res)=>{
             var number=res.result;
-
+            that.setData({
+                number:number
+            })
             console.log(number);
             console.log(res);
             wx.request({
@@ -31,7 +33,7 @@ Page({
                       number:number
                   })
                   wx.navigateTo({
-                    url:"../storage_list/storage_list?number="+res.data.number
+                    url:"../storage_list/storage_list?number="+that.data.number
                   })
                 }else{
                     console.log(1);

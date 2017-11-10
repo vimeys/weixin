@@ -5,6 +5,7 @@ var optionChange = require("../../utils/optionChange");
 var common = require("../../utils/common");
 var output = require("../../utils/output");
 var request = require("../../utils/totalRequest");
+let formatTime=require("../../utils/util");
 Page({
     /**
      * 页面的初始数据
@@ -26,8 +27,8 @@ Page({
             sizeId:"",
             name:["长","宽","高"],
             nameId:[],
-            ways:['正常入库','退货入库'],
-            waysId:[0,1],
+            ways:['退货出库','调货出库','销售出库'],
+            waysId:[6,7,8],
             nameIndex:0,
             sizeIndex:0,
             waysIndex:0
@@ -53,14 +54,14 @@ Page({
     onLoad: function (options) {
         let url=app.url;
         let that=this;
-        let data=this.data;
+        let data1=this.data;
         let  shopId=wx.getStorageSync('shopId');
         this.setData({
             url:url,
             shopId:shopId
         });
         wx.request({
-            url:data.url+"sundry/sizes",
+            url:data1.url+"sundry/sizes",
             method:"POST",
             success:function (res) {
                 var size=[];
@@ -82,7 +83,7 @@ Page({
         });
         //
         wx.request({
-            url:data.url+"sundry/cat",
+            url:data1.url+"sundry/cat",
             method:"POST",
             success:function (res) {
                 var name=[];
@@ -100,7 +101,55 @@ Page({
                 })
             }
         });
-        request.shopOutCount(this,"shopout/searchin");
+        // request.shopOutCount(this,"shopout/searchin");
+        var data = {};
+        // data.shopId = that.data.select.shopId;
+        data.begintime = that.data.select.Start;
+        data.endtime = that.data.select.End;
+        data.goodsFashion = that.data.select.style;
+        data.goodsGirard = that.data.select.styleNum;
+        data.formatCode = that.data.select.Barcode;
+        data.shopId = that.data.shopId;
+        data.sizeId = that.data.select.sizeId[that.data.select.sizeIndex];
+        data.catId = that.data.select.nameId[that.data.select.nameIndex];
+        data.type = '';
+        // console.log(data);
+        wx.request({
+            url: that.data.url + 'shopout/searchin',
+            method: "POST",
+            data: data,
+            success: function (res) {
+                console.log(res);
+                if (res.data.code == 202) {
+                    that.setData({
+                        noMOre: true,
+                        Data: []
+                    })
+                } else if (res.data.code == 200) {
+                    var num = [];
+
+                    function change(item, index) {
+                        item.okTime = formatTime.formatTime(res.data.data[index].ctime);
+                        if (item.type == 6) {
+                            item.Type = "退货出库"
+                        } else if (item.type == 7) {
+                            item.Type = "收货出库"
+                        } else if (item.type == 8) {
+                            item.Type = "销售出库"
+                        }
+                        num.push(item);
+                    }
+
+                    res.data.data.forEach(change);
+                    console.log(num);
+                    that.setData({
+                        Data: num,
+                        noMore: false
+                    });
+                    console.log(that.data.Data)
+                }
+            }
+        })
     },
 
     /**
