@@ -127,7 +127,7 @@ Page({
                             item.type="错误信息"
                         }
                         if(item.goodsFashion.length>12){
-                            console.log(item.goodsFashion.length)
+                            // console.log(item.goodsFashion.length)
                         }
                         num.push(item)
 
