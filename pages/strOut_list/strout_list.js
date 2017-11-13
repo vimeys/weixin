@@ -58,8 +58,12 @@ Page({
           // data:{}
           success:function (res) {
               var json=res.data.data;
-              console.log(res.data);
-              console.log(json);
+              function slice(item,index) {
+                  if(item.goodsFashion.length>12){
+                      item.goodsFashion=item.goodsFashion.slice(0,12)+'...';
+                  }
+              }
+              res.data.data.forEach(slice);
               that.setData({
                   Data:json
               })

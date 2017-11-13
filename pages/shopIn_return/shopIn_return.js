@@ -40,6 +40,12 @@ Page({
             success: function (res) {
                 if (res.data.code == 200) {
                     let json = res.data.data;
+                    function slice(item,index) {
+                        if(item.goodsFashion.length>12){
+                            item.goodsFashion=item.goodsFashion.slice(0,12)+'...';
+                        }
+                    }
+                    res.data.data.forEach(slice);
                     that.setData({
                         Data: json
                     })

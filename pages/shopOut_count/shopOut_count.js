@@ -137,6 +137,9 @@ Page({
                         } else if (item.type == 8) {
                             item.Type = "销售出库"
                         }
+                        if(item.goodsFashion.length>12){
+                            item.goodsFashion=item.goodsFashion.slice(0,12)+'...';
+                        }
                         num.push(item);
                     }
 

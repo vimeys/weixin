@@ -1,9 +1,9 @@
-<view class="classname"><img src="../../../公司文件存放/仓库出库/仓库出库-扫描失败_spec.png"/>
+<view class="classname" bindtap="hide">
   <navigator hover-class="none" url="{{url}}" data-type="{{url?1:2}}" bindtap="bindUrlTap">
   <image src="../images/cang.png"></image>
   </navigator>
   <view class="title title_bottom">仓库出库</view>
-  <navigator hover-class="none" url="{{url1}}" data-type="{{url1?1:2}}" bindtap="bindUrl1Tap">
+  <navigator hover-class="none" url="{{url1}}" data-type="{{url1?1:2}}" catchtap="bindUrl1Tap">
     <image src="../images/dian.png"></image>
   </navigator >
   <view class="title">店铺出库</view>

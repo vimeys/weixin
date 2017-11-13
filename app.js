@@ -1,7 +1,7 @@
 //app.js
 App({
-  url:'http://192.168.0.122/jxc/index.php/invo/',
-  // url:'http://jxc.scmxkj.com/index.php/invo/',
+  // url:'http://192.168.0.122/jxc/index.php/invo/',
+  url:'http://jxc.scmxkj.com/index.php/invo/',
   onLaunch: function () {
     var url=this.url;
     //登录信息

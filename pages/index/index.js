@@ -21,6 +21,14 @@ Page({
       {'name': 'TUR', 'value': '法国'},
     ],
   },
+    hide:function (e) {
+      if(this.data.Model){
+          this.setData({
+              Model:false
+          })
+      }
+
+    },
   checkboxChange: function(e) {
     console.log('checkbox发生change事件，携带value值为：', e.detail.value);
     // if(e.detail.value){

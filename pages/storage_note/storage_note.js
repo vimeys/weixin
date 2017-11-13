@@ -129,6 +129,9 @@ Page({
                       var num = [];
                       function change(item, index) {
                           item.okTime = formatTime.formatTime(res.data.data[index].logCtime);
+                          if(item.goodsFashion.length>10){
+                              item.goodsFashion=item.goodsFashion.slice(0,10)+'...';
+                          }
                           num.push(item);
                       }
                       res.data.data.forEach(change);

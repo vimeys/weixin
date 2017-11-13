@@ -18,6 +18,14 @@ Page({
             {name: 'TUR', value: '法国'},
         ]
     },
+    hide:function (e) {
+        if(this.data.Model){
+            this.setData({
+                Model:false
+            })
+        }
+
+    },
     //选择店铺
     checkboxChange: function (e) {
         console.log(1);

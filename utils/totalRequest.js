@@ -30,6 +30,15 @@ function request(that, nav) {
                         Data: [],
                     })
                 } else if (res.data.code == 200) {
+                    function slice(item,index) {
+                        if(item.goodsFashion.length>12){
+                            item.goodsFashion=item.goodsFashion.slice(0,12)+'...';
+                        }
+                        if(item.colorName.length>3){
+                            item.colorName=item.colorName.slice(0,2)+'...';
+                        }
+                    }
+                    res.data.data.goodsinfo.forEach(slice);
                     that.setData({
                         Data: res.data.data.goodsinfo,
                         order:res.data.data.shop
@@ -51,8 +60,12 @@ function request(that, nav) {
                 catId: nameId,
             },
             success: function (res) {
-                console.log(res.data.data);
-                console.log('仓库库存');
+                function slice(item,index) {
+                    if(item.goodsFashion.length>12){
+                        item.goodsFashion=item.goodsFashion.slice(0,12)+'...';
+                    }
+                }
+                res.data.data.forEach(slice);
                 that.setData({
                     Data: res.data.data,
                     // order:res.data.data.shop
@@ -87,16 +100,16 @@ function requesttime(that, nav) {
                 })
             } else {
                 console.log(res);
-                // var t=formatTime.formatTime(res.data.data[0].ctime);
                 var num = [];
-
                 function change(item, index) {
                     item.okTime = formatTime.formatTime(res.data.data[index].ctime);
+                    if(item.goodsFashion.length>12){
+                        item.goodsFashion=item.goodsFashion.slice(0,10)+'...';
+                    }
                     num.push(item);
                 }
 
                 res.data.data.forEach(change);
-                // console.log(t);
                 that.setData({
                     Data: num,
                     noMore: false
@@ -134,6 +147,9 @@ function storCount(that, nav) {
 
                 function change(item, index) {
                     item.okTime = formatTime.formatTime(res.data.data[index].ctime);
+                    if(item.goodsFashion.length>12){
+                        item.goodsFashion=item.goodsFashion.slice(0,10)+'...';
+                    }
                     num.push(item);
                 }
 
@@ -176,6 +192,9 @@ function storNote(that, nav) {
 
                 function change(item, index) {
                     item.okTime = formatTime.formatTime(res.data.data[index].logCtime);
+                    if(item.goodsFashion.length>12){
+                        item.goodsFashion=item.goodsFashion.slice(0,10)+'...';
+                    }
                     num.push(item);
                 }
 
@@ -218,7 +237,10 @@ function requestShop(that, nav) {
                 var num = [];
 
                 function change(item, index) {
-                    item.okTime = formatTime.formatTime(res.data.data[index].logCtime)
+                    item.okTime = formatTime.formatTime(res.data.data[index].logCtime);
+                    if(item.goodsFashion.length>10){
+                        item.goodsFashion=item.goodsFashion.slice(0,10)+'...';
+                    }
                     if (item.logType == 2) {
                         item.type = "退货入库"
                     } else if (item.logType == 3) {
@@ -282,6 +304,9 @@ function requestShopOutNote(that, nav) {
                     } else if (item.logType == 9 || item.logType == 10) {
                         item.type = "错误信息"
                     }
+                    if(item.goodsFashion.length>12){
+                        item.goodsFashion=item.goodsFashion.slice(0,12)+'...';
+                    }
                     num.push(item);
                 }
 
@@ -330,6 +355,9 @@ function shopOutCount(that, nav) {
                         item.Type = "收货出库"
                     } else if (item.type == 8) {
                         item.Type = "销售出库"
+                    }
+                    if(item.goodsFashion.length>12){
+                        item.goodsFashion=item.goodsFashion.slice(0,10)+'...';
                     }
                     num.push(item);
                 }
@@ -468,6 +496,9 @@ function requestShopCount(that, nav) {
 
                 function change(item, index) {
                     item.okTime = formatTime.formatTime(res.data.data[index].ctime);
+                    if(item.goodsFashion.length>10){
+                        item.goodsFashion=item.goodsFashion.slice(0,10)+'...';
+                    }
                     if (item.type == 2) {
                         item.type = "退货入库"
                     } else if (item.type == 3) {
@@ -702,11 +733,13 @@ function storNote(that, nav) {
                     Data: []
                 })
             } else if (res.data.code == 200) {
-                // var t=formatTime.formatTime(res.data.data[0].ctime);
                 var num = [];
 
                 function change(item, index) {
                     item.okTime = formatTime.formatTime(res.data.data[index].logCtime);
+                    if(item.goodsFashion.length>10){
+                        item.goodsFashion=item.goodsFashion.slice(0,10)+'...';
+                    }
                     num.push(item);
                 }
 

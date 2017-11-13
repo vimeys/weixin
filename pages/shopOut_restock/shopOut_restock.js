@@ -1,6 +1,7 @@
 // pages/shopOut_restock/shopOut_restock.js
 var app=getApp();
 let common=require("../../utils/common");
+let slice=require("../../utils/slice");
 Page({
 
   /**
@@ -120,6 +121,13 @@ Page({
           success:function (res) {
               console.log(res);
               let json=res.data.data;
+              function slice(item,index) {
+                  if(item.goodsFashion.length>12){
+                      item.goodsFashion=item.goodsFashion.slice(0,12)+'...';
+                  }
+              }
+              res.data.data.forEach(slice);
+
               that.setData({
                   Data:json
               })

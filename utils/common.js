@@ -142,6 +142,12 @@ function delGoods(e,that,nav) {
                 success:function (res) {
                     console.log(res);
                     if(res.data.code==200){
+                        function slice(item,index) {
+                            if(item.goodsFashion.length>12){
+                                item.goodsFashion=item.goodsFashion.slice(0,12)+'...';
+                            }
+                        }
+                        res.data.data.forEach(slice);
                         that.setData({
                             Data:res.data.data
                         })
@@ -174,6 +180,12 @@ function delGoodsShop(e,that,nav) {
                     success:function (res) {
                         console.log(res);
                         if(res.data.code==200){
+                            function slice(item,index) {
+                                if(item.goodsFashion.length>12){
+                                    item.goodsFashion=item.goodsFashion.slice(0,12)+'...';
+                                }
+                            }
+                            res.data.data.forEach(slice);
                             that.setData({
                                 Data:res.data.data
                             })

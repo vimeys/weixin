@@ -156,6 +156,9 @@ Page({
                 let arr=[];
                 let arr1=[];
                 function push(item,index) {
+                    if(item.shopName.length>4){
+                        item.shopName=item.shopName.slice(0,4);
+                    }
                     arr.push(item.shopName);
                     arr1.push(item.shopId);
                 }
@@ -209,6 +212,9 @@ Page({
                 var size=[];
                 var sizeId=[];
                 function sizePush(item,index){
+                    if(item.shopName.length>4){
+                        item.shopName=item.shopName.slice(0,4);
+                    }
                     size.push(item.shopName);
                     sizeId.push(item.shopId);
                 }
