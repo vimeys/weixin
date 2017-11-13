@@ -11,7 +11,7 @@
                 <text>{{item.goodsGirard}}</text>
             </view>
             <view>条码号：
-                <text>{{item.goodsCode}}</text>
+                <text>{{item.formatCode}}</text>
             </view>
             <view class="last">
                 尺码：
@@ -41,7 +41,7 @@
         <text>{{name}}</text>
     </view>
     <view>操作时间
-        <text>2017-08-01 13:32:34</text>
+        <text>{{newTime}}</text>
     </view>
 </view>
 <view class="fix" bindtap="click">确认</view>

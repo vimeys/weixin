@@ -26,7 +26,6 @@
     <view class="return_time">退货时间：{{order.okTime}}</view>
 </view>
 <!--<view class="btn">-->
-
     <!--<view url="../shopIn_change/shopIn_change" class="change" bindtap="changeConfirm">发货修改</view>-->
     <!--<view  class="confirm" bindtap="confirm">确认入库</view>-->
 <!--</view>-->

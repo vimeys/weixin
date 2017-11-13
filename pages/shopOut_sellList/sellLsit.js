@@ -14,7 +14,7 @@ Page({
         totalNum:'',
         price:"",
         name:"",
-        nowtime:""
+        newTime:""
     },
     click:function (e) {
         let that=this;
@@ -78,13 +78,14 @@ Page({
                 editer:User
             },
             success:function (res) {
+                console.log(res);
                 let time=timer.formatTime(res.data.data.nowtime);
                 console.log(res.data.data.data);
                 that.setData({
                     Data:res.data.data.data,
                     totalNum:res.data.data.sumStock,
                     price:res.data.data.sumPrice,
-                    nowtime:time,
+                    newTime:time,
                     name:res.data.data.editer
                 })
             }

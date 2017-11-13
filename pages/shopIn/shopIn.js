@@ -15,7 +15,7 @@ Page({
         var that = this;
         wx.scanCode({
             success: (res) => {
-                var number = res.ruslut;
+                var number = res.result;
                 wx.request({
                     url: this.data.url + "shopstore/backgoods",
                     method: "POST",
@@ -33,15 +33,15 @@ Page({
                                 url: "../shopIn_return/shopIn_return?number=" + res.data.number
                             })
                         } else {
-                            wx.showModal({
-                                title: '提示',
-                                content: '该条码不存在,请核对后再扫描',
-                                success: res => {
-                                    wx.navigateTo({
-                                        url: '../shopIn_JOG/shopIn_JOG'
-                                    })
-                                }
-                            })
+                            // wx.showModal({
+                            //     title: '提示',
+                            //     content: '该条码不存在,请核对后再扫描',
+                            //     success: res => {
+                            //         wx.navigateTo({
+                            //             url: '../shopIn_JOG/shopIn_JOG'
+                            //         })
+                            //     }
+                            // })
                         }
                     }
                 })
@@ -65,7 +65,8 @@ Page({
      */
     onLoad: function (options) {
         let url = app.url;
-        let shopId=options.shopId;
+        let shopId=wx.getStorageSync('shopId');
+
         this.setData({
             url: url,
             shopId:shopId

@@ -8,7 +8,7 @@
             <view class="table">
                 <view class="title">{{item.goodsFashion}}</view>
                 <view>款号：<text>{{item.goodsGirard}}</text></view>
-                <view>条码号：<text>{{item.goodsCode}}</text></view>
+                <view>条码号：<text>{{item.formatCode}}</text></view>
                 <view class="last">
                     尺码：<text>{{item.sizeName}}</text>颜色：<text>{{item.colorName}}</text>
                 </view>

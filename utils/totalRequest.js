@@ -211,7 +211,7 @@ function requestShop(that, nav) {
             console.log(res);
             if (res.data.code == 202) {
                 that.setData({
-                    noMOre: false,
+                    noMore: true,
                     Data: []
                 })
             } else if (res.data.code == 200) {
@@ -265,7 +265,7 @@ function requestShopOutNote(that, nav) {
             console.log(res);
             if (res.data.code == 202) {
                 that.setData({
-                    noMOre: true,
+                    noMore: true,
                     Data: []
                 })
             } else if (res.data.code == 200) {
@@ -316,7 +316,7 @@ function shopOutCount(that, nav) {
             console.log(res);
             if (res.data.code == 202) {
                 that.setData({
-                    noMOre: true,
+                    noMore: true,
                     Data: []
                 })
             } else if (res.data.code == 200) {
@@ -364,7 +364,7 @@ function storList(that, nav) {
             console.log(res);
             if (res.data.code == 202) {
                 that.setData({
-                    noMOre: false,
+                    noMore: false,
                     Data: []
                 })
             } else if (res.data.code == 200) {
@@ -411,7 +411,7 @@ function shopOutOrder(that, nav) {
             console.log(res);
             if (res.data.code == 202) {
                 that.setData({
-                    noMOre: false,
+                    noMore: false,
                     Data: []
                 })
             } else if (res.data.code == 200) {
@@ -460,7 +460,7 @@ function requestShopCount(that, nav) {
             console.log(res);
             if (res.data.code == 202) {
                 that.setData({
-                    noMOre: true,
+                    noMore: true,
                     Data: []
                 })
             } else if (res.data.code == 200) {
@@ -505,7 +505,8 @@ function sellListAll(that, nav) {
             console.log(res);
             if (res.data.code == 202) {
                 that.setData({
-                    noMOre: false
+                    noMore: false,
+                    Data: []
                 })
             } else if (res.data.code == 200) {
                 var num = [];
@@ -541,7 +542,8 @@ function sellListArea(that, nav) {
             console.log(res);
             if (res.data.code == 202) {
                 that.setData({
-                    noMOre: false
+                    noMore: false,
+                    Data: []
                 })
             } else if (res.data.code == 200) {
                 var num = [];
@@ -578,8 +580,8 @@ function sellListStore(that, nav) {
             console.log(res);
             if (res.data.code == 202) {
                 that.setData({
-                    noMOre: false,
-                    Data: ''
+                    noMore: false,
+                    Data:[]
                 })
             } else if (res.data.code == 200) {
                 var num = [];
@@ -781,7 +783,7 @@ function sellCountAll(that, nav) {
             console.log(res);
             if (res.data.code == 202) {
                 that.setData({
-                    noMOre: false
+                    noMore: true
                 })
             } else if (res.data.code == 200) {
                 // var num=[];
@@ -812,7 +814,7 @@ function sellCountArea(that, nav) {
             console.log(res);
             if (res.data.code == 202) {
                 that.setData({
-                    noMOre: false,
+                    noMore: true,
                     Data: []
                 })
             } else if (res.data.code == 200) {
@@ -845,7 +847,7 @@ function sellCountStore(that, nav) {
             console.log(res);
             if (res.data.code == 202) {
                 that.setData({
-                    noMOre: false,
+                    noMore: true,
                     Data: []
                 })
             } else if (res.data.code == 200) {
@@ -879,7 +881,8 @@ function sellMoneyAll(that, nav) {
             console.log(res);
             if (res.data.code == 202) {
                 that.setData({
-                    noMOre: false
+                    noMore: true,
+                    Data:[]
                 })
             } else if (res.data.code == 200) {
                 that.setData({
@@ -904,7 +907,7 @@ function sellMoneyArea(that, nav) {
             console.log(res);
             if (res.data.code == 202) {
                 that.setData({
-                    noMOre: false,
+                    noMore: true,
                     Data: []
                 })
             } else if (res.data.code == 200) {
@@ -931,7 +934,7 @@ function sellMoneyStore(that, nav) {
             console.log(res);
             if (res.data.code == 202) {
                 that.setData({
-                    noMOre: false,
+                    noMore: true,
                     Data: []
                 })
             } else if (res.data.code == 200) {
@@ -967,7 +970,7 @@ function logAll(that, nav) {
             that.setData({
                 money:arr,
                 num:con
-            })
+            });
             console.log(that.data.money);
         }
     });
@@ -996,7 +999,7 @@ function logArea(that,nav) {
                 money:arr,
                 num:con,
                 order:res.data.data.address
-            })
+            });
             console.log(that.data.money);
         }
     });

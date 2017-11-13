@@ -112,26 +112,40 @@ Page({
             method:"POST",
             data:{select:1,shopId:shopId},
             success:function (res) {
-                var num=[];
-                function change(item,index) {
-                    item.okTime=formatTime.formatTime(item.logCtime);
-                    if(item.logType==6){
-                        item.type="退货出库"
-                    }else if(item.logType==7){
-                        item.type="调货出库"
-                    }else if(item.logType==8){
-                        item.type="销售出库"
-                    }else if(item.logType==9||item.logType==10){
-                        item.type="错误信息"
+                if(res.data.code==200||res.data.code==203){
+                    var num=[];
+                    function change(item,index) {
+                        item.okTime=formatTime.formatTime(item.logCtime);
+                        if(item.logType==6){
+                            item.type="退货出库"
+                        }else if(item.logType==7){
+                            item.type="调货出库"
+                        }else if(item.logType==8){
+                            item.type="销售出库"
+                        }
+                        if(item.fixtype==1){
+                            item.type="错误信息"
+                        }
+                        if(item.goodsFashion.length>12){
+                            console.log(item.goodsFashion.length)
+                        }
+                        num.push(item)
+
                     }
-                    num.push(item)
+                    res.data.data.forEach(change);
+                    console.log(num);
+                    let data=res.data.data;
+                    that.setData({
+                        Data:data,
+                        noMore:false
+                    })
+                }else if(res.data.code==202){
+                    that.setData({
+                        noMore:true,
+                        Data:[]
+                    })
                 }
-                res.data.data.forEach(change);
-                console.log(num);
-                let data=res.data.data;
-                that.setData({
-                    Data:data
-                })
+
             }
         })
     },
