@@ -29,16 +29,16 @@ Page({
         shopID:"",
     },
     //时间选择
-    DateChange: function (e) {
-        var date = e.detail.value;
-        var start=date.replace(/-/g,'/');
-        var start1=new Date(start);
-        var time=start1.getTime(start1)/1000;
-        this.setData({
-            date: date,
-            Date:time
-        })
-    },
+    // DateChange: function (e) {
+    //     var date = e.detail.value;
+    //     var start=date.replace(/-/g,'/');
+    //     var start1=new Date(start);
+    //     var time=start1.getTime(start1)/1000;
+    //     this.setData({
+    //         date: date,
+    //         Date:time
+    //     })
+    // },
     //多选框的存储
     optionChange: function (e) {
         var data = this.data;
@@ -104,7 +104,7 @@ Page({
         let obj={};
         var storeId=data.storeId;
         obj.remark=data.return;
-        obj.ctime=data.Date;
+        // obj.ctime=data.Date;
         obj.receiver=data.takePeople;
         obj.rephone=data.takePhone;
         obj.reshopId=data.shopID;

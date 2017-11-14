@@ -28,6 +28,15 @@ Page({
   DateChange:function (e) {
       DateChange.DateChange(e,this,"wearhouse/backingoods");
   },
+    click:function (e) {
+      let  Type=e.currentTarget.dataset.type;
+      let Name=e.currentTarget.dataset.name;
+      if(Type==0){
+          wx.navigateTo({
+            url: '../storage_detail/storage_detail?orderId='+Name
+          })
+      }
+    },
   /**
    * 生命周期函数--监听页面加载
    */

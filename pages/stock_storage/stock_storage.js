@@ -26,7 +26,8 @@ Page({
       nameIndex: 0,
       waysIndex: 0
     },
-    Data:""//回传商品数据
+    Data:"",//回传商品数据
+      page:1
   },
   optionChange:function (e) {
     optionChange.optionChange(e,this,'wearhouse/storesearch')
@@ -90,7 +91,8 @@ Page({
                   sizeId.push(item.sizeId);
               }
               res.data.data.forEach(sizePush);
-              // console.log(size);
+              size.unshift('全部');
+              sizeId.unshift(0);
               var newsize=that.data.select;
               newsize.size=size;
               newsize.sizeId=sizeId;
@@ -109,10 +111,12 @@ Page({
               var name=[];
               var nameId=[]
               function sizePush(item,index){
-                  name.push(item.catName)
+                  name.push(item.catName);
                   nameId.push(item.catId)
               }
               res.data.data.forEach(sizePush);
+              name.unshift('全部');
+              nameId.unshift(0);
               var newsize=that.data.select;
               newsize.name=name;
               newsize.nameId=nameId;
@@ -163,8 +167,41 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-  
+  onReachBottom: function (e) {
+      let that=this;
+      let i=1;
+      i++;
+      this.setData({
+          page:i
+      })
+      console.log(that.data.page);
+      wx.request({
+          url: that.data.url + nav,
+          method: "POST",
+          data: {
+              page:that.data.page,
+              goodsFashion: style,
+              goodsGirard: styleNum,
+              formatCode: Barcode,
+              sizeId: size,
+              catId: nameId,
+          },
+          success: function (res) {
+              function slice(item,index) {
+                  if(item.goodsFashion.length>12){
+                      item.goodsFashion=item.goodsFashion.slice(0,12)+'...';
+                  }
+                  if(item.colorName.length>3){
+                      item.colorName=item.colorName.slice(0,2)+'...';
+                  }
+              }
+              res.data.data.forEach(slice);
+              that.setData({
+                  Data: res.data.data,
+                  // order:res.data.data.shop
+              })
+          }
+      })
   },
 
   /**

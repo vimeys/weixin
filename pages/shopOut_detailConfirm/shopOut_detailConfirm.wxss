@@ -110,7 +110,7 @@ image{
     line-height: 44rpx;
 }
 .table .last text{
-    margin-right: 35rpx;
+    margin-right: 15rpx;
 }
 .del{
     color:#cccccc;

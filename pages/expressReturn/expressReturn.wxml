@@ -1,7 +1,7 @@
 <!--pages/expressReturn/expressReturn.wxml-->
 <!--pages/express/express.wxml-->
-<view class="timeStart" bindtap="bindPick">发货日期<picker class="before" mode="date" start="{{date}}" disabled="{{use}}" value="{{Edate}}" bindchange="DateChange">{{date}}
-</picker></view>
+<!--<view class="timeStart" bindtap="bindPick">发货日期<picker class="before" mode="date" start="{{date}}" disabled="{{use}}" value="{{Edate}}" bindchange="DateChange">{{date}}-->
+<!--</picker></view>-->
 <view class="express ">
     <text>收\t\t货\t\t人\t</text><view class="input">
     <input type="text" data-type="1" bindblur="outPut"/>

@@ -33,9 +33,9 @@ Page({
       var that=this;
       this.setData({
           url:url
-      })
+      });
       wx.request({
-          url:that.data.url+"wearout/orderinfo",
+          url:that.data.url+"wearout/orderinfo1",
           method:"POST",
           data:{
             orderId:orderId

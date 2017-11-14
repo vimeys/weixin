@@ -89,7 +89,8 @@ Page({
                   sizeId.push(item.sizeId);
               }
               res.data.data.forEach(sizePush);
-              // console.log(size);
+              size.unshift('全部');
+              sizeId.unshift(0);
               var newsize=that.data.select;
               newsize.size=size;
               newsize.sizeId=sizeId;
@@ -110,6 +111,8 @@ Page({
                   nameId.push(item.catId)
               }
               res.data.data.forEach(sizePush);
+              name.unshift('全部');
+              nameId.unshift(0);
               var newsize=that.data.select;
               newsize.name=name;
               newsize.nameId=nameId;

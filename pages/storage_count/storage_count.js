@@ -20,13 +20,13 @@ Page({
       Start:"",
       end: "结束时间",
       End:"",
-      Date: {"a": ["new"], "b": 2, "c": 3, "d": 4},
-      size:["S","M","L","XL","XXL"],
+      Date: {"a": ["new"]},
+      size:["S","M"],
       sizeId:"",
       name:["长","宽","高"],
       nameId:[],
-      ways:['正常入库','退货入库'],
-      waysId:[0,1],
+      ways:['全部','正常入库','退货入库'],
+      waysId:[15,0,1],
       nameIndex:0,
       sizeIndex:0,
       waysIndex:0
@@ -67,13 +67,13 @@ Page({
                   sizeId.push(item.sizeId);
               }
               res.data.data.forEach(sizePush);
-              // console.log(size);
+              size.unshift('全部');
+              sizeId.unshift(0);
               var newsize=that.data.select;
               newsize.size=size;
               newsize.sizeId=sizeId;
               that.setData({
                   select:newsize,
-
               })
           }
       })
@@ -85,10 +85,12 @@ Page({
               var name=[];
               var nameId=[]
               function sizePush(item,index){
-                  name.push(item.catName)
+                  name.push(item.catName);
                   nameId.push(item.catId)
               }
               res.data.data.forEach(sizePush);
+              name.unshift('全部');
+              nameId.unshift(0);
               var newsize=that.data.select;
               newsize.name=name;
               newsize.nameId=nameId;

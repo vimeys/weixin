@@ -59,8 +59,11 @@ Page({
           success:function (res) {
               var json=res.data.data;
               function slice(item,index) {
-                  if(item.goodsFashion.length>12){
-                      item.goodsFashion=item.goodsFashion.slice(0,12)+'...';
+                  if(item.goodsFashion.length>10){
+                      item.goodsFashion=item.goodsFashion.slice(0,10)+'...';
+                  }
+                  if(item.colorName.length>3){
+                      item.colorName=item.colorName.slice(0,2)+'...';
                   }
               }
               res.data.data.forEach(slice);

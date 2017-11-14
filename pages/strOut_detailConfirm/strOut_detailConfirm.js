@@ -57,24 +57,24 @@ Page({
             url:url,
             orderId:orderId
         })
-        wx.request({
-            url:that.data.url+"wearout/orderinfo",
-            method:"POST",
-            data:{
-                orderId:orderId
-            },
-            success:function (res) {
-                console.log(res);
-                let json=res.data.data.goodsinfo;
-                let order=res.data.data.topinfo;
-                order.okTime=formatTime.formatTime(res.data.data.topinfo.ctime);
-                that.setData({
-                    Data:json,
-                    order:order,
-                });
-            }
-
-        })
+        // wx.request({
+        //     url:that.data.url+"wearout/orderinfo1",
+        //     method:"POST",
+        //     data:{
+        //         orderId:orderId
+        //     },
+        //     success:function (res) {
+        //         console.log(res);
+        //         let json=res.data.data.goodsinfo;
+        //         let order=res.data.data.topinfo;
+        //         order.okTime=formatTime.formatTime(res.data.data.topinfo.ctime);
+        //         that.setData({
+        //             Data:json,
+        //             order:order,
+        //         });
+        //     }
+        //
+        // })
     },
 
     /**
@@ -90,7 +90,7 @@ Page({
     onShow: function () {
         let that=this
         wx.request({
-            url:that.data.url+"wearout/orderinfo",
+            url:that.data.url+"wearout/orderinfo1",
             method:"POST",
             data:{
                 orderId:that.data.orderId

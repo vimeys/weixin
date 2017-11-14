@@ -26,8 +26,8 @@ Page({
             sizeId: [],
             name: ["长", "宽", "高"],
             nameId: [],
-            ways: ['正常入库', '退货入库', '调货入库'],
-            waysId: [3, 2, 4],
+            ways: ['全部','正常入库', '退货入库', '调货入库'],
+            waysId: [15,3, 2, 4],
             nameIndex: 0,
             sizeIndex: 0,
             waysIndex: 0
@@ -79,7 +79,8 @@ Page({
                 }
 
                 res.data.data.forEach(sizePush);
-                // console.log(size);
+                size.unshift('全部');
+                sizeId.unshift(0);
                 var newsize = that.data.select;
                 newsize.size = size;
                 newsize.sizeId = sizeId;
@@ -103,6 +104,8 @@ Page({
                 }
 
                 res.data.data.forEach(sizePush);
+                name.unshift('全部');
+                nameId.unshift(0);
                 var newsize = that.data.select;
                 newsize.name = name;
                 newsize.nameId = nameId;

@@ -111,8 +111,7 @@ Page({
             url:that.data.url+"sell/shopertrend",
             method:"POST",
             data:{
-                // cityId:0,
-                shopId:10,
+                shopId:that.data.shopId,
                 interval:7
             },
             success:function (res) {

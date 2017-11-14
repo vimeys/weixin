@@ -40,8 +40,6 @@ Page({
                 method: "POST",
                 data: {sellBookId: that.data.storeId},
                 success: function (res) {
-                    console.log(res.data);
-
                     var json = [];
                     json.push(res.data.data);
                     that.setData({
@@ -64,6 +62,12 @@ Page({
                     }else{
                         res.data.data.number=res.data.data.goodsStock;
                     }
+                    if(res.data.data.goodsFashion.length>10){
+                        res.data.data.goodsFashion=res.data.data.goodsFashion.slice(0,10)+'...';
+                    }
+                    if(res.data.data.colorName.length>3){
+                        res.data.data.colorName=res.data.data.colorName.slice(0,2)+'...';
+                    }
                     json.push(res.data.data);
                     that.setData({
                         Data: json
@@ -84,6 +88,12 @@ Page({
                     }else{
                         res.data.data.number=res.data.data.goodsStock;
                     }
+                    if(res.data.data.goodsFashion.length>10){
+                        res.data.data.goodsFashion=res.data.data.goodsFashion.slice(0,10)+'...';
+                    }
+                    if(res.data.data.colorName.length>3){
+                        res.data.data.colorName=res.data.data.colorName.slice(0,2)+'...';
+                    }
                     json.push(res.data.data);
                     that.setData({
                         Data: json
@@ -99,6 +109,13 @@ Page({
                     console.log(res.data);
 
                     var json = [];
+                    if(res.data.data.goodsFashion.length>10){
+                        res.data.data.goodsFashion=res.data.data.goodsFashion.slice(0,10)+'...';
+                    }
+                    if(res.data.data.colorName.length>3){
+                        res.data.data.colorName=res.data.data.colorName.slice(0,2)+'...';
+                    }
+
                     json.push(res.data.data);
                     that.setData({
                         Data: json
@@ -114,6 +131,12 @@ Page({
                     console.log(res.data);
 
                     var json = [];
+                    if(res.data.data.goodsFashion.length>10){
+                        res.data.data.goodsFashion=res.data.data.goodsFashion.slice(0,10)+'...';
+                    }
+                    if(res.data.data.colorName.length>3){
+                        res.data.data.colorName=res.data.data.colorName.slice(0,2)+'...';
+                    }
                     json.push(res.data.data);
                     that.setData({
                         Data: json

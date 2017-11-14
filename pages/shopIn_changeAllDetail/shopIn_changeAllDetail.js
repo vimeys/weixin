@@ -124,24 +124,24 @@ Page({
             log: log,
             shopId: shopId
         })
-        wx.request({
-            url: that.data.url + "shopstore/orderinfo",
-            method: "POST",
-            data: {
-                orderId: that.data.orderId
-            },
-            success: function (res) {
-                var json = res.data.data.goodsinfo;
-                var order = res.data.data.order;
-
-                that.setData({
-                    Data: json,
-                    order: order
-                });
-                console.log(res);
-
-            }
-        })
+        // wx.request({
+        //     url: that.data.url + "shopstore/orderinfo",
+        //     method: "POST",
+        //     data: {
+        //         orderId: that.data.orderId
+        //     },
+        //     success: function (res) {
+        //         var json = res.data.data.goodsinfo;
+        //         var order = res.data.data.order;
+        //
+        //         that.setData({
+        //             Data: json,
+        //             order: order
+        //         });
+        //         console.log(res);
+        //
+        //     }
+        // })
     },
 
     /**
@@ -165,7 +165,15 @@ Page({
             success: function (res) {
                 var json = res.data.data.goodsinfo;
                 var order = res.data.data.order;
-
+                function slice(item,index) {
+                    if(item.goodsFashion.length>10){
+                        item.goodsFashion=item.goodsFashion.slice(0,10)+'...';
+                    }
+                    if(item.colorName.length>3){
+                        item.colorName=item.colorName.slice(0,2)+'...';
+                    }
+                }
+                res.data.data.goodsinfo.forEach(slice);
                 that.setData({
                     Data: json,
                     order: order

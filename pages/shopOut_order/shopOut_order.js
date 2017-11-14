@@ -259,9 +259,9 @@ Page({
                         item.okTime=formatTime.formatTime(res.data.data[index].ctime)
                         if(item.status==0){
                             item.Type="待收货"
-                        }else if(item.type==1){
+                        }else if(item.status==1){
                             item.Type="已入库"
-                        }else if(item.type==2){
+                        }else if(item.status==2){
                             item.Type='发货修改'
                         }
                         num.push(item);

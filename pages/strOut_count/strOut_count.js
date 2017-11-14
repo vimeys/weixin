@@ -27,8 +27,8 @@ Page({
             sizeId:"",
             name:["长","宽","高"],
             nameId:[],
-            ways:['正常入库','退货入库'],
-            waysId:[0,1],
+            ways:['全部','正常入库','退货入库'],
+            waysId:[15,0,1],
             nameIndex:0,
             sizeIndex:0,
             waysIndex:0
@@ -70,8 +70,9 @@ Page({
                     sizeId.push(item.sizeId);
                 }
 
-                res.data.data.forEach(sizePush);
-                // console.log(size);
+                res.data.data.forEach(sizePush)
+                size.unshift('全部');
+                sizeId.unshift(0);
                 var newsize = that.data.select;
                 newsize.size = size;
                 newsize.sizeId = sizeId;
@@ -95,6 +96,8 @@ Page({
                 }
 
                 res.data.data.forEach(sizePush);
+                name.unshift('全部');
+                nameId.unshift(0);
                 var newsize = that.data.select;
                 newsize.name = name;
                 newsize.nameId = nameId;

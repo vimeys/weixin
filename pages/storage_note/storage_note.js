@@ -21,13 +21,13 @@ Page({
           Start:"",
           end: "结束时间",
           End:"",
-          Date: {"a": ["new"], "b": 2, "c": 3, "d": 4},
+          Date: {"a": ["new"]},
           size: ["S", "M", "L", "XL", "XXL"],
           sizeId:[],
           name: ["长", "宽", "高"],
           nameId:[],
-          ways: ['正常入库', '退货入库'],
-          waysId:[0,1],
+          ways: ['全部','正常入库', '退货入库'],
+          waysId:[15,0,1],
           nameIndex: 0,
           sizeIndex: 0,
           waysIndex: 0
@@ -62,7 +62,6 @@ Page({
     this.setData({
         url:url
     });
-      // var time=new Date(this.data.time)
       wx.request({
           url:this.data.url+"sundry/sizes",
           method:"POST",
@@ -75,9 +74,12 @@ Page({
               }
               res.data.data.forEach(sizePush);
               // console.log(size);
+              size.unshift('全部');
+              sizeId.unshift(0);
               var newsize=that.data.select;
               newsize.size=size;
               newsize.sizeId=sizeId;
+              console.log(size);
               that.setData({
                   select:newsize,
               })
@@ -94,6 +96,8 @@ Page({
                   nameId.push(item.catId)
               }
               res.data.data.forEach(sizePush);
+              name.unshift('全部');
+              nameId.unshift(0);
               var newsize=that.data.select;
               newsize.name=name;
               newsize.nameId=nameId;

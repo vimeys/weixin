@@ -27,16 +27,16 @@ Page({
         sendPhone: ""//发货人电话
     },
     //时间选择
-    DateChange: function (e) {
-        var date = e.detail.value;
-        var start=date.replace(/-/g,'/');
-        var start1=new Date(start);
-        var time=start1.getTime(start1)/1000;
-        this.setData({
-            date: date,
-            Date:time
-        })
-    },
+    // DateChange: function (e) {
+    //     var date = e.detail.value;
+    //     var start=date.replace(/-/g,'/');
+    //     var start1=new Date(start);
+    //     var time=start1.getTime(start1)/1000;
+    //     this.setData({
+    //         date: date,
+    //         Date:time
+    //     })
+    // },
     //多选框的存储
     optionChange: function (e) {
         var data = this.data;
@@ -100,7 +100,7 @@ Page({
             var data = this.data;
             let obj={};
             var storeId=data.storeId;
-            obj.ctime=data.Date;
+            // obj.ctime=data.Date;
             obj.receiver=data.takePeople;
             obj.rephone=data.takePhone;
             obj.areaId=data.areaId[data.areaIndex];
@@ -143,7 +143,7 @@ Page({
             var data = this.data;
             let obj={};
             var storeId=data.storeId;
-            obj.ctime=data.Date;
+            // obj.ctime=data.Date;
             obj.receiver=data.takePeople;
             obj.rephone=data.takePhone;
             obj.areaId=data.areaId[data.areaIndex];

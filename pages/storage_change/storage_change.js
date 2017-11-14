@@ -48,11 +48,15 @@ Page({
         wx.request({
             url:that.data.url+"wearhouse/backingoods",
             method:"POST",
+            data:{
+              mark:1,
+            },
             success:function (res) {
                 console.log(res);
                 let json =res.data.data;
                 function push(item,index) {
                     item.okTime=timer.formatTime(item.ctime)
+
                 }
                 res.data.data.forEach(push);
                 that.setData({

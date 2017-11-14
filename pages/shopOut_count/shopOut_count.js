@@ -27,8 +27,8 @@ Page({
             sizeId:"",
             name:["长","宽","高"],
             nameId:[],
-            ways:['退货出库','调货出库','销售出库'],
-            waysId:[6,7,8],
+            ways:['全部','退货出库','调货出库','销售出库'],
+            waysId:[15,6,7,8],
             nameIndex:0,
             sizeIndex:0,
             waysIndex:0
@@ -71,7 +71,8 @@ Page({
                     sizeId.push(item.sizeId);
                 }
                 res.data.data.forEach(sizePush);
-                // console.log(size);
+                size.unshift('全部');
+                sizeId.unshift(0);
                 var newsize=that.data.select;
                 newsize.size=size;
                 newsize.sizeId=sizeId;
@@ -93,6 +94,8 @@ Page({
                     nameId.push(item.catId)
                 }
                 res.data.data.forEach(sizePush);
+                name.unshift('全部');
+                nameId.unshift(0);
                 var newsize=that.data.select;
                 newsize.name=name;
                 newsize.nameId=nameId;
@@ -137,8 +140,11 @@ Page({
                         } else if (item.type == 8) {
                             item.Type = "销售出库"
                         }
-                        if(item.goodsFashion.length>12){
-                            item.goodsFashion=item.goodsFashion.slice(0,12)+'...';
+                        if(item.goodsFashion.length>10){
+                            item.goodsFashion=item.goodsFashion.slice(0,10)+'...';
+                        }
+                        if(item.colorName.length>3){
+                            item.colorName=item.colorName.slice(0,2)+'...';
                         }
                         num.push(item);
                     }

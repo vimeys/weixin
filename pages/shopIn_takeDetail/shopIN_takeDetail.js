@@ -133,6 +133,9 @@ Page
             success: function (res) {
                 var json = res.data.data.goodsinfo;
                 var order = res.data.data.order;
+                function slice(item,index){
+
+                }
 
                 that.setData({
                     Data: json,

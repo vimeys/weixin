@@ -31,8 +31,8 @@ function request(that, nav) {
                     })
                 } else if (res.data.code == 200) {
                     function slice(item,index) {
-                        if(item.goodsFashion.length>12){
-                            item.goodsFashion=item.goodsFashion.slice(0,12)+'...';
+                        if(item.goodsFashion.length>10){
+                            item.goodsFashion=item.goodsFashion.slice(0,10)+'...';
                         }
                         if(item.colorName.length>3){
                             item.colorName=item.colorName.slice(0,2)+'...';
@@ -63,6 +63,9 @@ function request(that, nav) {
                 function slice(item,index) {
                     if(item.goodsFashion.length>12){
                         item.goodsFashion=item.goodsFashion.slice(0,12)+'...';
+                    }
+                    if(item.colorName.length>3){
+                        item.colorName=item.colorName.slice(0,2)+'...';
                     }
                 }
                 res.data.data.forEach(slice);
@@ -356,7 +359,7 @@ function shopOutCount(that, nav) {
                     } else if (item.type == 8) {
                         item.Type = "销售出库"
                     }
-                    if(item.goodsFashion.length>12){
+                    if(item.goodsFashion.length>10){
                         item.goodsFashion=item.goodsFashion.slice(0,10)+'...';
                     }
                     num.push(item);
@@ -1069,7 +1072,6 @@ module.exports = {
     requesttime: requesttime,
     requestShop: requestShop,
     requestShopCount: requestShopCount,
-
     storReturn: storReturn,
     // storNote:storNote,
     shopreturn: shopreturn,

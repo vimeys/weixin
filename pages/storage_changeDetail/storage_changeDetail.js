@@ -126,25 +126,6 @@ Page({
       log: log,
       shopId: shopId
     })
-    wx.request({
-      url: that.data.url + "wearhouse/backgoodsinfo",
-      method: "POST",
-      data: {
-        orderId: that.data.orderId
-      },
-      success: function (res) {
-        var json = res.data.data.interim;
-        res.data.data.order.okTime=formatTime.formatTime(res.data.data.order.ctime);
-        var order = res.data.data.order;
-
-        that.setData({
-          Data: json,
-          order: order
-        });
-        console.log(res);
-
-      }
-    })
   },
 
   /**
@@ -167,6 +148,15 @@ Page({
           },
           success: function (res) {
               var json = res.data.data.interim;
+              function slice(item,index) {
+                  if(item.goodsFashion.length>10){
+                      item.goodsFashion=item.goodsFashion.slice(0,10)+'...';
+                  }
+                  if(item.colorName.length>3){
+                      item.colorName=item.colorName.slice(0,2)+'...';
+                  }
+              }
+              res.data.data.interim.forEach(slice);
               res.data.data.order.okTime=formatTime.formatTime(res.data.data.order.ctime);
               var order = res.data.data.order;
 
