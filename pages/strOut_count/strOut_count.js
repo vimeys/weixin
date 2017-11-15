@@ -36,7 +36,8 @@ Page({
         Data:"",//接受数据
         year:"" ,//年
         hours:"",//时间
-        noMore:true
+        noMore:true,
+        page:1
     },
     DateChange:function (e) {
         Datechange.DateChange(e,this,"wearout/outcount");
@@ -64,12 +65,10 @@ Page({
             success: function (res) {
                 var size = [];
                 var sizeId = [];
-
                 function sizePush(item, index) {
                     size.push(item.sizeName);
                     sizeId.push(item.sizeId);
                 }
-
                 res.data.data.forEach(sizePush)
                 size.unshift('全部');
                 sizeId.unshift(0);
@@ -148,7 +147,13 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
-
+        let that=this;
+        let num=that.data.page;
+        num++;
+        this.setData({
+            page:num
+        });
+        request.storCount(this, "wearout/outcount")
     },
 
     /**

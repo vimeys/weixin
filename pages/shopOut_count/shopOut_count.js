@@ -37,7 +37,8 @@ Page({
         year:"" ,//年
         hours:"",//时间
         noMore:true,
-        shopId:""//店铺id
+        shopId:"",//店铺id
+        page:1
     },
     DateChange:function (e) {
         Datechange.DateChange(e,this,"shopout/searchin");
@@ -116,7 +117,7 @@ Page({
         data.sizeId = that.data.select.sizeId[that.data.select.sizeIndex];
         data.catId = that.data.select.nameId[that.data.select.nameIndex];
         data.type = '';
-        // console.log(data);
+        data.page=that.data.page;
         wx.request({
             url: that.data.url + 'shopout/searchin',
             method: "POST",
@@ -200,7 +201,13 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
-
+        let that=this;
+        let num=that.data.page;
+        num++;
+        this.setData({
+            page:num
+        });
+        request.shopOutCount(that,"shopout/searchin")
     },
 
     /**

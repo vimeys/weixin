@@ -33,7 +33,7 @@ image{
 }
 .table input{
     display: inline-block;
-    border: 1rpx solid #333333;
+    border: 1rpx solid #ccc;
     width: 80rpx;
     height: 38rpx;
     color:#FF0202;

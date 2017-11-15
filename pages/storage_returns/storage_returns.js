@@ -20,7 +20,8 @@ Page({
         Data:"",//
         mark:false,
     },
-    Date:""//
+    Date:"",//
+      page:1
   },
    bindpick:function (e) {
       common.bindpick(this)
@@ -49,8 +50,8 @@ Page({
       wx.request({
           url:this.data.url+"wearhouse/backingoods",
           method:"POST",
+          data:{page:that.data.page},
           success:function (res) {
-              console.log(res.data.data);
               var json=res.data.data;
               that.setData({
                   Date:json
@@ -108,7 +109,12 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+      let that=this;
+      let num=that.data.page;
+      num++;
+      this.setData({
+          page:num
+      });
   },
 
   /**

@@ -169,39 +169,48 @@ Page({
    */
   onReachBottom: function (e) {
       let that=this;
-      let i=1;
-      i++;
+      let num=that.data.page;
+      num++;
       this.setData({
-          page:i
+          page:num
       })
-      console.log(that.data.page);
-      wx.request({
-          url: that.data.url + nav,
-          method: "POST",
-          data: {
-              page:that.data.page,
-              goodsFashion: style,
-              goodsGirard: styleNum,
-              formatCode: Barcode,
-              sizeId: size,
-              catId: nameId,
-          },
-          success: function (res) {
-              function slice(item,index) {
-                  if(item.goodsFashion.length>12){
-                      item.goodsFashion=item.goodsFashion.slice(0,12)+'...';
-                  }
-                  if(item.colorName.length>3){
-                      item.colorName=item.colorName.slice(0,2)+'...';
-                  }
-              }
-              res.data.data.forEach(slice);
-              that.setData({
-                  Data: res.data.data,
-                  // order:res.data.data.shop
-              })
-          }
-      })
+      request.request(this,'wearhouse/storesearch')
+      // var page=that.data.page;
+      // var style = that.data.select.style;//
+      // var styleNum = that.data.select.styleNum;
+      // var Barcode = that.data.select.Barcode;
+      // var size = that.data.select.sizeId[that.data.select.sizeIndex];
+      // var nameId = that.data.select.nameId[that.data.select.nameIndex];
+      //
+      // console.log(that.data.page);
+      // wx.request({
+      //     url: that.data.url + "wearhouse/storesearch",
+      //     method: "POST",
+      //     data: {
+      //         page:page,
+      //         goodsFashion: style,
+      //         goodsGirard: styleNum,
+      //         formatCode: Barcode,
+      //         sizeId: size,
+      //         catId: nameId,
+      //     },
+      //     success: function (res) {
+      //         console.log(res);
+      //         function slice(item,index) {
+      //             if(item.goodsFashion.length>12){
+      //                 item.goodsFashion=item.goodsFashion.slice(0,12)+'...';
+      //             }
+      //             if(item.colorName.length>3){
+      //                 item.colorName=item.colorName.slice(0,2)+'...';
+      //             }
+      //         }
+      //         res.data.data.forEach(slice);
+      //         that.setData({
+      //             Data: res.data.data,
+      //             // order:res.data.data.shop
+      //         })
+      //     }
+      // })
   },
 
   /**

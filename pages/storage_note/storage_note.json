@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "入库日志"
+  "navigationBarTitleText": "入库日志",
+  "enablePullDownRefresh":true
 }

@@ -88,7 +88,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        let that=this
+        let that=this;
         wx.request({
             url:that.data.url+"wearout/orderinfo1",
             method:"POST",
@@ -99,6 +99,15 @@ Page({
                 console.log(res);
                 let json=res.data.data.goodsinfo;
                 let order=res.data.data.topinfo;
+                function slice(item,index) {
+                    if(item.goodsFashion.length>10){
+                        item.goodsFashion=item.goodsFashion.slice(0,10)+'...';
+                    }
+                    if(item.colorName.length>3){
+                        item.colorName=item.colorName.slice(0,2)+'...';
+                    }
+                }
+                res.data.data.goodsinfo.forEach(slice);
                 order.okTime=formatTime.formatTime(res.data.data.topinfo.ctime);
                 that.setData({
                     Data:json,

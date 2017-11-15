@@ -16,47 +16,59 @@ Page({
     //确认入库请求
     confirm: function (e) {
         var that = this;
-        var data = [];
-        var order = {};
-        order.shopId = that.data.shopId;
-        order.order = that.data.order.orderId;
-        function push(item, index) {
-            var obj = {};
-            obj.storeId = item.storeId;
-            obj.goodsStock = item.goodsStock;
-            obj.logEditer = that.data.log;
-            data.push(obj);
-        }
-
-        that.data.Data.forEach(push);
-        console.log(1);
-        console.log(data);
-        console.log(order);
-        wx.request({
-            url: this.data.url + "shopstore/shopok",
-            method: "POST",
-            data: {
-                data: data,
-                info: order
-            },
-            success: function (res) {
-                console.log(res.data.code);
-                if (res.data.code == 200) {
-                    wx.showModal({
-                        title: '提示',
-                        content: '商品已确认入库',
-                        showCancel: false,
-                        success: res => {
-                            if (res.confirm) {
-                                wx.navigateBack({
-                                    delta: 2,
-                                })
-                            }
-                        }
-                    })
-                }
+        wx.showModal({
+          title: '提示',
+          content: '修改成功',
+          showCancel:false,
+          success: res=>{
+            if (res.confirm) {
+                wx.navigateBack({
+                    delta:1
+                })
             }
+          }
         })
+        // var data = [];
+        // var order = {};
+        // order.shopId = that.data.shopId;
+        // order.order = that.data.order.orderId;
+        // function push(item, index) {
+        //     var obj = {};
+        //     obj.storeId = item.storeId;
+        //     obj.goodsStock = item.goodsStock;
+        //     obj.logEditer = that.data.log;
+        //     data.push(obj);
+        // }
+        //
+        // that.data.Data.forEach(push);
+        // console.log(1);
+        // console.log(data);
+        // console.log(order);
+        // wx.request({
+        //     url: this.data.url + "shopstore/shopok",
+        //     method: "POST",
+        //     data: {
+        //         data: data,
+        //         info: order
+        //     },
+        //     success: function (res) {
+        //         console.log(res.data.code);
+        //         if (res.data.code == 200) {
+        //             wx.showModal({
+        //                 title: '提示',
+        //                 content: '商品已确认入库',
+        //                 showCancel: false,
+        //                 success: res => {
+        //                     if (res.confirm) {
+        //                         wx.navigateBack({
+        //                             delta: 2,
+        //                         })
+        //                     }
+        //                 }
+        //             })
+        //         }
+        //     }
+        // })
     },
     //发货数量修改跳转页面
     click: function (e) {
@@ -71,41 +83,54 @@ Page({
     },
     //发货修改确认请求
     changeConfirm: function (e) {
-        let that = this;
-        wx.request({
-            url: that.data.url + "shopstore/fixorderstatus",
-            method: "POST",
-            data: {
-                orderId: that.data.orderId
-            },
-            success: function (res) {
-                console.log(res);
-                if (res.data.code == 200) {
-                    wx.showModal({
-                        title: '提示',
-                        content: '提交成功',
-                        showCancel: false,
-                        success: res => {
-                            if (res.confirm) {
-                                wx.navigateBack({
-                                    delta: 1
-                                })
-                            }
-                        }
-                    })
-                } else if (res.data.code == 201 || res.data.code == 202) {
-                    wx.showModal({
-                        title: '提示',
-                        content: '提交失败,请重试',
-                        showCancel: false,
-                        success: res => {
-                            if (res.confirm) {
-
-                            }
-                        }
+        // let that = this;
+        // wx.request({
+        //     url: that.data.url + "shopstore/fixorderstatus",
+        //     method: "POST",
+        //     data: {
+        //         orderId: that.data.orderId
+        //     },
+        //     success: function (res) {
+        //         console.log(res);
+        //         if (res.data.code == 200) {
+        //             wx.showModal({
+        //                 title: '提示',
+        //                 content: '提交成功',
+        //                 showCancel: false,
+        //                 success: res => {
+        //                     if (res.confirm) {
+        //                         wx.navigateBack({
+        //                             delta: 1
+        //                         })
+        //                     }
+        //                 }
+        //             })
+        //         } else if (res.data.code == 201 || res.data.code == 202) {
+        //             wx.showModal({
+        //                 title: '提示',
+        //                 content: '提交失败,请重试',
+        //                 showCancel: false,
+        //                 success: res => {
+        //                     if (res.confirm) {
+        //
+        //                     }
+        //                 }
+        //             })
+        //         }
+        //
+        //     }
+        // })
+        // var that = this;
+        wx.showModal({
+            title: '提示',
+            content: '修改成功',
+            showCancel:false,
+            success: res=>{
+                if (res.confirm) {
+                    wx.navigateBack({
+                        delta:1
                     })
                 }
-
             }
         })
     },

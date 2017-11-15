@@ -17,7 +17,7 @@
                     <text>{{item.sizeName}}</text>
                     颜色：
                     <text>{{item.colorName}}</text>
-                    数量： <input type="number" value="{{item.goodsStock}}" data-type="{{index}}" bindblur="output"/>
+                    数量： <input type="number" value="{{item.goodsStock}}" data-type="{{index}}" bindinput="output"/>
                 </view>
                 <image src="../images/delete.png" bindtap="delGoods" data-type="{{index}}"></image>
             </view>

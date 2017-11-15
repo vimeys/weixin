@@ -43,6 +43,15 @@ Page({
           success:function (res) {
               console.log(res)
               let json=res.data.data.goodsinfo;
+              function slice(item,index) {
+                  if(item.goodsFashion.length>10){
+                      item.goodsFashion=item.goodsFashion.slice(0,10)+'...';
+                  }
+                  if(item.colorName.length>3){
+                      item.colorName=item.colorName.slice(0,2)+'...';
+                  }
+              }
+              res.data.data.goodsinfo.forEach(slice);
               let order=res.data.data.topinfo;
               order.okTime=formatTime.formatTime(res.data.data.topinfo.ctime);
               that.setData({

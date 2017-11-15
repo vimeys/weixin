@@ -26,8 +26,9 @@ Page({
           nameIndex: 0,
           waysIndex: 0
       },
-      Data:"",//接受数据
-      order:''
+      Data:"",//商品接受数据
+      order:'',
+      page:1//分页数量
   },
     //选择框时间
     optionChange:function (e) {
@@ -173,7 +174,13 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+      let that=this;
+      let num=that.data.page;
+      num++;
+      this.setData({
+          page:num
+      });
+      request.request(this,"shopstore/search");
   },
 
   /**

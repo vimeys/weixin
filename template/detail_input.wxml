@@ -10,7 +10,7 @@
                 <view>款号：<text>{{item.goodsGirard}}</text></view>
                 <view>条码号：<text>{{item.formatCode}}</text></view>
                 <view class="last">
-                    尺码：<text>L</text>颜色：<text>红色</text> 数量： <input type="number" value="{{item.number}}" bindblur="output"/>
+                    尺码：<text>L</text>颜色：<text>红色</text> 数量： <input type="number" value="{{item.number}}" bindinput="output"/>
                 </view>
             </view>
         </view>

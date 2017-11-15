@@ -8,13 +8,14 @@ function request(that, nav) {
     var Barcode = that.data.select.Barcode;
     var size = that.data.select.sizeId[that.data.select.sizeIndex];
     var nameId = that.data.select.nameId[that.data.select.nameIndex];
-
+    var page=that.data.page;
     if (shop) {//店铺库存请求
         //console.log(12312312)
         wx.request({
             url: that.data.url + nav,
             method: "POST",
             data: {
+                page:page,
                 shopId: shop,
                 goodsFashion: style,
                 goodsGirard: styleNum,
@@ -52,7 +53,7 @@ function request(that, nav) {
             url: that.data.url + nav,
             method: "POST",
             data: {
-
+                page:page,
                 goodsFashion: style,
                 goodsGirard: styleNum,
                 formatCode: Barcode,
@@ -89,6 +90,7 @@ function requesttime(that, nav) {
     data1.sizeId = that.data.select.sizeId[that.data.select.sizeIndex];
     data1.catId = that.data.select.nameId[that.data.select.nameIndex];
     data1.type = that.data.select.waysId[that.data.select.waysIndex];
+    data1.page=that.data.page;
     console.log(data1);
     wx.request({
         url: that.data.url + nav,
@@ -106,7 +108,7 @@ function requesttime(that, nav) {
                 var num = [];
                 function change(item, index) {
                     item.okTime = formatTime.formatTime(res.data.data[index].ctime);
-                    if(item.goodsFashion.length>12){
+                    if(item.goodsFashion.length>10){
                         item.goodsFashion=item.goodsFashion.slice(0,10)+'...';
                     }
                     num.push(item);
@@ -132,7 +134,8 @@ function storCount(that, nav) {
     data1.formatCode = that.data.select.Barcode;
     data1.sizeId = that.data.select.sizeId[that.data.select.sizeIndex];
     data1.catId = that.data.select.nameId[that.data.select.nameIndex];
-    console.log(data1);
+    data1.page=that.data.page;
+    // console.log(data1);
     wx.request({
         url: that.data.url + nav,
         method: "POST",
@@ -150,8 +153,11 @@ function storCount(that, nav) {
 
                 function change(item, index) {
                     item.okTime = formatTime.formatTime(res.data.data[index].ctime);
-                    if(item.goodsFashion.length>12){
+                    if(item.goodsFashion.length>10){
                         item.goodsFashion=item.goodsFashion.slice(0,10)+'...';
+                    }
+                    if(item.colorName.length>3){
+                        item.colorName=item.colorName.slice(0,2)+'...';
                     }
                     num.push(item);
                 }
@@ -166,37 +172,84 @@ function storCount(that, nav) {
         }
     })
 }
-//仓库出库的日志请求
+// //仓库出库的日志请求
+// function storNote(that, nav) {
+//     var data1 = {};
+//     data1.begintime = that.data.select.Start;
+//     data1.endtime = that.data.select.End;
+//     data1.goodsFashion = that.data.select.style;
+//     data1.goodsGirard = that.data.select.styleNum;
+//     data1.formatCode = that.data.select.Barcode;
+//     data1.sizeId = that.data.select.sizeId[that.data.select.sizeIndex];
+//     data1.catId = that.data.select.nameId[that.data.select.nameIndex];
+//     data1.select = that.data.active;
+//     console.log(data1);
+//     wx.request({
+//         url: that.data.url + nav,
+//         method: "POST",
+//         data: data1,
+//         success: function (res) {
+//             console.log(res);
+//             if (res.data.code == 202) {
+//                 that.setData({
+//                     noMore: true,
+//                     Data: []
+//                 })
+//             } else {
+//                 console.log(res);
+//                 var num = [];
+//
+//                 function change(item, index) {
+//                     item.okTime = formatTime.formatTime(res.data.data[index].logCtime);
+//                     if(item.goodsFashion.length>12){
+//                         item.goodsFashion=item.goodsFashion.slice(0,10)+'...';
+//                     }
+//                     num.push(item);
+//                 }
+//
+//                 res.data.data.forEach(change);
+//                 that.setData({
+//                     Data: num,
+//                     noMore: false
+//                 })
+//             }
+//
+//         }
+//     })
+// }
+//仓库入库日志请求;
 function storNote(that, nav) {
-    var data1 = {};
-    data1.begintime = that.data.select.Start;
-    data1.endtime = that.data.select.End;
-    data1.goodsFashion = that.data.select.style;
-    data1.goodsGirard = that.data.select.styleNum;
-    data1.formatCode = that.data.select.Barcode;
-    data1.sizeId = that.data.select.sizeId[that.data.select.sizeIndex];
-    data1.catId = that.data.select.nameId[that.data.select.nameIndex];
-    data1.select = that.data.active;
-    console.log(data1);
+    var data = {};
+    data.select = that.data.active;
+    data.begintime = that.data.select.Start;
+    data.endtime = that.data.select.End;
+    data.goodsFashion = that.data.select.style;
+    data.goodsGirard = that.data.select.styleNum;
+    data.formatCode = that.data.select.Barcode;
+    data.sizeId = that.data.select.sizeId[that.data.select.sizeIndex];
+    data.catId = that.data.select.nameId[that.data.select.nameIndex];
+    data.type = that.data.select.waysId[that.data.select.waysIndex];
+    data.page=that.data.page;
     wx.request({
         url: that.data.url + nav,
         method: "POST",
-        data: data1,
+        data: data,
         success: function (res) {
-            console.log(res);
             if (res.data.code == 202) {
                 that.setData({
                     noMore: true,
                     Data: []
                 })
-            } else {
-                console.log(res);
+            } else if (res.data.code == 200) {
                 var num = [];
 
                 function change(item, index) {
                     item.okTime = formatTime.formatTime(res.data.data[index].logCtime);
-                    if(item.goodsFashion.length>12){
+                    if(item.goodsFashion.length>10){
                         item.goodsFashion=item.goodsFashion.slice(0,10)+'...';
+                    }
+                    if(item.colorName.length>3){
+                        item.colorName=item.colorName.slice(0,2)+'...';
                     }
                     num.push(item);
                 }
@@ -207,13 +260,14 @@ function storNote(that, nav) {
                     noMore: false
                 })
             }
-
         }
     })
 }
+
 //收货店铺日志的请求
 function requestShop(that, nav) {
     var data = {};
+    data.page=that.data.page;
     data.begintime = that.data.select.Start;
     data.endtime = that.data.select.End;
     data.goodsFashion = that.data.select.style;
@@ -281,6 +335,7 @@ function requestShopOutNote(that, nav) {
     data.catId = that.data.select.nameId[that.data.select.nameIndex];
     data.type = that.data.select.waysId[that.data.select.waysIndex];
     data.select = that.data.active;
+    data.page=that.data.page;
     console.log(data);
     wx.request({
         url: that.data.url + nav,
@@ -325,6 +380,7 @@ function requestShopOutNote(that, nav) {
 //店铺出库统计的请求
 function shopOutCount(that, nav) {
     var data = {};
+    data.page=that.data.page;
     data.shopId = that.data.select.shopId;
     data.begintime = that.data.select.Start;
     data.endtime = that.data.select.End;
@@ -403,13 +459,13 @@ function storList(that, nav) {
 
                 function change(item, index) {
                     item.okTime = formatTime.formatTime(res.data.data[index].ctime)
-                    // if(item.logType==2){
-                    //     item.type="退货入库"
-                    // }else if(item.logType==3){
-                    //     item.type="收货入库"
-                    // }else if(item.logType==4){
-                    //     item.type="调货入库"
-                    // }
+                    if(item.status==0){
+                        item.type="待收货"
+                    }else if(item.status==1){
+                        item.type="已入库"
+                    }else if(item.status==2){
+                        item.type="发货修改"
+                    }
                     num.push(item);
                 }
 
@@ -433,7 +489,7 @@ function shopOutOrder(that, nav) {
     data.expressId = that.data.select.expressId[that.data.select.expressIndex];
     data.expressCode = that.data.select.expressNum;
     data.nowShopId = that.data.shopId;
-    data.type = that.data.select.return[that.data.select.returnIndex];
+    data.type = that.data.select.returnId[that.data.select.returnIndex];
     wx.request({
         url: that.data.url + nav,
         method: "POST",
@@ -450,13 +506,13 @@ function shopOutOrder(that, nav) {
 
                 function change(item, index) {
                     item.okTime = formatTime.formatTime(res.data.data[index].ctime)
-                    // if(item.logType==2){
-                    //     item.type="退货入库"
-                    // }else if(item.logType==3){
-                    //     item.type="收货入库"
-                    // }else if(item.logType==4){
-                    //     item.type="调货入库"
-                    // }
+                    if(item.status==0){
+                        item.Type="待收货"
+                    }else if(item.status==1){
+                        item.Type="已入库"
+                    }else if(item.status==2){
+                        item.Type='发货修改'
+                    }
                     num.push(item);
                 }
 
@@ -472,7 +528,7 @@ function shopOutOrder(that, nav) {
 //收货店铺统计的请求
 function requestShopCount(that, nav) {
     var data = {};
-    // data.shopId = that.data.select.shopId;
+    data.page=that.data.page;
     data.begintime = that.data.select.Start;
     data.endtime = that.data.select.End;
     data.goodsFashion = that.data.select.style;
@@ -687,6 +743,7 @@ function storReturn(that, nav) {
     var data = {};
     data.begintime = that.data.select.Start;
     data.endtime = that.data.select.End;
+    data.page=that.
     wx.request({
         url: that.data.url + nav,
         method: "POST",
@@ -713,54 +770,14 @@ function storReturn(that, nav) {
     })
 
 }
-//仓库入库日志请求;
-function storNote(that, nav) {
-    var data = {};
-    data.select = that.data.active;
-    data.begintime = that.data.select.Start;
-    data.endtime = that.data.select.End;
-    data.goodsFashion = that.data.select.style;
-    data.goodsGirard = that.data.select.styleNum;
-    data.formatCode = that.data.select.Barcode;
-    data.sizeId = that.data.select.sizeId[that.data.select.sizeIndex];
-    data.catId = that.data.select.nameId[that.data.select.nameIndex];
-    data.type = that.data.select.waysId[that.data.select.waysIndex];
-    wx.request({
-        url: that.data.url + nav,
-        method: "POST",
-        data: data,
-        success: function (res) {
-            if (res.data.code == 202) {
-                that.setData({
-                    noMore: true,
-                    Data: []
-                })
-            } else if (res.data.code == 200) {
-                var num = [];
 
-                function change(item, index) {
-                    item.okTime = formatTime.formatTime(res.data.data[index].logCtime);
-                    if(item.goodsFashion.length>10){
-                        item.goodsFashion=item.goodsFashion.slice(0,10)+'...';
-                    }
-                    num.push(item);
-                }
-
-                res.data.data.forEach(change);
-                that.setData({
-                    Data: num,
-                    noMore: false
-                })
-            }
-        }
-    })
-}
 //仓库退货入库修改请求
 function storChange(that, nav) {
     var obj = {};
     obj.begintime = that.data.select.Start;
     obj.endtime = that.data.select.End;
     obj.orderCode = that.data.orderId;
+    obj.page=that.data.page;
     wx.request({
         url: that.data.url + nav,
         method: "POST",

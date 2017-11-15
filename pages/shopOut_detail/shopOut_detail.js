@@ -35,7 +35,8 @@ Page({
             url:that.data.url+"shopstore/orderinfo",
             method:"POST",
             data:{
-                orderId:orderId
+                orderId:orderId,
+                mark:1
             },
             success:function (res) {
                 console.log(res);

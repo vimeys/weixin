@@ -34,7 +34,8 @@ Page({
     Data:"",//接受数据
     year:"" ,//年
     hours:"",//时间
-    noMore:true
+    noMore:true,
+    page:1//分页数量
   },
   DateChange:function (e) {
     Datechange.DateChange(e,this,"wearhouse/searchin");
@@ -56,6 +57,7 @@ Page({
     });
     var that=this;
     var data=this.data;
+    //获取尺寸
       wx.request({
           url:data.url+"sundry/sizes",
           method:"POST",
@@ -77,7 +79,7 @@ Page({
               })
           }
       })
-      //
+      //获取分类
       wx.request({
           url:data.url+"sundry/cat",
           method:"POST",
@@ -141,7 +143,13 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+      let that=this;
+      let num=that.data.page;
+      num++;
+      this.setData({
+          page:num
+      });
+      request.requesttime(this,"wearhouse/searchin");
   },
 
   /**

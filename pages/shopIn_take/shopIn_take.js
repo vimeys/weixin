@@ -51,34 +51,34 @@ Page({
             url:url,
             shopId:shopId
         });
-        wx.request({
-            url:this.data.url+"shopstore/shougoods",
-            method:"POST",
-            data:{shopId:this.data.shopId},
-            success:function (res) {
-                console.log(res);
-                let json=res.data.data;
-                that.setData({
-                    Data:json
-                })
-                var num=[];
-                function change(item,index) {
-                    item.okTime=formatTime.formatTime(res.data.data[index].ctime);
-                    if(item.status==0){
-                        item.Type='待收货'
-                    }else if(item.status==1){
-                        item.Type='已入库'
-                    }else if(item.status==2){
-                        item.Type='发货修改'
-                    }
-                    num.push(item)
-                }
-                res.data.data.forEach(change);
-                that.setData({
-                    Data:num
-                })
-            }
-        })
+        // wx.request({
+        //     url:this.data.url+"shopstore/shougoods",
+        //     method:"POST",
+        //     data:{shopId:this.data.shopId},
+        //     success:function (res) {
+        //         console.log(res);
+        //         let json=res.data.data;
+        //         that.setData({
+        //             Data:json
+        //         })
+        //         var num=[];
+        //         function change(item,index) {
+        //             item.okTime=formatTime.formatTime(res.data.data[index].ctime);
+        //             if(item.status==0){
+        //                 item.Type='待收货'
+        //             }else if(item.status==1){
+        //                 item.Type='已入库'
+        //             }else if(item.status==2){
+        //                 item.Type='发货修改'
+        //             }
+        //             num.push(item)
+        //         }
+        //         res.data.data.forEach(change);
+        //         that.setData({
+        //             Data:num
+        //         })
+        //     }
+        // })
     },
 
     /**

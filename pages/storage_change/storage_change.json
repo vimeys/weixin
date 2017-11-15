@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "入库修改"
+  "navigationBarTitleText": "入库修改",
+  "enablePullDownRefresh":true
 }

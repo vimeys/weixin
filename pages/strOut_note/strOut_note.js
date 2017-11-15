@@ -36,6 +36,7 @@ Page({
       year: "",//年
       hours: "",//时间
       noMore: true,
+      page:1
   },
   DateChange:function (e) {
     Datechange.DateChange(e,this,"wearout/outlog");
@@ -154,7 +155,13 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+      let that=this;
+      let num=that.data.page;
+      num++;
+      this.setData({
+          page:num
+      });
+      request.storNote(this,"wearout/outlog")
   },
 
   /**

@@ -1,3 +1,5 @@
 {
-  "navigationBarTitleText": "出库统计"
+  "navigationBarTitleText": "出库统计",
+  "enablePullDownRefresh":true
+
 }

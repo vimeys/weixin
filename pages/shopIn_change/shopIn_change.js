@@ -109,6 +109,11 @@ Page({
                     console.log(res.data);
 
                     var json = [];
+                    if(res.data.data.fixnumber>0){
+                        res.data.data.number=res.data.data.fixnumber
+                    }else{
+                        res.data.data.number=res.data.data.goodsStock;
+                    }
                     if(res.data.data.goodsFashion.length>10){
                         res.data.data.goodsFashion=res.data.data.goodsFashion.slice(0,10)+'...';
                     }

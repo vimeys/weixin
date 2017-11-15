@@ -36,7 +36,8 @@ Page({
         year: "",//年
         hours: "",//时间
         noMore: true,
-        shopId: ""//店铺id
+        shopId: "",//店铺id
+        page:1
     },
     output: function (e) {
         output.output(e, this, "shopstore/logsearch")
@@ -156,7 +157,13 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
-
+        let that=this;
+        let num=that.data.page;
+        num++;
+        this.setData({
+            page:num
+        });
+        request.requestShop(this,"shopstore/logsearch")
     },
 
     /**

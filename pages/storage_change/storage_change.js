@@ -17,7 +17,8 @@ Page({
             end: "截止时间",//结束时间
             End: "",//结束时间撮
         },
-        Data:""
+        Data:"",
+        page:1
     },
     DateChange:function (e) {
         Datechange.DateChange(e,this,"wearhouse/backingoods");
@@ -50,6 +51,7 @@ Page({
             method:"POST",
             data:{
               mark:1,
+                page:that.data.page
             },
             success:function (res) {
                 console.log(res);
@@ -105,7 +107,32 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
+        let that=this;
+        let num=that.data.page;
+        num++;
+        this.setData({
+            page:num
+        });
+        wx.request({
+            url:that.data.url+"wearhouse/backingoods",
+            method:"POST",
+            data:{
+                mark:1,
+                page:that.data.page
+            },
+            success:function (res) {
+                console.log(res);
+                let json =res.data.data;
+                function push(item,index) {
+                    item.okTime=timer.formatTime(item.ctime)
 
+                }
+                res.data.data.forEach(push);
+                that.setData({
+                    Data:json
+                })
+            }
+        })
     },
 
     /**

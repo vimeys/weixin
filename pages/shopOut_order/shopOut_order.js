@@ -27,7 +27,7 @@ Page({
             styleId:[0,1,2],//具体状态
             styleIndex: 0,
             return:['退货出库',"调货出库"],
-            returnId:[6,7],
+            returnId:[2,3],
             returnIndex:0,
             express: ["圆通", "申通", "汇通"],//快递
             expressId:"",//具体快递
@@ -50,7 +50,7 @@ Page({
                 disable:false,
                 select:select
             })
-            request.storList(this,"wearout/orderlist")
+            request.shopOutOrder(this,"shopout/orderlist")
         } else {
             var end = e.detail.value;
             var time = end.replace(/-/g, '/');
@@ -61,7 +61,7 @@ Page({
             this.setData({
                 select:select
             })
-            request.storList(this,"wearout/orderlist")
+            request.shopOutOrder(this,"shopout/orderlist")
         }
     },
     optionChange: function (e) {
@@ -169,6 +169,7 @@ Page({
                 that.setData({
                     select:select
                 })
+                request.shopOutOrder(that,"shopout/orderlist")
             }
         })
     },

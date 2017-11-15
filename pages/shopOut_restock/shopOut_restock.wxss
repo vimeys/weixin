@@ -47,13 +47,16 @@ image{
     line-height: 44rpx;
 }
 .table .last text:first-child{
-    margin-right: 220rpx;
+    display: inline-block;
+    width:120rpx;
+    margin-right: 100rpx;
 }
 .table .end text:first-child{
     color:red;
     display: inline-block;
-    width: 225rpx;
-    text-align: left;
+    width: 120rpx;
+    /* text-align: left; */
+    margin-right: 100rpx;
     /*margin-left: 100rpx;*/
 }
 .table image{

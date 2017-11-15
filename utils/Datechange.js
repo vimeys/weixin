@@ -37,9 +37,11 @@ var request=require("totalRequest");
           request.shopOutnote(that,nav)
       }else if(nav=='shopout/searchin'){//店铺出库统计请求
           request.shopOutCount(that,nav)
-      }else if(nav=='wearhouse/backingoods'){//退货修改页面列表页面
-          request.storChange(that,nav)
-      }else if(nav=='shopstore/allorder'){//店铺入库修改页面列表页面
+      }
+      // else if(nav=='wearhouse/backingoods'){//退货修改页面列表页面
+      //     request.storChange(that,nav)
+      // }
+      else if(nav=='shopstore/allorder'){//店铺入库修改页面列表页面
           request.shopInChange(that,nav)
       }else if(nav=="wearhouse/loglist"){//仓库入库日志请求
           request.storNote(that,nav)
@@ -79,9 +81,11 @@ var request=require("totalRequest");
         request.shopOutnote(that,nav)
     }else if(nav=='shopout/searchin'){//店铺出库统计请求
         request.shopOutCount(that,nav)
-    }else if(nav=='wearhouse/backingoods'){//退货修改页面列表页面
-        request.storChange(that,nav)
-    }else if(nav=='shopstore/allorder'){//店铺入库修改页面列表页面
+    }
+    // else if(nav=='wearhouse/backingoods'){//退货修改页面列表页面
+    //     request.storChange(that,nav)
+    // }
+    else if(nav=='shopstore/allorder'){//店铺入库修改页面列表页面
         request.shopInChange(that,nav)
     }else if(nav=="wearhouse/loglist"){//仓库入库日志请求
         request.storNote(that,nav)

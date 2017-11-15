@@ -35,7 +35,8 @@ Page({
       Data: "",
       year: "",
       hours: "",
-      noMore: ""
+      noMore: "",
+      page:1,
   },
   DateChange:function (e) {
     DateChange.DateChange(e,this,"wearhouse/loglist")
@@ -117,6 +118,7 @@ Page({
           data.formatCode = that.data.select.Barcode;
           data.sizeId = that.data.select.sizeId[that.data.select.sizeIndex];
           data.catId = that.data.select.nameId[that.data.select.nameIndex];
+          data.page=that.data.page;
           // data.type = '';
           wx.request({
               url: that.data.url + "wearhouse/loglist",
@@ -129,12 +131,14 @@ Page({
                           Data: []
                       })
                   } else if (res.data.code == 200) {
-                      // var t=formatTime.formatTime(res.data.data[0].ctime);
                       var num = [];
                       function change(item, index) {
                           item.okTime = formatTime.formatTime(res.data.data[index].logCtime);
                           if(item.goodsFashion.length>10){
                               item.goodsFashion=item.goodsFashion.slice(0,10)+'...';
+                          }
+                          if(item.colorName.length>3){
+                              item.colorName=item.colorName.slice(0,2)+'...';
                           }
                           num.push(item);
                       }
@@ -146,10 +150,6 @@ Page({
                   }
               }
           })
-      var pages=getCurrentPages();
-      let     pop=pages.shift();
-       // let page=setCurrentPages(pop);
-      console.log(pop);
   },
 
   /**
@@ -191,7 +191,13 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+      let that=this;
+      let num=that.data.page;
+      num++;
+      this.setData({
+          page:num
+      });
+      request.storNote(this,"wearhouse/loglist")
   },
 
   /**

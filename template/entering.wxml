@@ -14,11 +14,11 @@
                 <input type="text" placeholder=""/></view>
             <view class="">
                 <text>款号</text>
-                <input type="number"/>
+                <input type="text"/>
             </view>
             <view>
                 <text>条码号</text>
-                <input type="number"/>
+                <input type="text"/>
             </view>
         </view>
         <view class="good_size">

@@ -52,16 +52,16 @@ Page({
     var url=wx.getStorageSync('level');
     console.log(123131);
     if(url==3||url==4){
-      this.setData({
-        url:"../stock_storage/stock_storage1"
-      })
+      // this.setData({
+      //   url:"../stock_storage/stock_storage"
+      // })
         wx.navigateTo({
             url: '../stock_storage/stock_storage'
         })
     }else if(url==2){
-      this.setData({
-          url:'../stock_storage/stock_storage1'
-      })
+      // this.setData({
+      //     url:'../stock_storage/stock_storage'
+      // })
         wx.navigateTo({
           url: '../stock_storage/stock_storage'
         })

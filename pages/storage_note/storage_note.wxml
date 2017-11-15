@@ -3,7 +3,7 @@
 <template is="output" data="{{select}}"></template>
 <include src="../../template/noteIn.wxml"/>
 <block wx:for="{{Data}}" wx:for-item="item">
-    <view class="list ">
+    <view class="list {{item.fixtype==0?'':'error'}}">
         <view class="img">
             <image src="{{item.goodsImage}}"></image>
         </view>
@@ -27,8 +27,8 @@
             </view>
         </view>
     </view>
-    <view class="record">
-        入库时间：{{item.time}}
+    <view class="record {{item.fixtype==0?'':'error'}}">
+        入库时间：{{item.okTime}}
         <text>操作人：{{item.logEditer}}</text>
     </view>
 </block>

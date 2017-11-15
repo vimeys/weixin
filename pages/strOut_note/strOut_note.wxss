@@ -43,7 +43,7 @@ image{
 .table .title{
     font-size: 28rpx;
     margin-bottom: 10rpx;
-
+     
 }
 .table input{
     display: inline-block;

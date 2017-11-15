@@ -7,7 +7,7 @@
             <input type="text" bindblur="stock" data-type="1"/></view>
         <view class="">
             <text>款号</text>
-            <input type="number" bindblur="stock" data-type="2"/>
+            <input type="text" bindblur="stock" data-type="2"/>
         </view>
         <view>
             <text>条码号</text>

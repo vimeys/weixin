@@ -20,9 +20,10 @@ Page({
             orderId: "",//快递单号
             put:['全部','收货入库','调货入库'],
             putId:[15,0,3],
-            putIndex:0
+            putIndex:0,
         },
-        Data:""
+        Data:"",
+        page:1
     },
     DateChange:function (e) {
         Datechange.DateChange(e,this,"shopstore/allorder");
@@ -63,12 +64,17 @@ Page({
         wx.request({
             url:that.data.url+"shopstore/allorder",
             method:"POST",
-            data:{shopId:shopId},
+            data:{shopId:shopId,page:that.data.page},
             success:function (res) {
                 console.log(res);
                 let json =res.data.data;
                 function push(item,index) {
                     item.okTime=timer.formatTime(item.ctime)
+                    if(item.type==0){
+                        item.Type='正常入库'
+                    }else if(item.type==3){
+                        item.Type='退货入库'
+                    }
                 }
                 res.data.data.forEach(push);
                 that.setData({
@@ -117,7 +123,28 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
-
+        let that=this;
+        let num=that.data.page;
+        num++;
+        this.setData({
+            page:num
+        });
+        wx.request({
+            url:that.data.url+"shopstore/allorder",
+            method:"POST",
+            data:{shopId:shopId,page:that.data.page},
+            success:function (res) {
+                console.log(res);
+                let json =res.data.data;
+                function push(item,index) {
+                    item.okTime=timer.formatTime(item.ctime)
+                }
+                res.data.data.forEach(push);
+                that.setData({
+                    Data:json
+                })
+            }
+        })
     },
 
     /**

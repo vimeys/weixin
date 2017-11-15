@@ -1,7 +1,7 @@
 <!--pages/shopIn_note/shopIn_note.wxml-->
 <import src="../../template/output.wxml"/>
 <template is="output" data="{{select}}"></template>
-<include src="../../template/note.wxml"></include>
+<include src="../../template/noteIn.wxml"></include>
 <import src="../../template/do_detail.wxml"/>
 <template is="do_detail" data="{{Data}}"></template>
 <include src="../../template/nothing.wxml"></include>

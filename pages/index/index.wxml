@@ -1,7 +1,7 @@
 <view class="classname" bindtap="hide">
-    <navigator hover-class="none" url="{{url}}" bindtap="bindUrlTap" data-type="{{url?1:2}}">
+    <view hover-class="none" url="{{url}}" class="indexStorage" bindtap="bindUrlTap" data-type="{{url?1:2}}">
         <image src="../images/cang.png"></image>
-    </navigator>
+    </view>
     <view class="title title_bottom">仓库库存</view>
     <navigator hover-class="none" url="{{url1}}" catchtap="bindUrl1Tap" data-type="{{url1?1:2}}">
         <image src="../images/dian.png"></image>
