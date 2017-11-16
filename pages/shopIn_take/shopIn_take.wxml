@@ -1,6 +1,6 @@
 <!--pages/shopIn_take/shopIn_take.wxml-->
 <view class="time">
-    <view class="timeStart"><picker mode="date" start="{{start}}" disabled="{{use}}" value="{{Edate}}" data-type="1" bindchange="DateChange">
+    <view class="timeStart first"><picker mode="date" start="{{start}}" disabled="{{use}}" value="{{Edate}}" data-type="1" bindchange="DateChange">
         {{select.start}}
     </picker>
     </view>

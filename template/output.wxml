@@ -1,6 +1,6 @@
 <template name="output">
     <view class="time">
-        <view class="timeStart"><picker mode="date" end="{{}}" disabled="{{select.use}}" value="{{Edate}}" data-type="1" bindchange="DateChange">
+        <view class="timeStart timeFirst"><picker mode="date" end="{{}}" disabled="{{select.use}}" value="{{Edate}}" data-type="1" bindchange="DateChange">
             {{select.start}}
         </picker>
         </view>

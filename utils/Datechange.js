@@ -22,7 +22,7 @@ var request=require("totalRequest");
           request.requesttime(that,nav)
       }else if(nav=="shopstore/logsearch"){//店铺入库的统计
           request.requestShop(that,nav)
-      }else if(nav=="wearhouse/backingoods"){
+      }else if(nav=="wearhouse/backingoods"){//仓库退货入库页面
         request.storReturn(that,nav)
       }else if(nav=="shopstore/countsearch"){//店铺入库统计
           request.requestShopCount(that,nav)

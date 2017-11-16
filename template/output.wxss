@@ -1,9 +1,12 @@
 .time{
     width: 100%;
-    padding-left: 20rpx;
+    /* padding-left: 20rpx; */
     border-bottom:10rpx solid #e5e5e5;
     position: relative;
     margin-top: 20rpx;
+}
+.timeFirst{
+  margin-left: 20rpx;
 }
 .timeStart{
     display: inline-block;
@@ -32,6 +35,7 @@
 .good_num{
     display: inline-block;
     width: 480rpx;
+    margin-left: 20rpx
 }
 .good_num view text{
     display: inline-block;
@@ -59,7 +63,7 @@
     margin-bottom: -50rpx;
     position: absolute;
     top:56rpx;
-    right: 20rpx;
+    /* right: 20rpx; */
 }
 .good_size view text{
     display: inline-block;

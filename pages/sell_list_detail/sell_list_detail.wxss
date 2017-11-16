@@ -54,14 +54,16 @@ image{
     line-height: 44rpx;
 }
 .table .last text:first-child{
-    margin-right: 190rpx;
+    display: inline-block;
+    width:100rpx;
+    margin-right: 110rpx;
 }
 .table .end text:first-child{
     color:red;
     display: inline-block;
-    width: 225rpx;
+    width: 100rpx;
     text-align: left;
-    /*margin-left: 100rpx;*/
+    margin-right: 110rpx;
 }
 .table .end text:last-child{
     color:red;

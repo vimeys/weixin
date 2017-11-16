@@ -1,8 +1,14 @@
+.content{
+  width: 100%;
+  display: block;
+   border-bottom: 1rpx solid #ccc;
+}
 .ul{
     display: block;
-    width: 100%;
-    padding:30rpx 20rpx 20rpx 20rpx;
-    border-bottom: 1rpx solid #ccc;
+    /* width: 100%; */
+     padding:30rpx 20rpx 20rpx 0rpx; 
+   
+    margin-left: 20rpx;
 
 }
 .ul .ul_title{

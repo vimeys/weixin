@@ -1,6 +1,6 @@
 <!--pages/storage_returns/storage_returns.wxml-->
 <view class="time">
-    <view class="timeStart"><picker mode="date" start="{{start}}" disabled="{{select.use}}" value="{{Edate}}" data-type="1" bindchange="DateChange">
+    <view class="timeStart timeFirst"><picker mode="date" start="{{start}}" disabled="{{select.use}}" value="{{Edate}}" data-type="1" bindchange="DateChange">
         {{select.start}}
     </picker>
     </view>

@@ -1,7 +1,7 @@
 //仓库出库的统计
 <template name="entering">
     <view class="time">
-        <view class="timeStart"><picker mode="date" start="{{}}" disabled="{{select.use}}" value="{{Edate}}" data-type="1" bindchange="DateChange">
+        <view class="timeStart first"><picker mode="date" start="{{}}" disabled="{{select.use}}" value="{{Edate}}" data-type="1" bindchange="DateChange">
             {{select.start}}
         </picker>
         </view>

@@ -562,6 +562,9 @@ function requestShopCount(that, nav) {
                     if(item.goodsFashion.length>10){
                         item.goodsFashion=item.goodsFashion.slice(0,10)+'...';
                     }
+                    if(item.colorName.length>3){
+                        item.colorName=item.colorName.slice(0,2)+'...';
+                    }
                     if (item.type == 2) {
                         item.type = "退货入库"
                     } else if (item.type == 3) {
@@ -747,7 +750,7 @@ function storReturn(that, nav) {
     var data = {};
     data.begintime = that.data.select.Start;
     data.endtime = that.data.select.End;
-    data.page=that.
+    data.page=that.data.page;
     wx.request({
         url: that.data.url + nav,
         method: "POST",

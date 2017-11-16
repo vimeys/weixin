@@ -1,6 +1,6 @@
 <!--pages/sell_list_all/sell_list_all.wxml-->
 <view class="time">
-    <view class="timeStart">
+    <view class="timeStart first">
         <picker class="before" mode="date" start="{{start}}" disabled="{{select.use}}" value="{{select.start}}" data-type="1"
                 bindchange="DateChange">
             {{select.start}}

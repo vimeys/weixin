@@ -1,7 +1,7 @@
 /* pages/strOut_order/strOut_order.wxss */
 .time{
     width: 100%;
-    padding-left: 20rpx;
+    /* padding-left: 20rpx; */
     border-bottom:10rpx solid #e5e5e5;
 }
 .timeStart{
@@ -14,6 +14,9 @@
     font-size: 28rpx;
     padding-left: 10rpx;
     box-sizing: border-box;
+}
+.first{
+  margin-left: 20rpx;
 }
 .time text{
     line-height: 46rpx;
@@ -33,6 +36,7 @@
     position: relative;
     display: inline-block;
     margin-top: 20rpx;
+    margin-left: 20rpx;
 }
 .express .input{
     display: inline-block;
@@ -76,6 +80,7 @@
     margin-bottom: 30rpx;
     display:flex ;
     align-items: center;
+    margin-left: 20rpx;
 }
 .express_num input{
     display:inline-block;
