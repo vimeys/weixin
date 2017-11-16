@@ -8,7 +8,7 @@
                     {{date[index]}}
                 </picker>
             </view>
-            <view class="shop">成都市成华区跳蹬河
+            <view class="shop">{{order.city}}{{order.area}}
                 <veiw class="shop_choose">店铺选择
                     <picker mode="selector" class="select before" disabled="{{use}}" value="{{shopIndex}}"
                             data-type="3" bindchange="optionChange" range="{{shop}}">

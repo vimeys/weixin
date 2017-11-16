@@ -52,10 +52,10 @@ Page({
     updateData: function () {
         var simulationData = this.createSimulationData();
         var series = [{
-            name: '成交量1',
+            name: '销量',
             data: simulationData.data,
             format: function (val, name) {
-                return val.toFixed(2) + '万';
+                return val.toFixed(0) + '件';
             }
         }];
         lineChart.updateData({
@@ -149,7 +149,7 @@ Page({
                 name: '销售数量',
                 data: simulationData.data,
                 format: function (val, name) {
-                    return val.toFixed(2) + '万';
+                    return val.toFixed(0) + '件';
                 }
             }],
             xAxis: {

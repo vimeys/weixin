@@ -41,6 +41,7 @@ Page({
                 data: {sellBookId: that.data.storeId},
                 success: function (res) {
                     var json = [];
+
                     json.push(res.data.data);
                     that.setData({
                         Data: json
@@ -136,6 +137,32 @@ Page({
                     console.log(res.data);
 
                     var json = [];
+                    if(res.data.data.goodsFashion.length>10){
+                        res.data.data.goodsFashion=res.data.data.goodsFashion.slice(0,10)+'...';
+                    }
+                    if(res.data.data.colorName.length>3){
+                        res.data.data.colorName=res.data.data.colorName.slice(0,2)+'...';
+                    }
+                    json.push(res.data.data);
+                    that.setData({
+                        Data: json
+                    })
+                }
+            })
+        }else if(detail=='storReturnChange'){
+            wx.request({
+                url: this.data.url + "wearhouse/fixpage",
+                method: "POST",
+                data: {storeId: that.data.storeId},
+                success: function (res) {
+                    console.log(res.data);
+
+                    var json = [];
+                    if(res.data.data.fixnumber>0){
+                        res.data.data.number=res.data.data.fixnumber
+                    }else{
+                        res.data.data.number=res.data.data.goodsStock;
+                    }
                     if(res.data.data.goodsFashion.length>10){
                         res.data.data.goodsFashion=res.data.data.goodsFashion.slice(0,10)+'...';
                     }
@@ -369,6 +396,43 @@ Page({
                     storeId: that.data.storeId,
                     type: that.data.orderType,
                     logEditer: that.data.log,
+                    goodsStock: that.data.number
+                },
+                success: function (res) {
+                    console.log(res);
+                    if (res.data.code == 200) {
+                        wx.showModal({
+                            title: '提示',
+                            content: '商品修改成功',
+                            showCancel: false,
+                            success: res => {
+                                wx.navigateBack()({
+                                    delta: 1
+                                })
+                            }
+                        })
+                    } else if (res.data.code == 202 || res.data.code == 201) {
+                        wx.showModal({
+                            title: "警告",
+                            content: "修改失败,请重新修改",
+                            showCancel: false,
+                            success: function (res) {
+                                // wx.navigateBack({
+                                //     delta:1
+                                // })
+                            }
+                        })
+                    }
+                }
+            })
+        }else if(detail=='storReturnChange'){
+            wx.request({
+                url: that.data.url + "wearhouse/fixnumber1",
+                method: "POST",
+                data: {
+                    storeId: that.data.storeId,
+                    // type: that.data.orderType,
+                    // logEditer: that.data.log,
                     goodsStock: that.data.number
                 },
                 success: function (res) {

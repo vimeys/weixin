@@ -1,5 +1,5 @@
 <!--pages/shopOut_detail/shopOut_detail.wxml-->
-<view class="det_title">待收货</view>
+<view class="det_title">{{order.status==0?'待收货':'已入库'}}</view>
 <view class="orderList">
     <view class="second">收货人：{{order.receiver}}<text>联系电话：{{order.rephone}}</text></view>
     <view class="third">店铺地址：{{order.city}}{{order.area}}{{order.address}}</view>
@@ -28,6 +28,6 @@
 
     <view class="express">{{order.expressName}}：{{order.expressCode}}</view>
 </view>
-<view class="fix"  bindtap="return">
-    返回首页
-</view>
+<!--<view class="fix"  bindtap="return">-->
+    <!--返回首页-->
+<!--</view>-->

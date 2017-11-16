@@ -13,14 +13,6 @@ Page({
         Data:"",
         order:"",
     },
-    //返回首页
-    return:function (e) {
-        wx.navigateBack({
-            delta:1
-        })
-    },
-    //确认修改
-
     /**
      * 生命周期函数--监听页面加载
      */

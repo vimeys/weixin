@@ -11,7 +11,7 @@
 </view>
 
 <block wx:for="{{Date}}" wx:for-item="item">
-    <view  class="list" data-type="item.status" bindtap="click" data-name="item.orderId">
+    <view  class="list" data-type="{{item.status}}" bindtap="click" data-name="{{item.orderId}}">
         <!--<view class="new"></view>-->
         <view class="title {{item.status==0?'new':''}}" data-type="1">订单号：{{item.orderCode}}</view>
         <view class="shop">退货店铺：{{item.city}}{{item.area}}{{item.address}}---{{item.shopName}}</view>

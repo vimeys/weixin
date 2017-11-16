@@ -71,9 +71,9 @@ Page({
                 function push(item,index) {
                     item.okTime=timer.formatTime(item.ctime)
                     if(item.type==0){
-                        item.Type='正常入库'
+                        item.Type='收货入库'
                     }else if(item.type==3){
-                        item.Type='退货入库'
+                        item.Type='调货入库'
                     }
                 }
                 res.data.data.forEach(push);

@@ -359,11 +359,15 @@ function requestShopOutNote(that, nav) {
                         item.type = "调货出库"
                     } else if (item.logType == 8) {
                         item.type = "销售出库"
-                    } else if (item.logType == 9 || item.logType == 10) {
+                    }
+                    if (item.fixtype==1) {
                         item.type = "错误信息"
                     }
-                    if(item.goodsFashion.length>12){
-                        item.goodsFashion=item.goodsFashion.slice(0,12)+'...';
+                    if(item.goodsFashion.length>10){
+                        item.goodsFashion=item.goodsFashion.slice(0,10)+'...';
+                    }
+                    if(item.colorName.length>2){
+                        item.colorName=item.colorName.slice(0,2)+'...';
                     }
                     num.push(item);
                 }

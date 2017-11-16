@@ -22,4 +22,4 @@
     <view>总金额 <text>¥{{order.price}}</text></view>
     <view>操作时间 <text>{{order.okTime}}</text></view>
 </view>
-<view class="fix" >保存</view>
+<view class="fix" bindtap="return">保存</view>

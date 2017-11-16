@@ -12,6 +12,7 @@ Page({
         url:"",
         Data:"",
         order:"",
+        orderId:''
     },
     //返回首页
 
@@ -20,11 +21,13 @@ Page({
         let that=this;
         let user=wx.getStorageSync('uname');
         let Type=this.data.order.type;
+        console.log(Type);
         if(Type==2){
             wx.request({
                 url:that.data.url+"shopout/backgoodsok",
                 method:"POST",
                 data:{
+                    orderId:that.data.orderId,
                     logEditer:user
                 },
                 success:function (res) {
@@ -50,6 +53,7 @@ Page({
                 url:that.data.url+"shopout/diaook",
                 method:"POST",
                 data:{
+                    orderId:that.data.orderId,
                     logEditer:user
                 },
                 success:function (res) {
@@ -81,13 +85,15 @@ Page({
         let orderId=options.orderId;
         var that=this;
         this.setData({
-            url:url
+            url:url,
+            orderId:orderId
         })
         wx.request({
             url:that.data.url+"shopstore/orderinfo",
             method:"POST",
             data:{
-                orderId:orderId
+                orderId:orderId,
+                mark:2
             },
             success:function (res) {
                 console.log(res);

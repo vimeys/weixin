@@ -33,7 +33,7 @@ Page({
         console.log(data);
         console.log(order);
         wx.request({
-            url: this.data.url + "shopstore/shopok",
+            url: this.data.url + "shopstore/diaook",
             method: "POST",
             data: {
                 data: data,

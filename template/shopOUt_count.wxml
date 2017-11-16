@@ -7,13 +7,13 @@
             <view class="table">
                 <view class="title">{{item.goodsFashion}} <text>{{item.type}}</text></view>
                 <view>款号：<text>{{item.goodsGirard}}</text></view>
-                <view>条码号：<text>{{item.goodsCode}}</text></view>
+                <view>条码号：<text>{{item.formatCode}}</text></view>
                 <view class="last">
                     尺码：<text>{{item.sizeName}}</text>颜色：<text>{{item.colorName}}</text> 数量： <text class="red">{{item.inStock}}</text>
                 </view>
             </view>
         </view>
-        <view class="record {{'item.type'=='错误信息'?'error':''}}">
+        <view class="record {{item.type=='错误信息'?'error':''}}">
             操作时间：{{item.okTime}} <text>操作人：{{item.logEditer}}</text>
         </view>
     </block>

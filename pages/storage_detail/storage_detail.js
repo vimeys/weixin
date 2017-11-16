@@ -39,6 +39,39 @@ Page({
             }
         })
     },
+    changeConfirm:function (e) {
+      let that=this;
+        wx.request({
+            url:this.data.url+"wearhouse/suppot",
+            method:"POST",
+            data:{orderId:that.data.orderId,
+                logEditer:that.data.log},
+            success:function (res) {
+                console.log(res.data.code);
+                if(res.data.code==200){
+                    wx.showModal({
+                        title: '提示',
+                        content: '商品修改成功',
+                        showCancel:false,
+                        success: res=>{
+                            if (res.confirm) {
+                                wx.navigateBack({
+                                    delta:1,
+                                })
+                            }
+                        }
+                    })
+                }
+            }
+        })
+    },
+    click:function (e) {
+            let Type=e.currentTarget.dataset.type;
+            wx.setStorageSync('detail', 'storReturnChange');
+            wx.navigateTo({
+              url: '../shopIn_change/shopIn_change?storeId='+Type
+            })
+    },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -52,6 +85,21 @@ Page({
           orderId:num,
           log:log
       })
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+      let that=this;
       wx.request({
           url:that.data.url+"wearhouse/backgoodsinfo",
           method:"POST",
@@ -66,6 +114,12 @@ Page({
               function change(item,index) {
                   // item.formatCode=res.data.data.interim[index].goodsCode;
                   item.formatStock=res.data.data.interim[index].goodsStock;
+                  if(item.goodsFashion.length>10){
+                      item.goodsFashion=item.goodsFashion.slice(0,10)+'...';
+                  }
+                  if(item.colorName.length>3){
+                      item.colorName=item.colorName.slice(0,2)+'...';
+                  }
                   num.push(item)
               }
               res.data.data.interim.forEach(change);
@@ -83,20 +137,6 @@ Page({
 
           }
       })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
   },
 
   /**

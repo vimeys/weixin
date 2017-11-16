@@ -113,7 +113,7 @@ Page({
         console.log(e);
         var name=e.currentTarget.dataset.name;
         var type=e.currentTarget.dataset.type;
-        if(name=="待收货"){
+        if(name=="待收货"||name=='已入库'){
             wx.navigateTo({
                 url: '../strOut_detail/strOut_detail?orderId='+type
             })

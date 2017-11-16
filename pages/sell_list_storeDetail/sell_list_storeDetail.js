@@ -48,23 +48,28 @@ Page({
           url:url,
           number:num
       })
-      wx.request({
-          url:that.data.url+"sell/sellorderinfo",
-          method:"POST",
-          data:{sellId:num},
-          success:function (res) {
-              console.log(res);
-              let goods=res.data.data.goods;
-              let order=res.data.data.order;
-              order.okTime=timer.formatTime(res.data.data.order.sellCtime);
-              that.setData({
-                  order:order,
-                  Data:goods
-              })
-          }
-      })
+      // wx.request({
+      //     url:that.data.url+"sell/sellorderinfo",
+      //     method:"POST",
+      //     data:{sellId:num},
+      //     success:function (res) {
+      //         console.log(res);
+      //         let goods=res.data.data.goods;
+      //         let order=res.data.data.order;
+      //
+      //         order.okTime=timer.formatTime(res.data.data.order.sellCtime);
+      //         that.setData({
+      //             order:order,
+      //             Data:goods
+      //         })
+      //     }
+      // })
   },
-
+    return:function (e) {
+        wx.navigateBack({
+          delta:1
+        })
+    },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -85,6 +90,15 @@ Page({
               console.log(res);
               let goods=res.data.data.goods;
               let order=res.data.data.order;
+              function slice(item,index) {
+                  if(item.goodsFashion.length>10){
+                      item.goodsFashion=item.goodsFashion.slice(0,10)+'...';
+                  }
+                  if(item.colorName.length>3){
+                      item.colorName=item.colorName.slice(0,2)+'...';
+                  }
+              }
+              res.data.data.goods.forEach(slice);
               order.okTime=timer.formatTime(res.data.data.order.sellCtime);
               that.setData({
                   order:order,

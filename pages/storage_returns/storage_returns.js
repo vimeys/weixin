@@ -47,6 +47,21 @@ Page({
         this.setData({
             url:url
         })
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+      let that=this;
       wx.request({
           url:this.data.url+"wearhouse/backingoods",
           method:"POST",
@@ -68,20 +83,6 @@ Page({
               console.log(that.data.Date[0].status);
           }
       })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
   },
 
   /**

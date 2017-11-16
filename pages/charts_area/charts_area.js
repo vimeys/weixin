@@ -53,10 +53,10 @@ Page({
     updateData: function () {
         var simulationData = this.createSimulationData();
         var series = [{
-            name: '成交量1',
+            name: '销量',
             data: simulationData.data,
             format: function (val, name) {
-                return val.toFixed(2) + '万';
+                return val.toFixed(0) + '件';
             }
         }];
         lineChart.updateData({
@@ -146,13 +146,16 @@ Page({
                 console.log(res);
                 let arr=[];
                 let con=res.data.data.data[0].day;
+                let order=res.data.data.address;
+
                 function push(item,index) {
                     arr.push(item.number)
                 }
                 res.data.data.data.forEach(push);
                 that.setData({
                     money:arr,
-                    num:con
+                    num:con,
+                    order:order
                 })
             }
         });
@@ -172,10 +175,10 @@ Page({
             animation: true,
             background: '#f5f5f5',
             series: [{
-                name: '销售数量',
+                name: '销量',
                 data: simulationData.data,
                 format: function (val, name) {
-                    return val + '万';
+                    return val + '件';
                 }
             }],
             xAxis: {

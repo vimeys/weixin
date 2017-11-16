@@ -125,7 +125,7 @@ Page({
         console.log(e);
         var name=e.currentTarget.dataset.name;
         var type=e.currentTarget.dataset.type;
-        if(name=="待收货"){
+        if(name=="待收货"||name=='已入库'){
             wx.navigateTo({
                 url: '../shopOut_detail/shopOut_detail?orderId='+type
             })
@@ -248,10 +248,25 @@ Page({
 
             }
         });
+
+    },
+
+    /**
+     * 生命周期函数--监听页面初次渲染完成
+     */
+    onReady: function () {
+
+    },
+
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () {
+        let that=this;
         wx.request({
             url:this.data.url+'shopout/orderlist',
             method:"POST",
-            data:{nowShopId:shopId},
+            data:{nowShopId:that.data.shopId},
             success:function (res) {
                 console.log(res);
                 if(res.data.code==200){
@@ -279,20 +294,6 @@ Page({
 
             }
         })
-    },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
     },
 
     /**
