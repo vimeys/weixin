@@ -13,7 +13,7 @@
                     尺码：<text>{{item.sizeName}}</text>颜色：<text>{{item.colorName}}</text>
                 </view>
                 <view class="end">
-                    单价：<text>￥{{item.formatPrice}}</text>数量：<input type="number" value="{{item.goodsStock}}" bindblur="output" data-type="{{index}}"/>
+                    单价：<text>￥{{item.formatPrice}}</text>数量：<input type="number" value="{{item.goodsStock}}" bindinput="output" data-type="{{index}}"/>
                 </view>
                 <image src="../images/delete.png" bindtap="delGoods" data-type="{{index}}"></image>
             </view>

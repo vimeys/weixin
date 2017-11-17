@@ -22,12 +22,12 @@ Page({
             shop:["成华","金牛"],
             shopId:[],
             shopIndex:0,
-            style: ["待收货", "已出库", "发货修改"],//发货状态
+            style: ['全部',"待收货", "已出库", "发货修改"],//发货状态
 
             styleId:[0,1,2],//具体状态
             styleIndex: 0,
-            return:['退货出库',"调货出库"],
-            returnId:[2,3],
+            return:['全部','退货出库',"调货出库"],
+            returnId:[1001,2,3],
             returnIndex:0,
             express: ["圆通", "申通", "汇通"],//快递
             expressId:"",//具体快递
@@ -152,24 +152,35 @@ Page({
             },
             success:function (res) {
                 console.log(res);
-                let json=res.data.data;
-                let arr=[];
-                let arr1=[];
-                function push(item,index) {
-                    if(item.shopName.length>4){
-                        item.shopName=item.shopName.slice(0,4);
+                if(res.data.code==200){
+                    let json=res.data.data;
+                    let arr=[];
+                    let arr1=[];
+                    function push(item,index) {
+                        if(item.shopName.length>4){
+                            item.shopName=item.shopName.slice(0,4);
+                        }
+                        arr.push(item.shopName);
+                        arr1.push(item.shopId);
                     }
-                    arr.push(item.shopName);
-                    arr1.push(item.shopId);
+                    json.forEach(push);
+                    select.shop=arr;
+                    select.shopId=arr1;
+                    select.shopIndex=0;
+                    that.setData({
+                        select:select
+                    });
+                    request.shopOutOrder(that,"shopout/orderlist")
+                }else if(res.data.code==202){
+                    select.shop=['仓库'];
+                    select.shopId=[1000];
+                    select.shopIndex=0;
+                    that.setData({
+                        select:select
+                    });
+                    request.shopOutOrder(that,"shopout/orderlist")
                 }
-                json.forEach(push);
-                select.shop=arr;
-                select.shopId=arr1;
-                select.shopIndex=0;
-                that.setData({
-                    select:select
-                })
-                request.shopOutOrder(that,"shopout/orderlist")
+
             }
         })
     },
@@ -196,6 +207,10 @@ Page({
                     size.push(item.area);
                     sizeId.push(item.areaid);
                 }
+                size.unshift('仓库');
+                sizeId.unshift(1000);
+                size.unshift('全部');
+                sizeId.unshift(1001);
                 res.data.data.forEach(sizePush);
                 var select = that.data.select;
                 select.area = size;
@@ -220,6 +235,10 @@ Page({
                     sizeId.push(item.shopId);
                 }
                 res.data.data.forEach(sizePush);
+                size.unshift('仓库');
+                sizeId.unshift(1000);
+                size.unshift('全部');
+                sizeId.unshift(1001);
                 var select=that.data.select;
                 select.shop=size;
                 select.shopId=sizeId
@@ -238,6 +257,8 @@ Page({
                     size.push(item.expressName);
                     sizeId.push(item.expressId);
                 }
+                size.unshift('全部');
+                sizeId.unshift(1001);
                 res.data.data.forEach(sizePush);
                 var select=that.data.select;
                 select.express=size;

@@ -1,4 +1,4 @@
-<template name="output">
+<template name="input">
     <view class="time">
         <view class="timeStart timeFirst"><picker mode="date" end="{{}}" disabled="{{select.use}}" value="{{Edate}}" data-type="1" bindchange="DateChange">
             {{select.start}}
@@ -34,7 +34,7 @@
                 </picker>
             </view>
             <view>
-                <text>出库</text>
+                <text>入库</text>
                  <picker mode="selector"  class="select before" range="{{select.ways}}" disabled="{{select.use}}" value="{{select.waysIndex}}" data-type="3" bindchange="optionChange">
                     {{select.ways[select.waysIndex]}}
                 </picker>

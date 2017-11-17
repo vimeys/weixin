@@ -26,8 +26,8 @@ Page({
             sizeId:"",
             name:["长","宽","高"],
             nameId:[],
-            ways:['全部','调货出库','退货出库'],
-            waysId:[15,7,6],
+            ways:['全部','调货出库','退货出库','销售出库'],
+            waysId:[15,7,6,8],
             nameIndex:0,
             sizeIndex:0,
             waysIndex:0

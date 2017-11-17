@@ -1,5 +1,5 @@
 <view class="time">
-    <view class="timeStart first"><picker mode="date"  start="{{select.start}}"  value="{{start}}"  data-type="1" bindchange="DateChange">
+    <view class="timeStart first_a"><picker mode="date"  start="{{select.start}}"  value="{{start}}"  data-type="1" bindchange="DateChange">
         {{select.start}}
     </picker>
     </view>

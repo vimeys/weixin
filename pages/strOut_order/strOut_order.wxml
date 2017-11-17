@@ -1,6 +1,6 @@
 <!--pages/strOut_order/strOut_order.wxml-->
 <view class="time">
-    <view class="timeStart"><picker mode="date"  start="{{select.start}}"  value="{{start}}"  data-type="1" bindchange="DateChange">
+    <view class="timeStart first_A"><picker mode="date"  start="{{select.start}}"  value="{{start}}"  data-type="1" bindchange="DateChange">
         {{select.start}}
         </picker>
     </view>

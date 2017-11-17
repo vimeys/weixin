@@ -137,7 +137,12 @@ Page({
                 console.log(res);
                 let json =res.data.data;
                 function push(item,index) {
-                    item.okTime=timer.formatTime(item.ctime)
+                    item.okTime=timer.formatTime(item.ctime);
+                    if(item.type==0){
+                        item.Type='收货入库'
+                    }else if(item.type==3){
+                        item.Type='调货入库'
+                    }
                 }
                 res.data.data.forEach(push);
                 that.setData({

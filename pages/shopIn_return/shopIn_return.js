@@ -44,6 +44,9 @@ Page({
                         if(item.goodsFashion.length>12){
                             item.goodsFashion=item.goodsFashion.slice(0,12)+'...';
                         }
+                        if(item.colorName.length>3){
+                            item.colorName=item.colorName.slice(0,2)+'...';
+                        }
                     }
                     res.data.data.forEach(slice);
                     that.setData({

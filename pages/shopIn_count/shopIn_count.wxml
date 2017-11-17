@@ -1,6 +1,6 @@
 <!--pages/shopIn_count/shopIn_count.wxml-->
-<import src="../../template/output.wxml"/>
-<template is="output" data="{{select}}"></template>
+<import src="../../template/input.wxml"/>
+<template is="input" data="{{select}}"></template>
 <import src="../../template/shop_count.wxml"/>
 <template is="shop_count" data="{{Data}}"></template>
 <include src="../../template/nothing.wxml"></include>

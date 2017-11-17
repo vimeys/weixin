@@ -297,6 +297,9 @@ function requestShop(that, nav) {
                     item.okTime = formatTime.formatTime(res.data.data[index].logCtime);
                     if(item.goodsFashion.length>10){
                         item.goodsFashion=item.goodsFashion.slice(0,10)+'...';
+                    };
+                    if(item.colorName.length>3){
+                        item.colorName=item.colorName.slice(0,2)+'...';
                     }
                     if (item.logType == 2) {
                         item.type = "退货入库"
@@ -809,7 +812,7 @@ function shopInChange(that, nav) {
     var obj = {};
     obj.begintime = that.data.select.Start;
     obj.endtime = that.data.select.End;
-    obj.orderCode = that.data.select.put[that.data.select.putIndex];
+    obj.orderCode = that.data.select.putId[that.data.select.putIndex];
     obj.orderCode = that.data.orderId;
     wx.request({
         url: that.data.url + nav,
