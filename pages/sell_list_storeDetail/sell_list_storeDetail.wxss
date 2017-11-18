@@ -25,6 +25,13 @@ image{
     width:250rpx;
     height: 178rpx;
 }
+.del{
+    width: 30rpx;
+    height: 30rpx;
+    position: absolute;
+    right: 20rpx;
+    top:20rpx;
+}
 .table{
     padding-top: 10rpx;
     padding-bottom: 10rpx;

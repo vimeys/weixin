@@ -25,6 +25,7 @@
                 数量：
                 <text>{{item.number}}</text>
             </view>
+            <image src="../images/pencil.png" class="del" data-type="{{item.sellBookId}}" bindtap="click"></image>
         </view>
     </view>
 </block>

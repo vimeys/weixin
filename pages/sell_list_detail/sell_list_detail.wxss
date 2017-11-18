@@ -33,6 +33,7 @@ image{
     line-height:44rpx;
     position: relative;
 }
+
 .table .title{
     font-size: 28rpx;
     margin-bottom: 10rpx;

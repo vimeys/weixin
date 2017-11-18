@@ -22,12 +22,11 @@ Page({
             shop:["成华","金牛"],
             shopId:[],
             shopIndex:0,
-            style: ['全部',"待收货", "已出库", "发货修改"],//发货状态
-
+            style: ["待收货", "已入库", "发货修改"],//发货状态
             styleId:[0,1,2],//具体状态
             styleIndex: 0,
-            return:['全部','退货出库',"调货出库"],
-            returnId:[1001,2,3],
+            return:['退货出库',"调货出库"],
+            returnId:[2,3],
             returnIndex:0,
             express: ["圆通", "申通", "汇通"],//快递
             expressId:"",//具体快递
@@ -209,8 +208,6 @@ Page({
                 }
                 size.unshift('仓库');
                 sizeId.unshift(1000);
-                size.unshift('全部');
-                sizeId.unshift(1001);
                 res.data.data.forEach(sizePush);
                 var select = that.data.select;
                 select.area = size;
@@ -237,8 +234,6 @@ Page({
                 res.data.data.forEach(sizePush);
                 size.unshift('仓库');
                 sizeId.unshift(1000);
-                size.unshift('全部');
-                sizeId.unshift(1001);
                 var select=that.data.select;
                 select.shop=size;
                 select.shopId=sizeId
@@ -257,8 +252,6 @@ Page({
                     size.push(item.expressName);
                     sizeId.push(item.expressId);
                 }
-                size.unshift('全部');
-                sizeId.unshift(1001);
                 res.data.data.forEach(sizePush);
                 var select=that.data.select;
                 select.express=size;

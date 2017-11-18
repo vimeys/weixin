@@ -41,7 +41,12 @@ Page({
                 data: {sellBookId: that.data.storeId},
                 success: function (res) {
                     var json = [];
-
+                    if(res.data.data.goodsFashion.length>10){
+                        res.data.data.goodsFashion=res.data.data.goodsFashion.slice(0,10)+'...';
+                    }
+                    if(res.data.data.colorName.length>3){
+                        res.data.data.colorName=res.data.data.colorName.slice(0,2)+'...';
+                    }
                     json.push(res.data.data);
                     that.setData({
                         Data: json
@@ -279,7 +284,8 @@ Page({
                 method: "POST",
                 data: {
                     sellBookId: that.data.storeId,
-                    number: that.data.number
+                    number: that.data.number,
+                    logEditer:that.data.log
                 },
                 success: function (res) {
                     console.log(res);
@@ -309,46 +315,48 @@ Page({
                     }
                 }
             })
-        } else if (detail == 'sell') {//店铺入库修改页面
-            this.setData({
-                newUrl: "..pages/shopIn_changeAllDetail/shopIn_changeAllDetail"
-            })
-            wx.request({
-                url: that.data.url + "shopstore/shoufix",
-                method: "POST",
-                data: {
-                    storeId: that.data.storeId,
-                    goodsStock: that.data.number
-                },
-                success: function (res) {
-                    console.log(res);
-                    if (res.data.code == 200) {
-                        wx.showModal({
-                            title: '提示',
-                            content: '商品修改成功',
-                            showCancel: false,
-                            success: res => {
-                                console.log("成功");
-                                wx.navigateTo({
-                                    url: that.data.newUrl
-                                })
-                            }
-                        })
-                    } else if (res.data.code == 202 || res.data.code == 201) {
-                        wx.showModal({
-                            title: "警告",
-                            content: "修改失败,请重新修改",
-                            showCancel: false,
-                            success: function (res) {
-                                // wx.navigateBack({
-                                //     delta:1
-                                // })
-                            }
-                        })
-                    }
-                }
-            })
-        } else if (detail == 'storChange') {//店铺入库修改页面
+        }
+        // else if (detail == 'sell') {//店铺入库修改页面
+        //     this.setData({
+        //         newUrl: "..pages/shopIn_changeAllDetail/shopIn_changeAllDetail"
+        //     })
+        //     wx.request({
+        //         url: that.data.url + "shopstore/shoufix",
+        //         method: "POST",
+        //         data: {
+        //             storeId: that.data.storeId,
+        //             goodsStock: that.data.number
+        //         },
+        //         success: function (res) {
+        //             console.log(res);
+        //             if (res.data.code == 200) {
+        //                 wx.showModal({
+        //                     title: '提示',
+        //                     content: '商品修改成功',
+        //                     showCancel: false,
+        //                     success: res => {
+        //                         console.log("成功");
+        //                         wx.navigateTo({
+        //                             url: that.data.newUrl
+        //                         })
+        //                     }
+        //                 })
+        //             } else if (res.data.code == 202 || res.data.code == 201) {
+        //                 wx.showModal({
+        //                     title: "警告",
+        //                     content: "修改失败,请重新修改",
+        //                     showCancel: false,
+        //                     success: function (res) {
+        //                         // wx.navigateBack({
+        //                         //     delta:1
+        //                         // })
+        //                     }
+        //                 })
+        //             }
+        //         }
+        //     })
+        // }
+        else if (detail == 'storChange') {//店铺入库修改页面
             // this.setData({
             //     newUrl: "..pages/shopIn_changeAllDetail/shopIn_changeAllDetail"
             // })

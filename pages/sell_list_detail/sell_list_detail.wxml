@@ -43,6 +43,7 @@
                     数量：
                     <text>{{item.number}}</text>
                 </view>
+
             </view>
             </view>
         </block>
