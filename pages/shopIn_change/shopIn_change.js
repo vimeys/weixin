@@ -200,9 +200,7 @@ Page({
         let that = this;
         let detail = wx.getStorageSync('detail');
         if (detail == "restock") {
-            this.setData({
-                newUrl: "..shopIn_restockDetail/shopIn_restockDetail"
-            })
+
             wx.request({
                 url: that.data.url + "shopstore/shoufix",
                 method: "POST",
@@ -238,15 +236,13 @@ Page({
                 }
             })
         } else if (detail == "take") {
-            this.setData({
-                newUrl: "..shopIn_takeDetail/shopIN_takeDetail"
-            })
             wx.request({
                 url: that.data.url + "shopstore/shoufix",
                 method: "POST",
                 data: {
                     storeId: that.data.storeId,
-                    goodsStock: that.data.number
+                    goodsStock: that.data.number,
+                    logEditer:that.data.log
                 },
                 success: function (res) {
                     console.log(res);
@@ -276,9 +272,6 @@ Page({
                 }
             })
         } else if (detail == 'sell') {//店长销售单修改页面
-            this.setData({
-                newUrl: "../sell_list_storeDetail/sell_list_storeDetail"
-            })
             wx.request({
                 url: that.data.url + "sell/fixnumber",
                 method: "POST",
@@ -357,9 +350,6 @@ Page({
         //     })
         // }
         else if (detail == 'storChange') {//店铺入库修改页面
-            // this.setData({
-            //     newUrl: "..pages/shopIn_changeAllDetail/shopIn_changeAllDetail"
-            // })
             wx.request({
                 url: that.data.url + "wearhouse/changeinfo",
                 method: "POST",
@@ -399,9 +389,6 @@ Page({
                 }
             })
         } else if (detail == "shopInChange") {
-            // this.setData({
-            //     newUrl:"..shopIn_takeDetail/shopIN_takeDetail"
-            // })
             wx.request({
                 url: that.data.url + "wearhouse/changeinfo",
                 method: "POST",
@@ -444,8 +431,6 @@ Page({
                 method: "POST",
                 data: {
                     storeId: that.data.storeId,
-                    // type: that.data.orderType,
-                    // logEditer: that.data.log,
                     goodsStock: that.data.number
                 },
                 success: function (res) {
