@@ -51,7 +51,7 @@ Page({
   bindUrlTap:function (e) {
     var url=wx.getStorageSync('level');
     console.log(123131);
-    if(url==3||url==4){
+    if(url==4){
       // this.setData({
       //   url:"../stock_storage/stock_storage"
       // })
@@ -116,7 +116,7 @@ Page({
         url1:"../stock_store/stock_store",
       })
         console.log("后执行")
-    }else if(url==3||url==4){
+    }else if(url==4){
       this.setData({
         url:"../stock_storage/stock_storage"
       })

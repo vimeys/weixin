@@ -94,16 +94,17 @@ Page({
     },
     outputArea:function (e) {
         var type=e.detail.value;
+
         this.setData({
             return:type
         })
+        console.log(this.data.return);
     },
     //发货选择
     sendExpress: function (e) {
         var data = this.data;
         let obj={};
         var storeId=data.storeId;
-        obj.remark=data.return;
         // obj.ctime=data.Date;
         obj.receiver=data.takePeople;
         obj.rephone=data.takePhone;

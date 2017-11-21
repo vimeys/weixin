@@ -15,8 +15,8 @@
             </view>
         </view>
     </view>
-    <view class="record">
-        操作时间：{{item.okTime}}
-    </view>
+    <!--<view class="record">-->
+        <!--操作时间：{{item.okTime}}-->
+    <!--</view>-->
 </block>
 <include src="../../template/nothing.wxml"/>

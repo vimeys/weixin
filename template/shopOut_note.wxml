@@ -26,8 +26,8 @@
             </view>
 
         </view>
-        <view class="record">
-            入库时间：{{item.okTime}}
-        </view>
+        <!--<view class="record">-->
+            <!--入库时间：{{item.okTime}}-->
+        <!--</view>-->
     </block>
 </template>

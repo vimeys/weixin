@@ -40,7 +40,7 @@ Page({
     //仓库链接权限
     bindUrlTap: function (e) {
         var level = wx.getStorageSync('level');
-        if (level == 3 || level == 4) {
+        if ( level == 4) {
             this.setData({
                 url: "../strageOutput/strageOutput"
             })
@@ -78,7 +78,7 @@ Page({
             this.setData({
                 url1: "../shopOut/shopOut"
             })
-        } else if (level == 3 || level == 4) {
+        } else if ( level == 4) {
             this.setData({
                 url: "../strageOutput/strageOutput"
             })

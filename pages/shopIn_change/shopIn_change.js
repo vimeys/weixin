@@ -209,18 +209,23 @@ Page({
                     goodsStock: that.data.number
                 },
                 success: function (res) {
-                    console.log(res);
                     if (res.data.code == 200) {
-                        wx.showModal({
-                            title: '提示',
-                            content: '商品修改成功',
-                            showCancel: false,
-                            success: res => {
-                                wx.navigateBack({
-                                    delta: 1
-                                })
-                            }
+                        wx.removeStorage({
+                          key: 'detail',
+                          success: res => {
+                              wx.showModal({
+                                  title: '提示',
+                                  content: '商品修改成功',
+                                  showCancel: false,
+                                  success: res => {
+                                      wx.navigateBack({
+                                          delta: 1
+                                      })
+                                  }
+                              })
+                          }
                         })
+
                     } else if (res.data.code == 202 || res.data.code == 201) {
                         wx.showModal({
                             title: "警告",
@@ -245,18 +250,23 @@ Page({
                     logEditer:that.data.log
                 },
                 success: function (res) {
-                    console.log(res);
                     if (res.data.code == 200) {
-                        wx.showModal({
-                            title: '提示',
-                            content: '商品修改成功',
-                            showCancel: false,
-                            success: res => {
-                                wx.navigateBack()({
-                                    delta: 1
-                                })
-                            }
+                        wx.removeStorage({
+                          key: 'detail',
+                          success: res => {
+                              wx.showModal({
+                                  title: '提示',
+                                  content: '商品修改成功',
+                                  showCancel: false,
+                                  success: res => {
+                                      wx.navigateBack()({
+                                          delta: 1
+                                      })
+                                  }
+                              })
+                          }
                         })
+
                     } else if (res.data.code == 202 || res.data.code == 201) {
                         wx.showModal({
                             title: "警告",
@@ -281,18 +291,22 @@ Page({
                     logEditer:that.data.log
                 },
                 success: function (res) {
-                    console.log(res);
                     if (res.data.code == 200) {
-                        wx.showModal({
-                            title: '提示',
-                            content: '商品修改成功',
-                            showCancel: false,
-                            success: res => {
-                                console.log("成功");
-                                wx.navigateBack()({
-                                    delta: 1
-                                })
-                            }
+                        wx.removeStorage({
+                          key: 'detail',
+                          success: res => {
+                              wx.showModal({
+                                  title: '提示',
+                                  content: '商品修改成功',
+                                  showCancel: false,
+                                  success: res => {
+                                      console.log("成功");
+                                      wx.navigateBack()({
+                                          delta: 1
+                                      })
+                                  }
+                              })
+                          }
                         })
                     } else if (res.data.code == 202 || res.data.code == 201) {
                         wx.showModal({
@@ -360,7 +374,6 @@ Page({
                     goodsStock: that.data.number
                 },
                 success: function (res) {
-                    console.log(res);
                     if (res.data.code == 200) {
                         wx.removeStorageSync("detail");
                         wx.showModal({
@@ -399,7 +412,7 @@ Page({
                     goodsStock: that.data.number
                 },
                 success: function (res) {
-                    console.log(res);
+                    wx.removeStorageSync("detail");
                     if (res.data.code == 200) {
                         wx.showModal({
                             title: '提示',
@@ -434,7 +447,7 @@ Page({
                     goodsStock: that.data.number
                 },
                 success: function (res) {
-                    console.log(res);
+                    wx.removeStorageSync("detail");
                     if (res.data.code == 200) {
                         wx.showModal({
                             title: '提示',

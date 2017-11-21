@@ -124,7 +124,7 @@ Page({
         console.log(e);
         var name=e.currentTarget.dataset.name;
         var type=e.currentTarget.dataset.type;
-        if(name=="待收货"||name=='已入库'){
+        if(name=="待收货"||name=='已出库'){
             wx.navigateTo({
                 url: '../shopOut_detail/shopOut_detail?orderId='+type
             })
@@ -290,7 +290,7 @@ Page({
                         if(item.status==0){
                             item.Type="待收货"
                         }else if(item.status==1){
-                            item.Type="已入库"
+                            item.Type="已出库"
                         }else if(item.status==2){
                             item.Type='发货修改'
                         }

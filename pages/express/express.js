@@ -122,20 +122,25 @@ Page({
                 },
                 success:function (res) {
                     if(res.data.code==200){
-                        wx.showModal({
-                            title: '提示',
-                            content: '发货成功',
-                            showCancel:false,
-                            success: res=>{
-                                if (res.confirm) {
-                                    wx.navigateBack({
-                                        delta: 3
-                                    })
-                                }
-                            }
+                        wx.removeStorage({
+                          key: 'nav',
+                          success: res => {
+                              wx.showModal({
+                                  title: '提示',
+                                  content: '发货成功',
+                                  showCancel:false,
+                                  success: res=>{
+                                      if (res.confirm) {
+                                          wx.navigateBack({
+                                              delta: 3
+                                          })
+                                      }
+                                  }
+                              })
+                          } 
                         })
+
                     }
-                    console.log(1);
 
                 }
             });

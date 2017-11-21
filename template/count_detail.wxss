@@ -50,7 +50,7 @@ image{
     line-height: 44rpx;
 }
 .table .last text{
-    margin-right: 35rpx;
+    margin-right: 15rpx;
 }
 .table .last .red{
     color:red;

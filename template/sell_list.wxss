@@ -14,7 +14,7 @@
 .ul .ul_title{
     font-size: 30rpx;
     margin-bottom: 30rpx;
-    width: 94%;
+    width: 100%;
 }
 .ul .ul_title text{
     color:red;

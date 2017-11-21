@@ -78,6 +78,7 @@ image{
     text-align: right;
     padding: 30rpx 20rpx 30rpx 0;
     border-bottom: 1rpx solid #ccc;
+    font-size: 28rpx;
 }
 .btn{
     margin-top: 150rpx;

@@ -40,7 +40,7 @@ Page({
     //仓库选择
     bindUrlTap:function (e) {
         var level=wx.getStorageSync('level');
-        if(level==3||level==4){
+        if(level==4){
             this.setData({
                 url:"../storage/storage"
             })
@@ -77,7 +77,7 @@ Page({
         this.setData({
             url1:"../shopIn/shopIn"
         })
-    }else if(userLevel==3||userLevel==4){
+    }else if(userLevel==4){
         this.setData({
             url:"../storage/storage"
         })

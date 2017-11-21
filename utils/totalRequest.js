@@ -111,6 +111,9 @@ function requesttime(that, nav) {
                     if(item.goodsFashion.length>10){
                         item.goodsFashion=item.goodsFashion.slice(0,10)+'...';
                     }
+                    if(item.colorName.length>3){
+                        item.colorName=item.colorName.slice(0,2)+'...';
+                    }
                     num.push(item);
                 }
 

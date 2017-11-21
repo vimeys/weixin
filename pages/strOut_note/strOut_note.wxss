@@ -40,10 +40,17 @@ image{
     line-height:44rpx;
     position: relative;
 }
+.table .title text{
+    position: absolute;
+    right: 20rpx;
+    top:0;
+    color:red;
+
+}
 .table .title{
     font-size: 28rpx;
     margin-bottom: 10rpx;
-     
+    position: relative;
 }
 .table input{
     display: inline-block;
@@ -86,3 +93,6 @@ image{
     /*padding-top: 50rpx;*/
     /*text-align: center;*/
 /*}*/
+.error{
+    background: #e8e8e8;
+}

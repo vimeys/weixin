@@ -36,6 +36,10 @@ Page({
           wx.navigateTo({
             url: '../storage_detail/storage_detail?orderId='+Name
           })
+      }else if(Type==1){
+          wx.navigateTo({
+              url:''
+          })
       }
     },
   /**

@@ -234,39 +234,39 @@ Page({
 
             }
         });
-        wx.request({
-            url:this.data.url+'wearout/orderlist',
-            method:"POST",
-            data:{
-                areaId:0,
-                expressId:0
-            },
-            success:function (res) {
-                if(res.data.code==200){
-                    var num=[];
-                    function change(item,index) {
-                        item.okTime=formatTime.formatTime(res.data.data[index].ctime)
-                        if(item.status==0){
-                            item.type="待收货"
-                        }else if(item.status==1){
-                            item.type="已入库"
-                        }else if(item.status==2){
-                            item.type="发货修改"
-                        }
-                        num.push(item);
-                    }
-                    res.data.data.forEach(change);
-                    that.setData({
-                        Data:num
-                    })
-                }else{
-                    that.setData({
-                        Data:[]
-                    })
-                }
-
-            }
-        })
+        // wx.request({
+        //     url:this.data.url+'wearout/orderlist',
+        //     method:"POST",
+        //     data:{
+        //         areaId:0,
+        //         expressId:0
+        //     },
+        //     success:function (res) {
+        //         if(res.data.code==200){
+        //             var num=[];
+        //             function change(item,index) {
+        //                 item.okTime=formatTime.formatTime(res.data.data[index].ctime)
+        //                 if(item.status==0){
+        //                     item.type="待收货"
+        //                 }else if(item.status==1){
+        //                     item.type="已入库"
+        //                 }else if(item.status==2){
+        //                     item.type="发货修改"
+        //                 }
+        //                 num.push(item);
+        //             }
+        //             res.data.data.forEach(change);
+        //             that.setData({
+        //                 Data:num
+        //             })
+        //         }else{
+        //             that.setData({
+        //                 Data:[]
+        //             })
+        //         }
+        //
+        //     }
+        // })
     },
 
     /**
