@@ -158,9 +158,11 @@ Page({
                 that.setData({
                     select:select
                 })
+                // console.log(that.data);
+                request.storList(that,"wearout/orderlist")
             }
         })
-        request.storList(this,"wearout/orderlist")
+        // request.storList(this,"wearout/orderlist")
     },
     /**
      * 生命周期函数--监听页面加载
