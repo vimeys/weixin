@@ -22,7 +22,7 @@ Page({
             shop:["成华","金牛"],
             shopId:[],
             shopIndex:0,
-            style: ["待收货", "已入库", "发货修改"],//发货状态
+            style: ["待收货", "已出库", "发货修改"],//发货状态
             styleId:[0,1,2],//具体状态
             styleIndex: 0,
             return:['退货出库',"调货出库"],

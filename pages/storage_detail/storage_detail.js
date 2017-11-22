@@ -12,6 +12,9 @@ Page({
       Data:"",
       order:"",
       log:'',
+      confirm:true,
+      change:false,
+      show:true,
   },
     confirm:function (e) {
         var that=this;
@@ -107,9 +110,31 @@ Page({
               orderId:that.data.orderId
           },
           success:function (res) {
+              function judge(item,index) {
+                  if(item.fixnumber>0){
+                      that.setData({
+                          confirm:false,
+                          change:true
+                      })
+                  }
+              }
+               res.data.data.interim.forEach(judge);
               var json=res.data.data.interim;
-              console.log(json);
               var order=res.data.data.order;
+              if(order.status==1){
+                  that.setData({
+                      show:false,
+                      Type:'已入库'
+                  })
+              }else if(order.status==0){
+                  that.setData({
+                      Type:'待收货'
+                  })
+              }else if(order.status==2){
+                  that.setData({
+                      Type:'发货修改'
+                  })
+              }
               var num=[];
               function change(item,index) {
                   // item.formatCode=res.data.data.interim[index].goodsCode;

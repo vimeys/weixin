@@ -14,10 +14,7 @@ var request=require("totalRequest");
     select1.Start=time;
     that.setData({
       select: select1,
-    })
-      console.log(select1);
-      console.log(nav);
-
+    });
       if(nav=="wearhouse/searchin"){//仓库入库统计的请求
           request.requesttime(that,nav)
       }else if(nav=="shopstore/logsearch"){//店铺入库的统计

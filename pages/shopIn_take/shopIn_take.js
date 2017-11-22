@@ -27,18 +27,17 @@ Page({
         common.bindpick(this)
     } ,
     DateChange:function (e) {
-        console.log(123)
         DateChange.DateChange(e,this,"shopstore/shougoods");
     },
     //点击页面跳转
     click:function (e) {
         var Type=e.currentTarget.dataset.type;
         var orderId=e.currentTarget.dataset.name;
-        if(Type=='待收货'||Type=='发货修改'){
+        // if(Type=='待收货'||Type=='发货修改'){
             wx.navigateTo({
               url: '../shopIn_takeDetail/shopIN_takeDetail?orderId='+orderId
             })
-        }
+        // }
     },
     /**
      * 生命周期函数--监听页面加载

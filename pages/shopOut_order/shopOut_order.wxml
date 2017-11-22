@@ -46,7 +46,7 @@
     <view class="orderList" bindtap="bindNav" data-type="{{item.orderId}}" data-name="{{item.Type}}">
         <view class="first">订单号：{{item.orderCode}} <text>{{item.Type}}</text></view>
         <view class="second">收货人：{{item.receiver}} <text>联系电话：{{item.rephone}}</text></view>
-        <view class="third">店铺地址：{{item.city}}{{item.area}}{{item.address }}</view>
+        <view class="third">店铺地址：{{item.address }}</view>
         <view class="small">发货时间：{{item.okTime}} <test>{{item.expressName}}：{{item.expressCode}}</test></view>
     </view>
 </block>

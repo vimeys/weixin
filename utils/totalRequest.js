@@ -522,7 +522,7 @@ function shopOutOrder(that, nav) {
                     if(item.status==0){
                         item.Type="待收货"
                     }else if(item.status==1){
-                        item.Type="已入库"
+                        item.Type="已出库"
                     }else if(item.status==2){
                         item.Type='发货修改'
                     }

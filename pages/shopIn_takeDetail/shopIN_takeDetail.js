@@ -12,7 +12,11 @@ Page
         Data: "",
         order: "",
         log: "",
-        shopId: ""
+        shopId: "",
+        confirm:true,//
+        change:false,
+        show:true,//控制按钮图标显示
+        Type:''
     },
     //确认入库请求
     confirm: function (e) {
@@ -30,9 +34,6 @@ Page
         }
 
         that.data.Data.forEach(push);
-        console.log(1);
-        console.log(data);
-        console.log(order);
         wx.request({
             url: this.data.url + "shopstore/shopok",
             method: "POST",
@@ -123,32 +124,7 @@ Page
             log: log,
             shopId: shopId
         });
-        // wx.request({
-        //     url: that.data.url + "shopstore/orderinfo",
-        //     method: "POST",
-        //     data: {
-        //         orderId: that.data.orderId
-        //     },
-        //     success: function (res) {
-        //         var json = res.data.data.goodsinfo;
-        //         var order = res.data.data.order;
-        //         function slice(item,index) {
-        //             if(item.goodsFashion.length>10){
-        //                 item.goodsFashion=item.goodsFashion.slice(0,10)+'...';
-        //             }
-        //             if(item.colorName.length>3){
-        //                 item.colorName=item.colorName.slice(0,2)+'...';
-        //             }
-        //         }
-        //         res.data.data.goodsinfo.forEach(slice);
-        //
-        //         that.setData({
-        //             Data: json,
-        //             order: order
-        //         });
-        //
-        //     }
-        // })
+
     },
 
     /**
@@ -172,6 +148,30 @@ Page
             success: function (res) {
                 var json = res.data.data.goodsinfo;
                 var order = res.data.data.order;
+                if(order.status==1){
+                    that.setData({
+                        show:false,
+                        Type:'已入库'
+                    })
+                }else if(order.status==0){
+                    that.setData({
+                        Type:'待收货'
+                    })
+                }else if(order.status==2){
+                    that.setData({
+                        Type:'发货修改'
+                    })
+                }
+                order.okTime=formatTime.formatTime(order.ctime);
+                function judge(item,index) {
+                    if(item.fixnumber>0){
+                        that.setData({
+                            confirm:false,
+                            change:true
+                        })
+                    }
+                }
+                res.data.data.goodsinfo.forEach(judge);
                 function slice(item,index) {
                     if(item.goodsFashion.length>10){
                         item.goodsFashion=item.goodsFashion.slice(0,10)+'...';

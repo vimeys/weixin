@@ -1,5 +1,5 @@
 <!--pages/shopOut_detail/shopOut_detail.wxml-->
-<view class="det_title">{{order.status==0?'待收货':'已入库'}}</view>
+<view class="det_title">{{order.status==0?'待收货':'已出库'}}</view>
 <view class="orderList">
     <view class="second">收货人：{{order.receiver}}<text>联系电话：{{order.rephone}}</text></view>
     <view class="third">店铺地址：{{order.city}}{{order.area}}{{order.address}}</view>
@@ -18,7 +18,7 @@
                 <view>款号：<text>{{item.goodsGirard}}</text></view>
                 <view>条码号：<text>{{item.formatCode}}</text></view>
                 <view class="last">
-                    尺码：<text>{{item.sizeName}}</text>颜色：<text>{{item.colorName}}</text> 数量： <text class="red">{{item.goodsStock}}</text>
+                    尺码：<text>{{item.sizeName}}</text>颜色：<text>{{item.colorName}}</text> 数量： <text class="{{item.fixnumber>0?'del':'red'}}">{{item.goodsStock}}</text><text wx-if="{{item.fixnumber>0}}" class="red">{{item.fixnumber}}</text>
                 </view>
             </view>
         </view>

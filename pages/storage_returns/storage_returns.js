@@ -32,15 +32,15 @@ Page({
     click:function (e) {
       let  Type=e.currentTarget.dataset.type;
       let Name=e.currentTarget.dataset.name;
-      if(Type==0){
+      // if(Type==0){
           wx.navigateTo({
             url: '../storage_detail/storage_detail?orderId='+Name
           })
-      }else if(Type==1){
-          wx.navigateTo({
-              url:''
-          })
-      }
+      // }else if(Type==1){
+      //     wx.navigateTo({
+      //         url:''
+      //     })
+      // }
     },
   /**
    * 生命周期函数--监听页面加载
@@ -78,6 +78,13 @@ Page({
               var num=[];
               function change(item,index){
                   item.okTime=formatTime.formatTime(res.data.data[index].ctime);
+                  if(res.data.data[index].status==0){
+                      item.Type='待收货'
+                  }else if(res.data.data[index].status==1){
+                      item.Type='已入库'
+                  }else if(res.data.data[index].status==2){
+                      item.Type='发货修改'
+                  }
                   num.push(item)
               }
               res.data.data.forEach(change);

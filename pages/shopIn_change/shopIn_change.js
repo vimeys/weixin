@@ -205,6 +205,7 @@ Page({
                 url: that.data.url + "shopstore/shoufix",
                 method: "POST",
                 data: {
+                    logEditer:that.data.log,
                     storeId: that.data.storeId,
                     goodsStock: that.data.number
                 },

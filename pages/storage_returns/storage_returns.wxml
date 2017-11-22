@@ -16,5 +16,6 @@
         <view class="title {{item.status==0?'new':''}}" data-type="1">订单号：{{item.orderCode}}</view>
         <view class="shop">退货店铺：{{item.city}}{{item.area}}{{item.address}}---{{item.shopName}}</view>
         <view class="list_time">退货时间：{{item.okTime}}</view>
+        <view class="state">{{item.Type}}</view>
     </view>
 </block>

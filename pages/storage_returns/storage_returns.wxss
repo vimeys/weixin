@@ -75,3 +75,11 @@
     font-size: 24rpx;
     margin-left: 60rpx;
 }
+.state{
+    position: absolute;
+    top:-10rpx;
+    right: 20rpx;
+    color:red;
+    font-size: 28rpx;
+
+}
