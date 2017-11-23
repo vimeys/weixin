@@ -74,6 +74,8 @@ Page({
                         item.Type='收货入库'
                     }else if(item.type==3){
                         item.Type='调货入库'
+                    }else if(item.type==5){
+                        item.Type='退货入库'
                     }
                 }
                 res.data.data.forEach(push);

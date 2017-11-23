@@ -18,10 +18,10 @@
         </view>
     </view>
 </block>
-<view class="express">
+<view class="express" wx:if="{{order.type==2}}">
     {{order.expressName}}：{{order.expressCode}}
 </view>
-<view class="reason">
+<view class="reason"wx:if="{{order.type==2}}">
     <view class="return_reason">退货理由：{{order.remark}}</view>
     <view class="return_time">退货时间：{{order.okTime}}</view>
 </view>

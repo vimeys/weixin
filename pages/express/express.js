@@ -94,95 +94,114 @@ Page({
     },
     //发货选择
     sendExpress: function (e) {
+        let that=this;
         let nav=wx.getStorageSync('nav');
         let shopID=wx.getStorageSync('shopId');
         if(nav=='店铺调货出库'){
-            var data = this.data;
-            let obj={};
-            var storeId=data.storeId;
-            // obj.ctime=data.Date;
-            obj.receiver=data.takePeople;
-            obj.rephone=data.takePhone;
-            obj.areaId=data.areaId[data.areaIndex];
-            obj.reshopId=shopID;
-            obj.address=data.takePlace;
-            obj.expressId=data.expressId[data.expressIndex];
-            obj.expressCode=data.expressNum;
-            obj.shipper=data.sendPeople;
-            obj.shphone=data.sendPhone;
-            obj.shopId=data.shopId[data.shopIndex];
-            console.log(obj);
-            console.log(storeId);
+            var str='';
             wx.request({
-                url:data.url+"shopout/diaostore",
-                method:"POST",
-                data:{
-                    data:obj,
-                    storeId:storeId
-                },
-                success:function (res) {
-                    if(res.data.code==200){
-                        wx.removeStorage({
-                          key: 'nav',
-                          success: res => {
-                              wx.showModal({
-                                  title: '提示',
-                                  content: '发货成功',
-                                  showCancel:false,
-                                  success: res=>{
-                                      if (res.confirm) {
-                                          wx.navigateBack({
-                                              delta: 3
-                                          })
-                                      }
-                                  }
-                              })
-                          } 
-                        })
-
-                    }
-
-                }
-            });
-        }else{//仓库出库订单
-            var data = this.data;
-            let obj={};
-            var storeId=data.storeId;
-            // obj.ctime=data.Date;
-            obj.receiver=data.takePeople;
-            obj.rephone=data.takePhone;
-            obj.areaId=data.areaId[data.areaIndex];
-            obj.shopId=data.shopId[data.shopIndex];
-            obj.address=data.takePlace;
-            obj.expressId=data.expressId[data.expressIndex];
-            obj.expressCode=data.expressNum;
-            obj.shipper=data.sendPeople;
-            obj.shphone=data.sendPhone;
-            console.log(obj);
-            console.log(storeId);
-            wx.request({
-                url:data.url+"wearout/orderok",
-                method:"POST",
-                data:{
-                    data:obj,
-                    storeId:storeId
-                },
-                success:function (res) {
-                    console.log(1);
-                    wx.showModal({
-                        title: '提示',
-                        content: '发货成功',
-                        showCancel:false,
-                        success: res=>{
-                            if (res.confirm) {
-                                wx.navigateBack({
-                                    delta: 3
+                url:that.data.url+"Base/checkForm",
+                success:res=>{
+                    console.log(res);
+                    str=res.data.data;
+                    var data = that.data;
+                    let obj={};
+                    var storeId=data.storeId;
+                    // obj.ctime=data.Date;
+                    obj.receiver=data.takePeople;
+                    obj.rephone=data.takePhone;
+                    obj.areaId=data.areaId[data.areaIndex];
+                    obj.reshopId=shopID;
+                    obj.address=data.takePlace;
+                    obj.expressId=data.expressId[data.expressIndex];
+                    obj.expressCode=data.expressNum;
+                    obj.shipper=data.sendPeople;
+                    obj.shphone=data.sendPhone;
+                    obj.shopId=data.shopId[data.shopIndex];
+                    wx.request({
+                        url:data.url+"shopout/diaostore",
+                        method:"POST",
+                        data:{
+                            data:obj,
+                            storeId:storeId,
+                            token:str,
+                        },
+                        success:function (res) {
+                            if(res.data.code==200){
+                                wx.removeStorage({
+                                    key: 'nav',
+                                    success: res => {
+                                        wx.showModal({
+                                            title: '提示',
+                                            content: '发货成功',
+                                            showCancel:false,
+                                            success: res=>{
+                                                if (res.confirm) {
+                                                    wx.navigateBack({
+                                                        delta: 3
+                                                    })
+                                                }
+                                            }
+                                        })
+                                    }
                                 })
+
                             }
+
                         }
                     })
                 }
+            })
+            ;
+        }else{//仓库出库订单
+            var str='';
+            wx.request({
+                url:that.data.url+"Base/checkForm",
+                method:'POST',
+                success:res=>{
+                    console.log(res);
+                    str=res.data.data;
+                    var data = that.data;
+                    let obj={};
+                    var storeId=data.storeId;
+                    // obj.ctime=data.Date;
+                    obj.receiver=data.takePeople;
+                    obj.rephone=data.takePhone;
+                    obj.areaId=data.areaId[data.areaIndex];
+                    obj.shopId=data.shopId[data.shopIndex];
+                    obj.address=data.takePlace;
+                    obj.expressId=data.expressId[data.expressIndex];
+                    obj.expressCode=data.expressNum;
+                    obj.shipper=data.sendPeople;
+                    obj.shphone=data.sendPhone;
+                    wx.request({
+                        url:data.url+"wearout/orderok",
+                        method:"POST",
+                        data:{
+                            data:obj,
+                            storeId:storeId,
+                            token:str,
+                        },
+                        success:function (res) {
+                            if(res.data.code==200){
+                                wx.showModal({
+                                    title: '提示',
+                                    content: '发货成功',
+                                    showCancel:false,
+                                    success: res=>{
+                                        if (res.confirm) {
+                                            wx.navigateBack({
+                                                delta: 3
+                                            })
+                                        }
+                                    }
+                                })
+                            }
+                        }
+                    });
+                }
             });
+
         }
 
 

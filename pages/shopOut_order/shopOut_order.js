@@ -78,7 +78,7 @@ Page({
         } else if (Type == 2) {
             var i = e.detail.value;
             var select=this.data.select;
-            select.shopIndex=i
+            select.shopIndex=i;
             this.setData({
                 select: select,
             })
@@ -86,7 +86,7 @@ Page({
         } else if(Type==3) {
             var i = e.detail.value;
             var select=this.data.select;
-            select.styleIndex=i
+            select.styleIndex=i;
             this.setData({
                 select: select,
             })
