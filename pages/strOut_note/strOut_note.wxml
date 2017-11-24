@@ -9,7 +9,8 @@
         </view>
         <view class="table">
             <view class="title">{{item.goodsFashion}}
-                <text>{{item.fixtype==0?'发货出库':'错误信息'}}</text>
+                <!--<text>{{item.fixtype==0?'发货出库':'错误信息'}}</text>-->
+                <text>发货出库</text>
             </view>
             <view>款号：
                 <text>{{item.goodsGirard}}</text>

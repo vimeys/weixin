@@ -24,8 +24,8 @@ Page({
           shop:['全部店铺'],//店铺
           shopId:[0],
           shopIndex:0,
-          list:["已对账","未对账"],//账单选择
-          listId:[1,0],
+          list:["未对账","已对账"],//账单选择
+          listId:[0,1],
           listIndex:0
       },
       Data:"",//返回数据
@@ -85,7 +85,7 @@ Page({
               })
           }
       })
-      request.sellListArea(this,"sell/citysellorder")
+
   },
 
   /**
@@ -99,7 +99,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+      request.sellListArea(this,"sell/citysellorder")
   },
 
   /**

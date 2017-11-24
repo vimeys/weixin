@@ -311,9 +311,9 @@ function requestShop(that, nav) {
                     } else if (item.logType == 4) {
                         item.type = "调货入库"
                     }
-                    if(item.fixtype==1){
-                        item.type='错误信息'
-                    }
+                    // if(item.fixtype==1){
+                    //     item.type='错误信息'
+                    // }
                     num.push(item);
                 }
 

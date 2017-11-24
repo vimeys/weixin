@@ -137,3 +137,21 @@ image{
     color:#cccccc;
     text-decoration:line-through;
 }
+.reason{
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+    font-size: 24rpx;
+    border-bottom: 1rpx solid #ccc;
+    margin-bottom: 120rpx;
+    margin-top: 80rpx;
+    border-top: 1px solid #cccccc;
+}
+.return_reason{
+    margin-top: 20rpx;
+    text-align: left;
+}
+.return_time{
+    margin-top: 70rpx;
+    text-align: right;
+    margin-bottom: 20rpx;
+}

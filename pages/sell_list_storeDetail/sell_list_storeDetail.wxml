@@ -21,7 +21,7 @@
             </view>
             <view class="end">
                 单价：
-                <text>￥{{item.formatPrice}}</text>
+                <text>¥{{item.formatPrice}}</text>
                 数量：
                 <text>{{item.number}}</text>
             </view>

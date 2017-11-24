@@ -114,6 +114,10 @@ image{
 .table .last .red{
     color:red;
 }
+.del{
+    color:#ccc;
+    text-decoration: line-through;
+}
 .express{
     font-size: 28rpx;
     margin-top: 20rpx;

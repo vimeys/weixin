@@ -23,9 +23,9 @@
 <view class="det_title">{{Type}}</view>
 <view class="orderList">
     <view class="second">收货人：{{order.receiver}}<text>联系电话：{{order.rephone}}</text></view>
-    <view class="third">收货地址：{{order.city}}{{order.area}}{{order.address}}</view>
+    <view class="third">收货地址：仓库</view>
     <view class="fourth">发货人：{{order.shipper}}<text>联系电话：{{order.shphone}}</text></view>
-    <view class="small">发货店铺：{{order}} </view>
+    <view class="small">发货店铺：{{order.address}} </view>
     <view class="five">发货时间：{{order.okTime}}</view>
 </view>
 <view class="detail">

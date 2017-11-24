@@ -1,13 +1,13 @@
 <template name="output">
     <view class="time">
-        <view class="timeStart timeFirst"><picker mode="date" end="{{}}" disabled="{{select.use}}" value="{{Edate}}" data-type="1" bindchange="DateChange">
-            {{select.start}}
-        </picker>
-        </view>
-        <text>~~</text>
-        <view class="timeStart" bindtap="bindPick"><picker mode="date" start="{{}}" disabled="{{select.use}}" value="{{Edate}}" data-type="2" bindchange="DateChange">
-            {{select.end}}
-        </picker></view>
+        <!--<view class="timeStart timeFirst"><picker mode="date" end="{{}}" disabled="{{select.use}}" value="{{Edate}}" data-type="1" bindchange="DateChange">-->
+            <!--{{select.start}}-->
+        <!--</picker>-->
+        <!--</view>-->
+        <!--<text>~~</text>-->
+        <!--<view class="timeStart" bindtap="bindPick"><picker mode="date" start="{{}}" disabled="{{select.use}}" value="{{Edate}}" data-type="2" bindchange="DateChange">-->
+            <!--{{select.end}}-->
+        <!--</picker></view>-->
         <view class="good_num">
             <view class=""><text>款式</text>
                 <input type="text" bindblur="output" data-type="1"/></view>

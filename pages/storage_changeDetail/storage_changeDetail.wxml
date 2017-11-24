@@ -12,7 +12,7 @@
             <view>款号：<text>{{item.goodsGirard}}</text></view>
             <view>条码号：<text>{{item.formatCode}}</text></view>
             <view class="last">
-                尺码：<text>{{item.sizeName}}</text>颜色：<text>{{item.colorName}}</text> 数量： <text class="{{item.fixnumber==0?'red':'del'}}">{{item.goodsStock}}</text><text   class="red" wx:if="{{item.fixnumber>0}}">{{item.fixnumber}}</text>
+                尺码：<text>{{item.sizeName}}</text>颜色：<text>{{item.colorName}}</text> 数量： <text class="{{item.fixnumber>0?'del':'red'}}">{{item.goodsStock}}</text><text   class="red" wx:if="{{item.fixnumber>0}}">{{item.fixnumber}}</text>
             </view>
             <image src="../images/pencil.png" data-type="{{item.storeId}}" bindtap="click" data-name="{{order.type}}"></image>
         </view>

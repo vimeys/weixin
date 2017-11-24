@@ -2,7 +2,7 @@
 <view class="det_title">{{order.status==0?'待收货':'已出库'}}</view>
 <view class="orderList">
     <view class="second">收货人：{{order.receiver}}<text>联系电话：{{order.rephone}}</text></view>
-    <view class="third">店铺地址：{{order.city}}{{order.area}}{{order.address}}</view>
+    <view class="third">收货地址：{{order.city}}{{order.area}}{{order.address}}</view>
     <view class="fourth">发货人：{{order.shipper}}<text>联系电话：{{order.shphone}}</text></view>
     <view class="small">发货时间：{{order.okTime}} </view>
 </view>
@@ -23,10 +23,11 @@
             </view>
         </view>
     </block>
-
-
-
     <view class="express">{{order.expressName}}：{{order.expressCode}}</view>
+    <view class="reason" wx:if="{{order.type==2}}">
+        <view class="return_reason">退货理由：{{order.remark}}</view>
+        <view class="return_time">退货时间：{{order.okTime}}</view>
+    </view>
 </view>
 <!--<view class="fix"  bindtap="return">-->
     <!--返回首页-->

@@ -23,6 +23,9 @@ Page({
     var Type=e.currentTarget.dataset.type;
     wx.setStorageSync('choose', Type);
     if(Type==2){
+        wx.setStorageSync('sell', false);
+        wx.setStorageSync('restock', true);
+        wx.setStorageSync('return', false);
         let choose=wx.getStorageSync('choose');
         this.setData({
             choose:choose,
@@ -31,6 +34,9 @@ Page({
             return:false,
         })
     }else if(Type==1){
+        wx.setStorageSync('sell', true);
+        wx.setStorageSync('restock', false);
+        wx.setStorageSync('return', false);
         let choose=wx.getStorageSync('choose');
       this.setData({
           choose:choose,
@@ -39,6 +45,9 @@ Page({
           return:false,
       })
     }else if(Type==3){
+        wx.setStorageSync('sell', false);
+        wx.setStorageSync('restock', false);
+        wx.setStorageSync('return', true);
         let choose=wx.getStorageSync('choose');
         this.setData({
             choose:choose,
@@ -63,6 +72,9 @@ Page({
       var Type=e.currentTarget.dataset.type;
       var name=e.currentTarget.dataset.name;
       wx.removeStorageSync("choose");
+      wx.removeStorageSync("sell");
+      wx.removeStorageSync("restock");
+      wx.removeStorageSync("return");
       let num=[]
       function push(item,index) {
           num.push(item.storeId);
@@ -105,12 +117,18 @@ Page({
   onLoad: function (options) {
       let that=this;
       let choose=wx.getStorageSync('choose');
+      let sell=wx.getStorageSync('sell');
+      let restock=wx.getStorageSync('restock');
+      let return1=wx.getStorageSync('return');
       let shopId=wx.getStorageSync("shopId");
       var url=app.url;
       this.setData({
           url:url,
           choose:choose,
-          shopId:shopId
+          shopId:shopId,
+          sell:sell,
+          restock:restock,
+          return:return1,
       });
       wx.request({
           url:that.data.url+"shopout/outlist",
@@ -146,7 +164,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
+
   },
 
   /**

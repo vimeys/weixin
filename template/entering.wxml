@@ -1,14 +1,14 @@
 //仓库出库的统计
 <template name="entering">
     <view class="time">
-        <view class="timeStart first"><picker mode="date" start="{{}}" disabled="{{select.use}}" value="{{Edate}}" data-type="1" bindchange="DateChange">
-            {{select.start}}
-        </picker>
-        </view>
-        <text>~~</text>
-        <view class="timeStart" bindtap="bindPick"><picker mode="date" end="{{}}" disabled="{{select.use}}" value="{{Edate}}" data-type="2" bindchange="DateChange">
-            {{select.end}}
-        </picker></view>
+        <!--<view class="timeStart first"><picker mode="date" start="{{}}" disabled="{{select.use}}" value="{{Edate}}" data-type="1" bindchange="DateChange">-->
+            <!--{{select.start}}-->
+        <!--</picker>-->
+        <!--</view>-->
+        <!--<text>~~</text>-->
+        <!--<view class="timeStart" bindtap="bindPick"><picker mode="date" end="{{}}" disabled="{{select.use}}" value="{{Edate}}" data-type="2" bindchange="DateChange">-->
+            <!--{{select.end}}-->
+        <!--</picker></view>-->
         <view class="good_num">
             <view class=""><text>款式</text>
                 <input type="text" placeholder=""/></view>
