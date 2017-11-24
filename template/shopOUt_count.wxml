@@ -1,6 +1,6 @@
 <template name="shopOut_count">
     <block wx:for="{{Data}}" wx:for-item="item">
-        <view class="list {{item.type=='错误信息'?'error':''}}">
+        <view class="list {{item.fixtype==1?'error':''}}">
             <view class="img">
                 <image src="{{item.goodsImage}}"></image>
             </view>
@@ -13,7 +13,7 @@
                 </view>
             </view>
         </view>
-        <view class="record {{item.type=='错误信息'?'error':''}}">
+        <view class="record {{item.fixtype==1?'error':''}}">
             操作时间：{{item.okTime}} <text>操作人：{{item.logEditer}}</text>
         </view>
     </block>

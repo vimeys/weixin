@@ -1,0 +1,39 @@
+//仓库出库的统计
+<template name="enteringNote">
+    <view class="time">
+        <view class="timeStart first"><picker mode="date" start="{{}}" disabled="{{select.use}}" value="{{Edate}}" data-type="1" bindchange="DateChange">
+            {{select.start}}
+        </picker>
+        </view>
+        <text>~~</text>
+        <view class="timeStart" bindtap="bindPick"><picker mode="date" end="{{}}" disabled="{{select.use}}" value="{{Edate}}" data-type="2" bindchange="DateChange">
+            {{select.end}}
+        </picker></view>
+        <view class="good_num">
+            <view class=""><text>款式</text>
+                <input type="text" placeholder=""/></view>
+            <view class="">
+                <text>款号</text>
+                <input type="text"/>
+            </view>
+            <view>
+                <text>条码号</text>
+                <input type="text"/>
+            </view>
+        </view>
+        <view class="good_size">
+            <view>
+                <text>尺码</text>
+                <picker mode="selector"  class="select before" range="{{select.size}}" disabled="{{select.use}}" value="{{select.sizeIndex}}" data-type="1" bindchange="optionChange">
+                    {{select.size[select.sizeIndex]}}
+                </picker>
+            </view>
+            <view>
+                <text>分类</text>
+                <picker  class="select before" mode="selector" range="{{select.name}}" disabled="{{select.use}}" value="{{select.nameIndex}}" data-type="2" bindchange="optionChange">
+                    {{select.name[select.nameIndex]}}
+                </picker>
+            </view>
+        </view>
+    </view>
+</template>

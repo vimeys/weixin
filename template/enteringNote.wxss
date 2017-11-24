@@ -35,7 +35,6 @@
     display: inline-block;
     width: 480rpx;
     margin-left: 20rpx;
-    margin-top: 20rpx
 }
 .good_num view text{
     display: inline-block;
@@ -63,7 +62,7 @@
     padding-right: 20rpx;
     margin-bottom: -50rpx;
     position: absolute;
-    top:-5rpx;
+    top:50rpx;
     /* right: 20rpx; */
 }
 .good_size view text{

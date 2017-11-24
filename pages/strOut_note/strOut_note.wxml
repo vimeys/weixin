@@ -1,6 +1,6 @@
 <!--pages/strOut_note/strOut_note.wxml-->
-<import src="../../template/entering.wxml"/>
-<template is="entering" data="{{select}}"/>
+<import src="../../template/enteringNote.wxml"/>
+<template is="enteringNote" data="{{select}}"/>
 <include src="../../template/note.wxml"/>
 <block wx:for="{{Data}}" wx:for-item="item">
     <view class="list {{item.fixtype==0?'':'error'}}">

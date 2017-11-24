@@ -1,5 +1,5 @@
 /* pages/strOut_note/strOut_note.wxss */
-@import "../../template/entering.wxss";
+@import "../../template/enteringNote.wxss";
 @import "../../template/goods_detail.wxss";
 .title{
     width: 100%;

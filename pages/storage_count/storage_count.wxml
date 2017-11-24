@@ -1,22 +1,6 @@
 <!--pages/storage_count/storage_count.wxml-->
 <import src="../../template/output.wxml"/>
 <template is="output" data="{{select}}"></template>
-<!--<view class="list">-->
-    <!--<view class="img">-->
-        <!--<image src="../images/scan.png"></image>-->
-    <!--</view>-->
-    <!--<view class="table">-->
-        <!--<view class="title">超级好看的鞋子 <text>正常入库</text></view>-->
-        <!--<view>款号：<text>45574543156</text></view>-->
-        <!--<view>条码号：<text>461646164164</text></view>-->
-        <!--<view class="last">-->
-            <!--尺码：<text>L</text>颜色：<text>红色</text> 数量： <text class="red">1234</text>-->
-        <!--</view>-->
-    <!--</view>-->
-<!--</view>-->
-<!--<view class="record">-->
-    <!--入库时间：2017-08-01  10:11:32-->
-<!--</view>-->
 <import src="../../template/count_detail"/>
 <template is="count_detail" data="{{Data}}"></template>
 <include src="../../template/nothing.wxml"/>

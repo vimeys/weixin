@@ -1,6 +1,6 @@
 <!--pages/shopIn_note/shopIn_note.wxml-->
-<import src="../../template/input.wxml"/>
-<template is="input" data="{{select}}"></template>
+<import src="../../template/inputNote.wxml"/>
+<template is="inputNote" data="{{select}}"></template>
 <include src="../../template/noteIn.wxml"></include>
 <import src="../../template/do_detail.wxml"/>
 <template is="do_detail" data="{{Data}}"></template>

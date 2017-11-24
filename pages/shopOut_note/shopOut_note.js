@@ -127,9 +127,9 @@ Page({
                         }else if(item.logType==8){
                             item.type="销售出库"
                         }
-                        if(item.fixtype==1){
-                            item.type="错误信息"
-                        }
+                        // if(item.fixtype==1){
+                        //     item.type="错误信息"
+                        // }
                         if(item.goodsFashion.length>10){
                             item.goodsFashion=item.goodsFashion.slice(0,10)+'...';
                         }
