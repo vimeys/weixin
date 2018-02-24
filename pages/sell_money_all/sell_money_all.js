@@ -74,6 +74,7 @@ Page({
                     shop:arr,
                     shopId:arr1
                 })
+                request.sellMoneyAll(that,'sell/boosannuasales');
             }
         })
     },

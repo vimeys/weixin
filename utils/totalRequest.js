@@ -421,7 +421,7 @@ function shopOutCount(that, nav) {
                     if (item.type == 6) {
                         item.Type = "退货出库"
                     } else if (item.type == 7) {
-                        item.Type = "收货出库"
+                        item.Type = "调货出库"
                     } else if (item.type == 8) {
                         item.Type = "销售出库"
                     }

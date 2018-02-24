@@ -75,6 +75,7 @@ Page({
                     shopId:arr1,
                     shopIndex:0
                 })
+                request.sellCountAll(that,'sell/bosssellnumber');
             }
         })
     },

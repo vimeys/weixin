@@ -1,0 +1,20 @@
+/* pages/Customer/Customer.wxss */
+page{
+    border-top: 2rpx #eee solid;
+}
+.top{
+    margin-top: 300rpx;
+    display: flex;
+    justify-content: center;
+    font-size: 30rpx;
+    color: #1caba2;
+}
+.bottom{
+    margin-top: 50rpx;
+    display: flex;
+    justify-content: center;
+}
+.bottom image{
+    width: 300rpx;
+    height: 300rpx;
+}

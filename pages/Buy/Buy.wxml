@@ -1,0 +1,28 @@
+<!--pages/Buy/Buy.wxml-->
+<view>
+     <view class='buy-all'>
+           <view class='buy-text'>软件一年使用权
+                 <view class='manny'>99元</view>
+           </view>
+           <view class='buy-image'>
+                 <image src='../image/gou2.png'></image>
+           </view>
+     </view>
+     <view class='buy-all'>
+           <view class='buy-text'>软件两年使用权
+           <view class='manny'>99元</view>
+           </view>
+           <view class='buy-image'>
+                 <image src='../image/gou.png'></image>
+           </view>
+     </view>
+     <view class='buy-all'>
+           <view class='buy-text'>软件三年使用权
+           <view class='manny'>99元</view>
+           </view>
+           <view class='buy-image'>
+                 <image src='../image/gou.png'></image>
+           </view>
+     </view>
+     <button class='button'>确认购买</button>
+</view>

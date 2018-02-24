@@ -1,10 +1,10 @@
 <view class="time">
-    <view class="timeStart first_a"><picker mode="date"  start="{{select.start}}"  value="{{start}}"  data-type="1" bindchange="DateChange">
+    <view class="timeStart first_a"><picker mode="date"    value="{{start}}"  data-type="1" bindchange="DateChange">
         {{select.start}}
     </picker>
     </view>
     <text>~~</text>
-    <view class="timeStart" bindtap="bindpick"><picker mode="date" end="{{select.end}}" disabled="{{disable}}" value="{{end}}"  data-type="2" bindchange="DateChange">
+    <view class="timeStart" bindtap="bindpick"><picker mode="date"  disabled="{{disable}}" value="{{end}}"  data-type="2" bindchange="DateChange">
         {{select.end}}
     </picker></view>
 

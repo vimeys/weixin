@@ -9,9 +9,9 @@
     display: inline-block;
     width: 300rpx;
     height: 46rpx;
-    border: 1rpx solid #ccc;
+    border: 1rpx solid #CCC;
     position:relative;
-    color:#ccc;
+    color:#333;
     font-size: 28rpx;
     padding-left: 10rpx;
     box-sizing: border-box;

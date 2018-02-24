@@ -1,0 +1,10 @@
+<!--pages/Customer/Customer.wxml-->
+<view>
+      <view class='top'>
+            <view class='top-call'>拨打电话:</view>
+            <view class='top-shuzi'>13540273509</view>
+      </view>
+      <view class='bottom'>
+            <image src='../image/erweima.png'></image>
+      </view>
+</view>

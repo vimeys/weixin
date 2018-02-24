@@ -6,7 +6,7 @@
     </navigator>
     <navigator url="{{urlCount}}" class="r-con" data-type="{{urlCount?1:2}}" bindtap="bindUrlTap">
         <image src="../images/statistics.png" class="r-bdi"></image>
-        <view class="r-bdt">销售统计</view>
+        <view class="r-bdt">销量统计</view>
     </navigator>
     <navigator url="{{urlMoney}}" class="r-con" data-type="{{urlMoney?1:2}}" bindtap="bindUrlTap">
         <image src="../images/coin.png" class="r-bdi"></image>

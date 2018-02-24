@@ -51,6 +51,8 @@
     <view class="total">
         <view>总数量 <text>{{order.number}}</text></view>
         <view>总金额 <text>¥{{order.price}}</text></view>
+        <view>操作人 <text>{{order.sellEditer}}</text></view>
+        <view>销售店铺 <text>{{order.address}}</text></view>
         <view>操作时间 <text>{{order.okTime}}</text></view>
     </view>
 </view>

@@ -54,7 +54,7 @@ Page({
                     showCancel: false,
                     success: function (res) {
                         wx.navigateTo({
-                            url: "../strOut_JOG/strOut_JOG"
+                            url: "../shopOut_JOG/sellOut_JOG"
                         })
                     }
                 })

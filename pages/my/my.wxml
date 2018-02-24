@@ -1,0 +1,15 @@
+<!--pages/my/my.wxml-->
+<view>
+      <view class='top'>
+            <view class='touxiang'>
+                  <image src='../image/touxiang.png'></image>
+            </view>
+            <view class='text'>列夫托尔斯泰</view>
+      </view>
+      <view class='title-all'>
+            <view class='title'>产品亮点</view>
+            <view class='title'>关于我们</view>
+            <navigator url='../Customer/Customer' class='title'>专属客服</navigator>
+            <navigator url='../Buy/Buy' class='title'>付款购买</navigator>
+      </view>
+</view>

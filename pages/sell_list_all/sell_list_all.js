@@ -78,9 +78,10 @@ Page({
                 that.setData({
                     select:obj
                 })
+                request.sellListAll(this,"sell/bosssellorder");
             }
         })
-        request.sellListAll(this,"sell/bosssellorder");
+
     },
   /**
    * 生命周期函数--监听页面加载
